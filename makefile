@@ -5,7 +5,7 @@ TEMPLATE_RENDERER := ./template_renderer
 
 MARKDOWN_DIR := ./md
 MIDDLE_DIR := ./middle
-HTML_DIR := ./html
+HTML_DIR := ./docs
 CSS_DIR := ./css
 JS_DIR := ./js
 
