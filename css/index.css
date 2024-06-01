@@ -78,7 +78,7 @@ a {
 /*  color: #01ff70;*/
   text-decoration: none;
   color: #45a9f9;
-  font-family: "楷体", "KaiTi", cursive;
+  font-family: "宋体", "SimSun", cursive;
 }
 
 a:hover,
@@ -93,19 +93,19 @@ a:active {
 }
 
 html {
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.35s ease 0.1s;
 }
 
 @media screen and (min-width: 32rem) and (max-width: 48rem) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
 @media screen and (min-width: 48rem) {
   html {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
