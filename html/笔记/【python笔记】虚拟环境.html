@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【python笔记】虚拟环境</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>【python笔记】虚拟环境</h1>
+<h3>1. 虚拟环境的建立</h3>
+<pre><code class="language-bash">python -m venv &lt;虚拟环境名&gt;
+# 例如：
+python -m venv my_venv
+</code></pre>
+<h3>2. 虚拟环境的激活与去激活</h3>
+<h4>激活</h4>
+<p>cd 到虚拟环境文件夹下的Scripts，在终端执行activate</p>
+<h4>去激活</h4>
+<p>cd 到虚拟环境文件夹下的Scripts，在终端执行deactivate.bat</p>
+<h3>3. 在虚拟环境中下载库</h3>
+<pre><code class="language-bash">python -m pip install numpy
+</code></pre>
+<h3>4. 查看当前库依赖</h3>
+<pre><code class="language-bash">python -m pip list
+</code></pre>
+<h3>5. 把库依赖记录到requirements.txt中</h3>
+<pre><code class="language-bash">python -m pip freeze &gt; requirements.txt
+</code></pre>
+<h3>6. 将requirements.txt中的依赖安装到虚拟环境中</h3>
+<pre><code class="language-bash">python -m pip install -r requirements.txt
+</code></pre>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>hljs.highlightAll();</script>
+	
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>index</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="index.html">首页</a></li>
+		        <li><a href="目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>鸽子屋</h1>
+<blockquote>
+<p>欢迎来到鸽子屋</p>
+</blockquote>
+<h2>技术相关</h2>
+<h3>建站环境和工具</h3>
+<ul>
+<li>环境
+<ul>
+<li>Ubuntu20.04 x86-64</li>
+</ul>
+</li>
+<li>工具
+<ul>
+<li>markdown解析：<a href="https://github.com/commonmark/cmark">cmark</a></li>
+<li>代码高亮：<a href="https://highlightjs.org/">highlight.js</a></li>
+<li>html目录：<a href="http://tscanlin.github.io/tocbot/">tocbot.js</a></li>
+<li>模板引擎：template_renderer（自己写的微型模板引擎）</li>
+</ul>
+</li>
+<li>其它
+<ul>
+<li>css样式参考：<a href="https://github.com/markdowncss/retro">retro</a></li>
+<li>侧边栏参考：<a href="https://startbootstrap.com/template/simple-sidebar">simple-sidebar</a></li>
+<li>代码块的css样式参考：<a href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/panda-syntax-dark.min.css">panda-syntax-dark</a></li>
+</ul>
+</li>
+</ul>
+<h3>存在的问题</h3>
+<ul>
+<li>发现cmark不支持markdown表格，所以出现表格的地方看起来会非常违和；</li>
+</ul>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>
+		document.querySelectorAll('pre code').forEach((block) => {
+			hljs.highlightBlock(block);
+		});
+	</script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

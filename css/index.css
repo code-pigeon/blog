@@ -1,0 +1,329 @@
+/*//////////////////////////////////////////////////////////////////////////////////////*/
+
+/* begin retro (https://github.com/markdowncss/retro) */
+
+pre,
+code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  background-color: #303841;
+  margin: 0 0.2rem;
+  padding: 0 0.2rem;
+  border-radius: 0.25rem;
+  color: #fff;
+/*  font-weight: bold;*/
+}
+
+pre {
+  padding: .4rem;
+  line-height: 1.25;
+  overflow-x: scroll;
+}
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+a {
+/*  color: #01ff70;*/
+  text-decoration: none;
+  color: #45a9f9;
+  font-family: "楷体", "KaiTi", cursive;
+}
+
+a:hover,
+a:focus,
+a:active {
+/*  color: #2ecc40;*/
+  color: #62bfff;
+}
+
+.retro-no-decoration {
+  text-decoration: none;
+}
+
+html {
+  font-size: 14px;
+  transition: all 0.35s ease 0.1s;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 18px;
+  }
+}
+
+p,
+.retro-p {
+  font-size: 1rem;
+/*  margin-bottom: 1.3rem;*/
+}
+
+h1,
+.retro-h1,
+h2,
+.retro-h2,
+h3,
+.retro-h3,
+h4,
+.retro-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+  font-family: "宋体", "SimSun", sans-serif;
+  color: #fff;
+}
+
+h1,
+.retro-h1 {
+  margin-top: 0;
+  margin-bottom: 4rem;
+  font-size: 3.88rem;
+}
+
+h2,
+.retro-h2 {
+  font-size: 2.78rem;
+}
+
+h3,
+.retro-h3 {
+  font-size: 1.9rem;
+}
+
+h4,
+.retro-h4 {
+  font-size: 1.414rem;
+}
+
+h5,
+.retro-h5 {
+  font-size: 1.121rem;
+}
+
+h6,
+.retro-h6 {
+  font-size: .88rem;
+}
+
+small,
+.retro-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+html,
+body {
+/*  background-color: #222;*/
+  background-color: #22262a;
+  min-height: 100%;
+}
+
+body {
+  color: #bbb;
+  font-family: Helvetica Neue, NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,serif;
+  line-height: 1.45;
+}
+
+pre {
+/*  background-color: #333;*/
+/*  background-color: #393f46;*/
+}
+
+blockquote {
+/*  border-left: 3px solid #01ff70;*/
+  border-left: 3px solid #45a9f9;
+  background-color: #66666619;
+  padding: 0.1rem 1rem;
+  font-family: "楷体", "KaiTi", cursive;
+  font-style: italic;
+}
+
+/* end retro */
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* begin left-sidebar */
+
+.left-sidebar{
+  position: fixed;
+  top: 50%; /* Adjust as per your layout */
+  left: 0%; /* This will position the div on the left side */
+  transform: translate(0, -50%); /* Center vertically based on its own height */
+
+  display: flex;
+
+}
+
+.toc-toggle{
+  width: 20px;
+  height: 3.2rem;
+  background-color: #45a9f977;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+/*  margin-top: 0.4rem;*/
+  cursor: pointer;
+}
+
+.toc-toggle:hover{
+  background-color: #45a9f9aa;
+}
+
+.toc-hidden{
+  margin-left: -17.5rem;  /*  此值等于.toc.width + .toc.padding-right */
+}
+
+/* end left-sidebar */
+
+
+/* begin tocbot */
+
+.toc {
+  background-color: #fff1;
+  padding: 1rem 0;
+  padding-right: 0.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  border-radius: 0 0.1rem 0.5rem 0;
+  max-height: calc(100vh - 40px); 
+  width: 17rem;
+  transition: all 0.45s ease;
+}
+
+.toc a{
+  color: white;
+}
+
+.toc-list{
+  padding-left: 1.9rem;
+}
+
+/* Style for the main list items */
+.toc-list-item {
+  list-style: none;
+/*  margin-bottom: 8px;*/
+}
+
+/* Style for the links */
+.toc-link {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px 5px 5px 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the links */
+.toc-link:hover {
+  background-color: #e0e0e02e;
+}
+
+/* Active link style */
+.is-active-link {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* end tocbot */
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+header{
+  font: ;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 4rem;
+  padding: 0 4rem;
+/*  border-bottom: 0.01rem solid #555;*/
+}
+
+header nav{
+  min-width: 20rem;
+}
+
+header li{
+  display: inline-block;
+  margin: 0 0.8rem;
+}
+
+header li a{
+    color: #ddd;
+}
+
+.fluid{
+/*  margin-top: 6rem;*/
+  margin: 3rem auto 2rem;
+  max-width: 52rem;
+  padding: .25rem;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【sublime笔记】</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>sublime text笔记</h1>
+<h2>一般快捷键</h2>
+<p><code>ctrl</code>+<code>P</code>：通过查找跳转到目录下任意文件；
+<code>ctrl</code>+<code>shift</code>+<code>P</code>：通过查找使用快捷键；
+<code>ctrl</code>+<code>M</code>：跳转到匹配的括号处；
+<code>ctrl</code>+<code>G</code>：跳转到行；
+<code>alt</code>+<code>数字</code>：跳转到对应位置的标签页；
+<code>ctrl</code>+<code>PgUp/PgDn</code>：按顺序切换标签页；</p>
+<h2>查找与替换</h2>
+<p><code>ctrl</code>+<code>F/H</code>：查找/替换；</p>
+<p>在查找下的快捷键：
+<code>alt</code>+<code>R</code>：正则表达式开关；
+<code>alt</code>+<code>C</code>：大小写开关；
+<code>alt</code>+<code>W</code>：精确匹配开关；
+<code>enter</code>：查找下一个；
+<code>shift</code>+<code>enter</code>：查找上一个；
+<code>alt</code>+<code>enter</code>：查找全部；</p>
+<h2></h2>
+<p><code>ctrl</code>+<code>R</code>：查找函数；
+<code>ctrl</code>+<code>;</code>：查找；</p>
+<h2></h2>
+<p><code>ctrl</code>+<code>X</code>：删除行；
+<code>ctrl</code>+<code>enter</code>：行后插入行；
+<code>ctrl</code>+<code>shift</code>+<code>enter</code>：行前插入行；
+<code>ctrl</code>+<code>L</code>：选中行；
+<code>ctrl</code>+<code>shitf</code>+<code>J</code>：合并行；
+<code>ctrl</code>+<code>shift</code>+<code>/</code>：块注释；
+<code>ctrl</code>+<code>shift</code>+<code>V</code>：粘贴并自动缩进；</p>
+<h2>snippet</h2>
+<p>snippet：文件后缀<code>.sublime-snippet</code>的xml文件。</p>
+<blockquote>
+<p>若想要在<code>&lt;content&gt;</code>标签中写<code>$</code>应该写<code>\$</code>。</p>
+</blockquote>
+<pre><code class="language-xml">&lt;snippet&gt;
+  &lt;content&gt;&lt;![CDATA[&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;$1&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial scale=1&quot;&gt;
+    &lt;title&gt;${2:Untitled}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Hello ${3:$TM_FULLNAME}! Welcome to $2!
+    $0
+  &lt;/body&gt;
+&lt;/html&gt;]]&gt;
+  &lt;/content&gt;
+  &lt;tabTrigger&gt;doctype&lt;/tabTrigger&gt;
+  &lt;description&gt;HTML5 Structure&lt;/description&gt;
+  &lt;scope&gt;text.html&lt;/scope&gt;
+&lt;/snippet&gt;
+</code></pre>
+<p>tabTrigger：触发snippet的关键字；
+scope：表示此snippet的作用范围（文件类型），scope的完整类型见<a href="https://gist.github.com/danpe/6993237">https://gist.github.com/danpe/6993237</a>；Hello you are sb!</p>
+<p>触发此snippet之后，首先光标会到达<code>content=&quot;$1&quot;</code>的<code>$1</code>处；
+然后会到<code>${2:Unititled}</code>处，此处的默认值为<code>Untitled</code>；
+接着会到<code>${3:$TM_FULLNAME}</code>处，此处的<code>$TM_FULLNAME</code>为环境变量，对于完整的环境变量见<a href="https://gist.github.com/danpe/6996806">https://gist.github.com/danpe/6996806</a>；
+最后退出snippet时，光标会到<code>$0</code>处，若没有<code>$0</code>，则默认跳转到snippet的最后。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>hljs.highlightAll();</script>
+	
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

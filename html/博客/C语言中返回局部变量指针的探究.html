@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>C语言中返回局部变量指针的探究</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>C语言中返回局部变量指针的探究</h1>
+<p>首次编辑：24/3/19/20:26<br />
+最后编辑：24/3/19/</p>
+<h2>简短的故事</h2>
+<p>学汇编的时候，知道了在函数结束之后，函数栈应该是会被清理的。由于局部变量位于函数栈中，所以理论上一个函数若返回它的局部变量的地址是不可行的，这个地址中的数据会被清理。
+所以如果如下定义一个函数会发生警告：</p>
+<pre><code class="language-c">void *test(){
+	int x;
+    x = 3;
+	return &amp;x;
+}
+// warning: function returns address of local variable [-Wreturn-local-addr]
+</code></pre>
+<p>然而神奇的是，如果我像下面这样写，警告就消失了：</p>
+<pre><code class="language-c">void *test(){
+	int x;
+    x = 3;
+    int *p = &amp;x;
+	return p;
+}
+</code></pre>
+<p>而如果再在main函数当中输出<code>*p</code>，也会发现确实等于3。一度导致我纠结了很久。</p>
+<p>后来才知道，两种方式都是不安全的，只是第二种写法编译器探测不到这个潜在的问题而已。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>hljs.highlightAll();</script>
+	
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

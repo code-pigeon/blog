@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>python多个装饰器执行的顺序</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>python多个装饰器执行的顺序</h1>
+<p>首次编辑：24/3/9/11:06<br />
+最后编辑：24/3/10/10:59</p>
+<h2>引子</h2>
+<h3>背景</h3>
+<p>本来是在写个人网站，以前的代码中，几乎每个视图函数都有类似于：</p>
+<pre><code class="language-python">@app.route(&quot;/&quot;)
+def index():
+	try:
+		return send_file(&quot;index.html&quot;)
+	except FileNotFoundError as e:
+		abort(404)
+</code></pre>
+<p>我就在想怎么能减少重复书写同样的代码，于是想到了装饰器。</p>
+<pre><code class="language-python">def not_found(func):
+	def wrapper(*args, **kwargs):
+		print(&quot;进入装饰器&quot;)
+		try:
+			func(*args, **kwargs)
+		except:
+			print(&quot;失败！文件未找到&quot;)
+			return &quot;失败！文件未找到&quot;
+	return wrapper
+
+
+@not_found
+@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
+def index():
+	return send_file(&quot;index.html&quot;)
+</code></pre>
+<p>正当我得意洋洋启动服务器测试时，却发现当文件不存在时，装饰器中的语句根本不会执行，程序会直接崩溃。</p>
+<h3>不小心解决了</h3>
+<p>正当我觉得心灰意冷，打算另辟蹊径的时候，我尝试调换了一下<code>@not_found</code>和<code>@app.route</code>这两个装饰器的位置，结果就成功了……
+很显然这和装饰器的执行顺序有关。</p>
+<h2>一个函数被多个装饰器装饰，装饰器执行的顺序如何？</h2>
+<p>于是我写了两个装饰器，</p>
+<pre><code class="language-python">def dec1(func):
+	def wrapper(*args, **kwargs):
+		print(f&quot;{dec1.__name__}开始执行&quot;)
+		func(*args, **kwargs)
+		print(f&quot;{dec1.__name__}执行完毕&quot;)
+	return wrapper
+
+def dec2(func):
+	def wrapper(*args, **kwargs):
+		print(f&quot;{dec2.__name__}开始执行&quot;)
+		func(*args, **kwargs)
+		print(f&quot;{dec2.__name__}执行完毕&quot;)
+	return wrapper
+
+@dec2
+@dec1
+def func():
+	print(f&quot;{func.__name__}开始执行&quot;)
+	print(f&quot;{func.__name__}执行完毕&quot;)
+
+if __name__ == '__main__':
+	func()
+</code></pre>
+<p>输出结果为：</p>
+<pre><code>dec2开始执行
+dec1开始执行
+wrapper开始执行
+wrapper执行完毕
+dec1执行完毕
+dec2执行完毕
+</code></pre>
+<p>这表示装饰器的执行顺序是从上到下的，也可以说是从外向内的。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>hljs.highlightAll();</script>
+	
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

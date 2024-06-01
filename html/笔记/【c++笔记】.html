@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【c++笔记】</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>C++笔记</h1>
+<h2>奇异递归模板模式(Curiously Recurring Template Pattern)</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/54945314">参考链接</a>
+简单说就是把子类作为父类的模板参数。</p>
+<h2>静态多态性返回可变和不可变对象</h2>
+<p>这源于我在看奇异递归模板模式(Curiously Recurring Template Pattern)时看到的例子：</p>
+<pre><code class="language-c++">struct VectorBase
+{
+	T&amp; underlying() { return static_cast&lt;T&amp;&gt;(*this); }
+	T const&amp; underlying() const { return static_cast&lt;T const&amp;&gt;(*this); }
+	// ...
+}
+</code></pre>
+<p>不熟悉肯定是看懵了，两个成员函数的名字一模一样，区别只在于<code>const</code>。</p>
+<blockquote>
+<p>ChatGPT：
+在使用 underlying() 函数时，编译器会根据调用方式的不同来选择调用哪个函数。
+如果调用对象是一个非常量对象（即可修改的对象），则会调用 T&amp; underlying() 函数，返回的是一个 T&amp; 引用类型，可以直接对其进行修改操作。
+如果调用对象是一个常量对象，则会调用 T const&amp; underlying() const 函数，返回的是一个 const T&amp; 引用类型，表示该对象是只读的。</p>
+</blockquote>
+<p>然后又给了个例子：</p>
+<pre><code class="language-c++">class VectorBase {
+public:
+    int x;
+    int&amp; underlying() { return x; }
+    int const&amp; underlying() const { return x; }
+};
+
+int main() {
+    VectorBase vb{ 1 };
+    auto&amp; ref = vb.underlying(); // 调用 T&amp; underlying()
+    std::cout &lt;&lt; ref &lt;&lt; std::endl; // 输出 1
+    ref = 2;
+    std::cout &lt;&lt; vb.x &lt;&lt; std::endl; // 输出 2
+
+    const VectorBase cvb{ 3 };
+    auto const&amp; cref = cvb.underlying(); // 调用 T const&amp; underlying() const
+    std::cout &lt;&lt; cref &lt;&lt; std::endl; // 输出 3
+    // cref = 4; // 编译错误，无法修改只读对象
+    return 0;
+}
+
+</code></pre>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>hljs.highlightAll();</script>
+	
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

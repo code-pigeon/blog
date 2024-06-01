@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【Linux笔记】数值运算</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>【Linux笔记】数值运算——双小括号、let、expr</h1>
+<h3>1. 双小括号</h3>
+<h4>双小括号可以进行整型运算，要取出结果需要在前面加$符号</h4>
+<pre><code class="language-bash">echo $((2*3)) # 6
+echo $((2**3)) # 8——2的3次方
+echo $((7%4)) # 3，取余
+</code></pre>
+<h4>给变量赋值</h4>
+<ul>
+<li>方式1</li>
+</ul>
+<pre><code class="language-bash">((i=23+1)) 
+echo $i # 24
+((i=i+1)) # 自增也可以写作((i++))、((i+=1))
+echo $i # 25
+((i=i*4))
+echo $i # 100
+</code></pre>
+<ul>
+<li>方式2</li>
+</ul>
+<pre><code class="language-bash">i=$((23+1))
+echo $i # 24
+i=$((i+5))
+echo $i # 29
+</code></pre>
+<h4>也可以进行逻辑运算，真1假0，同样要用$取结果</h4>
+<pre><code class="language-bash">echo $((100&gt;1)) # 1
+echo $((100&gt;1 &amp;&amp; 7&gt;-9)) # 1
+echo $((1&gt;2 || 3 &lt; 0)) # 0
+</code></pre>
+<h3>2. let命令</h3>
+<h4>作用和双小括号基本相同，但效率会低一些</h4>
+<pre><code class="language-bash">let x=4+6 # x=10
+let x++ # x=11
+let x*=x # x=121
+let x=x-21 # x=100
+</code></pre>
+<h3>3. expr命令</h3>
+<h4>expr后面输入的数字和符号之间都要有空格，也支持大于小于等判断，但像&gt; &lt; * 之类的符号，都需要加个反斜杆进行转义</h4>
+<pre><code class="language-bash">expr 1 + 2 # 3
+expr 1 - 2 # -1
+expr 1 \* 2 # 2
+expr 1 / 2 # 0
+expr 6 % 4 # 2
+# expr 2 \*\* 3 #错误， expr似乎不支持乘方运算
+expr 5 \&gt; 2 # 1
+expr 5 \&lt; 2 # 0
+expr 5 \&gt;= 2 # 1
+expr 5 \&lt;= 2 # 0
+expr 5 != 2 # 1
+expr 5 = 2 # 0，这个是判断是否相等
+</code></pre>
+<h4>同样也可以进行变量的运算</h4>
+<pre><code class="language-bash">x=$(expr 2 + 4) # x=6
+expr $x + 2 # 8
+</code></pre>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>hljs.highlightAll();</script>
+	
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

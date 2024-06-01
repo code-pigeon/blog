@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【ros1笔记】</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>ros1笔记</h1>
+<h2>先修事项</h2>
+<ul>
+<li>ros的安装</li>
+<li>ros的包（package）和节点（node）的概念</li>
+</ul>
+<h2>第一个package</h2>
+<p>准备好项目文件夹：</p>
+<pre><code>catkin_ws/
+    src/
+</code></pre>
+<p>进入到<code>catkin_ws/src</code>路径下，执行：</p>
+<pre><code class="language-bash">catkin_create_pkg my_package rospy roscpp std_msgs
+</code></pre>
+<p>其中，第一个参数<code>my_package</code>是自己创建的包名，后面的<code>rospy roscpp std_msgs</code>为包的依赖项。
+此命令执行后，会在执行该命令的路径下生成<code>my_package</code>文件夹，该文件夹中有2个文件夹（<code>include</code>和<code>src</code>）、2个文件（<code>CMakeLists.txt</code>和<code>package.xml</code>）。
+此时项目文件夹的内容如下：</p>
+<pre><code>catkin_ws/
+    src/
+        my_package/
+            include/
+            src/
+            CMakeLists.txt
+            package.xml
+</code></pre>
+<p>此时再返回到路径<code>catkin_ws</code>下，执行：</p>
+<pre><code class="language-bash">catkin_make
+</code></pre>
+<p>将会在<code>catkin_ws</code>路径下生成<code>build</code>和<code>devel</code>文件夹。
+此时项目文件夹变为：</p>
+<pre><code>catkin_ws/
+    build/
+    devel/
+        setup.bash
+        ...
+    src/
+        my_package/
+            include/
+            src/
+            CMakeLists.txt
+            package.xml
+</code></pre>
+<h2>一些准备工作</h2>
+<p>以我目前的认识来看，所有的ros包应该都会放在<code>catkin_ws</code>下了。
+为了让我们自己创建的ros包能够随时被终端调用，我们需要在<code>~/.bashrc</code>中添加如下bash指令：</p>
+<pre><code class="language-bash">source /path/to/catkin_ws/devel/setup.bash
+</code></pre>
+<p>其中<code>/path/to/catkin_ws/devel/setup.bash</code>应替换为你的<code>catkin_ws/devel/setup.bash</code>所在的路径。</p>
+<h2>hello world程序</h2>
+<p>虽然在之前我们创建了自己的包，但是这个包是个空包，没有任何内容，现在我们要在<code>my_package</code>这个包中添加我们的第一个程序。
+首先要在<code>my_package/CMakeLists.txt</code>的文件末尾添加代码：</p>
+<pre><code class="language-cmake">add_executable(hello_node src/hello.cpp)
+</code></pre>
+<p>这行代码的作用是为我们的<code>my_package</code>包添加一个<code>hello_node</code>节点。
+其中第一个参数<code>hello_node</code>是我们创建的节点名，第二个参数<code>src/hello.cpp</code>是节点名对应的源文件的路径。
+接着再添加一行代码：</p>
+<pre><code class="language-cmake">target_link_libraries(hello_node
+    ${catkin_LIBRARIES}
+)
+</code></pre>
+<p>这行代码的作用是：让编译<code>hello_node</code>节点源文件时，链接库文件（这里对应的就是<code>catkin_LIBARARIES</code>所存储的值了，这个变量是catkin定义的，我们不去管它）。</p>
+<p>然后在<code>my_package/src</code>路径下新建一个源文件，起名为<code>hello.cpp</code>。
+写入代码：</p>
+<pre><code class="language-c++">int main(int argc, char const *argv[])
+{
+    ros::init(argc, argv, &quot;hello_node&quot;);  // 初始化ros
+    std::cout &lt;&lt; &quot;hello，ros&quot; &lt;&lt; std::endl;
+    return 0;
+}
+</code></pre>
+<p>这时候我们的hello world程序就已经准备好了，接着需要进行构建编译。
+我们先进入到<code>catkin_ws</code>目录下，然后执行命令：</p>
+<pre><code class="language-bash">catkin_make
+</code></pre>
+<p>等待编译完成后，执行命令：</p>
+<pre><code class="language-bash">ros_run my_package hello_node
+</code></pre>
+<p>这时看到<code>hello, ros</code>输出则表示成功。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>hljs.highlightAll();</script>
+	
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

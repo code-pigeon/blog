@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IGNORE_ms_api</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h2>窗口</h2>
+<h3>管理应用程序状态</h3>
+<p>窗口过程只是针对每条消息调用的函数，因此它本质上是无状态的。因此，需要一种方法来跟踪应用程序从一个函数调用到下一个函数调用的状态。
+CreateWindowEx 函数提供了一种将任何数据结构传递到窗口的方法。 调用此函数时，它会将以下两条消息发送到窗口过程：</p>
+<ul>
+<li>WM_NCCREATE</li>
+<li>WM_CREATE
+这些消息按列出的顺序发送。 (这并非 在 CreateWindowEx 期间发送的唯一两条消息，但我们可以忽略此讨论的其他消息。)</li>
+</ul>
+<p>WM_NCCREATE和WM_CREATE消息在窗口可见之前发送。 它们可以很好地应用于初始化 UI（例如，确定窗口的初始布局）。
+CreateWindowEx 的最后一个参数是 void* 类型的指针。 可以在此参数中传递所需的任何指针值。 当窗口过程处理 WM_NCCREATE 或 WM_CREATE 消息时，它可以从消息数据中提取此值。</p>
+<p>自定义一个状态信息的类或结构：</p>
+<pre><code class="language-c++">struct StateInfo {
+	// ... (struct members not shown)
+};
+</code></pre>
+<p>调用 CreateWindowEx 时，在末尾的 void* 参数中传递指向此结构的指针。</p>
+<pre><code class="language-c++">// std::nothrow的作用是让对象创建失败时不抛出异常，而是返回NULL指针。
+StateInfo *pState = new (std::nothrow) StateInfo;
+if (pState == NULL){
+	return 0;
+}
+// Initialize the structure members (not shown).
+HWND hwnd = CreateWindowEx(
+	0, // Optional window styles.
+	CLASS_NAME, // Window class
+	L&quot;Learn to Program Windows&quot;, // Window text
+	WS_OVERLAPPEDWINDOW, // Window style
+	// Size and position
+	CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+	NULL, // Parent window 
+	NULL, // Menu
+	hInstance, // Instance handle
+	pState // Additional application data
+);
+</code></pre>
+<pre><code>   MSG消息
++-----------+
+| WM_CREATE |
++-----------+
+|  wParam   |------&gt; Not used
++-----------+
+|  lParam   |------&gt;  +----------------+
++-----------+         |  CREATESTRUCT  |
+                      +----------------+
+                      | lpCreateParams |-------&gt;  +-----------+
+                      +----------------+          | StateInfo |
+                      |      ...       |          |           |
+                      +----------------+          +-----------+
+</code></pre>
+<p>因此，在消息中提取StateInfo的方法为：</p>
+<pre><code class="language-c++">CREATESTRUCT *pCreate = reinterpret_cast&lt;CREATESTRUCT*&gt;(lParam);
+pState = reinterpret_cast&lt;StateInfo*&gt;(pCreate-&gt;lpCreateParams);
+</code></pre>
+<h2>COM</h2>
+<h3>初始化单线程的COM库</h3>
+<pre><code class="language-c">// HRESULT 返回类型包含错误或成功代码。 我们将在下一部分中介绍 COM 错误处理。
+HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);
+</code></pre>
+<p>其中第一个参数为保留参数，必须为NULL；
+第二个参数指定程序将使用的线程模型：①单元线程：COINIT_APARTMENTTHREADED；②多线程：COINIT_MULTITHREADED；</p>
+<blockquote>
+<p>除了前面提到的标志外，最好在 dwCoInit 参数中设置 COINIT_DISABLE_OLE1DDE 标志。
+设置此标志可避免与对象链接和嵌入 (OLE) 1.0（一种过时的技术）关联的一些开销。</p>
+</blockquote>
+<h3>取消初始化COM库</h3>
+<pre><code class="language-c">CoUninitialize();
+</code></pre>
+<p>每次成功调用CoInitializeEx时，都必须在线程退出之前调用CoUninitialize。此函数不采用任何参数，并且没有返回值。</p>
+<h3>COM中的错误代码</h3>
+<p>为了指示成功或失败，COM方法和函数返回HRESULT类型的值。HRESULT是32位整数。HRESULT的高阶位表示成功或失败。零(0)表示成功，1表示失败。
+这会生成以下数值范围：</p>
+<ul>
+<li>成功代码：0x0-0x7FFFFFFF。</li>
+<li>错误代码：0x80000000–0xFFFFFFFF。</li>
+</ul>
+<blockquote>
+<p>少数COM方法不返回HRESULT值。例如，AddRef和Release方法返回无符号的长值。但是，每个返回错误代码的COM方法都通过返回HRESULT值来执行此操作。</p>
+</blockquote>
+<p>若要检查COM方法是否成功，请检查返回的HRESULT的高阶位。Windows SDK标头提供了两个使此操作更简单的宏：SUCCEEDED宏和FAILED宏。如果HRESULT是成功代码，则SUCCEEDED宏返回TRUE;如果它是错误代码，则返回FALSE。以下示例检查CoInitializeEx 是否成功。</p>
+<pre><code class="language-c++">HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);
+if (SUCCEEDED(hr))
+{
+ // The function succeeded.
+}
+else
+{
+ // Handle the error.
+}
+</code></pre>
+<p>FAILED宏与SUCCEEDED相反。对于错误代码，它返回TRUE，对于成功代码，则返回FALSE。</p>
+<pre><code class="language-c++">HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);
+if (FAILED(hr))
+{
+ // Handle the error.
+}
+else
+{
+// The function succeeded.
+}
+</code></pre>
+<h3>COM的公共接口</h3>
+<p>每个COM接口都必须直接或间接继承自名为IUnknown的接口。
+IUnknown接口定义了三种方法：</p>
+<ul>
+<li>QueryInterface</li>
+<li>AddRef</li>
+<li>Release</li>
+</ul>
+<h3>COM的强转</h3>
+<p>先有一个FileOpenDialog的指针，要强转为FileDialogCustomize指针，需要使用QueryInterface接口。</p>
+<ul>
+<li>riid参数是标识要请求的接口的GUID。数据类型REFIID是的const GUID&amp; typedef。请注意，不需要CLSID) (类标识符，因为对象已创建。只需要接口标识符。</li>
+<li>ppvObject参数接收指向接口的指针。此参数的数据类型为void**，原因与CoCreateInstance使用此数据类型的原因相同：QueryInterface可用于查询任何COM 接口，因此不能强类型化参数。</li>
+</ul>
+<pre><code class="language-c++">hr = pFileOpen-&gt;QueryInterface(IID_IFileDialogCustomize, reinterpret_cast&lt;void**&gt;(&amp;pCustom));
+if (SUCCEEDED(hr))
+{
+	// Use the interface. (Not shown.)
+	// ...
+	pCustom-&gt;Release();
+}
+else
+{
+	// Handle the error.
+}
+
+</code></pre>
+<h3>COM中的内存分配</h3>
+<p>COM定义了一对函数，用于分配和释放堆上的内存。</p>
+<ul>
+<li>CoTaskMemAlloc 函数分配内存块。</li>
+<li>CoTaskMemFree 函数释放使用 CoTaskMemAlloc 分配的内存块。</li>
+</ul>
+<pre><code class="language-c++">PWSTR pszFilePath;
+// 在GetDisplayName内部调用了CoTaskMemAlloc，分配给pszFilePath
+hr = pItem-&gt;GetDisplayName(SIGDN_FILESYSPATH, &amp;pszFilePath);
+if (SUCCEEDED(hr))
+{
+	// ...
+
+	// 调用方负责把分配的内存释放掉
+	CoTaskMemFree(pszFilePath);
+}
+</code></pre>
+<h3>COM错误处理</h3>
+<p>|常数|数值|说明|
+|---|---|---|
+|E_ACCESSDENIED|0x80070005|访问被拒绝。|
+|E_FAIL|0x80004005|错误。|
+|E_INVALIDARG|0x80070057|参数值无效。|
+|E_OUTOFMEMORY|0x8007000E|内存不足。|
+|E_POINTER|0x80004003|错误地为指针值传递|NULL。|
+|E_UNEXPECTED|0x8000FFFF|意外情况。|
+|S_OK|0x0|成功。|
+|S_FALSE|0x1|成功。|</p>
+<p>前缀为“E_”的所有常量都是错误代码。 S_OK和S_FALSE常量都是成功代码。 可能 99% 的COM 方法在成功时返回 S_OK ;但不要让这个事实误导你。 方法可能会返回其他成功代码，因此始终使用<code>SUCCEEDED</code>或<code>FAILED</code>宏测试错误。
+以下示例代码演示了测试函数调用是否成功的错误方式和正确方法。</p>
+<pre><code class="language-c++">// Wrong.
+HRESULT hr = SomeFunction();
+if (hr != S_OK)
+{
+	printf(&quot;Error!\n&quot;); // Bad. hr might be another success code.
+}
+// Right.
+HRESULT hr = SomeFunction();
+if (FAILED(hr))
+{
+	printf(&quot;Error!\n&quot;); 
+}
+</code></pre>
+<p>S_FALSE的成功代码值得提及。 某些方法使用 S_FALSE 来大致表示非失败的负条件。 它还可能指示“no-op”-该方法成功，但没有效果。 例如，如果从同一线程再次调用CoInitializeEx 函数，则返回 S_FALSE 。 如果需要区分代码中的S_OK和 S_FALSE ，则应直接测试值，但仍使用 FAILED 或 SUCCEEDED 来处理剩余情况，如以下示例代码所示。</p>
+<pre><code class="language-c++">if (hr == S_FALSE)
+{
+	// Handle special case.
+}
+else if (SUCCEEDED(hr))
+{
+	// Handle general success case.
+}
+else
+{
+	// Handle errors.
+	printf(&quot;Error!\n&quot;); 
+}
+
+</code></pre>
+<p>某些 HRESULT 值特定于 Windows 的特定功能或子系统。 例如，Direct2D 图形 API 定义D2DERR_UNSUPPORTED_PIXEL_FORMAT错误代码，这意味着程序使用的像素格式不受支持。 MSDN 文档通常提供方法可能返回的特定错误代码列表。 但是，不应认为这些列表是明确的。 方法始终可以返回文档中未列出的 HRESULT 值。 同样，请使用SUCCEEDED 和 FAILED 宏。 如果测试特定错误代码，则还包括默认情况。</p>
+<h3>错误处理模式</h3>
+<p>应遵守的规则：</p>
+<ul>
+<li>对于返回 HRESULT 的每个方法或函数，检查返回值，然后再继续。</li>
+<li>使用资源后释放资源。</li>
+<li>请勿尝试访问无效或未初始化的资源，例如 NULL 指针。</li>
+<li>释放资源后，请勿尝试使用资源。</li>
+</ul>
+<p>考虑到这些规则，下面是用于处理错误的四种模式。</p>
+<ul>
+<li>嵌套 ifs</li>
+<li>级联 ifs</li>
+<li>跳转失败</li>
+<li>失败时引发</li>
+</ul>
+<h4>嵌套ifs</h4>
+<p>每次调用返回 HRESULT 后，请使用 if 语句来测试是否成功。 然后，将下一个方法调用置于 if 语句的范围内。 更多 if 语句可以根据需要嵌套得更深。
+本模块中前面的代码示例都使用了此模式，但此处再次显示：</p>
+<pre><code class="language-c++">HRESULT ShowDialog()
+{
+	IFileOpenDialog *pFileOpen;
+	HRESULT hr = CoCreateInstance(__uuidof(FileOpenDialog), NULL, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&amp;pFileOpen));
+	if (SUCCEEDED(hr))
+	{
+		hr = pFileOpen-&gt;Show(NULL);
+		if (SUCCEEDED(hr))
+		{
+			IShellItem *pItem;
+			hr = pFileOpen-&gt;GetResult(&amp;pItem);
+			if (SUCCEEDED(hr))
+			{
+				// Use pItem (not shown). 
+				pItem-&gt;Release();
+			}
+		}
+		pFileOpen-&gt;Release();
+	}
+	return hr;
+}
+
+</code></pre>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>hljs.highlightAll();</script>
+	
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>
