@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【python笔记】弱引用weakref</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>【python笔记】弱引用weakref</h1>
+<p><em>参考书籍</em>：
+《深度学习入门——自制框架》[日]斋藤康毅 步骤17.4 weakref模块</p>
+<p>强引用会出现循环引用的情况</p>
+<pre><code class="language-python">class obj():
+	pass
+
+a = obj()  # 使用赋值运算，引用计数加1
+b = obj()
+c = obj()
+# 执行到这里，a、b、c的引用计数都为1
+
+a.b = b  # 被对象强引用，引用计数加1
+b.c = c
+c.a = a
+# 执行到这里，a、b、c的引用计数都为2
+</code></pre>
+<p>这样a、b、c三个对象的引用计数都为2，即使执行<code>a = b = c = None</code>，引用计数仍然为1，a、b、c都不会被释放（计数为0时，python会自动释放内存空间）</p>
+<pre><code class="language-python">import weakref 
+
+class obj():
+	pass
+
+a = obj()
+b = weakref.ref(a)
+
+print(f&quot;b：{b}&quot;)
+print(f&quot;a：{a}&quot;)
+print(&quot;使用b()可以访问b引用的对象&quot;)
+
+print(f&quot;b() = {b()}&quot;)
+
+a = None
+print(&quot;====== 运行 a = None 后 ======&quot;)
+print(f&quot;b：{b}&quot;)
+</code></pre>
+<p>可以发现运行<code>a = None</code>之后，b引用的对象变成<code>dead</code>了，表明引用的对象已经被删除。
+此时再运行<code>print(b())</code>，输出会变成<code>None</code>。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>
+		document.querySelectorAll('pre code').forEach((block) => {
+			hljs.highlightBlock(block);
+		});
+	</script>
+		
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

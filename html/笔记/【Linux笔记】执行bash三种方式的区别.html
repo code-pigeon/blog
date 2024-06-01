@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【Linux笔记】执行bash三种方式的区别</title>
+	<link href="../../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../../index.html">首页</a></li>
+		        <li><a href="../目录.html">目录</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1>【Linux笔记】bash/sh、./和source执行bash脚本的区别</h1>
+<ol>
+<li>显式指定解释器（如<code>bash mybat.sh</code>）的情况下，每次执行脚本时都会开启一个子shell，因此不保留当前的shell变量；</li>
+<li>使用source或者点./执行（如<code>./mybat.sh</code>、<code>source mybat.sh</code>），在当前shell环境加载脚本，因此保留脚本中的变量；</li>
+</ol>
+<p>例如：<br />
+有脚本文件内容为</p>
+<pre><code class="language-bash">#!/bin/bash
+name=&quot;cxk&quot;
+</code></pre>
+<p>在终端中用bash命令调用该脚本后，echo ${name}，会发现name为空。</p>
+<p>但若用source或者 . 调用，再echo ${name}，会返回cxk</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script>
+		document.querySelectorAll('pre code').forEach((block) => {
+			hljs.highlightBlock(block);
+		});
+	</script>
+		
+	<!-- table of cotent -->
+	<script src="../../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

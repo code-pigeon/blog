@@ -247,7 +247,7 @@ blockquote {
 /* begin tocbot */
 
 .toc {
-  background-color: #fff1;
+  background-color: #313438;
   padding: 1rem 0;
   padding-right: 0.5rem;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -304,7 +304,7 @@ header{
   justify-content: flex-end;
   align-items: center;
   height: 4rem;
-  padding: 0 4rem;
+/*  padding: 0 0.4rem;*/
 /*  border-bottom: 0.01rem solid #555;*/
 }
 
