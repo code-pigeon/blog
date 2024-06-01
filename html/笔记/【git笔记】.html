@@ -15,7 +15,7 @@
 	<header>
 		<nav>
 		    <ul>
-		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="../../index.html">首页</a></li>
 		        <li><a href="../目录.html">目录</a></li>
 		        <!-- <li><a href="/contact">项目</a></li> -->
 		        <li><a href="https://github.com/Vegetalbe">github</a></li>
@@ -120,8 +120,12 @@ git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;
 
 	<!-- /////////////// script region //////////////// -->
 
-	<script>hljs.highlightAll();</script>
-	
+	<script>
+		document.querySelectorAll('pre code').forEach((block) => {
+			hljs.highlightBlock(block);
+		});
+	</script>
+		
 	<!-- table of cotent -->
 	<script src="../../js/toc.js" type="text/javascript" ></script>
 

@@ -10,6 +10,7 @@ CSS_DIR := ./css
 JS_DIR := ./js
 
 MD_FILES := $(shell find $(MARKDOWN_DIR) -type f)
+
 # MD_FILES := $(filter-out %, $(FILES))
 MIDDLE_TARGETS := $(patsubst $(MARKDOWN_DIR)/%.md,$(MIDDLE_DIR)/%.middle.html,$(MD_FILES))
 HTML_TARGETS := $(patsubst $(MARKDOWN_DIR)/%.md,$(HTML_DIR)/%.html,$(MD_FILES))
@@ -24,7 +25,7 @@ define render_template
 		./web_skeleton/skeleton.html $(2) \
 		-v title=$(shell basename $(2) .html) \
 		-f markdown_file.html=$(1)  \
-		-v index.html=$(call calculate_relative_path,$(dir $(2)), $(HTML_DIR)/index.html) \
+		-v index.html=$(call calculate_relative_path,$(dir $(2)), ./index.html) \
 		-v toc.html=$(call calculate_relative_path,$(dir $(2)), $(HTML_DIR)/目录.html) \
 		-v index.css=$(call calculate_relative_path,$(dir $(2)),$(CSS_DIR)/index.css) \
 		-v toc.js=$(call calculate_relative_path,$(dir $(2)),$(JS_DIR)/toc.js) \
@@ -33,9 +34,23 @@ endef
 
 calculate_relative_path = $(shell realpath --relative-to=$(1) $(2))
 
-all: $(HTML_TARGETS) $(HTML_DIR)/目录.html 
+all: $(HTML_TARGETS) $(HTML_DIR)/目录.html ./index.html
 
 # //////////////////////////////////////////////////////////////////////////////////////////
+
+# ----- <begin> index.html -----
+
+./index.middle.html: ./index.md
+	@echo building index.middle.html
+	$(PARSER) $< > $@
+
+./index.html:./index.middle.html
+	@echo 开始将$< 渲染成 $@
+	$(call render_template,"$<",$@)
+
+
+# ----- <end> index.html ------
+
 
 # ----- <begin> 目录.html ------
 
@@ -89,3 +104,4 @@ test:
 	@echo 测试-------------- ------------------
 	@echo $(MARKDOWN_SUB_DIR)
 	@echo $(HTML_SUB_DIR)
+	@echo $(HTML_TARGETS)
