@@ -18,34 +18,34 @@
 		        <li><a href="../../index.html">首页</a></li>
 		        <li><a href="../目录.html">目录</a></li>
 		        <!-- <li><a href="/contact">项目</a></li> -->
-		        <li><a href="https://github.com/Vegetalbe">github</a></li>
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
 		    </ul>
 		</nav>
 	</header>
 	<div class=fluid> <h1>编译带图标的exe文件</h1>
-<p>首次编辑：24/2/25/0:17
+<p>首次编辑：24/2/25/0:17<br />
 最后编辑：24/2/25/0:30</p>
 <h2>尝试过程</h2>
 <p>先参考了第一个链接（见<a href="#%E5%8F%82%E8%80%83">参考</a>），做了如下事情：</p>
 <p>文件结构为：</p>
-<pre><code>./
+<pre><code class="language-comment">./
     main.c
     ico.ico
     ico.rc
 </code></pre>
 <p>ico.rc的内容为：</p>
-<pre><code>id ICON &quot;ico.ico&quot;
+<pre><code class="language-comment">id ICON &quot;ico.ico&quot;
 </code></pre>
 <p>接着运行<code>windres.exe -i ico.rc -o ico.o</code>。
 但出现报错：</p>
-<pre><code>windres.exe: can't open file `page:': Invalid argument
+<pre><code class="language-comment">windres.exe: can't open file `page:': Invalid argument
 ico.rc:2: fatal error: when writing output to : Invalid argument
 compilation terminated.
 windres.exe: preprocessing failed.
 </code></pre>
 <p>死活不成功，然后参考了链接二，加了个选项<code>--use-temp-file</code>，就成功了。</p>
 <p>现在的文件结构为：</p>
-<pre><code>./
+<pre><code class="language-comment">./
     main.c
     ico.ico
     ico.rc
@@ -55,8 +55,10 @@ windres.exe: preprocessing failed.
 <pre><code class="language-bash">gcc main.c ico.o -o out.exe
 </code></pre>
 <h2>参考</h2>
-<p><a href="https://blog.csdn.net/yanhanhui1/article/details/110238429">给GCC编译出来的可执行文件添加图标</a>
-<a href="https://blog.csdn.net/big_cheng/article/details/127183433#Original">PW系列 | 用windres 编译.rc 资源文件</a></p>
+<ul>
+<li><a href="https://blog.csdn.net/yanhanhui1/article/details/110238429">给GCC编译出来的可执行文件添加图标</a></li>
+<li><a href="https://blog.csdn.net/big_cheng/article/details/127183433#Original">PW系列 | 用windres 编译.rc 资源文件</a></li>
+</ul>
 </div>
 
 	<div class="left-sidebar">
