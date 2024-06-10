@@ -2,22 +2,32 @@
 
 /* begin retro (https://github.com/markdowncss/retro) */
 
-pre,
-code {
-  font-family: Menlo, Monaco, "Courier New", monospace;
-  background-color: #303841;
+p code {
+  /* 行内代码 */
   margin: 0 0.2rem;
-  padding: 0 0.2rem;
+  padding: 0 0.3rem;
+  background-color: #303841;
   border-radius: 0.25rem;
-  color: #fff;
+/*  border: 1px solid #505050;*/
+}
+
+pre,
+pre code {
+/*  font-family: Menlo, Monaco, "Courier New", monospace;*/
+  /*background-color: #303841;
+  overflow-x:auto;
+  padding:1em*/
+/*  border-radius: 0.25rem;*/
+/*  color: #fff;*/
 /*  font-weight: bold;*/
 }
 
-pre {
+/*pre {
   padding: .4rem;
   line-height: 1.25;
   overflow-x: scroll;
 }
+*/
 
 @media print {
   *,

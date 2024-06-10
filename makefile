@@ -29,6 +29,7 @@ define render_template
 		-v toc.html=$(call calculate_relative_path,$(dir $(2)), $(HTML_DIR)/目录.html) \
 		-v index.css=$(call calculate_relative_path,$(dir $(2)),$(CSS_DIR)/index.css) \
 		-v toc.js=$(call calculate_relative_path,$(dir $(2)),$(JS_DIR)/toc.js) \
+		-v code_highlight.js=$(call calculate_relative_path,$(dir $(2)),$(JS_DIR)/code_highlight.js) \
 		-v code_highlight.css=$(call calculate_relative_path,$(dir $@),$(CSS_DIR)/code_highlight.css)
 endef
 
