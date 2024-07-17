@@ -53,6 +53,24 @@ gcc main.c -o main -l myMath -L ./lib/ -I ./inc/  # -l指定动态库名，-L指
 
 # 需要说明的是，如果动态库文件和可执行文件不在同一目录下，默认系统是找不到动态库的，此时需要别的方式让系统能去存放动态库的文件夹下寻找动态库，挺麻烦的，这里先不表。
 </code></pre>
+<h2>gcc和响应文件</h2>
+<p>有时候一个编译的语句太长了：</p>
+<pre><code class="language-bash"># 假设这很长
+gcc test1.c test2.c test3.c -o test -llib1 -llib2 -llib3
+</code></pre>
+<p>可以把编译的参数都放在一个文件中，类似这样：</p>
+<pre><code>test1
+.c test2
+.c test3
+.c -o
+ test
+-llib1
+-llib2
+-llib3
+</code></pre>
+<p>假设这个文件叫<code>test.rsp</code>，编译时就可以使用<code>@test.rsp</code>作为编译选项进行编译：</p>
+<pre><code class="language-bash">gcc @test.rsp
+</code></pre>
 <h2>gdb调试器</h2>
 <pre><code class="language-bash"># 1. 编译带有调试信息的可执行文件
 

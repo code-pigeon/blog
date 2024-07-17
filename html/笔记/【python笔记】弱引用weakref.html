@@ -23,7 +23,7 @@
 		</nav>
 	</header>
 	<div class=fluid> <h1>【python笔记】弱引用weakref</h1>
-<p><em>参考书籍</em>：
+<p><em>参考书籍</em>：<br />
 《深度学习入门——自制框架》[日]斋藤康毅 步骤17.4 weakref模块</p>
 <p>强引用会出现循环引用的情况</p>
 <pre><code class="language-python">class obj():
@@ -58,7 +58,7 @@ a = None
 print(&quot;====== 运行 a = None 后 ======&quot;)
 print(f&quot;b：{b}&quot;)
 </code></pre>
-<p>可以发现运行<code>a = None</code>之后，b引用的对象变成<code>dead</code>了，表明引用的对象已经被删除。
+<p>可以发现运行<code>a = None</code>之后，b引用的对象变成<code>dead</code>了，表明引用的对象已经被删除。<br />
 此时再运行<code>print(b())</code>，输出会变成<code>None</code>。</p>
 </div>
 

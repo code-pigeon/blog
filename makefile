@@ -1,6 +1,8 @@
 # makefile方案3
 SHELL := /usr/bin/bash
-PARSER := cmark
+MARKDOWN_PARSER := cmark-gfm
+MARKDOWN_PARSE_FLAG := -e strikethrough -e table --hardbreaks
+
 TEMPLATE_RENDERER := ./template_renderer
 
 MARKDOWN_DIR := ./md
@@ -43,7 +45,7 @@ all: $(HTML_TARGETS) $(HTML_DIR)/目录.html ./index.html
 
 ./index.middle.html: ./index.md
 	@echo building index.middle.html
-	$(PARSER) $< > $@
+	$(MARKDOWN_PARSER) $(MARKDOWN_PARSE_FLAG) $< > $@
 
 ./index.html:./index.middle.html
 	@echo 开始将$< 渲染成 $@
@@ -62,7 +64,7 @@ $(MARKDOWN_DIR)/目录.md:./web_skeleton/目录.md $(filter-out ./md/目录.md,$
 
 $(MIDDLE_DIR)/目录.middle.html: $(MARKDOWN_DIR)/目录.md
 	@echo building 目录.middle.html
-	$(PARSER) $< > $@
+	$(MARKDOWN_PARSER) $(MARKDOWN_PARSE_FLAG) $< > $@
 
 $(HTML_DIR)/目录.html:$(MIDDLE_DIR)/目录.middle.html
 	@echo 开始将$< 渲染成 $@
@@ -79,7 +81,7 @@ $(HTML_DIR)/%.html:$(MIDDLE_DIR)/%.middle.html | $(HTML_SUB_DIR)
 middle: $(MIDDLE_TARGETS)
 
 $(MIDDLE_DIR)/%.middle.html: $(MARKDOWN_DIR)/%.md | $(MIDDLE_SUB_DIR)
-	$(PARSER) $< > $@
+	$(MARKDOWN_PARSER) $(MARKDOWN_PARSE_FLAG) $< > $@
 
 
 $(MIDDLE_SUB_DIR):

@@ -25,18 +25,25 @@
 	<div class=fluid> <h1>xmake 笔记</h1>
 <h2>设置编译器为MinGW</h2>
 <pre><code class="language-lua">-- xmake.lua
-target(&quot;406&quot;)
-    set_kind(&quot;binary&quot;)
-    add_files(&quot;src/406.cpp&quot;)
-    set_toolchains(&quot;mingw@mingw-w64&quot;)  -- 这一行
+set_toolchains(&quot;mingw@mingw-w64&quot;)
 </code></pre>
 <h2>指定目标编译/运行</h2>
 <pre><code class="language-bash">xmake --target=my_target_name  # 指定目标编译
 
 xmake run my_target_name  # 指定目标运行
+# 或者
+xmake r my_target_name
 </code></pre>
 <h2>设置所有目标为debug模式</h2>
 <pre><code class="language-bash">xmake f --mode=release
+# 或者
+xmake f -m debug
+</code></pre>
+<h2>调试运行</h2>
+<pre><code class="language-bash">xmake run -d my_target_name
+</code></pre>
+<p>windows下的默认调试器为vs，可以手动更改调时器：</p>
+<pre><code class="language-bash">xmake f --debugger=gdb
 </code></pre>
 </div>
 

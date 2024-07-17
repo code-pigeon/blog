@@ -23,8 +23,8 @@
 		</nav>
 	</header>
 	<div class=fluid> <h1>git笔记</h1>
-<p><strong>参考视频</strong>：
-<a href="https://www.bilibili.com/video/BV1HM411377j">【GeekHour】一小时Git教程</a>
+<p><strong>参考视频</strong>：<br />
+<a href="https://www.bilibili.com/video/BV1HM411377j">【GeekHour】一小时Git教程</a><br />
 <a href="https://www.bilibili.com/video/BV1ja411u7zk?p=1">【Git全套教程】轻松搞笑 快速上手 | 保姆级</a></p>
 <h2>基础</h2>
 <pre><code class="language-bash"># 在git中，HEAD表示当前最新版本
@@ -76,6 +76,12 @@ git diff --staged  # 同上
 git diff &lt;commit_hash&gt; &lt;commit_hash&gt;  # 比较提交之间的差异
 git diff HEAD~ HEAD  # 比较最新的两个提交之间的差异
 git diff &lt;brance_name&gt; &lt;branch_name&gt;  # 比较分支之间的差异
+
+# 查看某次提交时某个文件的内容
+git show &lt;版本ID&gt;:&lt;文件名&gt;
+
+# 查看某次提交时某个文件的修改内容
+git show &lt;版本ID&gt; -- &lt;文件名&gt;
 
 # .gitignore 忽略文件
 # 在仓库目录下新建.gitignore文件
