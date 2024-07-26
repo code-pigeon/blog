@@ -1,0 +1,67 @@
+# C语言中的文件操作
+## 打开文件fopen
+```c
+// 打开文件
+FILE* f = fopen("test.txt", "r");  // 只读形式打开
+```
+
+## 文件操作指针
+```c
+// 1. ftell(FILE* file_ptr)
+long position = ftell(f); // 返回目前文件操作指针的相对与文件开头的位置
+/* 
+比如说test.txt中存放了一段文字I'm so handsome.
+刚打开时文件是这样的：
+-----------------------
+_ptr
+↓
+I'm so handsome.
+-----------------------
+ftell返回的就是0
+
+假如文件指针移动到了字母h处，即
+-----------------------
+       _ptr
+       ↓
+I'm so handsome.
+-----------------------
+ftell返回的就是7
+*/
+
+//2. fseek(FILE* file_ptr, offset, origin)
+fseek(f, 0, SEEK_SET);  // 将文件指针f所指向的文件的_ptr设置到文件开头（SEEK_SET表示文件开头），偏移量为0
+/*
+SEEK_SET 为文件开头
+SEEK_CUR 为当前_ptr的位置
+SEEK_END 为文件末尾
+*/
+
+//3. rewind(file_ptr)
+rewind(f);  // 重置_ptr到文件开头
+```
+
+## 文件读写
+```c
+// size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
+size_t n = fwrite(data_array, 3, 2, file_ptr);  // 从data_array的开头开始写入数据到文件中
+// 以3bytes为写入单位
+// 写入2个单位大小
+// 故写入的总大小为3*2 = 6
+/*
+比方说          
+                      data_array
+                         ↓
+char[7] = data_array = {'c', 'p', 'p', '=', 'c', '+', '+'};  
+
+此时一次写入的单位大小为3（byte），写入2个3byte的数据，所以会将"cpp=c+"写入到文件中
+
+如果执行成功，fwrite返回的n应该等于nmemb的大小，在本例中为2；若不相等，则会显示一个错误。
+*/
+
+// size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
+size_t n = fread(read_buf, 3, 2, file_ptr);  // 从文件当前的操作指针开始，以3bytes为一个单位，读取2个单位（即3bytes）的数据。
+/*
+基本与fwrite相同，唯一需要注意的点是，读文件并不一定从文件开头开始读，要看此时的文件操作指针在什么位置。
+*/
+
+```

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>《modernTkinter》</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="4.-A-First-(Real)-Example">4. A First (Real) Example</h1>
+<h2 id="4.3-Step-by-Step-Walkthrough">4.3 Step-by-Step Walkthrough</h2>
+<h3 id="Incorporating-Tk">Incorporating Tk</h3>
+<p>一个Tk程序首先需要包含两个模块：</p>
+<pre><code class="language-python">from tkinter import *  # 加载Tk到系统
+from tkinter import ttk  # ttk是tkinter的子模块，它实现了Tk8.5新增的“主题控件”
+</code></pre>
+<h3 id="Setting-up-the-Main-Application-Window">Setting up the Main Application Window</h3>
+<p>接下来需要设置应用的主窗口，并设置窗口名：</p>
+<pre><code class="language-python">root = Tk()
+root.title(&quot;Feet to Meters&quot;)
+</code></pre>
+<h3 id="Creating-a-Content-Frame">Creating a Content Frame</h3>
+<p>接着创建一个放置控件的框架（Frame）</p>
+<pre><code class="language-python">mainframe = ttk.Frame(root, padding=&quot;3 3 12 12&quot;)
+mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+root.columnconfigure(0, weight=1)
+root.rowconfigure(0, weight=1) 
+</code></pre>
+<p>第一行：新建一个框架（但此时还没有被放置到主窗口中），边距为“3 3 12 12”（上左下右）。<br />
+第二行：<code>grid</code>将<code>mainframe</code>放置在<code>root</code>窗口中第0列和第0行，<code>sticky=(N, W, E, S)</code>表示水平和竖直都居中。<br />
+第三、四行：用来设置<code>root</code>窗口的列和行的权重，以便在窗口大小发生变化时，<code>mainframe</code>可以自适应地调整大小。<code>weight=1</code>表示该行/列的可伸缩性比重是1，如果窗口大小改变，会根据比重分配额外的空间。</p>
+<h3 id="Creating-the-Entry-Widget">Creating the Entry Widget</h3>
+<p>第一个控件为文本输入框，在框中输入待转化的<code>feet</code>值。</p>
+<pre><code class="language-python">feet = StringVar()
+feet_entry = ttk.Entry(mainframe, width=7, textvariable=feet)  # 第一个参数指定了输入框的父空间，此处为mainframe
+feet_entry.grid(column=2, row=1, sticky=(W, E))  # 将其放在框架的第3列第2行。
+</code></pre>
+<h3 id="Creating-the-Remaining-Widgets">Creating the Remaining Widgets</h3>
+<pre><code class="language-python">meters = StringVar()
+ttk.Label(mainframe, textvariable=meters).grid(column=2,
+row=2, sticky=(W, E))
+ttk.Button(mainframe, text=&quot;Calculate&quot;,
+command=calculate).grid(column=3, row=3, sticky=W)
+ttk.Label(mainframe, text=&quot;feet&quot;).grid(column=3, row=1,
+sticky=W)
+ttk.Label(mainframe, text=&quot;is equivalent to&quot;).grid(column=1,
+row=2, sticky=E)
+ttk.Label(mainframe, text=&quot;meters&quot;).grid(column=3, row=2,
+sticky=W)
+</code></pre>
+<h3 id="Adding-Some-Polish">Adding Some Polish</h3>
+<pre><code class="language-python">for child in mainframe.winfo_children(): 
+	child.grid_configure(padx=5, pady=5)  # 为网格中的控件添加边距
+	feet_entry.focus()  # 使程序打开时，输入框处于激活状态
+	root.bind(&quot;&lt;Return&gt;&quot;, calculate)  # 将回车键与calculate函数绑定
+</code></pre>
+<h3 id="Performing-the-Calculation">Performing the Calculation</h3>
+<pre><code class="language-python">def calculate(*args):
+	try:
+		value = float(feet.get())
+		meters.set(int(0.3048 * value * 10000.0 + 0.5)/10000.0)  # 乘10000.0再除以10000.0是为了规避浮点数的舍入问题
+	except ValueError:
+		print(&quot;错了！&quot;)
+</code></pre>
+<h1 id="5.-Tk-Concepts">5. Tk Concepts</h1>
+<h2 id="5.1.-Widgets">5.1. Widgets</h2>
+<h3 id="Creating-Widgets">Creating Widgets</h3>
+<p>每个控件都是一个python对象。<br />
+每个控件的初始化函数都有一个父控件参数（显然，此参数用于指定父控件）——根窗口除外。<br />
+例如：</p>
+<pre><code class="language-python">root = Tk()
+content = ttk.Frame(root)
+button = ttk.Button(content)
+</code></pre>
+<blockquote>
+<p>If you sneak a peek at how Tcl manages widgets, you'll see each widget has a specific pathname; you'll also see this pathname referred to in Tk reference documentation. Tkinter hooses and manages all these pathnames for you behind the scenes, so you should never have to worry about them. If you do, you can get the pathname from a widget by calling <code>str(widget</code>).</p>
+</blockquote>
+<h3 id="Configuration-Options">Configuration Options</h3>
+<p>每个控件都有一些配置选项，它们决定了控件的外观和行为。<br />
+配置选项有多少取决于具体的控件——当然，不同控件拥有很多共同的配置选项。<br />
+配置选项可以在控件第一次创建的时候设定，并且可以在这之后获取这些配置的信息，并且除极少数控件外，配置可以在创建之后修改。</p>
+<p>若不清楚控件提供了哪些配置选项，可以通过以下方法查询：</p>
+<pre><code class="language-python">button = ttk.Button(root, text=&quot;Hello&quot;, command=&quot;buttonpressed&quot;)  # 创建控件
+button['text']  # 获取text选项的值
+button.configure('text')  # 获取text选项的所有信息
+'''
+这将返回类似('text', 'text', 'Text', '', 'Hello')的文本
+其分别对应(选项名，在数据库中的选项名，选项的类别，选项的默认值，选项的值)
+“选项的默认值”指你不设定选项值时该选项的值
+通常只需要关注“选项名”和“选项的值”就行了
+'''
+
+button.configure()  # 获取控件所有选项的信息
+
+button['text'] = 'goodbye'  # 修改text选项的值为‘goodbye’
+button.configure(text='goodbye')  # 同上
+
+</code></pre>
+<h3 id="Widget-Introspection">Widget Introspection</h3>
+<p>关于控件的信息，可以参考<a href="https://tkdocs.com/man/winfo">winfo</a>。<br />
+下面是一个小例子，它通过控件的<code>winfo_children</code>方法来遍历控件的层级关系：</p>
+<pre><code class="language-python">def print_hierarchy(w, depth=0):
+	print(' '*depth + w.winfo_class() + ' w=' +
+		str(w.winfo_width()) + ' h=' + str(w.winfo_height()) + ' x=' +
+		str(w.winfo_x()) + ' y=' + str(w.winfo_y()))
+	for i in w.winfo_children():
+	print_hierarchy(i, depth+1)
+print_hierarchy(root)
+
+</code></pre>
+<p>一些比较有用的方法：</p>
+<ul>
+<li>winfo_class：获得控件类名</li>
+<li>winfo_children：获得所有子控件构成的列表</li>
+<li>winfo_parent：获得父控件</li>
+<li>winfo_toplevel：获得祖宗控件</li>
+<li>winfo_width, winfo_height：控件目前的宽度、高度（在控件显示于屏幕之前不会返回正确的数字）</li>
+<li>winfo_reqwidth, winfo_reqheight：the width and height the widget requests of the geometry manager (more on this shortly)</li>
+<li>winfo_x, winfo_y：the position of the top-left corner of the widget relative to its parent</li>
+<li>winfo_rootx, winfo_rooty：the position of the top-left corner of the widget relative to the entire screen</li>
+<li>winfo_vieweable：whether the widget is displayed or hidden (all its ancestors in the hierarchy must be viewable for it to be viewable)</li>
+</ul>
+<h2 id="5.2.-Geometry-Management">5.2. Geometry Management</h2>
+<p>创建控件时，控件并不会直接显示在屏幕上，Geometry Management表示的便是将控件显示在屏幕某位置上的操作。<br />
+在前面的例子中，<code>grid</code>就是一种Geometry Management。Tk有很多种Geometry Management，但<code>grid</code>是最有用的。</p>
+<h2 id="5.3.-Event-Handling">5.3. Event Handling</h2>
+<p>Tk运行着一个用于接收操作系统事件（event）的事件循环（event loop）。事件的类型有鼠标点击、键盘按下等。</p>
+<h3 id="Command-Callbacks">Command Callbacks</h3>
+<p>按钮（button）控件被按下所触发的效果可以通过Command选项来设置：</p>
+<pre><code class="language-python">def calculate(*args):
+	...
+ttk.Button(mainframe, text=&quot;Calculate&quot;, command=calculate)
+</code></pre>
+<h3 id="Binding-to-Events">Binding to Events</h3>
+<p>对于一些无法用<code>command</code>选项来设置效果的事件，可以通过<code>bind</code>来实现触发效果与事件的绑定。</p>
+<pre><code class="language-python">from tkinter import *
+from tkinter import ttk
+root = Tk()
+l =ttk.Label(root, text=&quot;Starting...&quot;)
+l.grid()
+l.bind('&lt;Enter&gt;', lambda e: l.configure(text='Moved mouse inside'))
+l.bind('&lt;Leave&gt;', lambda e: l.configure(text='Moved mouse outside'))
+l.bind('&lt;ButtonPress-1&gt;', lambda e: l.configure(text='Clicked left mouse button'))
+l.bind('&lt;3&gt;', lambda e: l.configure(text='Clicked right mouse button'))
+l.bind('&lt;Double-1&gt;', lambda e: l.configure(text='Double clicked'))
+l.bind('&lt;B3-Motion&gt;', lambda e: l.configure(text='right button drag to %d,%d' % (e.x, e.y)))
+root.mainloop()
+</code></pre>
+<p><code>&lt;ButtonPress&gt;</code>是一个按钮按下的事件，而<code>&lt;ButtonPress-1&gt;</code>中的<code>-1</code>表示的是鼠标的左键，所以<code>&lt;ButtonPress-1&gt;</code>事件表示的事件为鼠标左键按下按钮。<code>-1</code>在此被称为“event detail”（事件细节）。<br />
+<code>&lt;3&gt;</code>事件实际上是<code>&lt;ButtonPress-3&gt;</code>事件的缩写，表示右键按下按钮。<br />
+<code>&lt;Double-1&gt;</code>表示鼠标左键双击按钮（<code>&lt;Double-ButtonPress-1&gt;</code>的缩写），<code>Double</code>用于表示两次点击。<br />
+<code>&lt;B3-Motion&gt;</code>中的<code>Motion</code>表示鼠标移动事件，但前面的<code>B3</code>限制了该事件只在鼠标右键按下的时候会触发。这行代码也展示了事件参数（e）的使用方法，<code>e.x</code>和<code>e.y</code>分别为事件触发时鼠标的横纵坐标。在事件触发时，很多关于鼠标键盘等的参数会被传递到事件参数e当中。</p>
+<h3 id="Multiple-Bindings-for-an-Event">Multiple Bindings for an Event</h3>
+<p>控件不仅可以绑定单个事件，还可以绑定多个事件。<br />
+例如<code>&lt;KeyPress-A&gt;&lt;KeyPress-B&gt;</code>表示的事件为按键A和B同时按下，也可以使用缩写<code>&lt;ab&gt;</code>。</p>
+<blockquote>
+<p>实际测试的时候发现<code>&lt;ab&gt;</code>这种写法会出错。同时<code>&lt;KeyPress-A&gt;</code>也只对应大写的A，小写的a无效。</p>
+</blockquote>
+<p>Less commonly, you can create event bindings that are triggered when a matching event occurs anywhere in the application, or even for events received by any widget of a given class, e.g., all buttons.</p>
+<blockquote>
+<p>More than one binding can fire for an event. This keeps event handlers concise and limited in scope, meaning more modular code. For example, the behavior of each widget class in Tk is itself defined with script-level event bindings. These stay separate from event bindings in your application. Event bindings can also be changed or deleted. They can be modified to alter event handling for widgets of a certain class or parts of your application. You can reorder, extend, or change the sequence of event bindings that will be triggered for each widget; see the <a href="https://tcl.tk/man/tcl8.6/TkCmd/bindtags.htm">bindtags</a> command reference if you're curious.</p>
+</blockquote>
+<h3 id="Available-Events">Available Events</h3>
+<p>参考<a href="https://tkdocs.com/man/bind">bind</a>。<br />
+最常用的事件：</p>
+<ul>
+<li><code>&lt;Activate&gt;</code>：Window has become active.</li>
+<li><code>&lt;Deactivate&gt;</code>：Window has been deactivated.</li>
+<li><code>&lt;MouseWheel&gt;</code>：Scroll wheel on mouse has been moved.</li>
+<li><code>&lt;KeyPress&gt;</code>：Key on keyboard has been pressed down.</li>
+<li><code>&lt;KeyRelease&gt;</code>：Key has been released.</li>
+<li><code>&lt;ButtonPress&gt;</code>：A mouse button has been pressed.</li>
+<li><code>&lt;ButtonRelease&gt;</code>：A mouse button has been released.</li>
+<li><code>&lt;Motion&gt;</code>：Mouse has been moved.</li>
+<li><code>&lt;Configure&gt;</code>：Widget has changed size or position.</li>
+<li><code>&lt;Destroy&gt;</code>：Widget is being destroyed.</li>
+<li><code>&lt;FocusIn&gt;</code>：Widget has been given keyboard focus.</li>
+<li><code>&lt;FocusOut&gt;</code>：Widget has lost keyboard focus.</li>
+<li><code>&lt;Enter&gt;</code>：Mouse pointer enters widget.</li>
+<li><code>&lt;Leave&gt;</code>：Mouse pointer leaves widget.<br />
+Event detail for mouse events are the button that was pressed, e.g. <code>1</code>, <code>2</code>, or <code>3</code>. For keyboard events, it's the specific key, e.g. <code>A</code>, <code>9</code>, <code>space</code>, <code>plus</code>, <code>comma</code>, <code>equal</code>. A complete list can be found in the <a href="https://tkdocs.com/man/keysyms">keysyms</a> command reference.<br />
+Event modifiers for include, e.g. <code>B1</code> or <code>Button1</code> to signify the main mouse button being held down, <code>Double</code> or <code>Triple</code> for sequences of the same event. Key modifiers for when keys on the keyboard are held down inline <code>Control</code>, <code>Shift</code>, <code>Alt</code>, <code>Option</code>, and <code>Command</code>.</li>
+</ul>
+<h3 id="Virtual-Events">Virtual Events</h3>
+<p>到目前为止我们接触到的事件都是一些低级的系统事件。很多控件会产生一些更高级的事件，称作虚拟事件。<br />
+例如<code>listbox</code>在它的选择被修改时会产生<code>&lt;&lt;ListboxSelect&gt;&gt;</code>事件。<br />
+一个控件所支持的虚拟事件可以在控件类的文档中查看。<br />
+Tk也定义了一些常见操作的虚拟事件（跨平台的）。包括<code>&lt;&lt;Cut&gt;&gt;</code>、<code>&lt;&lt;Copy&gt;&gt;</code>、<code>&lt;&lt;Paste&gt;&gt;</code>。<br />
+也可以定义自己的虚拟事件，这是一种很有用的方法，可以将特定于平台的细节隔离在单个模块中。<br />
+在自己的代码中可以通过与Tk虚拟事件相同的方法来产生你自定义的虚拟事件：</p>
+<pre><code class="language-python">root.event_generate(&quot;&lt;&lt;MyOwnEvent&gt;&gt;&quot;)
+</code></pre>
+<h1 id="6.-Basic-Widgets">6. Basic Widgets</h1>
+<h2 id="6.1-Frame">6.1 Frame</h2>
+<p><a href="https://tkdocs.com/man/ttk_frame">https://tkdocs.com/man/ttk_frame</a><br />
+Frame通常用作容纳其它控件的容器。</p>
+<h3 id="Requested-Size">Requested Size</h3>
+<p>它的大小通常由它所容纳的容器决定。若要显式地指定它的大小，可以用<code>width</code>和<code>height</code>配置选项来设置。一般尺寸的单位为像素，例如<code>350</code>为350像素，也有其它单位，例如<code>350c</code>表示350厘米，<code>350m</code>表示毫米，<code>350i</code>表示inch，<code>350p</code>表示350个printer's points（1/72inches）。</p>
+<blockquote>
+<p>虽然可以显式地指定frame的大小，但它所容纳的控件有最终决定权（have the final say），即若所容纳的控件超过指定大小，尺寸可能会变化。</p>
+</blockquote>
+<h3 id="Padding">Padding</h3>
+<p>Padding配置选项用于指定frame的边距大小。</p>
+<pre><code class="language-python">f['padding'] = 5 # 5 pixels on all sides
+f['padding'] = (5,10) # 5 on left and right, 10 on top and bottom
+f['padding'] = (5,7,10,12) # left: 5, top: 7, right: 10, bottom: 12
+</code></pre>
+<h3 id="Borders">Borders</h3>
+<p>frame的边界可以通过<code>borderwidth</code>和<code>relief</code>两个配置选项来实现。<br />
+<code>borderwidth</code>设置边界的宽度，<code>relief</code>设置边界的样式，可选的样式有<code>flat (default)</code>、<code>raised</code>、<code>sunken</code>、<code>solid</code>、<code>ridge</code>、<code>groove</code>。</p>
+<pre><code class="language-python">frame['borderwidth'] = 2
+frame['relief'] = 'sunken'
+</code></pre>
+<h3 id="Changing-Styles">Changing Styles</h3>
+<p>Frame有一个<code>style</code>配置选项。其它主题控件（themed widgets）也有同样的选项。该选项可以令你改变控件的其它外观和行为。</p>
+<p><code>style</code>选项是一个深入的话题，我们在此不过多展开。<br />
+但姑且给出一个使用<code>Danger</code>风格的frame的创建方式：</p>
+<pre><code class="language-python">s = ttk.Style()
+s.configure('Danger.TFrame', background='red', borderwidth=5, relief='raised')
+ttk.Frame(root, width=200, height=200, style='Danger.TFrame').grid()
+</code></pre>
+<h2 id="6.2-Label">6.2 Label</h2>
+<p><a href="https://tkdocs.com/man/ttk_label">https://tkdocs.com/man/ttk_label</a></p>
+<h3 id="Displaying-Text">Displaying Text</h3>
+<p>一般来说，Label显示的文本无需改变，只要在创建的时候直接赋值就可以了。</p>
+<pre><code class="language-python">label = ttk.Label(parent, text='Full name:')
+</code></pre>
+<p>若需要动态监控和变化Label文本，则可以使用Tk提供的<code>StringVar</code>来实现：</p>
+<pre><code class="language-python">resultsContents = StringVar()
+label['textvariable'] = resultsContents
+resultsContents.set('New value to display')
+</code></pre>
+<h3 id="Displaying-Images">Displaying Images</h3>
+<p>Label也可显示图片：</p>
+<pre><code class="language-python">image = PhotoImage(file='myimage.gif')
+label['image'] = image
+</code></pre>
+<p>Label也可以同时显示图片和文本，这是通过<code>compound</code>配置选项实现的。此选项的默认值为<code>none</code>，意味着有图片时显示图片，没有图片时显示<code>text</code>或<code>textvariable</code>选项所设置的文本。<br />
+<code>compound</code>选项的其它可能值为：</p>
+<ul>
+<li>text：仅文本；</li>
+<li>image：仅图片；</li>
+<li>center：文本在图片中心；</li>
+<li>top：图片在文本上；</li>
+<li>left：</li>
+<li>bottom：</li>
+<li>right：</li>
+</ul>
+<h3 id="Fonts,-Colors,-and-More">Fonts, Colors, and More</h3>
+<p>可以使用<code>Font</code>配置选项来改变Label的字体。<br />
+字体不是跨平台的，用时要小心。<br />
+下面是一些Tk预定义的字体：</p>
+<ul>
+<li>TkDefaultFont: Default for all GUI items not otherwise specified.</li>
+<li>TkTextFont: Used for entry widgets, listboxes, etc.</li>
+<li>TkFixedFont: A standard fixed-width font.</li>
+<li>TkMenuFont: The font used for menu items.</li>
+<li>TkHeadingFont: A font for column headings in lists and tables.</li>
+<li>TkCaptionFont: A font for window and dialog caption bars.</li>
+<li>TkSmallCaptionFont: Smaller captions for subwindows or tool dialogs.</li>
+<li>TkIconFont: A font for icon captions.</li>
+<li>TkTooltipFont: A font for tooltips.</li>
+</ul>
+<p>可以用<code>background</code>和<code>foreground</code>配置选项修改字体的前景色（即字体颜色）/背景色。<br />
+还可以使用<code>relief</code>配置选项修改边界样式。</p>
+<h3 id="Layout">Layout</h3>
+<p>虽然整体布局是由geometry manager决定的，但还是有些选项可以帮助你控制Label在geometry manager产生的矩形中的位置</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

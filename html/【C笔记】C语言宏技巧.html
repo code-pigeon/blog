@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{title}}</title>
+	<title>【C笔记】C语言宏技巧</title>
 	<link href="../css/index.css" rel="stylesheet">
 	<!-- syntax highlighting -->
-	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -23,7 +23,30 @@
 		    </ul>
 		</nav>
 	</header>
-	<div class=fluid> {{ md:markdown_file.md }}</div>
+	<div class=fluid> <h1 id="C语言宏技巧">C语言宏技巧</h1>
+<p>首次编辑：24/5/15/17:26<br />
+最后编辑：24/5/15/</p>
+<pre><code class="language-c++">/*
+	1、 需要以C的形式编译某些内容，但不知道源文件是C还是C++
+*/
+#ifdef __cplusplus
+extern &quot;C&quot; {
+#endif
+
+// C 语言代码或头文件包含
+
+#ifdef __cplusplus
+}
+#endif
+
+/*
+	2、 需要以C的形式编译某些内容，且已知源文件是c++文件
+*/
+extern &quot;C&quot; {
+	// C 语言代码或头文件包含
+}
+</code></pre>
+</div>
 
 	<div class="left-sidebar">
 		<div class="toc"></div>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【flask笔记】</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="flask笔记">flask笔记</h1>
+<h2 id="模板继承">模板继承</h2>
+<p><code>_header.html</code>：</p>
+<pre><code class="language-html">&lt;div&gt;
+    &lt;a href=&quot;https://www.baidu.com&quot;&gt;百度&lt;/a&gt;
+    &lt;a href=&quot;https://www.bilibili.com&quot;&gt;B站&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<p><code>index.html</code>：</p>
+<pre><code class="language-html">&lt;p&gt;通过下面方法添加别的模板文件&lt;/p&gt;
+{% include '_header.html' %}
+</code></pre>
+<blockquote>
+<p>部分模板一般用下划线开头，与完整的模板区分开来。</p>
+</blockquote>
+<h2 id="引入静态文件">引入静态文件</h2>
+<p>用<code>url_for</code>函数：</p>
+<pre><code class="language-html">&lt;img src=&quot;{{ url_for('static', filename='img/OIP-C.jpeg') }}&quot; alt=&quot;test&quot;&gt;
+</code></pre>
+<p><code>static/&lt;filename&gt;</code>会被flask自动整成一个路由，可以通过<code>域名/static/&lt;filename&gt;</code>来访问静态文件。</p>
+<h2 id="Bootstrap">Bootstrap</h2>
+<p><a href="https://getbootstrap.com/docs/4.0/getting-started/download/">链接</a><br />
+好像是个前端框架：Bootstrap是一个流行的前端开发框架，它提供了一系列的HTML、CSS和JavaScript工具，用于快速构建响应式网站和Web应用程序。</p>
+<h2 id="表单">表单</h2>
+<p>要使用的库</p>
+<pre><code class="language-python">from flask import request
+
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, PasswordField
+from wtforms.validators import DataRequired
+</code></pre>
+<p>先在app.py里定义表单类：</p>
+<pre><code class="language-python">class LoginForm(FlaskForm):
+    # StringField 构造函数中的可选参数 validators 指定一个由验证函数组成的列表，在接受
+    # 用户提交的数据之前验证数据。验证函数 Required() 确保提交的字段不为空。
+    username = StringField(label='Username', validators=[DataRequired()])
+    password = PasswordField(label='Password', validators=[DataRequired()])
+    # SubmitField 类表示属性为 type=&quot;submit&quot; 的 &lt;input&gt; 元素
+    submit = SubmitField(label='Log in')
+</code></pre>
+<p>接着需要在路由中使用该表单类：</p>
+<pre><code class="language-python">@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if request.method == 'POST':
+    	# 处理表单数据
+        print(request.form.get('username'))
+    return render_template('login.html', form=form)
+</code></pre>
+<p>同时在html文件中也要使用定义的表单：</p>
+<pre><code class="language-html">&lt;form method=&quot;post&quot;&gt;
+    {{ form.csrf_token }}
+    {{ form.username.label }}{{ form.username }}&lt;br&gt;
+    {{ form.password.label }}{{ form.password }}&lt;br&gt;
+    {{ form.submit }}&lt;br&gt;
+&lt;/form&gt;
+</code></pre>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IGNORE_MITos_chpt2</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h2 id="第2章-操作系统组织（Operating-system-organization）">第2章-操作系统组织（Operating system organization）</h2>
+<p>操作系统需要实现的三个需求：</p>
+<ol>
+<li>多路（multiplexing）：多个进程同时享有硬件资源；</li>
+<li>隔离（isolation）：不同进程之间相互隔离；</li>
+<li>交互（interaction）：不同进程之间的通信。</li>
+</ol>
+<p>有很多方式实现此三需求，但本书只讨论一种主流的设计：以单内核（monolithic kernel）为中心——这应用于很多Unix操作系统。</p>
+<p>XV6运行在多核RISC-V微处理器（multi-core1 RISC-V microprocessor）上，它的许多底层实现（如进程实现）是特定于RISC-V（一个64-bit CPU）的。<br />
+xv6是用“LP64”型C语言（这意味着<code>long</code>类型和指针是64-bit的数据，而<code>int</code>是32-bit的）写的。</p>
+<p>在一个完整的电脑中，CPU是被一堆支持硬件所包围的，这些硬件大多是以I/O接口形式存在的。<br />
+xv6的支持硬件是通过qemu“-machine virt”选项模拟出来的。<br />
+这些硬件包括RAM、包含boot代码的ROM、一系列与用户键盘和显示屏的连接设备、和一个用于存储的硬盘。</p>
+<h3 id="2.1-抽象物理资源（Abstracting-physical-resources）">2.1 抽象物理资源（Abstracting physical resources）</h3>
+<h3 id="2.2-用户模式、监督模式、系统调用">2.2 用户模式、监督模式、系统调用</h3>
+<p>强隔离要求操作系统和应用的分界是分明的：若应用出现错误，操作系统不应该崩溃、或影响其它应用执行，而应该清理错误的应用，且继续执行其它应用。<br />
+为实现强隔离，应用不得访问操作系统的数据结构或指令，也不得访问其它进程的内存。</p>
+<p>CPU提供了硬件支持强隔离。<br />
+例如RISC-V有三种CPU执行指令模式：机器模式、监督模式、用户模式（machine mode、supervisor mode、user mode）。</p>
+<p>在机器模式下执行的指令具有全部的权限。CPU在机器模式下启动。<br />
+机器模式主要用于配置电脑。xv6在机器模式下执行少数代码后便进入监督模式。</p>
+<p>在监督模式下，CPU可以执行特权指令（privileged instructions）。<br />
+例如，开中断、关中断、读写存有页表地址的寄存器等。<br />
+若处于用户模式的应用想要执行特权指令，则CPU终止该程序。</p>
+<blockquote>
+<p>应用仅可在用户模式下执行，称之为运行在用户空间下。<br />
+在监督模式下运行的软件（称此软件为内核——kernel）可以执行特权指令，称之为运行在内核空间下。</p>
+</blockquote>
+<p>若应用想调用内核函数（例如read系统调用），则必须切换到kernel（应用不可以直接调用内核函数）。<br />
+CPU提供了特殊的指令来将CPU从用户模式切换到监督模式，并从内核入口进入内核（RISC-V提供了<code>ecall</code>指令来实现这一功能）。</p>
+<blockquote>
+<p>切换到监督模式的内核入口是由内核决定的——否则可能会被恶意程序利用。</p>
+</blockquote>
+<p>一旦CPU切换到了监督模式，内核就可以验证系统调用的参数是否合法（例如验证系统调用的地址是否在应用内存范围之内），以决定是否让应用获取所需的操作。</p>
+<h3 id="2.3-内核组织（Kernel-organization）">2.3 内核组织（Kernel organization）</h3>
+<p>一个关键的设计问题是：操作系统的哪些部分应该运行在监督模式下？</p>
+<h4 id="单内核（monolithic-kernel）">单内核（monolithic kernel）</h4>
+<p>一个可能的回答是，整个操作系统都在内核中，故所有系统调用的实现都可以在监督模式下执行。<br />
+这种组织称为单内核（monolithic kernel）。</p>
+<p>这种组织下，整个操作系统都拥有完整的硬件权限。<br />
+这种组织很方便，因为OS设计者不需要关心操作系统的哪一部分需要完整的硬件权限。<br />
+此外，操作系统不同部分之间的协作也更加方便。</p>
+<blockquote>
+<p>例如，操作系统可能有可以被文件系统和虚拟内存系统共享的缓存。</p>
+</blockquote>
+<p>单内核的缺点是，这种组织下，操作系统中不同部分之间的接口十分复杂。因此，操作系统的开发人员容易犯错，而这种错误是致命的——在监督模式下的错误会导致内核出错，一旦内核出错，计算机将会崩溃，从而应用也会结束，此时就只能重启计算机了。</p>
+<h4 id="微内核（microkernel）">微内核（microkernel）</h4>
+<p>为减少内核出错率，OS设计师减少了在监督模式下运行的操作系统代码数量，而将大部分的操作系统运行在用户模式下，这就是微内核组织。</p>
+<p>文件系统以用户级别进程的形式运行。以进程形式运行的操作系统服务称为服务（servers）。<br />
+为了让其它应用能够与文件系统交互，内核提供了进程间通信机制，使得用户模式下的进程可以相互发送信息。</p>
+<blockquote>
+<p>例如，当应用（比如shell）想要读/写文件时，会向文件服务发送信息并等待回复。</p>
+</blockquote>
+<p>在微内核中，内核接口只由少量用于启动应用、发送消息、访问设备硬件等的低级别函数构成。<br />
+这种组织使内核相对简单，因为操作系统的大部分都属于用户水平的服务。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

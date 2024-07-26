@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Windows下fgets对于CTRL+Z输入的响应</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="Windows下fgets对于CTRL+Z输入的响应">Windows下fgets对于CTRL+Z输入的响应</h1>
+<p>首次编辑：2024/6/30/14:49<br />
+最后编辑：2024/7/18</p>
+<h2 id="Windows下CTRL+Z在标准输入中的作用">Windows下CTRL+Z在标准输入中的作用</h2>
+<p>程序读入文件需要用一个“文件结束符”（通常记作<code>EOF</code>，即“End of File”）来标记文件的结尾，标准输入作为一个特殊的文件，同样也有它的<code>EOF</code>，它就是<code>ctrl + z</code>。</p>
+<p>在终端按下<code>ctrl</code>键，然后再按下<code>z</code>键即可以输入<code>EOF</code>，在终端会显示<code>^Z</code>，但它实际上和手动输入的<code>^</code>加上<code>Z</code>并不相同，前者为1个字符，后者为两个字符。</p>
+<p>但在使用C标准库的<code>fgets</code>读入一行命令行输入时，却发现<code>ctrl + z</code>并不总是会解释为<code>EOF</code>。</p>
+<p>在键入<code>ctrl + z</code>之前如果没有其它字符，才会被解释为<code>EOF</code>，若<code>ctrl + z</code>之前有其它字符，<code>fgets</code>根本不会结束，反而会继续等待用户输入。</p>
+<h2 id="循环读入用户输入的例子">循环读入用户输入的例子</h2>
+<pre><code class="language-c">char buf[64];
+
+printf(&quot;&gt;&gt; &quot;);
+while(fgets(buf, sizeof(buf), stdin)){
+	printf(&quot;你输入的是：&quot;);
+	puts(buf);
+	printf(&quot;&gt;&gt; &quot;);
+}
+
+if( feof(stdin)){
+	printf(&quot;文件到达末尾&quot;);
+}
+</code></pre>
+<p>在这个例子中，每次用户输入之前程序会输出提示符&quot;&gt;&gt; &quot;提示用户输入内容。</p>
+<p>如果输入常规的字符，<code>fgets</code>会立即结束，并输出读入的字符串。</p>
+<pre><code>&gt;&gt; jkl
+你输入的是：jkl
+
+&gt;&gt; 
+</code></pre>
+<p>只输入<code>ctrl + z</code>，<code>fgets</code>会结束，并返回<code>NULL</code>，使得循环结束。</p>
+<pre><code>&gt;&gt; ^Z
+文件到达末尾
+</code></pre>
+<p>但若先输入其它字符，再输入<code>ctrl + z</code>，<code>fgets</code>不会返回，而会继续等待用户输入。</p>
+<pre><code>&gt;&gt; jkl^Z
+
+</code></pre>
+<p>如果继续接入普通字符，并按下回车，会获得下面输出：</p>
+<pre><code>&gt;&gt; jkl^Z
+jkl
+你输入的是：jkl␦jkl
+
+&gt;&gt; 
+</code></pre>
+<p><code>ctrl + z</code>就对应那个镜像的问号“␦”。</p>
+<p>为了看看这其中到底发生了啥，还是需要直接查看字符的ascii值。</p>
+<h2 id="观察不同情况下`ctrl-+-z`对应字符的ascii值">观察不同情况下<code>ctrl + z</code>对应字符的ascii值</h2>
+<pre><code class="language-c">void print_buf_as_hex(char* p){
+	printf(&quot;\n&quot;);
+	while( *p ){
+		printf(&quot;%x &quot;,*p++);
+	}
+	printf(&quot;\n&quot;);
+}
+
+int main(){
+	char buf[64];
+
+	printf(&quot;&gt;&gt; &quot;);
+	while(fgets(buf, sizeof(buf), stdin)){
+		printf(&quot;你输入的是：&quot;);
+		print_buf_as_hex(buf);
+		printf(&quot;&gt;&gt; &quot;);
+	}
+
+	if( feof(stdin)){
+		printf(&quot;文件到达末尾&quot;);
+	}
+	return 0;
+}
+</code></pre>
+<p>首先是普通的输入：</p>
+<pre><code>&gt;&gt; jkl
+你输入的是：
+6a 6b 6c a
+&gt;&gt;
+</code></pre>
+<p><code>6a 6b 6c</code>对应<code>jkl</code>的ASCII值，后面的<code>a</code>对应换行符<code>\n</code>。</p>
+<p>单独的<code>ctrl + z</code>：</p>
+<pre><code>&gt;&gt; ^Z
+文件到达末尾
+</code></pre>
+<p>这种情况循环直接被跳过了，所以没有输入ascii值（不过非要看也是可以的，只不过<code>EOF</code>并不会被<code>fgets</code>读到<code>buf</code>中，所以不看也罢）。</p>
+<p>先输入“jkl”再输入<code>ctrl + z</code>：</p>
+<pre><code>&gt;&gt; jkl^Z
+jkl
+你输入的是：
+6a 6b 6c 1a 6a 6b 6c a
+&gt;&gt;
+</code></pre>
+<p>两处<code>6a 6b 6c</code>对应两处<code>jkl</code>，但它们中间却是个十六进制的<code>1a</code>。</p>
+<p>去查一下ASCII表，十六进制<code>1a</code>对应的是控制符<code>sub</code>（substitute），咱也不知道是啥作用。</p>
+<blockquote>
+<p>引用chatgpt：<br />
+ASCII 码中十六进制为 1A 的值表示 Substitute，通常缩写为 SUB。这个字符在 ASCII 控制字符中具有特定的含义：</p>
+</blockquote>
+<ul>
+<li>ASCII 控制字符：1A 是 ASCII 表中的一个控制字符，通常用于表示替换字符或作为文件传输中的特殊标记。</li>
+<li>功能：在文本处理中，SUB 通常用于表示不可打印字符或用于特殊用途，例如在早期的计算机和通信设备中，可能用于指示数据流的中断或结束。<br />
+总之，ASCII 十六进制为 1A 的值 SUB 表示替换字符，其具体的使用取决于特定的应用和上下文。</li>
+</ul>
+<p>在一个<a href="https://blog.csdn.net/i6223671/article/details/89041492">网友的博客</a>下找到了答案：</p>
+<blockquote>
+<p>windows下的ctrl+z用来作为结束输入输出流的标值，控制台读入字符^Z，只有另起一行放在行首才会起作用，否则表示结束本行……</p>
+</blockquote>
+<h2 id="常见的解释性语言对此问题的处理">常见的解释性语言对此问题的处理</h2>
+<p>结论已经有了，<code>ctrl + z</code>只有放在行首时才表示<code>EOF</code>，于是我想到了各大解释性语言对这个问题的处理，像python、lua甚至是java的交互式命令行工具jshell。</p>
+<h3 id="python">python</h3>
+<p>实验结果发现python非常的智能：</p>
+<pre><code>&gt;&gt;&gt; jkl^Z
+  File &quot;&lt;stdin&gt;&quot;, line 1
+    jkl␦
+       ^
+SyntaxError: invalid non-printable character U+001A
+&gt;&gt;&gt;
+</code></pre>
+<p>读到<code>ctrl + z</code>之后直接就报错了。</p>
+<h3 id="lua">lua</h3>
+<p>相比之下，lua就逊色一些，表现和我们的实验一模一样，似乎它的交互式命令行就是用<code>fgets</code>写的：</p>
+<pre><code>&gt; jkl^Z
+
+(这是在第二行等待输入)
+</code></pre>
+<p>继续输入之后：</p>
+<pre><code>&gt; jkl^Z
+jkl
+stdin:1: syntax error near '&lt;\26&gt;'
+&gt; 
+</code></pre>
+<h3 id="jshell">jshell</h3>
+<p>jshell就很霸气，直接禁用了<code>ctrl + z</code>（根本无法输入这个字符）。</p>
+<p>然后我就在思考jshell用什么退出呢，试了一下<code>ctrl + d</code>（Linux的<code>EOF</code>），果不其然马上退出了。</p>
+<p>但如果先输入字符再输入<code>ctrl + d</code>就没用了，输入任意字符之后<code>ctrl + d</code>会被禁用。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

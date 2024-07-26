@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Windows命令行不加解释器和文件后缀名直接运行Python脚本</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="Windows命令行不加解释器和文件后缀名直接运行Python脚本">Windows命令行不加解释器和文件后缀名直接运行Python脚本</h1>
+<p>首次编辑：24/2/29/20:30<br />
+最后编辑：24/2/25/20:44</p>
+<h2 id="引子">引子</h2>
+<p>都知道Windows cmd中，运行可执行文件和bat时，可以直接输入不带后缀的文件名。</p>
+<pre><code class="language-bat">rem 运行main.exe
+main
+
+rem 运行mybat.bat
+mybat
+</code></pre>
+<p>而执行python脚本时，却需要指明python作为解释器，而且文件要有后缀名。</p>
+<pre><code class="language-bat">rem 当然首先需要python所在目录在环境变量PATH中
+python script.py
+</code></pre>
+<p>这样对于运行python脚本无疑带来了麻烦。</p>
+<h2 id="方法">方法</h2>
+<p>看了很多资料博客，也问了chatGPT，最后总结出了最简单有效的方式。</p>
+<p>简洁版：</p>
+<ol>
+<li>在<code>PATHEXT</code>环境变量中添加<code>.PY;</code>；</li>
+<li>将<code>.py</code>文件的默认应用设置为python。</li>
+</ol>
+<p>详细版（win11）：</p>
+<ol>
+<li><code>win</code>+<code>s</code>，搜索环境变量，点击“编辑系统环境变量”，在弹出的窗口中点击右下角的“环境变量”。在“系统变量”中寻找<code>PATHEXT</code>，双击，在变量值的最前面加上<code>.PY;</code>。然后确定退出。</li>
+<li><code>win</code>+<code>s</code>，搜索默认应用，在第一个搜索框中输入<code>.py</code>，如果下面出现的应用不是Python，就点击它，在弹出的窗口中选择python。</li>
+</ol>
+<h2 id="后记">后记</h2>
+<p>寻找解决办法期间还涉猎了些关于命令行的<code>ftype</code>和<code>assoc</code>的知识，还找到了注册表里，但那些太复杂，而且设置默认应用时到最后可能也没效果，真正立竿见影的方法只有在带图形界面的默认应用选项中设置。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

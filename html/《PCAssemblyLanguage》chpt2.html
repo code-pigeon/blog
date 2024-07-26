@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>《PCAssemblyLanguage》chpt2</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <p><a href="http://pacman128.github.io/static/pcasm-book.pdf">《PC Assembly Language》</a><a href="http://pacman128.github.io/">Paul A. Carter</a></p>
+<h2 id="第2章-基础汇编语言Basic-Assembly-Language">第2章-基础汇编语言Basic Assembly Language</h2>
+<h3 id="2.1-使用整型（Working-with-Integers）">2.1 使用整型（Working with Integers）</h3>
+<h4 id="2.1.1-整型的表示（Integer-representation）">2.1.1 整型的表示（Integer representation）</h4>
+<p>unsigned integers；<br />
+signed integers：</p>
+<ul>
+<li>signed magnitude（原码）</li>
+<li>one's complement（反码）</li>
+<li>two's complement（补码）</li>
+</ul>
+<h4 id="2.1.2-符号扩展（Sign-extension）">2.1.2 符号扩展（Sign extension）</h4>
+<h5 id="缩短数据长度（Decreasing-size-of-data）">缩短数据长度（Decreasing size of data）</h5>
+<p>直接丢弃高位数据即可：</p>
+<pre><code class="language-assembly">mov ax, 0034h ; ax = 52 (stored in 16 bits)
+mov cl, al ; cl = lower 8-bits of ax
+</code></pre>
+<p>若该数据无法用更小的长度表示，这种转化就会出现错误。</p>
+<p>对于无符号数，当丢弃的高位全为0时，转化就是正确的；<br />
+对于有符号数，丢弃的高位全为0或者全为1，且第一个不被丢弃的位与被丢弃的位的值一样时，转化才是正确的。</p>
+<h5 id="增加数据长度（Increasing-size-of-data）">增加数据长度（Increasing size of data）</h5>
+<p>对于无符号数，直接在高位补0即可；<br />
+对于有符号数，若符号位为0，则高位补0，若符号位为1，则高位补1；</p>
+<p>80386提供了许多数字扩展指令。</p>
+<blockquote>
+<p>记住计算机并不知道数据是否有符号，这都需要程序员自己去考虑。</p>
+</blockquote>
+<p><strong>对于无符号数</strong>，可以直接用<code>mov</code>指令把0传入高位比特。<br />
+例如，将AL中的一个字节扩展为AX的一个字：</p>
+<pre><code class="language-assembly">mov ah, 0 ; zero out upper 8-bits
+</code></pre>
+<p>但无法用<code>mov</code>指令将AX中的一个字长度的无符号数转化为EAX中的双字长度的无符号数。<br />
+这是因为没有办法直接访问EAX的高16位。</p>
+<p>为解决此问题，80386提供了<code>movzx</code>指令，此指令接收两个操作数：第一个操作数（目的操作数，destination）是16-bit或者32-bit的寄存器；第二个操作数（源操作数，source）可以是8-bit或16-bit寄存器，也可以是1字节或1个字的内存。<br />
+另外此指令要求目的操作数的长度必须大于源操作数（多数指令要求两操作数长度相等）</p>
+<p>例如：</p>
+<pre><code class="language-assembly">movzx eax, ax ; extends ax into eax
+movzx eax, al ; extends al into eax
+movzx ax, al ; extends al into ax
+movzx ebx, ax ; extends ax into ebx
+</code></pre>
+<p><strong>对于有符号数</strong>，用<code>mov</code>无法实现扩展。</p>
+<p>但8086提供了一些指令扩展有符号数。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>翻译</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CBW</td>
+<td>Convert Byte to Word</td>
+<td>将AL扩展为AX</td>
+</tr>
+<tr>
+<td>CWD</td>
+<td>Convert Word to Double word</td>
+<td>将DX扩展为DX:AX</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>记住8086没有32位寄存器。所以只能将DX:AX两个16-bit寄存器看成一个32-bit寄存器。</p>
+</blockquote>
+<p>80386增加了一些指令扩展有符号数。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>翻译</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CWDE</td>
+<td>Convert Word to Double word Extended</td>
+<td>将AX扩展为EAX</td>
+</tr>
+<tr>
+<td>CDQ</td>
+<td>Convert Double word to Quad word</td>
+<td>将EAX扩展为EDX:EAX</td>
+</tr>
+<tr>
+<td>MOVSX</td>
+<td></td>
+<td>（像MOVZX那样工作，但是针对有符号数）</td>
+</tr>
+</tbody>
+</table>
+<h5 id="应用到C语言（Application-to-C-programming）">应用到C语言（Application to C programming）</h5>
+<p><strong>例1</strong></p>
+<pre><code class="language-c">unsigned char uchar = 0xFF;
+signed char schar = 0xFF;
+int a = (int ) uchar; // a = 255 (0x0000FF)
+int b = (int ) schar ; // b = −1 (0xFFFFFFFF)
+</code></pre>
+<blockquote>
+<p>ANSI C并没有规定char类型是有符号的还是无符号的，故交由不同编译器去决定这一点。这就是为什么在此例中显式地定义了char类型有无符号。</p>
+</blockquote>
+<p>在此例中，第三行的数据运用了无符号数的扩展规则扩展（movzx），第四行用有符号数的规则扩展（movsx）。</p>
+<p><strong>例2</strong></p>
+<pre><code class="language-c">char ch;
+while( (ch = fgetc(fp )) != EOF ) {
+	// do something with ch
+}
+</code></pre>
+<p>这段代码暗含一个常见bug。</p>
+<p><code>fgetc</code>的函数原型（prototype）是：</p>
+<pre><code class="language-c">int fgetc( FILE * );
+</code></pre>
+<p>可是<code>fgetc</code>读的明明是字符，为什么返回<code>int</code>呢？<br />
+原因是通常fgetc确实返回字符，但当读到文件结尾时，它就会返回一个EOF宏（通常定义为-1）。所以<code>fgetc</code>要么返回一个由char扩展而来的int（在16进制下为000000xx），要么返回EOF（在16进制下为FFFFFFFF）。</p>
+<p>fgetc返回int，但在例2中却用char类型存储这个int。C语言在这时会将int的高位截断。问题在于<code>000000FF</code>和<code>FFFFFFFF</code>都会被截断为<code>FF</code>，while循环的判断如何区分这两者呢。</p>
+<p>关键在于，char类型是否有符号。<br />
+在while循环的判断中，ch与EOF作对比。因为EOF是int类型值，所以为了与EOF比较，ch会被扩展为int（这样两者才拥有相同长度）。</p>
+<p>若char是无符号的，<code>FF</code>就会被扩展为<code>000000FF</code>，与EOF（即<code>FFFFFFFF</code>）进行比较，发现不相等。于是while循环永不终止！</p>
+<p>若char是有符号的，<code>FF</code>就会被扩展为<code>FFFFFFFF</code>。如此一来，循环可以终止，但新的问题是，<code>FF</code>也可能是由某个不是EOF的字符截断而来，这样就无法保证只有读到文件结尾时才终止循环。</p>
+<p>所以应该将ch定义为char类型而非int类型，才不会出现上述问题。</p>
+<h4 id="2.1.3-补码运算（Two’s-complement-arithmetic）">2.1.3 补码运算（Two’s complement arithmetic）</h4>
+<h5 id="加减运算">加减运算</h5>
+<p><code>add</code>指令用于加法，<code>sub</code>指令用于减法。<br />
+这两个指令的执行将会影响标志寄存器中的溢出位（overflow）和进位（carry flag）的值。<br />
+当计算结果太长时，溢出位将被置为1；当做加法时最高位（msb）有进位或做减法时最高位有借位时，进位将被置为1。<br />
+所以这两个标志位可以用于检测无符号运算时是否有溢出。<br />
+用补码运算时，加法与减法规则与无符号运算完全一致。<br />
+所以<code>add</code>和<code>sub</code>可以用于有符号和无符号的整数运算。</p>
+<h5 id="乘法运算">乘法运算</h5>
+<p><code>mul</code>用于计算有符号整数乘法；<br />
+<code>imul</code>用于计算无符号整数乘法。</p>
+<blockquote>
+<p>FF这个1字节的数据，在有符号数中是255，无符号数中是-1。若两个FF相乘，有符号数情况下将得到255×255=65025（八进制为FE01）；无符号数情况下将得到-1×-1=1（八进制为0001）。所以需要不同的指令处理这两种情况。</p>
+</blockquote>
+<p>乘法指令有很多形式，最古老的形式为：<br />
+<code>mul source</code></p>
+<blockquote>
+<p>source可以是寄存器或内存，但不能为立即数。</p>
+</blockquote>
+<ul>
+<li>若操作数为1B长度，则与AL寄存器的值相乘，结果存储在2B的AX中</li>
+<li>若操作数为2B长度，则与AX相乘，结果存储在DX:AX中。</li>
+<li>若操作数为4B长度，则与EAX相乘，结果存储在EDX:EAX中。</li>
+</ul>
+<p><code>imul</code>指令的格式与<code>mul</code>相似，还增加了2操作数和3操作数格式。</p>
+<pre><code class="language-assembly">imul dest, source1
+imul dest, source1, source2
+</code></pre>
+<p>下表是可能的组合：</p>
+<table>
+<thead>
+<tr>
+<th>dest</th>
+<th>source1</th>
+<th>source2</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>reg/mem8</td>
+<td></td>
+<td>AX = AL×source1</td>
+</tr>
+<tr>
+<td></td>
+<td>reg/mem16</td>
+<td></td>
+<td>DX:AX = AX×source1</td>
+</tr>
+<tr>
+<td></td>
+<td>reg/mem32</td>
+<td></td>
+<td>EDX:EAX = EAX×source1</td>
+</tr>
+<tr>
+<td>reg16</td>
+<td>reg/mem16</td>
+<td></td>
+<td>dest ×= source1</td>
+</tr>
+<tr>
+<td>reg32</td>
+<td>reg/mem32</td>
+<td></td>
+<td>dest ×= source1</td>
+</tr>
+<tr>
+<td>reg16</td>
+<td>immed8</td>
+<td></td>
+<td>dest ×= immed8</td>
+</tr>
+<tr>
+<td>reg32</td>
+<td>immed8</td>
+<td></td>
+<td>dest ×= immed8</td>
+</tr>
+<tr>
+<td>reg16</td>
+<td>immed16</td>
+<td></td>
+<td>dest ×= immed16</td>
+</tr>
+<tr>
+<td>reg32</td>
+<td>immed32</td>
+<td></td>
+<td>dest ×= immed32</td>
+</tr>
+<tr>
+<td>reg16</td>
+<td>reg/mem16</td>
+<td>immed8</td>
+<td>dest = source1×source2</td>
+</tr>
+<tr>
+<td>reg32</td>
+<td>reg/mem32</td>
+<td>immed8</td>
+<td>dest = source1×source2</td>
+</tr>
+<tr>
+<td>reg16</td>
+<td>reg/mem16</td>
+<td>immed16</td>
+<td>dest = source1×source2</td>
+</tr>
+<tr>
+<td>reg32</td>
+<td>reg/mem32</td>
+<td>immed32</td>
+<td>dest = source1×source2</td>
+</tr>
+</tbody>
+</table>
+<h5 id="除法运算">除法运算</h5>
+<p>有符号数：<code>div</code>；<br />
+无符号数：<code>idiv</code>。</p>
+<p>格式为：<code>div source</code>。</p>
+<ul>
+<li>若source为1B，执行AX/source，商存于AL中，余数存于AH。</li>
+<li>若source为2B，执行DX:AX/source，商存于AX，余数存于DX。</li>
+<li>若source为4B，执行EDX:EAX/source，商存于EAX，余数存于EDX。</li>
+</ul>
+<p><code>idiv</code>的格式与<code>div</code>相同。</p>
+<blockquote>
+<p>若商太大了，寄存器无法存放，或者除数为0，程序将中断并终止。<br />
+一个常见的错误是做除法前忘记初始化DX或EDX。</p>
+</blockquote>
+<h5 id="取倒数运算">取倒数运算</h5>
+<p><code>neg operand</code>，operand可以是1B、2B、4B寄存器者内存。</p>
+<h4 id="2.1.5-扩充精度运算（Extended-precision-arithmetic）">2.1.5 扩充精度运算（Extended precision arithmetic）</h4>
+<p>长度大于4B的数据的加减法需借助指令：<code>adc</code>和<code>sbb</code>。<br />
+<code>adc</code>计算原理：</p>
+<blockquote>
+<p>opreand1 = operand1 + carry flag + operand2</p>
+</blockquote>
+<p><code>sbb</code>：</p>
+<blockquote>
+<p>operand1 = operand1 - carry flag - operand2</p>
+</blockquote>
+<p>计算方法：<br />
+若参与计算的8B整型值分别存储在EDX:EAX和EBX:ECX中<br />
+则</p>
+<pre><code class="language-assembly">add eax, ecx ; add lower 32-bits
+adc edx, ebx ; add upper 32-bits and carry from previous sum
+</code></pre>
+<p>将计算出其和并存储在EDX:EAX中；</p>
+<pre><code class="language-assembly">sub eax, ecx ; subtract lower 32-bits
+sbb edx, ebx ; subtract upper 32-bits and borrow
+</code></pre>
+<p>将计算EBX:ECX - EDX:EAX并存储在EDX:EAX中.</p>
+<p>对于更长的数字，可以使用循环，在循环中使用<code>adc</code>指令来计算和差。<br />
+可以在循环开始前使用<code>clc</code>（CLear Carry）指令来清空进位。当进位为0时，<code>add</code>与<code>adc</code>指令的效果是相同的。<br />
+同样的思想可以运用于减法。</p>
+<h3 id="2.2-控制结构（Control-Structures）">2.2 控制结构（Control Structures）</h3>
+<h4 id="2.2.1-比较（Comparisons）">2.2.1 比较（Comparisons）</h4>
+<p><code>cmp A B</code>执行A-B，但不会保存结果，只根据结果修改标志寄存器内容。</p>
+<ul>
+<li>对于无符号数：（当减法有借位时，CF就会置1）
+<ul>
+<li>若A=B，ZF = 1、CF = 0</li>
+<li>若A&gt;B，ZF = 0、CF = 0</li>
+<li>若A&lt;B,ZF = 0、CF = 1</li>
+</ul>
+</li>
+<li>对于有符号数：（影响SF，signed flag、OF，overflow flag）
+<ul>
+<li>若A=B，ZF = 1</li>
+<li>若A&gt;B，ZF = 0、SF = OF</li>
+<li>若A&lt;B,ZF = 0、CF =/= OF</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>别忘了其它指令也能改变标志寄存器信息。</p>
+</blockquote>
+<h4 id="2.2.2-分支指令">2.2.2 分支指令</h4>
+<table>
+<thead>
+<tr>
+<th>分支指令类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JMP [code label]</td>
+<td>无条件跳转</td>
+</tr>
+<tr>
+<td>JZ</td>
+<td>branches only if ZF is set</td>
+</tr>
+<tr>
+<td>JNZ</td>
+<td>branches only if ZF is unset</td>
+</tr>
+<tr>
+<td>JO</td>
+<td>branches only if OF is set</td>
+</tr>
+<tr>
+<td>JNO</td>
+<td>branches only if OF is unset</td>
+</tr>
+<tr>
+<td>JS</td>
+<td>branches only if SF is set</td>
+</tr>
+<tr>
+<td>JNS</td>
+<td>branches only if SF is unset</td>
+</tr>
+<tr>
+<td>JC</td>
+<td>branches only if CF is set</td>
+</tr>
+<tr>
+<td>JNC</td>
+<td>branches only if CF is unset</td>
+</tr>
+<tr>
+<td>JP</td>
+<td>branches only if PF is set</td>
+</tr>
+<tr>
+<td>JNP</td>
+<td>branches only if PF is unset</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>PF（parity flag）为奇偶标志位。</p>
+</blockquote>
+<p><code>short jmp \[code label\]</code>：只可以向前/后跳转128B，因为它只用1个有符号的字节记录跳转位移。</p>
+<p><code>near \[分支类型指令\] \[code label\]</code>：就是默认的跳转类型，可以跳转至内存中的任何位置。</p>
+<p><code>far \[分支类型指令\] \[code label\]</code>：可以跨端跳转（几乎用不着）</p>
+<p>同时还有一些更易读的指令：</p>
+<table>
+<thead>
+<tr>
+<th>Signed</th>
+<th>Unsigned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JE branches if vleft = vright</td>
+<td>JE branches if vleft = vright</td>
+</tr>
+<tr>
+<td>JNE branches if vleft != vright</td>
+<td>JNE branches if vleft != vright</td>
+</tr>
+<tr>
+<td>JL, JNGE branches if vleft &lt; vright</td>
+<td>JB, JNAE branches if vleft &lt; vright</td>
+</tr>
+<tr>
+<td>JLE, JNG branches if vleft ≤ vright</td>
+<td>JBE, JNA branches if vleft ≤ vright</td>
+</tr>
+<tr>
+<td>JG, JNLE branches if vleft &gt; vright</td>
+<td>JA, JNBE branches if vleft &gt; vright</td>
+</tr>
+<tr>
+<td>JGE, JNL branches if vleft ≥ vright</td>
+<td>JAE, JNB branches if vleft ≥ vright</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2.2.3-循环指令（The-loop-instructions）">2.2.3 循环指令（The loop instructions）</h4>
+<p>80x86提供了很多实现类似for循环的指令，它们都接收一个代码标签作为唯一的操作数。</p>
+<ul>
+<li><code>loop</code>：ECX中的数值减1，若ECX≠0，跳转到标签处；</li>
+<li><code>loope</code>、<code>loopz</code>：ECX中的数值减1（FLAGS寄存器不会被修改），若ECX≠0且ZF=1，跳转；</li>
+<li><code>loopne</code>、<code>loopnz</code>：ECX中的数值减1（FLAGS寄存器不会被修改），若ECX≠0且ZF=0，跳转；</li>
+</ul>
+<p>后两条指令擅长顺序搜索循环，例如：</p>
+<pre><code class="language-c">sum = 0;
+for( i=10; i &gt;0; i−− )
+	sum += i;
+</code></pre>
+<p>可以转化为</p>
+<pre><code class="language-assembly">	mov eax, 0 ; eax is sum
+	mov ecx, 10 ; ecx is i
+loop_start:
+	add eax, ecx
+	loop loop_start
+</code></pre>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

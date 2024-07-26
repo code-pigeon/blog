@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IGNORE_javaWithoutIDE</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="不用IDE开发Java">不用IDE开发Java</h1>
+<h2 id="环境配置">环境配置</h2>
+<h2 id="编译/运行文件">编译/运行文件</h2>
+<pre><code class="language-bash"># 编译Main.java，生成Main.class
+javac Main.java
+
+# 执行Main.class（注意，不用加后缀，否则报错）
+java Main  
+java Main hh arg2  # 执行Main并传入命令行参数&quot;hh&quot;和&quot;arg2&quot;
+
+
+# 若项目文件下有多个java文件：
+# Main.java  Human.java
+# 且Main.java中调用了Human.java
+# 则直接执行javac Main.java，Human.java也会被编译
+
+
+# 在给定路径中寻找并执行.class文件
+java -cp .;entity Main  # 表示在当前目录下和entity文件夹下寻找class文件并执行，其中分号;为路径分割符（Windows），linux下为冒号:
+
+# 在给定路径中寻找并编译.java文件
+javac -cp .;entity Main.java
+
+
+# 编译java文件，并将其放置到指定路径中
+javac -d /bin Main.java
+</code></pre>
+<h2 id="查看字节码信息">查看字节码信息</h2>
+<pre><code class="language-bash">javap -c Main  # 查看Main.class的字节码信息
+</code></pre>
+<h2 id="jar相关">jar相关</h2>
+<pre><code class="language-bash"># 打包为jar
+jar cvf MyLib.jar Human.class Animal.class
+
+# 执行引用了jar的Main.class
+java -cp entity/MyLib.jar;. Main
+
+# 编译引用了jar的Main.java
+javac -cp entity/MyLib.jar;. Main.java
+</code></pre>
+<h2 id="package相关">package相关</h2>
+<pre><code class="language-bash"># 若Main.java在项目文件夹下，但Main.java并纳入包example中
+# 即在Main.java中有&quot;package example&quot;这行代码
+# 则应当新建文件夹example，并将Main.java移动到该文件夹中
+# 此时项目结构为
+# .\
+#  |- bin\
+#  |- example\
+#  |         \- Main.java
+#  |
+# （假设bin是我们想要放置Main.class的文件夹）
+# 然后在当前文件夹下编译Main.java
+javac -d bin example/Main.java
+# 此时项目结构为
+# .\
+#  |- bin\
+#  |     \ - Main.class
+#  |- example\
+#  |         \- Main.java
+#  |
+# 此时在当前文件夹下执行Main.class
+java -cp bin example.Main  # 必须加上example.因为包是文件的一部分
+</code></pre>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

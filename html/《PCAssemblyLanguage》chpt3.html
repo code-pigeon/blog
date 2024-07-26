@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>《PCAssemblyLanguage》chpt3</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <p><a href="http://pacman128.github.io/static/pcasm-book.pdf">《PC Assembly Language》</a><a href="http://pacman128.github.io/">Paul A. Carter</a></p>
+<h2 id="第3章-位操作Bit-Operations">第3章-位操作Bit Operations</h2>
+<h3 id="3.1-位移（Shift-Operations）">3.1 位移（Shift Operations）</h3>
+<h4 id="3.1.1-逻辑位移（Logical-shifts）">3.1.1 逻辑位移（Logical shifts）</h4>
+<p>逻辑位移中，新增的bit位总是0。</p>
+<pre><code>逻辑右移：
+			0101011
+shr 1 --&gt;	0010101
+
+逻辑左移：
+			0101011
+shl 1 --&gt;	1010110
+
+</code></pre>
+<p>在汇编语言中，用<code>shr</code>和<code>shl</code>来执行逻辑位移操作。<br />
+位移的位数可以是立即数，也可以是存放在<code>CL</code>寄存器中的数字。</p>
+<p>最后一个被移出的bit位会被存入进位标志位（carry flag）中。</p>
+<pre><code class="language-assembly">mov ax, 0C123H
+shl ax, 1 ; shift 1 bit to left, ax = 8246H, CF = 1
+shr ax, 1 ; shift 1 bit to right, ax = 4123H, CF = 0
+shr ax, 1 ; shift 1 bit to right, ax = 2091H, CF = 1
+mov ax, 0C123H
+shl ax, 2 ; shift 2 bits to left, ax = 048CH, CF = 1
+mov cl, 3
+shr ax, cl ; shift 3 bits to right, ax = 0091H, CF = 1
+</code></pre>
+<blockquote>
+<p>位移操作速度比<code>mul</code>和<code>div</code>快得多，而乘法和除法又可以通过位移实现。<br />
+故可以用逻辑位移实现<strong>无符号数</strong>的乘法和除法。</p>
+</blockquote>
+<h4 id="3.1.3-算术位移（Arithmetic-shifts）">3.1.3 算术位移（Arithmetic shifts）</h4>
+<ul>
+<li><code>sal</code>：就是<code>shl</code>，一模一样；</li>
+<li><code>sar</code>：新增加的比特位将会和符号位保持一致。</li>
+</ul>
+<h4 id="3.1.4-循环位移（Rotate-shifts）">3.1.4 循环位移（Rotate shifts）</h4>
+<h3 id="3.2-布尔位操作（Boolean-Bitwise-Operations）">3.2 布尔位操作（Boolean Bitwise Operations）</h3>
+<h4 id="3.2.1-与（The-AND-operation）">3.2.1 与（The AND operation）</h4>
+<pre><code class="language-assembly">mov ax, 0C123H
+and ax, 82F6H ; ax = 8022H
+</code></pre>
+<h4 id="3.2.2-或（The-OR-operation）">3.2.2 或（The OR operation）</h4>
+<pre><code class="language-assembly">mov ax, 0C123H
+or ax, 0E831H ; ax = E933H
+</code></pre>
+<h4 id="3.2.3-亦或（The-XOR-operation）">3.2.3 亦或（The XOR operation）</h4>
+<pre><code class="language-assembly">mov ax, 0C123H
+xor ax, 0E831H ; ax = 2912H
+</code></pre>
+<h4 id="3.2.4-取反（The-NOT-operation）">3.2.4 取反（The NOT operation）</h4>
+<p>不同与上面的指令，取反指令是一元操作（只有一个操作数），且不会影响FLAGS寄存器的数值</p>
+<blockquote>
+<p>意思是其它指令都会影响FLAGS寄存器的数值</p>
+</blockquote>
+<pre><code class="language-assembly">mov ax, 0C123H
+not ax ; ax = 3EDCH
+</code></pre>
+<h4 id="3.2.5-测试（The-TEST-instruction）">3.2.5 测试（The TEST instruction）</h4>
+<p>同<code>and</code>指令，但是不存储计算结果，只根据结果修改FLAGS寄存器的数值。</p>
+<blockquote>
+<p>比如结果为0时，ZF会被置为1。</p>
+</blockquote>
+<h4 id="3.2.6-布尔操作的用途（Uses-of-boolean-operations）">3.2.6 布尔操作的用途（Uses of boolean operations）</h4>
+<h5 id="主要用途">主要用途</h5>
+<ul>
+<li>将第i位置为1：与2的i次方（此数字的2进制只有第i位是1）进行<code>or</code>操作；</li>
+<li>将第i位置为0：与只有第i位是0的2进制数（此数通常称为掩码，mask）进行<code>and</code>操作；</li>
+<li>对第i位取反：与2的i次方（此数字的2进制只有第i位是1）进行<code>xor</code>操作；</li>
+</ul>
+<pre><code class="language-assembly">mov ax, 0C123H
+or ax, 8 ; turn on bit 3, ax = C12BH
+and ax, 0FFDFH ; turn off bit 5, ax = C10BH
+xor ax, 8000H ; invert bit 31, ax = 410BH
+or ax, 0F00H ; turn on nibble, ax = 4F0BH
+and ax, 0FFF0H ; turn off nibble, ax = 4F00H
+xor ax, 0F00FH ; invert nibbles, ax = BF0FH
+xor ax, 0FFFFH ; 1’s complement, ax = 40F0H
+</code></pre>
+<blockquote>
+<p>nibble表示4位2进制数，即一个16进制数。</p>
+</blockquote>
+<h5 id="其它用途">其它用途</h5>
+<ol>
+<li><code>and</code>指令还可以用于计算以2的i次方作为除数的除法的余数。</li>
+</ol>
+<blockquote>
+<p>即a/b = c..d，b=2^i，可以用<code>and</code>计算d</p>
+</blockquote>
+<p>方法：被除数与数值上等于2^i-1的掩码相与，相与结果就是余数。<br />
+例如：</p>
+<pre><code class="language-assembly">mov eax, 100 ; 100 = 64H 被除数为100
+mov ebx, 0000000FH ; mask = 16 - 1 = 15 or F  除数为16，掩码为16-1 = 15，写成16进制就是F
+and ebx, eax ; ebx = remainder = 4 
+shr eax, 4 ; eax = quotient of eax/2^4 = 6
+</code></pre>
+<ol start="2">
+<li>使用CL寄存器可以操作任意数量的任意位。</li>
+</ol>
+<p>例1：将EAX中的任意一个位置为1，此位的位置存放在BH中。</p>
+<pre><code class="language-assembly">mov cl, bh ; first build the number to OR with
+mov ebx, 1
+shl ebx, cl ; shift left cl times
+or eax, ebx ; turn on bit
+</code></pre>
+<p>例2：将EAX中的任意一个位置为0，此位的位置存放在BH中。</p>
+<pre><code class="language-assembly">mov cl, bh ; first build the number to AND with
+mov ebx, 1
+shl ebx, cl ; shift left cl times
+not ebx ; invert bits
+and eax, ebx ; turn off bit
+</code></pre>
+<h5 id="一段奇怪的代码">一段奇怪的代码</h5>
+<pre><code class="language-assembly">xor eax, eax ; eax = 0
+</code></pre>
+<p>此代码用于将eax清零，因为任何数与自己亦或都是0。<br />
+之所以不用<code>mov eax 0</code>来清零是因为<code>xor</code>的机器码占用的字节数更短。</p>
+<h3 id="3.3-C语言的位操作（Manipulating-bits-in-C）">3.3 C语言的位操作（Manipulating bits in C）</h3>
+<h3 id="3.4-大小端表示（Big-and-Little-Endian-Representations）">3.4 大小端表示（Big and Little Endian Representations）</h3>
+<p>x86家族使用小端表示法。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

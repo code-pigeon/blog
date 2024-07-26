@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>C语言实现交互式终端</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="C语言实现交互式终端">C语言实现交互式终端</h1>
+<p>首次编辑：2024/6/21/14:34<br />
+最后编辑：2024/6/21/15:15</p>
+<h2 id="实现">实现</h2>
+<p>我们首先需要一个循环，能够循环读入用户在标准输入敲下的字符：</p>
+<pre><code class="language-c">int main()
+{
+	char buf[256];
+	while ( fgets(buf, sizeof(buf), stdin) != NULL){
+		// 在这里对读入的字符串进行处理
+	}
+	return 0;
+}
+</code></pre>
+<p>为了能够实现输入EOF（在Windows中是<code>ctrl + z</code>，Linux中是<code>ctrl + d</code>）退出循环，我舍弃了<code>scanf(&quot;%s&quot;) != EOF</code>这种读取输入的方式，因为在<code>%s</code>模式下，似乎无法很好地读入EOF。</p>
+<p>通常我们需要在输出命令之前输出一个命令行提示符，否则很难分清楚程序是正在等待输入还是卡死了：</p>
+<pre><code class="language-c">int main()
+{
+	char buf[256];
+	printf(&quot;&gt;&gt; &quot;);
+	while ( fgets(buf, sizeof(buf), stdin) != NULL){
+		// 在这里对读入的字符串进行处理
+		printf(&quot;&gt;&gt; &quot;);
+	}
+	return 0;
+}
+</code></pre>
+<p>到这里就可以在while循环中实现你想要对字符串进行的处理了。</p>
+<p>然而这里还有一个小陷阱。</p>
+<p>我们先观察一下这个程序读入的字符串长什么样子。在只输入ascii字符的情况下，用十六进制打印一下读入的字符串的ascii码：</p>
+<pre><code class="language-c">int main()
+{
+	char buf[32];
+	printf(&quot;&gt;&gt; &quot;);
+	while ( fgets(buf, sizeof(buf), stdin) != NULL){
+		for( int i = 0 ; i &lt; 32; i++){
+			printf(&quot;%2x &quot;, buf[i]);
+		}
+		printf(&quot;\n&quot;);
+		// 在这里对读入的字符串进行处理
+		printf(&quot;&gt;&gt; &quot;);
+	}
+	return 0;
+}
+</code></pre>
+<p>编译运行程序：</p>
+<pre><code>&gt;&gt; nihao
+6e 69 68 61 6f  a  0  0 20 ......
+&gt;&gt; haha
+68 61 68 61  a  0  0  0 ......
+&gt;&gt; 8345923489539
+38 33 34 35 39 32 33 34 38 39 35 33 39  a  0 66 ......
+</code></pre>
+<p>可以看到这些字符串都有共同的结尾<code>a 0</code>。</p>
+<p>在C语言里，字符串都以0（也就是<code>'\0'</code>）结尾，但<code>a</code>又是啥呢。</p>
+<p>查看ASCII表，可以发现，<code>a</code>表示LF，也就是换行符（<code>\n</code>）。因为我们每次输入的结束都是回车键，所以换行符自然就在字符串的末尾出现了。</p>
+<p>但大多数时候我们并不喜欢它出现在字符串末尾，所以需要替换掉它：</p>
+<pre><code class="language-c">int main()
+{
+	char buf[256];
+	printf(&quot;ASCII value of LF (\\n): %x\n&quot;, '\n');
+
+	printf(&quot;&gt;&gt; &quot;);
+	while ( fgets(buf, sizeof(buf), stdin) != NULL){
+		for( int i = 0 ; i &lt; 32; i++){
+			printf(&quot;%2x &quot;, buf[i]);
+		}
+		buf[strcspn(buf, &quot;\n&quot;)] = 0;  // 替换掉行末尾的换行符
+
+		// 在这里对读入的字符串进行处理
+
+		printf(&quot;&gt;&gt; &quot;);
+	}
+	return 0;
+}
+
+</code></pre>
+<p>到这里想要的功能就实现了。</p>
+<h2 id="例子">例子</h2>
+<p>最后给个判断输入是否为数字的例子：</p>
+<pre><code class="language-c">int is_number(char *str){
+	if(str == NULL){
+		return 0;
+	}
+
+	int i = 0;
+	if( !(str[i] &gt;= '0' &amp;&amp; str[i] &lt;= '9' ) ){
+		return 0;
+	}
+	i++;
+
+	while ( str[i] ){
+		switch(str[i++]){
+		case '0':case'1':case'2':case'3':case'4':
+		case'5':case'6':case'7':case'8':case'9':
+			continue;
+		default:
+			return 0;
+		case '.':
+		}
+		break;
+	}
+
+	while ( str[i] ){
+		switch(str[i++]){
+		case '0':case'1':case'2':case'3':case'4':
+		case'5':case'6':case'7':case'8':case'9':
+			continue;
+		default:
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int main()
+{
+	char buf[256];
+	printf(&quot;&gt;&gt; &quot;);
+	while ( fgets(buf, sizeof(buf), stdin) != NULL){
+		buf[strcspn(buf, &quot;\n&quot;)] = 0;
+
+		if( is_number(buf)){
+			printf(&quot;%s is number\n&quot;, buf);
+		}else{
+			printf(&quot;%s is not number\n&quot;, buf);
+		}
+
+		printf(&quot;&gt;&gt; &quot;);
+	}
+	return 0;
+}
+</code></pre>
+<p>效果如下：</p>
+<pre><code>&gt;&gt; .9
+.9 is not number
+&gt;&gt; 90.09
+90.09 is number
+&gt;&gt; 0.1.2
+0.1.2 is not number
+&gt;&gt; j
+j is not number
+</code></pre>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

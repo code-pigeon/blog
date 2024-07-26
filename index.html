@@ -3,10 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>index</title>
+	<title>首页</title>
 	<link href="css/index.css" rel="stylesheet">
 	<!-- syntax highlighting -->
-	<link rel="stylesheet" type="text/css" href="css/code_highlight.css ">
+	<link rel="stylesheet" type="text/css" href="css/code_highlight.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -16,21 +16,22 @@
 		<nav>
 		    <ul>
 		        <li><a href="index.html">首页</a></li>
-		        <li><a href="html/目录.html">目录</a></li>
+		        <li><a href="html/分类.html">分类</a></li>
+		        <li><a href="html/时间轴.html">时间轴</a></li>
 		        <!-- <li><a href="/contact">项目</a></li> -->
 		        <li><a href="https://github.com/code-pigeon">github</a></li>
 		    </ul>
 		</nav>
 	</header>
-	<div class=fluid> <h1>鸽子窝</h1>
+	<div class=fluid> <h1 id="鸽子窝">鸽子窝</h1>
 <blockquote>
 <p>欢迎来到鸽子窝</p>
 </blockquote>
 <!-- raw HTML omitted -->
-<h2>关于我</h2>
+<h2 id="关于我">关于我</h2>
 <p>暂时保密</p>
-<h2>技术相关</h2>
-<h3>建站环境和工具</h3>
+<h2 id="技术相关">技术相关</h2>
+<h3 id="建站环境和工具">建站环境和工具</h3>
 <ul>
 <li>环境
 <ul>
@@ -39,11 +40,11 @@
 </li>
 <li>工具
 <ul>
-<li>markdown解析：<a href="https://github.com/github/cmark-gfm">cmark-gfm</a>（cmark的分支）</li>
+<li>markdown解析和模板引擎：在开源的markdown解析器<a href="https://github.com/github/cmark-gfm">cmark-gfm</a>（cmark的分支）之上做了一些小修改，并且融合了自己写的简易模板引擎，做成了一个将模板引擎和markdown解析渲染功能合并起来的小工具。</li>
 <li>代码高亮：<a href="https://highlightjs.org/">highlight.js</a></li>
 <li>html目录：<a href="http://tscanlin.github.io/tocbot/">tocbot.js</a></li>
-<li>模板引擎：template_renderer（自己写的微型模板引擎）</li>
 </ul>
+<!-- raw HTML omitted -->
 </li>
 <li>其它
 <ul>
@@ -53,10 +54,22 @@
 </ul>
 </li>
 </ul>
-<h3>存在的问题</h3>
+<h3 id="存在的问题">存在的问题</h3>
 <p>暂未发现。</p>
-<h3>版本日志</h3>
+<h3 id="版本日志（开发视角）">版本日志（开发视角）</h3>
 <ul>
+<li>1.0.2
+<ul>
+<li>将markdown解析器和模板引擎融合成一个单独的应用；</li>
+<li>html的<code>id</code>属性的生成从前端js代码转移至后端——在cmark-gfm上进行细微修改，渲染为html时会自动增加<code>id</code>属性；</li>
+<li>抛弃了<code>html</code>文件夹下放置子文件夹的思路，现在的<code>.html</code>文件全部直接放置于<code>html</code>文件夹下（除了<code>index.html</code>）；</li>
+<li>渲染html页面时不再使用在构建脚本中计算相对路径的方式对静态资源文件进行定位，改为手动编写；</li>
+<li><code>index.html</code>和其它<code>.html</code>的模板分离，构建也分开处理；</li>
+<li>不再使用make作为构建脚本，转为python；</li>
+<li>新增“时间轴”目录，原来的目录取名为“分类”；</li>
+<li>开启了脚注功能，细微修改了脚注样式；</li>
+</ul>
+</li>
 <li>1.0.1
 <ul>
 <li>markdown解析器更改为cmark-gfm；</li>

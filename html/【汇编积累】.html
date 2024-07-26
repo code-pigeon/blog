@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【汇编积累】</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="汇编积累">汇编积累</h1>
+<h2 id="指令">指令</h2>
+<p><code>resb 32768</code>：reserve byte，在数据段（.data/.bss）分配32768字节的空间；</p>
+<p><code>and ax, 0xFF00</code>：按位与；</p>
+<p><code>out &lt;port&gt; &lt;data&gt;</code>：向输出端口写入数据；</p>
+<pre><code>mov al, &lt;data&gt;  ; 将要输出的字节数据移动到寄存器al
+mov dx, &lt;port&gt;  ; 将目标端口的地址移动到寄存器dx
+out dx, al      ; 向指定的端口地址dx输出寄存器al中的字节数据
+</code></pre>
+<p><code>lgdt eax</code>：</p>
+<h2 id="寄存器">寄存器</h2>
+<h3 id="段寄存器">段寄存器</h3>
+<ul>
+<li>cs：用于存储代码段的基址（Code Segment）；</li>
+<li>ds：用于存储数据段的基址（Data Segment）；</li>
+<li>es：在早期的x86系统中，ES寄存器用于访问额外的数据段（Extra Segment）；</li>
+<li>ss：用于存储堆栈段的基址（Stack Segment）；</li>
+</ul>
+<pre><code>+------+--------------------------+
+| CS   | Code Segment             |
++------+--------------------------+
+| DS   | Data Segment             |
++------+--------------------------+
+| SS   | Stack Segment            |
++------+--------------------------+
+| ES   | Extra Segment            |
++------+--------------------------+
+| FS   |                          |
++------+ General Purpose Segments |
+| GS   |                          |
++------+--------------------------+
+</code></pre>
+<h2 id="节（section）">节（section）</h2>
+<ul>
+<li>.stab：存储着变量和函数（等）的信息——st_type类型、名字在.stabstr中的索引、在内存中的地址；</li>
+<li>.stabstr：存储着变量和函数（等）的名字；</li>
+</ul>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

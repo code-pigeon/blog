@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Windows应用DPI感知</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="Windows应用DPI感知">Windows应用DPI感知</h1>
+<p>首次编辑：2024/7/22/13:55<br />
+最后编辑：2024/7/22/</p>
+<h2 id="环境">环境</h2>
+<ul>
+<li>操作系统：Windows 11</li>
+<li>编译环境：mingw gcc + cmd</li>
+</ul>
+<h2 id="引子">引子</h2>
+<p>写Windows应用程序的时候，经常会出现图形、字体边角很多锯齿的现象。<br />
+这种现象可能是因为没有开启抗锯齿，于是开启了抗锯齿。但发现开启了抗锯齿之后，还是存在很多肉眼可见的锯齿，特别是对于字体。</p>
+<p>于是后来才知道dpi（dot per inch，每英寸点数）这个概念，可以简单地理解为显示器的分辨率。也就是说dpi只跟显示器相关，跟电脑的操作系统、软件、甚至是写软件所使用的语言都没有关系。</p>
+<p>所以当我们写一个图形应用程序的时候，我们为图形指定了尺寸大小，但那些也都只是逻辑上的单位，程序并不知道显示器的分辨率。</p>
+<p>既然程序不知道显示器的分辨率，那么程序执行之后如何知道要绘制的图形具体要多大呢，这背后就是操作系统在进行暗箱操作了。在程序运行时，操作系统和图形库可能会根据显示器的DPI设置来调整图形的渲染和显示效果。</p>
+<p>然而这种调整可能是我们不想要的，因为缩放往往会降低图像的质量，于是才会出现一些令人讨厌的锯齿。</p>
+<h2 id="解决方法">解决方法</h2>
+<p>为了不让操作系统对我们所设置的图形进行缩放，我们可以把我们的程序标记为“具有dpi感知能力”的，这样操作系统就不会对程序显示的图形进行缩放了。</p>
+<p>这个步骤需要通过一个<code>.manifest</code>文件（本质上是一个<code>.xml</code>格式的配置文件）来实现。</p>
+<p>首先新建一个<code>dpi_aware.manifest</code>文件，内容如下：</p>
+<pre><code class="language-xml">&lt;!-- dpi_aware.manifest --&gt;
+&lt;assembly xmlns=&quot;urn:schemas-microsoft-com:asm.v1&quot; manifestVersion=&quot;1.0&quot; xmlns:asmv3=&quot;urn:schemas-microsoft-com:asm.v3&quot; &gt;
+	&lt;asmv3:application&gt;
+		&lt;asmv3:windowsSettings xmlns=&quot;http://schemas.microsoft.com/SMI/2005/WindowsSettings&quot;&gt;
+			&lt;dpiAware&gt;true&lt;/dpiAware&gt;
+		&lt;/asmv3:windowsSettings&gt;
+	&lt;/asmv3:application&gt;
+&lt;/assembly&gt;
+</code></pre>
+<p>接着再新建一个<code>manifest.rc</code>文件，内容如下：</p>
+<pre><code>1 24 &quot;disable_dpi_scaling.manifest&quot;
+</code></pre>
+<p>其中<code>1</code>表示资源id，<code>24</code>表示这是个<code>.manifest</code>文件，最后就是文件的路径。</p>
+<p>然后使用mingw windres进行编译：</p>
+<pre><code class="language-bash">windres manifest.rc -o manifest.o -O coff --use-temp-file
+</code></pre>
+<p>然后再编译源程序的时候，把这个生成的<code>manifest.o</code>也一起链接上即可：</p>
+<pre><code class="language-bash">gcc main.c manifest.o -o main.exe -mwindows -luser32 -lkernel32 -lgdi32 -municode -Wl,--subsystem,windows
+</code></pre>
+<h2 id="效果">效果</h2>
+<p><img src="../media/image/article/Snipaste_2024-07-22_14-28-11.png" alt="dpi感知" /></p>
+<p>可以看到没有开启dpi感知的时候，整个应用程序的窗口都被放大了，里面的字体也被放得很大，开启了抗锯齿的字体会显得有些模糊，而没有开启抗锯齿的字体则可以直接看出字体周围的像素点。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

@@ -338,31 +338,57 @@ header li a{
   padding: .25rem;
 }
 
-
-/* begin table */
-table {
-    width: 90%;
-    margin: 1.5rem auto;
-    border-collapse: collapse;
-/*    border-left: 1px white solid;*/
-/*    border-right: 1px white solid;*/
-/*    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);*/
-
+img {
+  margin: 1.5rem auto;
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #444444;
-}
 
-th {
-    background-color: #222222;
-    color: #ffffff;
-}
+/* ---- footnotes -------------------------------------------- */
 
-tr:nth-child(even) {
-    background-color: #282828;
-}
+  sup::before{
+    content:"[";
+  }
 
-/* end table */
+  sup::after{
+    content:"]";
+  }
+
+  .footnote-backref::before{
+    content:"[";
+  }
+  
+  .footnote-backref::after{
+    content:"]";
+  }
+
+  .footnote-backref{
+    color: #bbb;
+  }
+
+
+/* ---- table ------------------------------------------------ */
+
+  table {
+      width: 90%;
+      margin: 1.5rem auto;
+      border-collapse: collapse;
+  /*    border-left: 1px white solid;*/
+  /*    border-right: 1px white solid;*/
+  /*    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);*/
+
+  }
+
+  th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #444444;
+  }
+
+  th {
+      background-color: #222222;
+      color: #ffffff;
+  }
+
+  tr:nth-child(even) {
+      background-color: #282828;
+  }

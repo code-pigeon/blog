@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Windows设置视觉风格（visual_style）</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="Windows设置视觉风格（visual-style）">Windows设置视觉风格（visual style）</h1>
+<p>首次编辑：2024/7/23/17:48<br />
+最后编辑：2024/7/24/9:36</p>
+<h2 id="引子">引子</h2>
+<p>很多时候，无论使用什么语言什么库，似乎只要在Windows下写出来的桌面应用，外观都是奇丑无比：<br />
+<img src="https://www.codeproject.com/KB/vista/620045/win2000.png" alt="Windows默认的应用风格" /></p>
+<p>这是Windows控件的默认风格，老版的Windows程序窗口都长这副模样。但对于今天的审美来说这肯定是个灾难。Windows也明白这一点，所以在后来的版本中支持了不同风格的窗口控件，称之为视觉风格（visual style）。</p>
+<blockquote>
+<p>但到后面的时候我才意识到其实Windows只提供了两种风格，要想设置其它的风格，就得自己动手了……</p>
+</blockquote>
+<p>比如下面这张图片中的窗口便是win8风格的：<br />
+<img src="https://learn.microsoft.com/en-us/windows/win32/controls/images/tb-win8.png" alt="win8风格窗口" /></p>
+<p>所以程序员要如何为自己的程序切换稍微好看一点的视觉风格呢。</p>
+<p>参考了微软文档<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup>，果不其然，依旧是只提供MSVC的解决方式，用别的编译器那就别玩了。<br />
+MSVC，也就是使用visual stdio的解决方法相当简单，可以直接参考微软文档。</p>
+<p>这里主要讲用mingw gcc怎么设置这个风格。</p>
+<h2 id="方法">方法</h2>
+<ol>
+<li>第一步是要创建一个<code>.manifest</code>资源文件（其实是<code>.xml</code>文件），用于描述程序所要使用的视觉风格，文件内容摘自微软官网。</li>
+</ol>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;assembly xmlns=&quot;urn:schemas-microsoft-com:asm.v1&quot; manifestVersion=&quot;1.0&quot;&gt;
+&lt;assemblyIdentity
+    version=&quot;1.0.0.0&quot;
+    processorArchitecture=&quot;*&quot;
+    name=&quot;CompanyName.ProductName.YourApplication&quot;
+    type=&quot;win32&quot;
+/&gt;
+&lt;description&gt;Your application description here.&lt;/description&gt;
+&lt;dependency&gt;
+    &lt;dependentAssembly&gt;
+        &lt;assemblyIdentity
+            type=&quot;win32&quot;
+            name=&quot;Microsoft.Windows.Common-Controls&quot;
+            version=&quot;6.0.0.0&quot;
+            processorArchitecture=&quot;*&quot;
+            publicKeyToken=&quot;6595b64144ccf1df&quot;
+            language=&quot;*&quot;
+        /&gt;
+    &lt;/dependentAssembly&gt;
+&lt;/dependency&gt;
+&lt;/assembly&gt;
+</code></pre>
+<p>这里面重要的地方还是下面那个<code>&lt;dependency&gt;</code>中的<code>version=6.0.0.0</code>，就是它指定了好看一点的视觉风格，默认的那个风格的这个值好像是<code>5.0.0.0</code>。<br />
+还有一些地方是可以自定义的，比如<code>&lt;description&gt;Your application description here.&lt;/description&gt;</code>这里的描述可以自己写，还有<code>name=&quot;CompanyName.ProductName.YourApplication&quot;</code>，依次为公司名、产品名、应用名，都可以自定义。</p>
+<p>我也是刚了解这个<code>.manifest</code>文件，我猜测它的作用就是告诉操作系统这个程序的一些信息吧（这个<code>.manifest</code>最后会合并到<code>.exe</code>文件中），比如<code>    processorArchitecture=&quot;*&quot;</code>的作用是告诉操作系统，这个应用程序所支持的处理器架构有哪些。<code>*</code>表示支持所有架构，还可以填<code>X86</code>、<code>amd64</code>等。如果<code>.exe</code>通过这个<code>.manifest</code>文件指定了某个处理器架构，而恰好执行这个<code>.exe</code>的电脑又不是这个处理器架构的，那么操作系统应该不会允许启动这个<code>.exe</code>（我是这么猜的，具体实验有闲再做了）。</p>
+<ol start="2">
+<li>接着需要创建一个<code>.rc</code>文件：</li>
+</ol>
+<pre><code class="language-rc">1 24 &quot;example.manifest&quot;
+</code></pre>
+<p>很重要的是这里前面两个数字是固定的！！！<br />
+第一个数字<code>1</code>代表资源的ID，<strong>一定</strong>要是1！！！否则后面视觉风格将无法生效。<br />
+第二个数字代表着资源的类型，<code>24</code>表示是<code>manifest</code>资源（理论上可以把<code>24</code>换成<code>RT_MANIFEST</code>——见<a href="https://learn.microsoft.com/en-us/windows/win32/menurc/resource-types">微软官网</a>，但是改成<code>RT_MANIFEST</code>不知为啥就会失效）。<br />
+第三个字符串表示的就是刚刚创建的<code>.manifest</code>文件的文件名（随意起名）。</p>
+<ol start="3">
+<li>“编译”<code>.rc</code>文件：<br />
+在命令行下执行</li>
+</ol>
+<pre><code class="language-bash">windres example.rc -o example.o --use-temp-file
+</code></pre>
+<p>得到目标文件<code>example.o</code>。</p>
+<ol start="4">
+<li>然后将<code>example.o</code>和你的代码文件或者目标文件一起编译链接：</li>
+</ol>
+<pre><code class="language-bash">gcc -o main.exe main.c example.o 
+</code></pre>
+<p>到这里一个带有新风格的Windows窗口应该就完成了。</p>
+<ol start="5">
+<li>如果预期的效果没有出现，那么可以在源文件和链接上再加点东西：</li>
+</ol>
+<pre><code class="language-c">/* main.c */
+
+#include &lt;commctrl.h&gt;  // 多包含一个头文件
+#define _WIN32_WINNT 0x0600  // 再定义两个宏
+#define _WIN32_IE 0x0900
+// 其它宏定义...
+
+// ...
+
+int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
+{
+
+	// ---- 加上下面的代码来保证正确的commctrl32被调用
+    INITCOMMONCONTROLSEX icc;
+
+    // Initialise common controls.
+    icc.dwSize = sizeof(icc);
+    icc.dwICC = ICC_WIN95_CLASSES ;
+    InitCommonControlsEx(&amp;icc);
+
+	// 主函数其它内容...
+	// ...
+}
+</code></pre>
+<p>这一部分内容在参考<sup class="footnote-ref"><a href="#fn-2" id="fnref-2" data-footnote-ref>2</a></sup><sup class="footnote-ref"><a href="#fn-3" id="fnref-3" data-footnote-ref>3</a></sup><sup class="footnote-ref"><a href="#fn-4" id="fnref-4" data-footnote-ref>4</a></sup>中均有提及，对于其中的含义和细节，感兴趣的可以去浏览一下。</p>
+<h2 id="参考">参考</h2>
+<section class="footnotes" data-footnotes>
+<ol>
+<li id="fn-1">
+<p>微软官方，<a href="https://learn.microsoft.com/en-us/windows/win32/controls/themes-overview">Visual Styles</a> <a href="#fnref-1" class="footnote-backref" data-footnote-backref data-footnote-backref-idx="1" aria-label="Back to reference 1">↩</a></p>
+</li>
+<li id="fn-2">
+<p>codeproject文章，<a href="https://www.codeproject.com/articles/620045/custom-controls-in-win-api-visual-styles">Custom Controls in Win32 API: Visual Styles</a> <a href="#fnref-2" class="footnote-backref" data-footnote-backref data-footnote-backref-idx="2" aria-label="Back to reference 2">↩</a></p>
+</li>
+<li id="fn-3">
+<p>geekthis，<a href="https://geekthis.net/post/visual-styles-in-win32-api-c-gcc-mingw/">Visual Styles in Win32 API C GCC MinGW</a> <a href="#fnref-3" class="footnote-backref" data-footnote-backref data-footnote-backref-idx="3" aria-label="Back to reference 3">↩</a></p>
+</li>
+<li id="fn-4">
+<p>Transmission Zero，<a href="https://www.transmissionzero.co.uk/computing/win32-apps-with-mingw/">Building Win32 GUI Applications with MinGW</a> <a href="#fnref-4" class="footnote-backref" data-footnote-backref data-footnote-backref-idx="4" aria-label="Back to reference 4">↩</a></p>
+</li>
+</ol>
+</section>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

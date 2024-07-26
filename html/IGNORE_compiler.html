@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IGNORE_compiler</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h3 id="top-down-parsing">top-down parsing</h3>
+<h4 id="算法1：recursive-descent-parsing">算法1：recursive descent parsing</h4>
+<h4 id="算法2：predictive-parsing">算法2：predictive parsing</h4>
+<ul>
+<li>left factor：消除左公共因子。</li>
+<li>first set：指文法中所有可能出现在一个产生式右侧的终结符号集合。它的作用是用于预测在分析过程中，下一个输入符号是否可以被当前的非终结符号推导出来。</li>
+<li>follow set：指文法中某个非终结符号在右侧可能出现的终结符号集合。它的作用是用于预测在规约过程中，需要向前看多少个输入符号。</li>
+<li>parsing table：构建parsing table时，产生非空串的，看first set（如，Y-&gt;X|+，则要看Y的first set）；可产生非空串的，除了看first set，还要看follow set（如，Y-&gt;X|+|ε）。</li>
+</ul>
+<blockquote>
+<p>快速检查是否为LL（1）：不是left factored的语法不是LL（1）；left recursive的语法不是LL（1）；有歧义的语法不是LL（1）；（以上为不是LL（1）的充分条件）</p>
+</blockquote>
+<h3 id="bottom-up-parsing">bottom-up parsing</h3>
+<h4 id="shift-reduce-parsing">shift-reduce parsing</h4>
+<h4 id="handle">handle</h4>
+<h4 id="Recognizing-Viable-Prefixes，Nondeterministic-Finite-Automaton（NFA）">Recognizing Viable Prefixes，Nondeterministic Finite Automaton（NFA）</h4>
+<h4 id="valid-items">valid items</h4>
+<h4 id="SLR，Simple-LR-Parsing（利用了Recognizing-VP和Valid-items）">SLR，Simple LR Parsing（利用了Recognizing VP和Valid items）</h4>
+<blockquote>
+<p>Refer to the DFA to determine the appropriate move to make. Remember that a reduce move will only be made if the next symbol in the input is in the follow set of the reduced symbol. An accept move is only made if we reach the start symbol and there is no further input to consume.</p>
+</blockquote>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

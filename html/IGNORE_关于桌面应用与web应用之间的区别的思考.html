@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IGNORE_关于桌面应用与web应用之间的区别的思考</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css ">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="关于桌面应用与web应用之间的区别的思考">关于桌面应用与web应用之间的区别的思考</h1>
+<p>首次编辑：24/3/24/19:41<br />
+最后编辑：24/3/24/</p>
+<h2 id="引子">引子</h2>
+<p>最近在用tkinter写桌面应用，但怎么写都感觉很别扭，思路永远无法像在写web应用时那么顺畅。<br />
+比如我在思考一个方法，让一个自定义的窗口类能拥有一个方便插拔的控件，控件上的按钮点击时，可以像web前端那样携带数据发送一个请求给后端（对应自定义的窗口类），后端返回一个响应给前端（对应方便插拔的控件），再由前端对响应进行处理并渲染页面即可。但似乎这种在web应用中非常容易的事情，在桌面应用中的实现显得很蹩脚。</p>
+<h2 id="区别在于网络与url接口吗">区别在于网络与url接口吗</h2>
+<p>我一开始想的是，由于桌面应用的“前端”和“后端”之间少了一层网络，所以用不着网络请求这种东西，而网络请求的请求端和接收端所负责的逻辑，大概率与开发者没啥关系（请求端，即前端的请求功能由浏览器完成了，接收端，即后端的接收功能由服务器完成了，应用开发者所做的不过是使用浏览器和服务器框架提供的接口罢了）。所以当在桌面应用中，需要开发者直面请求端和接收端的逻辑，所以从web应用转到桌面应用开发可能会有些不适应。</p>
+<p>按照这种思路，只需要将“请求端-&gt;网络-&gt;接收端-&gt;网络-&gt;请求端”这样的数据路径改成“请求端-&gt;接收端-&gt;请求端”即可。</p>
+<p>虽然好像有了一点点思路，但是还是有点迷惑，无奈还是去请教了AI。</p>
+<p>下面这个例子中，由root窗口充当前端，向后端MyDialog发送数据，然后MyDialog在<code>handle_data</code>方法中处理数据，同时返回响应。</p>
+<pre><code class="language-python">class MyDialog:
+    def __init__(self, root):
+        self.toplevel = Toplevel(root)
+        self.label = Label(self.toplevel)
+
+        self.init_ui()
+
+    def init_ui(self):
+        self.toplevel.title(&quot;我不是主窗口&quot;)
+        self.toplevel.geometry(&quot;500x200+500+500&quot;)
+        self.label.grid(row = 0, column=0, sticky=(N, W, E, S))
+
+    def handle_data(self, data):
+        '''
+            处理数据，并返回响应
+        '''
+        self.label.config(text=data)
+        response = &quot;我已经收到消息了&quot;
+        return response
+
+    def grid(self):
+        self.toplevel.grid()
+
+
+def send_data(data, receiver):
+    res = receiver.handle_data(data)
+    print(res)
+
+root = Tk()
+m = MyDialog(root)
+m.grid()
+
+e = Entry(root)
+e.grid(row=0, column =0)
+b = Button(root)
+b.grid(row=0, column =1)
+b.config(text=&quot;发送数据&quot;)
+
+b.config(command=lambda: send_data(e.get(), m))
+
+root.title(&quot;主窗口&quot;)
+root.geometry(&quot;500x200+1000+500&quot;)
+root.mainloop()
+</code></pre>
+<p>这个例子实际上的思路就是把后端MyDialog的<code>handle_data</code>暴露给前端root窗口去调用。<br />
+想到这里我豁然：这不就是API吗？</p>
+<p>至此，一个方便插拔的控件完成了：要使用时，只需要new一个MyDialog对象，然后在按钮按下的事件逻辑中调用一下MyDialog提供的<code>handle_data</code>接口即可。</p>
+<p>但接着思考我们的主题，总觉得这和web应用的机制的差距不仅仅只是在网络请求这一点上：数据是从root窗口发过去的，root窗口确实收到了响应；MyDialog收到了请求数据，也能进行响应；但毕竟MyDialog也不是个类似服务器的东西，而是类似前端的东西，所以实际上……我们是在两个前端之间通信。</p>
+<h2></h2>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>
