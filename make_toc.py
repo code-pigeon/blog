@@ -28,7 +28,7 @@ def make_toc_by_category(path, output_file=sys.stdout, prefix='##'):
 				# 跳过自己
 				continue;
 
-			file_stem = file.split('.')[0]
+			file_stem = file[:file.rfind('.')]
 			file_html_link = f"[{file_stem}]({file_stem + '.html'})"
 			print("- " + datetime.datetime.fromtimestamp(os.path.getmtime(new_path)).strftime('%Y.%m.%d') +
 				"："  + file_html_link, 
@@ -73,7 +73,7 @@ def make_toc_by_mtime(path, output_file=sys.stdout):
 			# 跳过自己
 			continue;
 
-		file_name_without_suffix = file_name.split('.')[0]
+		file_name_without_suffix = file_name[:file_name.rfind('.')]
 		file_html_link = f"[{file_name_without_suffix}]({file_name_without_suffix + '.html'})"
 		current_file_mtime = datetime.datetime.fromtimestamp(item[1])
 

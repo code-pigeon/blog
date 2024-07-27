@@ -10,7 +10,7 @@ def get_md_and_html_targets(md_dir, html_dir):
     for dirpath, _, file_list in os.walk(md_dir):
         for file in file_list:
             if file.endswith(file_pattern):
-                filename_without_suffix = file.split('.')[0]
+                filename_without_suffix = file[:file.rfind('.')]
 
                 html_file = os.path.join(html_dir, filename_without_suffix + '.html')
                 md_file = os.path.join(dirpath, file)
@@ -60,7 +60,7 @@ if __name__ == "__main__":
 # ---- 构建html -------------------------
 
     for md_file, html_file in mapping_table_list:
-        md_file_basename_without_suffix = os.path.basename(md_file).split('.')[0]
+        md_file_basename_without_suffix = os.path.basename(md_file)[:os.path.basename(md_file).rfind('.')]
         print(f"\033[0;33m[....] Building '{html_file}'\033[0m")
         build_command = template_renderer + ' ' + template_html +\
             " -o " +  html_file + \

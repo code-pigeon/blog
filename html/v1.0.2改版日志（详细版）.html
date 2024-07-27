@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>v1.0.2改版日志（详细版）</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="v1.0.2改版日志（详细版）">v1.0.2改版日志（详细版）</h1>
+<p>首次编辑：2024/7/27/12:04<br />
+最后编辑：2024/7/27/14:06</p>
+<h2 id="前言——手搓网站构建器的动机">前言——手搓网站构建器的动机</h2>
+<p>我的网站架构其实是比较简单的，一开始的想法就是能够有一个自动实现把markdown转成html而且能够将转化得来的html自动嵌入网页模板的工具。对我来说静态网页足够了。</p>
+<p>这种工具非常常见，我也试过一些。但很多都不太理想，页面的风格大多只能够从其他人制作的模板中选择（当然原因其实是我没有耐心去研究怎么在人家的项目中DIY），而我本身有种奇怪的属性，我对别人工具中那些不知何用的文件会感到恐惧（通常都是些配置文件），对于它们我是又想删掉又怕删掉后项目就报销了，于是只能任由它们在我眼皮底下待着。但我不喜欢这样，我只想看到自己的md文件和html文件。</p>
+<p>所以我有一个特别简单的思路，那就是做一个这样的转化：</p>
+<pre><code>markdown                       	html							
+├── 博客                     	├── 博客					
+│   ├── C语言从入门到放弃.md    	│   ├── C语言从入门到放弃.html
+│   └── 改版日志.md         ===&gt;	│   └── 改版日志.html
+└── 笔记                     	└── 笔记								
+    ├── 笔记1.md	            	    ├── 笔记1.html
+    └── 笔记2.md	            	    └── 笔记2.html		
+</code></pre>
+<p>这样文件的分类就一目了然了。我写笔记的环境一直只是个代码编辑器，这种转化模式无疑非常适合我的工作环境。而且在转化成html文件之后，html文件也可以依照所属文件夹进行分类，这样一来制作目录也十分简单。</p>
+<h2 id="改版内容1——分类模式">改版内容1——分类模式</h2>
+<p>但很快这种模式的缺点就暴露出来了，当我需要在位于<code>笔记</code>分类下的<code>笔记1.html</code>中引用位于<code>博客</code>分类下的<code>C语言从入门到放弃.html</code>的链接时，引用链接是：<code>../博客/C语言从入门到放弃.html</code>。也就是说在我的文章之间相互引用时不仅要写下文件名，还要把它的分类也一起写下来，这样非常麻烦。</p>
+<p>于是我开始思考能不能想一种办法让文章之间的相互引用只需要写一个文件名即可。</p>
+<p>我想过一种思路：取消用文件夹分类。<br />
+在我看过的markdown编辑器，或者静态网站的构建器中，实现分类的方式基本都是在每个markdown文件的最上方写一个配置信息，例如用github的Jekyll写的markdown可以在markdown文件的最开头用YAML语法写一个配置信息：</p>
+<pre><code class="language-yaml">---
+layout: post
+title: 文章标题
+categories: [分类1, 分类2]
+---
+</code></pre>
+<p>这种方式的优点是一个文件可以有多个分类，然后不同分类的文件应该也不用放在不同文件夹中了。<br />
+缺点也很明显，每个markdown文件都需要额外维护一些元数据。<br />
+最后没有采用这种方式，一个原因是我不想为每个markdown文件都维护这么一个元数据，另一个原因是多分类这个优点也不是我需要的，在我看来多分类跟C++的多继承是一样的，听着很强大很灵活，实则用起来颇有盘根错节乱七八糟之感。</p>
+<p>很快我就想出了似乎比较好的解法，也就是改版之后的模式：既然我不直接阅读markdown，而是使用阅读html网页，那么为了引用方便，html网页就不用文件夹分类了，但分类信息保存在哪里呢？没错，就是保存在markdown文件夹中：</p>
+<pre><code>markdown                       	html							
+├── 博客                     	├── C语言从入门到放弃.html								
+│   ├── C语言从入门到放弃.md    	├── 改版日志.html
+│   └── 改版日志.md         ===&gt;	├── 笔记1.html
+└── 笔记                     	└── 笔记2.html								
+    ├── 笔记1.md													
+    └── 笔记2.md							
+</code></pre>
+<p>采用这种方法，分类目录就可以根据markdown文件夹下的布局来制作，而文章之间的相互引用的链接也可以直接写文件名了。</p>
+<h2 id="改版内容2——模板引擎">改版内容2——模板引擎</h2>
+<p>另一个改版内容实际上是一个技术债。</p>
+<p>一个最简单的完整html页面如下：</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+	&lt;title&gt;标题&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	{{markdown渲染得到的html.html}}
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>而markdown渲染的部分需要放在<code>{{markdown渲染得到的html.html}}</code>的地方。</p>
+<p>这就是我的模板引擎基本的样子了，它可以识别<code>{{}}</code>中的文件名，然后把对应的文件中的内容往这里填。这和大部分的模板引擎应该都没多大差别，实现起来也很简单，学完编译原理里的自动机就能写一个了。</p>
+<p>但是这个<code>{{}}</code>中需要的是markdown对应的html文件，而不是markdown文件本身。所以需要markdown渲染器（我选的是cmark）先把markdown渲染成html。<br />
+所以又需要一个中间文件来存放这个从markdown渲染而来的html文件，所以我的网页构建流程是这样的：</p>
+<pre><code>                  template.html 
+                         +              ===&gt; article.html
+article.md  ===&gt; article.middle.html  
+</code></pre>
+<p>缺点很明显，多了那些冗余的中间文件，没办法一步到位。</p>
+<p>而改版之后则是直接将cmark集成到我写的模板引擎中去了，省去了中间文件这一步骤：</p>
+<pre><code>template.html 
+     +         ===&gt; article.html
+ article.md  
+</code></pre>
+<h2 id="其它改动">其它改动</h2>
+<p>剩下的都是一些鸡零狗碎的改动了，改动比较大的还是目录的制作和构建脚本。除了分类目录，我又新增了一个时间轴的目录，本意是让文件按照创建日期来排序，谁知道Linux对文件的创建时间的维护方式似乎不那么直接，导致文件的创建时间在python里没有那么直接的获取方式，所以没办法，只能以最后的修改日期进行排序了。然后是构建脚本，本来是用makefile写的，但是makefile并不擅长把处于不同文件夹下的markdown文件和处于同一文件夹下的同名html文件对应起来，所以只能换成脚本之王python来做构建脚本了。</p>
+<h2 id="闲话">闲话</h2>
+<p>本来我觉得这次改版应该可以给一个新的小版本号的，但我这小破站可能我一个人一年也维护不了几次，要是每次更新都给个新的小版本号，那这发布号估计到我死了也用不着了。</p>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

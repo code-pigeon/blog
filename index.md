@@ -20,7 +20,7 @@
 	- 代码块的css样式参考：[panda-syntax-dark](https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/panda-syntax-dark.min.css)
 
 ### 存在的问题
-暂未发现。
+- 由于跨域问题，所有图片都只能放在github仓库中才能显示，其他网站链接的图片全部无法显示。
 
 ### 版本日志（开发视角）
 - 1.0.2
