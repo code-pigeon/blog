@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>wxWidgets定义新事件类型（event_type）</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="wxWidgets定义新事件类型（event-type）">wxWidgets定义新事件类型（event type）</h1>
+<p>首次编辑：2024/8/12/16：51<br />
+最后编辑：2024/8/12/</p>
+<h2 id="引子">引子</h2>
+<p>在wxWidgets中，有很多事件（events），每个事件类又具有很多不同的事件类型（event types）<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup>。<br />
+例如，<code>wxMouseEvent</code>是一个鼠标事件，而<code>wxEVT_LEFT_UP</code>、<code>wxEVT_LEFT_DOUN</code>则是鼠标事件的两个事件类型。</p>
+<p>所以说事件是一个类（class），而事件类型是一个枚举值（enum）。</p>
+<h2 id="自定义事件类型以及使用">自定义事件类型以及使用</h2>
+<ol>
+<li>创建新的事件类型：</li>
+</ol>
+<pre><code class="language-c++">/* in cpp file */
+
+wxDEFINE_EVENT(MY_NEW_TYPE, wxCommandEvent);
+</code></pre>
+<blockquote>
+<p>需要注意这行代码必须写在<code>.cpp</code>文件中，不能写在头文件中。</p>
+</blockquote>
+<p>这行代码为<code>wxCommandEvent</code>事件创建了新的事件类型。你可以为任何别的事件创建新的事件类型，如<code>wxMouseEvent</code>、<code>wxTimerEvent</code>等。<br />
+不过对于自定义事件类型，通常<code>wxCommandEvent</code>就足够了。</p>
+<ol start="2">
+<li>向某个控件发送自定义事件类型的事件</li>
+</ol>
+<pre><code class="language-c++">wxCommandEvent event(MY_NEW_TYPE); // 只有一个参数时，该事件类型没有特定的id
+
+// 为事件添加数据
+event.SetString(wxT(&quot;我是数据&quot;));
+
+// 分送事件
+wxPostEvent(this, event);         // 发送给自己
+wxPostEvent(p_to_widget, event);  // 发送给p_to_widget指向的控件
+</code></pre>
+<ol start="3">
+<li>处理事件</li>
+</ol>
+<pre><code class="language-c++">Bind(MY_NEW_TYPE, &amp;MyWidget::OnMyEvent, this);
+
+void MyWidget::OnMyEvent(wxCommandEvent&amp; event){
+    wxLogMessage(wxT(&quot;接收到事件，数据为: %s&quot;), event.GetString());
+}
+</code></pre>
+<h3 id="头文件和cpp文件分离的情况">头文件和cpp文件分离的情况</h3>
+<p>头文件和cpp文件分离的情况下，除了在cpp文件中“定义”事件类型——<code>wxDEFINE_EVENT(MY_NEW_TYPE, wxCommandEvent)</code>之外，还需要在头文件中先对事件类型进行“声明”：</p>
+<pre><code class="language-c++">/* in .h file */
+wxDECLARE_EVENT(MY_NEW_TYPE, wxCommandEvent);
+</code></pre>
+<p>否则虽然编译会通过，但却不会有效果。</p>
+<h3 id="为事件类型指定id">为事件类型指定id</h3>
+<pre><code class="language-c++">// 用枚举值来标识不同的事件id
+enum { foo_one = 1, foo_two, foo_three };
+
+wxCommandEvent event_a(MY_NEW_TYPE, foo_one); 
+event_a.SetString(&quot;data one&quot;); wxPostEvent(this, event_a);
+
+wxCommandEvent event_b(MY_NEW_TYPE, foo_two); 
+event_b.SetString(&quot;data two&quot;); wxPostEvent(this, event_b);
+
+wxPostEvent(this, event_a); wxPostEvent(this, event_b);
+wxPostEvent(p_to_widget, event_b);
+</code></pre>
+<p>这种情况下，绑定事件处理函数时，可以在最后一个参数传入事件id：</p>
+<pre><code class="language-c++">Bind(MY_NEW_TYPE, &amp;MyWidget::OnMyEvent1, this, foo_one);
+Bind(MY_NEW_TYPE, &amp;MyWidget::OnMyEvent2, this, foo_two);
+</code></pre>
+<h3 id="完整示例">完整示例</h3>
+<p>文件结构</p>
+<pre><code>├── include
+│   ├── App.h
+│   └── Panel.h
+└── src
+    ├── App.cpp
+    └── Panel.cpp
+</code></pre>
+<p>下面的代码包含4个文件的内容：</p>
+<pre><code class="language-c++">/* ---- App.h ---------------------------------------------------------------------------- */
+
+#include &lt;wx/wx.h&gt;
+#include &quot;Panel.h&quot;
+
+class MyFrame : public wxFrame {
+public:
+    MyFrame();
+    void OnCustomEvent(wxCommandEvent&amp; event);
+};
+
+class MyApp : public wxApp {
+public:
+    virtual bool OnInit() {
+        MyFrame* frame = new MyFrame();
+        frame-&gt;Show(true);
+        return true;
+    }
+};
+
+wxIMPLEMENT_APP(MyApp);
+
+
+/* ---- App.cpp ---------------------------------------------------------------------------- */
+
+#include &quot;App.h&quot;
+
+MyFrame::MyFrame() : wxFrame(NULL, wxID_ANY, &quot;Custom Command Event Example&quot;) {
+    MyPanel* panel = new MyPanel(this);
+    Bind(MY_NEW_TYPE, &amp;MyFrame::OnCustomEvent, this);
+}
+
+void MyFrame::OnCustomEvent(wxCommandEvent&amp; event) {
+    wxLogMessage(&quot;Frame Received Custom Command Event: %s&quot;, event.GetString());
+}
+
+
+/* ---- Panel.h ---------------------------------------------------------------------------- */
+
+#include &lt;wx/wx.h&gt;
+wxDECLARE_EVENT(MY_NEW_TYPE, wxCommandEvent);
+
+class MyPanel : public wxPanel {
+public:
+    MyPanel(wxWindow* parent) ;
+    void OnButtonClicked(wxCommandEvent&amp; event);
+};
+
+
+/* ---- Panel.cpp ---------------------------------------------------------------------------- */
+#include &quot;Panel.h&quot;
+
+wxDEFINE_EVENT(MY_NEW_TYPE, wxCommandEvent);
+
+MyPanel::MyPanel(wxWindow* parent) : wxPanel(parent) {
+    // Bind a button to send a custom event
+    wxButton* button = new wxButton(this, wxID_ANY, &quot;Send Custom Event&quot;);
+    button-&gt;Bind(wxEVT_BUTTON, &amp;MyPanel::OnButtonClicked, this);
+}
+
+void MyPanel::OnButtonClicked(wxCommandEvent&amp; event) {
+    wxCommandEvent customEvent(MY_NEW_TYPE);
+    customEvent.SetString(&quot;Hello from custom command event!&quot;);
+    wxPostEvent(GetParent(), customEvent);
+}
+</code></pre>
+<h2 id="参考">参考</h2>
+<section class="footnotes" data-footnotes>
+<ol>
+<li id="fn-1">
+<p>wxWiki <a href="https://wiki.wxwidgets.org/Custom_Events#Events_and_Event-types">Custom Events/2.1 Events and Event-types</a> <a href="#fnref-1" class="footnote-backref" data-footnote-backref data-footnote-backref-idx="1" aria-label="Back to reference 1">↩</a></p>
+</li>
+</ol>
+</section>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

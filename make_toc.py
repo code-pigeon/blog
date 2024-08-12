@@ -16,6 +16,10 @@ def make_toc_by_category(path, output_file=sys.stdout, prefix='##'):
 	for file in files:
 		new_path = os.path.join(path, file)
 		if os.path.isdir(new_path):
+		# --- 跳过图片区了 --------------------
+			if file == '图片区':
+				continue
+		# -----------------------------------
 			new_prefix = prefix + '#'
 			print(prefix + ' ' + file, file=output_file)
 			make_toc_by_category(new_path, output_file, new_prefix)
@@ -66,12 +70,18 @@ def make_toc_by_mtime(path, output_file=sys.stdout):
 	
 	for item in all_files_with_mtime:
 		file_name = os.path.basename(item[0])
+
+	# ---- 跳过的文件 -----------------------------------------------
 		if (file_name.startswith('IGNORE_')):
+			# 跳过以"IGNORE_"开头的文件
+			continue
+		if (file_name.startswith('收集')):
 			# 跳过以"IGNORE_"开头的文件
 			continue
 		if (file_name.startswith('时间轴') or file_name.startswith('分类')):
 			# 跳过自己
 			continue;
+	# --------------------------------------------------------------
 
 		file_name_without_suffix = file_name[:file_name.rfind('.')]
 		file_html_link = f"[{file_name_without_suffix}]({file_name_without_suffix + '.html'})"
@@ -129,6 +139,8 @@ if __name__ == "__main__":
 # 时间轴
 > 本来应该搞个以创建时间排序的时间轴，但是Linux似乎不会记录文件最初的创建时间，所以只能以最后修改时间来排序了。
 所以有些文件可能很早就创建了，只是后来做了一些小修改，因而排到了前面
+
+> 不知道为什么，所有的markdown文件的修改时间突然都被更新了一遍，导致现在的时间轴里的文章几乎都在同一天了……好烦。
 """
 		print(file_prifex, file=f)
 		make_toc_by_mtime(folder_path, output_file=f)

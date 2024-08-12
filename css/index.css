@@ -122,6 +122,7 @@ html {
 p,
 .retro-p {
   font-size: 1rem;
+  letter-spacing: 0.1rem; 
 /*  margin-bottom: 1.3rem;*/
 }
 
@@ -198,7 +199,8 @@ body {
 
 body {
   color: #bbb;
-  font-family: Helvetica Neue, NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,serif;
+/*  font-family: Helvetica Neue, NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,serif;*/
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
   line-height: 1.45;
 }
 
@@ -212,8 +214,8 @@ blockquote {
   border-left: 3px solid #45a9f9;
   background-color: #66666619;
   padding: 0.1rem 1rem;
-  font-family: "楷体", "KaiTi", cursive;
-  font-style: italic;
+/*  font-family: "楷体", "KaiTi", cursive;*/
+/*  font-style: italic;*/
 }
 
 /* end retro */

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>创建及使用静态库</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> <h1 id="C/C++创建及使用静态库">C/C++创建及使用静态库</h1>
+<p>首次编辑：2024/8/11/2：37<br />
+最后编辑：2024/8/11/</p>
+<h2 id="方法">方法</h2>
+<h3 id="工具">工具</h3>
+<ul>
+<li>GNU Binutils
+<ul>
+<li>ar</li>
+<li>gcc</li>
+</ul>
+</li>
+</ul>
+<h2 id="步骤">步骤</h2>
+<ol>
+<li>创建静态库</li>
+</ol>
+<pre><code class="language-bash">ar cr libtest.a source1.o source2.o
+</code></pre>
+<p><code>cr</code>标志表示创建一个静态库，如果静态库已经存在，则覆盖之。按照惯例，静态库的库名以“lib”开头、“.a”作为后缀名。</p>
+<p>这里的<code>source*.o</code>当然就是由源文件编译而来的目标文件了。同时，源文件对应的<code>.h</code>头文件也需要保留。</p>
+<ol start="2">
+<li>使用静态库</li>
+</ol>
+<pre><code class="language-bash">gcc source.c -l test -o output_file -I &lt;头文件所在路径&gt; -L &lt;静态库所在路径&gt;
+</code></pre>
+<h2 id="参考">参考</h2>
+</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+</body>
+</html>

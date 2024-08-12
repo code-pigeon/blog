@@ -3,17 +3,35 @@
 <!-- > 喜欢回忆过去，喜欢幻想将来，唯独不喜欢珍惜现在。 -->
 
 ## 关于我
-暂时保密
+某破学校破专业的躺平学生。喜欢钻研没用的东西。热衷于DIY。
+
+### 爱好
+- 🏀：篮球
+- 🎤：唱歌
+- 🎱：桌球
+- 🏊︎：游泳
+- 📔：看小说
+- 🏓：乒乓球
+- 🖌：画画（曾经的爱好）
+
+## 联系我
+- 邮箱：`code_pigeon@163.com`
 
 ## 技术相关
 ### 建站环境和工具
 - 环境
-	- Ubuntu20.04 x86-64
+	- 代码编辑器：[sublime text](https://www.sublimetext.com/)
+	- 操作系统、处理器架构：Ubuntu20.04 x86-64
 - 工具
 	- markdown解析和模板引擎：在开源的markdown解析器[cmark-gfm](https://github.com/github/cmark-gfm)（cmark的分支）之上做了一些小修改，并且融合了自己写的简易模板引擎，做成了一个将模板引擎和markdown解析渲染功能合并起来的小工具。
 	- 代码高亮：[highlight.js](https://highlightjs.org/)
 	- html目录：[tocbot.js](http://tscanlin.github.io/tocbot/)
+	- 版本控制：[git](https://git-scm.com/)
 	<!-- - 模板引擎：template_renderer（自己写的微型模板引擎） -->
+- 涉及的编程语言
+	- 前端三剑客（html、css、javascript）
+	- C
+	- python
 - 其它
 	- css样式参考：[retro](https://github.com/markdowncss/retro)
 	- 侧边栏参考：[simple-sidebar](https://startbootstrap.com/template/simple-sidebar)
@@ -21,6 +39,9 @@
 
 ### 存在的问题
 - 由于跨域问题，所有图片都只能放在github仓库中才能显示，其他网站链接的图片全部无法显示。
+
+### 下一步目标
+- 给博客添加评论功能。
 
 ### 版本日志（开发视角）
 - 1.0.2
