@@ -3,7 +3,7 @@
 <!-- > 喜欢回忆过去，喜欢幻想将来，唯独不喜欢珍惜现在。 -->
 
 ## 关于我
-某破学校破专业的躺平学生。喜欢钻研没用的东西。热衷于DIY。
+躺平大学生，比较宅。喜欢钻研没用的东西。热衷于DIY。
 
 ### 爱好
 - 🏀：篮球
@@ -27,6 +27,7 @@
 	- 代码高亮：[highlight.js](https://highlightjs.org/)
 	- html目录：[tocbot.js](http://tscanlin.github.io/tocbot/)
 	- 版本控制：[git](https://git-scm.com/)
+	- 评论系统：[giscus](https://giscus.app/zh-CN)
 	<!-- - 模板引擎：template_renderer（自己写的微型模板引擎） -->
 - 涉及的编程语言
 	- 前端三剑客（html、css、javascript）
@@ -38,12 +39,15 @@
 	- 代码块的css样式参考：[panda-syntax-dark](https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/panda-syntax-dark.min.css)
 
 ### 存在的问题
-- 由于跨域问题，所有图片都只能放在github仓库中才能显示，其他网站链接的图片全部无法显示。
+- 由于跨域问题，所有图片都只能放在github仓库中才能显示，其他网站链接的图片全部无法显示
+> 但是今天（24/8/13）又发现突然能显示了……也许是个不稳定因素。
 
 ### 下一步目标
-- 给博客添加评论功能。
+- 暂无。
 
 ### 版本日志（开发视角）
+- 1.0.3
+	- 新增评论系统giscus；
 - 1.0.2
 	- 将markdown解析器和模板引擎融合成一个单独的应用；
 	- html的`id`属性的生成从前端js代码转移至后端——在cmark-gfm上进行细微修改，渲染为html时会自动增加`id`属性；

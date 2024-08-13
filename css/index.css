@@ -397,3 +397,9 @@ img {
   tr:nth-child(even) {
       background-color: #282828;
   }
+
+
+/* ---- giscus ----------------------------------------------- */
+  .giscus{
+    
+  }

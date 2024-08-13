@@ -75,6 +75,7 @@ MBR包含以下关键信息：</p>
 </blockquote>
 <p>MBR会启动GRUB（通常位于第二个扇区），GRUB启动之后会读取配置，然后加载os内核，os内核是个elf格式，GRUB会读取elf头，并将elf信息放在multiboot_t结构体中，然后把multiboot_t结构体的地址放在ebx中。最后再把控制权转交给操作系统。</p>
 
+		<h2 id="评论">评论</h2>
 		<div class="giscus"></div>
 	</div>
 

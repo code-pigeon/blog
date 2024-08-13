@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>v1.0.3改版日志——评论系统的选择</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> 
+		<h1 id="v1.0.3改版日志——评论系统的选择">v1.0.3改版日志——评论系统的选择</h1>
+<p>首次编辑：2024/8/13/16:03<br />
+最后编辑：2024/8/13/</p>
+<h2 id="评论系统的选择">评论系统的选择</h2>
+<p>对于动态网页的评论系统，有能力的完全可以自己手搓，因为动态网站必须拥有服务器，有了服务器就能够处理网络请求，那么评论只不过就是一个携带文本的请求罢了。</p>
+<p>但是对于不具备网络请求能力的静态网站，评论系统的搭建就得另辟蹊径了。</p>
+<p>有一种很直接的思路，既然静态网站自己没有服务器，那就用别人现成的服务器来处理不就行了。这确实就是评论系统所做的，它会帮助你存储并管理你的评论信息。</p>
+<p>我原本的设想是让用户能够通过发送邮件的方式来实现，这实际上应该就是让邮件服务提供商来帮助用户发送评论，这种方式的缺点在于，需要手动将评论内容从邮件复制到自己的文章当中，而且用户在点击发送之后，网页中并不会立即显现评论内容，这可能会让用户感到困惑。当然也可以使用js把内容的评论内容立即显示出来，但这毕竟只是js的小把戏，在页面刷新之后，评论的内容还是会消失不见。<br />
+可以实现这种设想的，我目前只发现了一种利用html的a标签实现的方式：</p>
+<pre><code class="language-html">&lt;a href=&quot;mailto:code_pigeon@163.com?cc=测试&quot;&gt;发送信息&lt;/a&gt;
+</code></pre>
+<p>点击这个<code>a</code>标签之后，浏览器会打开操作系统默认的电子邮件客户端软件，在windows下就是outlook，但我从来没见过国内的谁用这个，我自己也不用，所以果断放弃了这一方案。</p>
+<p>于是就只剩下另一种方案了——利用别人搭好的现成评论系统。毕竟自己实现还是得用到服务器，假如有了服务器，我还做什么静态网页呢，直接做动态网页不就行了。</p>
+<h3 id="市面上的评论系统">市面上的评论系统</h3>
+<p>市面上现存的评论系统我觉得大概可以分为3类：</p>
+<ol>
+<li>自托管型（self-hosted）：这种类型的评论系统需要站长自己提供服务器。嗯……它就是帮你做了个评论的管理系统，但这个系统是跑在你自己的服务器上的。</li>
+<li>第三方托管型（3rd-party hosted）：不仅帮你做了评论的管理系统，同时还帮你接管了</li>
+</ol>
+
+		<h2 id="评论">评论</h2>
+		<div class="giscus"></div>
+	</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script>
+</body>
+</html>

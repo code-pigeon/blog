@@ -41,7 +41,7 @@ sys.ps2 = &quot;请接着输入： &quot;
 #define LUA_PROMPT2		&quot;&gt;&gt; &quot;
 </code></pre>
 <p>但这样的命令行提示符的切换实现起来也挺麻烦的，还要根据解释器的状态来决定显示哪个提示符，于是我还是决定参考一下lua的实现。</p>
-<p>没想到结果让我很出乎意料，原先我想的是，它们的处理方式应该是类似我在<a href="C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%BB%88%E7%AB%AF.md">C语言实现交互式终端</a>所写的那样，在每次<code>fgets</code>之前输出一下提示符：</p>
+<p>没想到结果让我很出乎意料，原先我想的是，它们的处理方式应该是类似我在<a href="C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%BB%88%E7%AB%AF.html">C语言实现交互式终端</a>所写的那样，在每次<code>fgets</code>之前输出一下提示符：</p>
 <pre><code class="language-c">char buf[256];
 printf(&quot;&gt;&gt; &quot;);
 while ( fgets(buf, sizeof(buf), stdin) != NULL){
@@ -51,6 +51,7 @@ while ( fgets(buf, sizeof(buf), stdin) != NULL){
 </code></pre>
 <p>结果没想到lua是使用了lua api来实现的（可以简单理解为，lua来等待用户输入之前，自己用lua的<code>print</code>打印了一次提示符）。</p>
 
+		<h2 id="评论">评论</h2>
 		<div class="giscus"></div>
 	</div>
 

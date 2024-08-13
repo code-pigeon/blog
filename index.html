@@ -10,6 +10,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+	<!-- Valine -->
+	<script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
 </head>
 <body>
 	<header>
@@ -30,7 +32,7 @@
 </blockquote>
 <!-- raw HTML omitted -->
 <h2 id="关于我">关于我</h2>
-<p>某破学校破专业的躺平学生。喜欢钻研没用的东西。热衷于DIY。</p>
+<p>躺平大学生，比较宅。喜欢钻研没用的东西。热衷于DIY。</p>
 <h3 id="爱好">爱好</h3>
 <ul>
 <li>🏀：篮球</li>
@@ -60,6 +62,7 @@
 <li>代码高亮：<a href="https://highlightjs.org/">highlight.js</a></li>
 <li>html目录：<a href="http://tscanlin.github.io/tocbot/">tocbot.js</a></li>
 <li>版本控制：<a href="https://git-scm.com/">git</a></li>
+<li>评论系统：<a href="https://giscus.app/zh-CN">giscus</a></li>
 </ul>
 <!-- raw HTML omitted -->
 </li>
@@ -80,14 +83,22 @@
 </ul>
 <h3 id="存在的问题">存在的问题</h3>
 <ul>
-<li>由于跨域问题，所有图片都只能放在github仓库中才能显示，其他网站链接的图片全部无法显示。</li>
+<li>由于跨域问题，所有图片都只能放在github仓库中才能显示，其他网站链接的图片全部无法显示</li>
 </ul>
+<blockquote>
+<p>但是今天（24/8/13）又发现突然能显示了……也许是个不稳定因素。</p>
+</blockquote>
 <h3 id="下一步目标">下一步目标</h3>
 <ul>
-<li>给博客添加评论功能。</li>
+<li>暂无。</li>
 </ul>
 <h3 id="版本日志（开发视角）">版本日志（开发视角）</h3>
 <ul>
+<li>1.0.3
+<ul>
+<li>新增评论系统giscus；</li>
+</ul>
+</li>
 <li>1.0.2
 <ul>
 <li>将markdown解析器和模板引擎融合成一个单独的应用；</li>
@@ -107,7 +118,9 @@
 </li>
 </ul>
 
-		<div class="giscus"></div>
+		<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
 	</div>
 
 	<div class="left-sidebar">
@@ -123,9 +136,9 @@
 		
 	<!-- table of cotent -->
 	<script src="js/toc.js" type="text/javascript" ></script>
-	
+
 	<!-- giscus -->
-	<script src="https://giscus.app/client.js"
+	<!-- <script src="https://giscus.app/client.js"
 	        data-repo="code-pigeon/blog"
 	        data-repo-id="R_kgDOMDeCsA"
 	        data-category="Announcements"
@@ -139,6 +152,16 @@
 	        data-lang="zh-CN"
 	        crossorigin="anonymous"
 	        async>
-	</script>
+	</script> -->
+
+
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'zPOXNAZvnuV03iNQp2LcV2Kw-MdYXbMMI',
+            appKey: 'ZqCOoBJlM5Y0uuu0Q8Q52Ang'
+        })
+    </script>
+
 </body>
 </html>
