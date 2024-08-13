@@ -23,7 +23,8 @@
 		    </ul>
 		</nav>
 	</header>
-	<div class=fluid> <h1 id="关于Flask中View-function-mapping-is-overwriting-an-existing-endpoint-function">关于Flask中View function mapping is overwriting an existing endpoint function</h1>
+	<div class=fluid> 
+		<h1 id="关于Flask中View-function-mapping-is-overwriting-an-existing-endpoint-function">关于Flask中View function mapping is overwriting an existing endpoint function</h1>
 <p>首次编辑：24/3/10/11:03<br />
 最后编辑：24/3/10/11:57</p>
 <h2 id="引子">引子</h2>
@@ -178,7 +179,9 @@ def data():
 <p>可能会有些小伙伴说，搞那么麻烦，直接把<code>@app.route</code>和<code>@not_found</code>的顺序调换一下，这样<code>@app.route</code>装饰到的就是视图函数本身了，就不会有什么重复的<code>endpoint</code>了。<br />
 确实是这个样子，但这两个装饰器的顺序调换照成的影响不止这一点，实际上在开头引子中，<code>@not_found</code>装饰器放在最外层是完全不起作用的（目前我还没研究明白具体原因）。<br />
 所以还是根据实际开发中的需求来决定吧，这或许也是个好办法。</p>
-</div>
+
+		<div class="giscus"></div>
+	</div>
 
 	<div class="left-sidebar">
 		<div class="toc"></div>
@@ -194,5 +197,21 @@ def data():
 	<!-- table of cotent -->
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script>
 </body>
 </html>

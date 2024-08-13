@@ -23,7 +23,8 @@
 		    </ul>
 		</nav>
 	</header>
-	<div class=fluid> <h1 id="操作系统的启动过程">操作系统的启动过程</h1>
+	<div class=fluid> 
+		<h1 id="操作系统的启动过程">操作系统的启动过程</h1>
 <blockquote>
 <p>GRUB加载内核的具体步骤如下：</p>
 <ol>
@@ -73,7 +74,9 @@ MBR包含以下关键信息：</p>
 需要注意的是，MBR的引导加载程序通常不会直接加载内核映像，而是加载GRUB等引导加载程序，然后由GRUB负责加载内核映像。因此，MBR中的引导加载程序是启动过程的一部分，而不是直接启动操作系统的程序。</p>
 </blockquote>
 <p>MBR会启动GRUB（通常位于第二个扇区），GRUB启动之后会读取配置，然后加载os内核，os内核是个elf格式，GRUB会读取elf头，并将elf信息放在multiboot_t结构体中，然后把multiboot_t结构体的地址放在ebx中。最后再把控制权转交给操作系统。</p>
-</div>
+
+		<div class="giscus"></div>
+	</div>
 
 	<div class="left-sidebar">
 		<div class="toc"></div>
@@ -89,5 +92,21 @@ MBR包含以下关键信息：</p>
 	<!-- table of cotent -->
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script>
 </body>
 </html>

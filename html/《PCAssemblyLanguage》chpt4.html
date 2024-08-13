@@ -23,7 +23,8 @@
 		    </ul>
 		</nav>
 	</header>
-	<div class=fluid> <p><a href="http://pacman128.github.io/static/pcasm-book.pdf">《PC Assembly Language》</a><a href="http://pacman128.github.io/">Paul A. Carter</a></p>
+	<div class=fluid> 
+		<p><a href="http://pacman128.github.io/static/pcasm-book.pdf">《PC Assembly Language》</a><a href="http://pacman128.github.io/">Paul A. Carter</a></p>
 <h2 id="第4章-子程序Subprograms">第4章-子程序Subprograms</h2>
 <h3 id="4.1-间接寻址（Indirect-Addressing）">4.1 间接寻址（Indirect Addressing）</h3>
 <pre><code class="language-assembly">mov ax, [Data] ; normal direct memory addressing of a word
@@ -324,7 +325,9 @@ z = x;
 </code></pre>
 <p>如果x可以被另一个线程修改。那么其它线程可以会在第1行和第3行之间修改x的值，以致于z将不会等于10.但是，如果x没有被声明为不稳定类型，编译器就会推断x没有改变，然后再将z置为10。<br />
 不稳定类型的另一个作用就是避免编译器将变量用作寄存器变量。</p>
-</div>
+
+		<div class="giscus"></div>
+	</div>
 
 	<div class="left-sidebar">
 		<div class="toc"></div>
@@ -340,5 +343,21 @@ z = x;
 	<!-- table of cotent -->
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script>
 </body>
 </html>

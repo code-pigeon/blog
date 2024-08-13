@@ -23,7 +23,8 @@
 		    </ul>
 		</nav>
 	</header>
-	<div class=fluid> <h1 id="v1.0.2改版日志（详细版）">v1.0.2改版日志（详细版）</h1>
+	<div class=fluid> 
+		<h1 id="v1.0.2改版日志（详细版）">v1.0.2改版日志（详细版）</h1>
 <p>首次编辑：2024/7/27/12:04<br />
 最后编辑：2024/7/27/14:06</p>
 <h2 id="前言——手搓网站构建器的动机">前言——手搓网站构建器的动机</h2>
@@ -96,7 +97,9 @@ article.md  ===&gt; article.middle.html
 <p>剩下的都是一些鸡零狗碎的改动了，改动比较大的还是目录的制作和构建脚本。除了分类目录，我又新增了一个时间轴的目录，本意是让文件按照创建日期来排序，谁知道Linux对文件的创建时间的维护方式似乎不那么直接，导致文件的创建时间在python里没有那么直接的获取方式，所以没办法，只能以最后的修改日期进行排序了。然后是构建脚本，本来是用makefile写的，但是makefile并不擅长把处于不同文件夹下的markdown文件和处于同一文件夹下的同名html文件对应起来，所以只能换成脚本之王python来做构建脚本了。</p>
 <h2 id="闲话">闲话</h2>
 <p>本来我觉得这次改版应该可以给一个新的小版本号的，但我这小破站可能我一个人一年也维护不了几次，要是每次更新都给个新的小版本号，那这发布号估计到我死了也用不着了。</p>
-</div>
+
+		<div class="giscus"></div>
+	</div>
 
 	<div class="left-sidebar">
 		<div class="toc"></div>
@@ -112,5 +115,21 @@ article.md  ===&gt; article.middle.html
 	<!-- table of cotent -->
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script>
 </body>
 </html>

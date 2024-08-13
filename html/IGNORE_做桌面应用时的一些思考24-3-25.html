@@ -23,7 +23,8 @@
 		    </ul>
 		</nav>
 	</header>
-	<div class=fluid> <h1 id="做桌面应用时的一些思考24-3-25">做桌面应用时的一些思考24-3-25</h1>
+	<div class=fluid> 
+		<h1 id="做桌面应用时的一些思考24-3-25">做桌面应用时的一些思考24-3-25</h1>
 <p>首次编辑：24/3/25/23:13<br />
 最后编辑：24/3/25/</p>
 <h2></h2>
@@ -75,7 +76,9 @@ root.mainloop()
 </ol>
 <p>第一个思路在主要逻辑上显得很简单，也能让代码的耦合度降低，得到的<code>messageBox</code>接口插拔十分方便。但麻烦之处在于由于阻塞的存在，如果框架本身的接口没有阻塞功能，自己实现的话就需要使用多线程或者协程这样的技术了。而按道理应该是使用协程，但协程的书写却比多线程麻烦得多。</p>
 <p>第二个思路的耦合度比较高，做起来也最好是使用面向对象技术。</p>
-</div>
+
+		<div class="giscus"></div>
+	</div>
 
 	<div class="left-sidebar">
 		<div class="toc"></div>
@@ -91,5 +94,21 @@ root.mainloop()
 	<!-- table of cotent -->
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script>
 </body>
 </html>

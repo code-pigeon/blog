@@ -13,6 +13,8 @@ p code {
 
 pre,
 pre code {
+  font-family: Source Code Pro,DejaVu Sans Mono,Ubuntu Mono,Anonymous Pro,Droid Sans Mono,Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,PingFang SC,Microsoft YaHei,sans-serif;
+
 /*  font-family: Menlo, Monaco, "Courier New", monospace;*/
   /*background-color: #303841;
   overflow-x:auto;
@@ -88,7 +90,8 @@ a {
 /*  color: #01ff70;*/
   text-decoration: none;
   color: #45a9f9;
-  font-family: "宋体", "SimSun", cursive;
+/*  font-family: "宋体", "SimSun", cursive;*/
+  font-family: "宋体", "SimSun";
 }
 
 a:hover,
@@ -199,8 +202,8 @@ body {
 
 body {
   color: #bbb;
-/*  font-family: Helvetica Neue, NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,serif;*/
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  font-family: Helvetica Neue, NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,serif;
+/*  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;*/
   line-height: 1.45;
 }
 

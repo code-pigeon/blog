@@ -23,7 +23,8 @@
 		    </ul>
 		</nav>
 	</header>
-	<div class=fluid> <h1 id="Chapter-2：Working-with-Characters-and-Strings">Chapter 2：Working with Characters and Strings</h1>
+	<div class=fluid> 
+		<h1 id="Chapter-2：Working-with-Characters-and-Strings">Chapter 2：Working with Characters and Strings</h1>
 <h2 id="须知">须知</h2>
 <p>在学习的过程中，看到了不少网友对<code>tchar.h</code>这个头文件的吐槽，说这种过时的东西完全没有存在的必要。<br />
 我简单搜索了一下，他们的意思是，开发时用上tchar.h，那么后续的开发和维护会变得麻烦。而在如今，一两个字符的空间大小很廉价，以巨大代价换取这点空间不划算。<br />
@@ -574,7 +575,9 @@ wprintf(L&quot;%d\n&quot;, _countof(wstr));  // 20
 <code>wsprintf</code>意为windows版本的<code>sprintf</code>，只支持普通字符（宽字符版本为<code>wsprintfW</code>）。<br />
 <code>swprintf</code>则是C标准库（<code>whcar.h</code>中定义）的东西，是宽字符版本的<code>sprintf</code>。</p>
 <p>还有一些其它细节上的区别，按下不表。</p>
-</div>
+
+		<div class="giscus"></div>
+	</div>
 
 	<div class="left-sidebar">
 		<div class="toc"></div>
@@ -590,5 +593,21 @@ wprintf(L&quot;%d\n&quot;, _countof(wstr));  // 20
 	<!-- table of cotent -->
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script>
 </body>
 </html>

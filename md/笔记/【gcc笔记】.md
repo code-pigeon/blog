@@ -39,11 +39,11 @@ gcc test1.c test2.c test3.c -o test -llib1 -llib2 -llib3
 ```
 可以把编译的参数都放在一个文件中，类似这样：
 ```
-test1
-.c test2
-.c test3
-.c -o
- test
+test1.c 
+test2.c 
+test3.c
+-o test# 假设这很长
+gcc test1.c test2.c test3.c -o test -llib1 -llib2 -llib3
 -llib1
 -llib2
 -llib3
