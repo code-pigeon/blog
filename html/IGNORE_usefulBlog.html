@@ -28,7 +28,8 @@
 <p><a href="https://foofish.net/python-decorator.html">python装饰器</a></p>
 
 		<h2 id="评论">评论</h2>
-		<div class="giscus"></div>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
 	</div>
 
 	<div class="left-sidebar">
@@ -46,7 +47,7 @@
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
 	<!-- giscus -->
-	<script src="https://giscus.app/client.js"
+<!-- 	<script src="https://giscus.app/client.js"
 	        data-repo="code-pigeon/blog"
 	        data-repo-id="R_kgDOMDeCsA"
 	        data-category="Announcements"
@@ -60,6 +61,21 @@
 	        data-lang="zh-CN"
 	        crossorigin="anonymous"
 	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'zPOXNAZvnuV03iNQp2LcV2Kw-MdYXbMMI',
+	        appKey: 'ZqCOoBJlM5Y0uuu0Q8Q52Ang',
+	        placeholder: '可以匿名评论哟',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
 	</script>
+
 </body>
 </html>

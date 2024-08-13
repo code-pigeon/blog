@@ -11,6 +11,7 @@
 - 🎱：桌球
 - 🏊︎：游泳
 - 📔：看小说
+- 🐘：中国象棋
 - 🏓：乒乓球
 - 🖌：画画（曾经的爱好）
 
@@ -27,7 +28,7 @@
 	- 代码高亮：[highlight.js](https://highlightjs.org/)
 	- html目录：[tocbot.js](http://tscanlin.github.io/tocbot/)
 	- 版本控制：[git](https://git-scm.com/)
-	- 评论系统：[giscus](https://giscus.app/zh-CN)
+	- 评论系统：[Valine](https://valine.js.org/)
 	<!-- - 模板引擎：template_renderer（自己写的微型模板引擎） -->
 - 涉及的编程语言
 	- 前端三剑客（html、css、javascript）
@@ -47,7 +48,7 @@
 
 ### 版本日志（开发视角）
 - 1.0.3
-	- 新增评论系统giscus；
+	- 新增评论系统Valine；
 - 1.0.2
 	- 将markdown解析器和模板引擎融合成一个单独的应用；
 	- html的`id`属性的生成从前端js代码转移至后端——在cmark-gfm上进行细微修改，渲染为html时会自动增加`id`属性；

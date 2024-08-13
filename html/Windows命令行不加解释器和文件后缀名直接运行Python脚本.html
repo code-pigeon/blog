@@ -56,7 +56,8 @@ python script.py
 <p>寻找解决办法期间还涉猎了些关于命令行的<code>ftype</code>和<code>assoc</code>的知识，还找到了注册表里，但那些太复杂，而且设置默认应用时到最后可能也没效果，真正立竿见影的方法只有在带图形界面的默认应用选项中设置。</p>
 
 		<h2 id="评论">评论</h2>
-		<div class="giscus"></div>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
 	</div>
 
 	<div class="left-sidebar">
@@ -74,7 +75,7 @@ python script.py
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
 	<!-- giscus -->
-	<script src="https://giscus.app/client.js"
+<!-- 	<script src="https://giscus.app/client.js"
 	        data-repo="code-pigeon/blog"
 	        data-repo-id="R_kgDOMDeCsA"
 	        data-category="Announcements"
@@ -88,6 +89,21 @@ python script.py
 	        data-lang="zh-CN"
 	        crossorigin="anonymous"
 	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'zPOXNAZvnuV03iNQp2LcV2Kw-MdYXbMMI',
+	        appKey: 'ZqCOoBJlM5Y0uuu0Q8Q52Ang',
+	        placeholder: '可以匿名评论哟',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
 	</script>
+
 </body>
 </html>

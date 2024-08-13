@@ -78,7 +78,8 @@ Light Gray  0;37     White         1;37
 <p>后来了解了一下，“ECMA-48”就是一个终端控制的标准，而“VT102”则是这个标准的具体实现。此外还有一个叫“VT100”的实现，这是一个更早更简单的实现。VT102兼容VT100，但功能更加丰富。</p>
 
 		<h2 id="评论">评论</h2>
-		<div class="giscus"></div>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
 	</div>
 
 	<div class="left-sidebar">
@@ -96,7 +97,7 @@ Light Gray  0;37     White         1;37
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
 	<!-- giscus -->
-	<script src="https://giscus.app/client.js"
+<!-- 	<script src="https://giscus.app/client.js"
 	        data-repo="code-pigeon/blog"
 	        data-repo-id="R_kgDOMDeCsA"
 	        data-category="Announcements"
@@ -110,6 +111,21 @@ Light Gray  0;37     White         1;37
 	        data-lang="zh-CN"
 	        crossorigin="anonymous"
 	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'zPOXNAZvnuV03iNQp2LcV2Kw-MdYXbMMI',
+	        appKey: 'ZqCOoBJlM5Y0uuu0Q8Q52Ang',
+	        placeholder: '可以匿名评论哟',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
 	</script>
+
 </body>
 </html>

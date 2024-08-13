@@ -46,7 +46,7 @@ if __name__ == "__main__":
     # 主页还是单独处理吧
     index_md = "index.md"
     index_html = "index.html"
-    index_template = './web_skeleton/index.html'    
+    index_template = './web_skeleton/template_index.html'    
 
     if not os.path.exists(index_html) or os.path.getmtime(index_md) > os.path.getmtime(index_html):
         print(f"\033[0;33m[....] Building index\033[0m")

@@ -316,7 +316,8 @@ lua_setfield(L, -2, &quot;string_key&quot;);
 <h3 id="在C中调用lua函数">在C中调用lua函数</h3>
 
 		<h2 id="评论">评论</h2>
-		<div class="giscus"></div>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
 	</div>
 
 	<div class="left-sidebar">
@@ -334,7 +335,7 @@ lua_setfield(L, -2, &quot;string_key&quot;);
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
 	<!-- giscus -->
-	<script src="https://giscus.app/client.js"
+<!-- 	<script src="https://giscus.app/client.js"
 	        data-repo="code-pigeon/blog"
 	        data-repo-id="R_kgDOMDeCsA"
 	        data-category="Announcements"
@@ -348,6 +349,21 @@ lua_setfield(L, -2, &quot;string_key&quot;);
 	        data-lang="zh-CN"
 	        crossorigin="anonymous"
 	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'zPOXNAZvnuV03iNQp2LcV2Kw-MdYXbMMI',
+	        appKey: 'ZqCOoBJlM5Y0uuu0Q8Q52Ang',
+	        placeholder: '可以匿名评论哟',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
 	</script>
+
 </body>
 </html>

@@ -52,7 +52,8 @@ while ( fgets(buf, sizeof(buf), stdin) != NULL){
 <p>结果没想到lua是使用了lua api来实现的（可以简单理解为，lua来等待用户输入之前，自己用lua的<code>print</code>打印了一次提示符）。</p>
 
 		<h2 id="评论">评论</h2>
-		<div class="giscus"></div>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
 	</div>
 
 	<div class="left-sidebar">
@@ -70,7 +71,7 @@ while ( fgets(buf, sizeof(buf), stdin) != NULL){
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
 	<!-- giscus -->
-	<script src="https://giscus.app/client.js"
+<!-- 	<script src="https://giscus.app/client.js"
 	        data-repo="code-pigeon/blog"
 	        data-repo-id="R_kgDOMDeCsA"
 	        data-category="Announcements"
@@ -84,6 +85,21 @@ while ( fgets(buf, sizeof(buf), stdin) != NULL){
 	        data-lang="zh-CN"
 	        crossorigin="anonymous"
 	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'zPOXNAZvnuV03iNQp2LcV2Kw-MdYXbMMI',
+	        appKey: 'ZqCOoBJlM5Y0uuu0Q8Q52Ang',
+	        placeholder: '可以匿名评论哟',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
 	</script>
+
 </body>
 </html>

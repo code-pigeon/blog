@@ -126,7 +126,7 @@ if __name__ == "__main__":
 # 分类
 > 技术相关的：
 > - 笔记：适合查阅，不适合阅读  
-> - 博客：相对比较适合阅读  
+> - 技术博客：相对比较适合阅读  
 """
 		print(file_prifex, file=f)
 		make_toc_by_category(folder_path, output_file=f)

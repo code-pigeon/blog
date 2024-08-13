@@ -10,11 +10,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
-
-	<!-- leancloud 操作库 -->
-	<script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-	<!-- Valine -->
-	<script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
 </head>
 <body>
 	<header>
@@ -66,14 +61,17 @@
 	        async>
 	</script> -->
 
-
+	<!-- Valine -->
+	<script src='js/Valine.min.js' type="text/javascript"></script>
     <script>
         new Valine({
-        	av: AV,
             el: '#vcomments',
             appId: 'zPOXNAZvnuV03iNQp2LcV2Kw-MdYXbMMI',
             appKey: 'ZqCOoBJlM5Y0uuu0Q8Q52Ang',
-            placeholder: '评不评论不重要，重要的是打赏'
+            placeholder: '可以匿名评论哟',
+            avatar: 'wavatar',
+            visitor: true,
+            enableQQ: true
         })
     </script>
 

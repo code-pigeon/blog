@@ -10,11 +10,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
-
-	<!-- leancloud 操作库 -->
-	<script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-	<!-- Valine -->
-	<script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
 </head>
 <body>
 	<header>
@@ -43,6 +38,7 @@
 <li>🎱：桌球</li>
 <li>🏊︎：游泳</li>
 <li>📔：看小说</li>
+<li>🐘：中国象棋</li>
 <li>🏓：乒乓球</li>
 <li>🖌：画画（曾经的爱好）</li>
 </ul>
@@ -65,7 +61,7 @@
 <li>代码高亮：<a href="https://highlightjs.org/">highlight.js</a></li>
 <li>html目录：<a href="http://tscanlin.github.io/tocbot/">tocbot.js</a></li>
 <li>版本控制：<a href="https://git-scm.com/">git</a></li>
-<li>评论系统：<a href="https://giscus.app/zh-CN">giscus</a></li>
+<li>评论系统：<a href="https://valine.js.org/">Valine</a></li>
 </ul>
 <!-- raw HTML omitted -->
 </li>
@@ -99,7 +95,7 @@
 <ul>
 <li>1.0.3
 <ul>
-<li>新增评论系统giscus；</li>
+<li>新增评论系统Valine；</li>
 </ul>
 </li>
 <li>1.0.2
@@ -157,14 +153,17 @@
 	        async>
 	</script> -->
 
-
+	<!-- Valine -->
+	<script src='js/Valine.min.js' type="text/javascript"></script>
     <script>
         new Valine({
-        	av: AV,
             el: '#vcomments',
             appId: 'zPOXNAZvnuV03iNQp2LcV2Kw-MdYXbMMI',
             appKey: 'ZqCOoBJlM5Y0uuu0Q8Q52Ang',
-            placeholder: '评不评论不重要，重要的是打赏'
+            placeholder: '可以匿名评论哟',
+            avatar: 'wavatar',
+            visitor: true,
+            enableQQ: true
         })
     </script>
 
