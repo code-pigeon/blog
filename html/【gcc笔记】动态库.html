@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{title}}</title>
+	<title>【gcc笔记】动态库</title>
 	<link href="../css/index.css" rel="stylesheet">
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
@@ -24,7 +24,35 @@
 		</nav>
 	</header>
 	<div class=fluid> 
-		{{ md:markdown_file.md }}
+		<h1 id="gcc笔记——动态库">gcc笔记——动态库</h1>
+<p>首次编辑：24/8/17/16:55<br />
+最后编辑：24/8/17/17:18</p>
+<h2 id="位置无关代码">位置无关代码</h2>
+<p>动态库应该被编译为位置无关的代码，在这种情况下，glocal offset table这张表记录着所有动态链接符号的位置。</p>
+<p><code>-fpic</code>和<code>-fPIC</code>选项都可以生成位置无关的代码。前者编译出更快的代码，但对于global offset table的尺寸有限制，后者则没有。</p>
+<h2 id="三种名字">三种名字</h2>
+<ul>
+<li>real name：<code>.so</code>文件的真实名字，通常遵循<code>libname.so.x.y.z</code>的结构，<code>name</code>即为动态库的名字，<code>x</code>、<code>y</code>、<code>z</code>分别代表大、小版本号和发布号。</li>
+<li>Shared Object Name（soname）：<code>libname.so.x</code>，即只带有大版本号的名字，通常是个指向real name文件的符号链接。</li>
+<li>Linker name：<code>libname.so</code>，即不带任何版本号的名字，通常是个指向soname文件的符号链接。</li>
+</ul>
+<h2 id="动态库的创建">动态库的创建</h2>
+<ol>
+<li>位置无关的目标文件</li>
+</ol>
+<pre><code class="language-bash">gcc -fpic -c source1.c source2.c
+</code></pre>
+<ol start="2">
+<li>位置无关的动态库</li>
+</ol>
+<pre><code class="language-bash">gcc -fpic source1.o source2.o -shared -Wl,-soname,libsource.so.1 -o libsource.so.1.1
+</code></pre>
+<p><code>-Wl</code>作用是将后面的选项传递给链接器ld。<code>-soname</code>表示在目标库中嵌入soname信息，这样当有可知性文件需要调用库source的时候，就会通过这个soname信息来寻找拥有相同soname的动态库。</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=mUbWcxSb4fw&amp;list=PLIz6U0slZNq2TS1zSUjZHgxBjAJL4nb92&amp;index=6">YouTube，Creating and Linking Shared Libraries on Linux with gcc</a></li>
+</ul>
+
 		<h2 id="评论">评论</h2>
 		<!-- <div class="giscus"></div> -->
 		<div id="vcomments"></div>

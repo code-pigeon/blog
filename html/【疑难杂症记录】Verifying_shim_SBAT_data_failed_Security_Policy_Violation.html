@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{title}}</title>
+	<title>【疑难杂症记录】Verifying_shim_SBAT_data_failed_Security_Policy_Violation</title>
 	<link href="../css/index.css" rel="stylesheet">
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
@@ -24,7 +24,19 @@
 		</nav>
 	</header>
 	<div class=fluid> 
-		{{ md:markdown_file.md }}
+		<h1 id="Verifying-shim-SBAT-data-failed:-Security-Policy-Violation">Verifying shim SBAT data failed: Security Policy Violation</h1>
+<p>首次编辑：2024/8/19/18:04<br />
+最后编辑：2024/8/19/18:10</p>
+<h2 id="起因">起因</h2>
+<p>Windows+Ubuntu双系统用户，在windows进行更新之后可能会出现这样的问题。<br />
+<img src="https://img.lancdn.com/landian/2024/08/105433.png" alt="图片" /></p>
+<blockquote>
+<p>我就是昨天切回了Windows，今天就出现了这个问题。</p>
+</blockquote>
+<h2 id="解决方法">解决方法</h2>
+<p>在开机之后进入BIOS，关闭Secure Boot即可。</p>
+<p>不过听说这是个临时解决方法，详细参考<a href="https://www.landiannews.com/archives/105433.html">蓝点网：Windows 10/11和Linux双系统用户请勿安装最新更新 否则系统将无法启动</a>。</p>
+
 		<h2 id="评论">评论</h2>
 		<!-- <div class="giscus"></div> -->
 		<div id="vcomments"></div>

@@ -403,3 +403,23 @@ img {
   .giscus{
     
   }
+
+
+/* ---- scroll bar ------------------------------------------- */
+
+  /* firefox并不支持，但以下主要也是为了调整chrome系的浏览器的滚动条 */
+  
+  ::-webkit-scrollbar {
+      width: 0.5rem; /* 垂直滚动条的宽度 */
+      height: 0.5rem; /* 水平滚动条的高度 */
+    
+  }
+  /* 鼠标悬浮在滚动条上的颜色变化 */
+  ::-webkit-scrollbar-thumb:hover {
+      background: #555; /* 鼠标悬浮时的颜色 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #888; /* 手柄颜色 */
+          border-radius: 6px;
+  }
