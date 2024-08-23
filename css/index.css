@@ -31,6 +31,8 @@ pre code {
 }
 */
 
+/* ---- print ---------------------------------------------------------------------------------------------*/
+
 @media print {
   *,
   *:before,
@@ -85,6 +87,7 @@ pre code {
     page-break-after: avoid;
   }
 }
+/* ---- end print ---------------------------------------------------------------------------------------------*/
 
 a {
 /*  color: #01ff70;*/
@@ -100,6 +103,7 @@ a:active {
 /*  color: #2ecc40;*/
   color: #62bfff;
 }
+
 
 .retro-no-decoration {
   text-decoration: none;
@@ -344,7 +348,7 @@ header li a{
 }
 
 img {
-  margin: 1.5rem auto;
+  margin: 0.7rem auto;
 }
 
 

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>8月19日——白嫖weibo的视频资源记</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> 
+		<h1 id="白嫖weibo的视频资源记">白嫖weibo的视频资源记</h1>
+<p>首次编辑：2024/8/19/23:36<br />
+最后编辑：2024/8/20/00:44</p>
+<p>因为搞了个<a href="%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%E5%AE%9E%E7%8E%B0.html">简易视频壁纸命令行程序</a>，所以要开始收集视频了。</p>
+<p>在微博上白嫖视频，最简单的方式当然是用现成的工具。</p>
+<ul>
+<li><a href="httsucps.com">sucps.com</a>：需要关注公众号。</li>
+<li><a href="https://www.xiazaitool.com">下载狗</a>：有每日下载次数限额。</li>
+</ul>
+<p>这两个工具都可以下载。</p>
+<p>不过作为一个程序员，总是好奇背后的原理。而且我也想学会自己白嫖，就不用求人了。</p>
+<h2 id="探索过程">探索过程</h2>
+<p>了解html页面的话，肯定最先想到的是在浏览器里按下<code>ctrl + shift + C</code>，然后点击目标视频，找到对应的元素，然后寻找视频的url。<br />
+在微博里，视频的标签如下：</p>
+<pre><code class="language-html">&lt;video data-v-560f3af5=&quot;&quot; class=&quot;wbpv-tech&quot; playsinline=&quot;playsinline&quot; webkit-playsinline=&quot;true&quot; x5-playsinline=&quot;true&quot; x5-video-player-type=&quot;h5&quot; x5-video-player-fullscreen=&quot;false&quot; id=&quot;wbpv_video_455_html5_api&quot; tabindex=&quot;-1&quot; preload=&quot;meta&quot; src=&quot;//f.video.weibocdn.com/o0/g4Cr4fYjlx083Ic6jb3i010412018X9d0E010.mp4?label=mp4_1080p&amp;amp;template=1920x1080.25.0&amp;amp;media_id=4877088713539648&amp;amp;tp=8x8A3El:YTkl0eM8&amp;amp;us=0&amp;amp;ori=1&amp;amp;bf=4&amp;amp;ot=h&amp;amp;ps=3lckmu&amp;amp;uid=6xTbLC&amp;amp;ab=,8143-g0,8013-g0,3601-g19,7598-g0&amp;amp;Expires=1724082476&amp;amp;ssig=K4%2BrYO4AG7&amp;amp;KID=unistore,video&quot;&gt;&lt;/video&gt;
+</code></pre>
+<p>虽然乱七八糟的，但是还是可以找到我们想要的url，也就是<code>src=&quot;</code>后面的内容，在这里是</p>
+<pre><code>//f.video.weibocdn.com/o0/g4Cr4fYjlx083Ic6jb3i010412018X9d0E010.mp4?label=mp4_1080p&amp;amp;template=1920x1080.25.0&amp;amp;media_id=4877088713539648&amp;amp;tp=8x8A3El:YTkl0eM8&amp;amp;us=0&amp;amp;ori=1&amp;amp;bf=4&amp;amp;ot=h&amp;amp;ps=3lckmu&amp;amp;uid=6xTbLC&amp;amp;ab=,8143-g0,8013-g0,3601-g19,7598-g0&amp;amp;Expires=1724082476&amp;amp;ssig=K4%2BrYO4AG7&amp;amp;KID=unistore,video
+</code></pre>
+<p>于是我们可以在浏览器的输入框中输入这个url，然后不出意外的话，就要看到403了。</p>
+<p>我后来了解到这是“防盗链”机制搞的鬼。</p>
+<h3 id="防盗链">防盗链</h3>
+<p>比如我在我的博客里引用了微博的视频，那么访客进入我的网站之后，<code>video</code>标签就会向微博发送请求以获取这个视频，于是微博用自己的服务器对这个请求进行了处理，但结果却返回到了我的博客里。换句话说微博成了为了打工的了，万恶的资本家们肯定不会这么好心啊，所以这些资源的拥有者们往往会采用某些技术手段来防止像我这种盗用url的家伙，这就是所谓的“防盗链”。</p>
+<p>技术毕竟是人创造的，有人创造，就会有人知道怎么破解。<br />
+在网上看到的比较多的说，为了防盗链，这些网站会在网站中使用<code>referrer</code>标识来记录这个请求资源的请求是不是来自自家的域名，于是咱们可以在自己的网页中写上html标签：</p>
+<pre><code class="language-html">&lt;meta content=&quot;never&quot; name=&quot;referrer&quot;&gt;
+</code></pre>
+<p>来关闭防盗链。<br />
+也有人说这么写：</p>
+<pre><code class="language-html">&lt;meta content=&quot;no-referrer&quot; name=&quot;referrer&quot;&gt;
+</code></pre>
+<p>于是我腰杆子瞬间直了起来，兴冲冲写了个html文件：</p>
+<pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta content=&quot;never&quot; name=&quot;referrer&quot;&gt;
+	&lt;title&gt;test&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;video src=&quot;https://f.video.weibocdn.com/o0/i2M3bZF3lx083v7CjStq01041201SKSl0E010.mp4?label=mp4_1080p&amp;template=1920x1080.25.0&amp;media_id=4874117988679687&amp;tp=8x8A3El:YTkl0eM8&amp;us=0&amp;ori=1&amp;bf=4&amp;ot=h&amp;ps=3lckmu&amp;uid=6xTbLC&amp;ab=,8143-g0,8013-g0,3601-g19,7598-g0&amp;Expires=1724074020&amp;ssig=OgFaj88BL2&amp;KID=unistore,video&quot;&gt;&lt;/video&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>然后不出意外的话，意外就来了，结果视频还是没出现。按下F12打开控制台，发现还是403了。</p>
+<p>于是瞬间又不牛逼了。可能是微博的程序员们比较屌，还有什么更高级的技术用在这了。没办法，还是斗不过资本家，这个问题就等以后有兴趣再研究了吧……</p>
+<h3 id="编辑video标签">编辑video标签</h3>
+<p>浏览器本身是支持用户下载浏览器中显示的视频的，只需要右击视频，就会有保存视频的选项。但这些个类似微博的网站，右键之后只会弹出“复制视频地址”，这就是它们防止别人下载视频的最初级方法。</p>
+<p>右击鼠标，浏览器是会出现默认的菜单栏的。但是在微博视频为啥出现的是“复制视频地址”？不用像，微博的程序员们自定义了右键处理事件覆盖掉了浏览器的默认右键处理事件。</p>
+<p>让视频被右击时依旧触发浏览器的默认右击处理事件，不就可以下载视频了？</p>
+<p>于是我略加思索，看了一下那个又臭又长的<code>video</code>标签，突然有了一个想法：微博的程序员不会是通过css类来处理右击事件的吧？<br />
+于是我打开微博，<code>ctrl + shift + C</code>选中了一个视频，找到<code>video</code>标签，右击，选择“编辑为html”，然后把出了<code>src</code>之外的属性统统删除：</p>
+<pre><code class="language-html">&lt;body&gt;
+	&lt;video src=&quot;https://f.video.weibocdn.com/o0/i2M3bZF3lx083v7CjStq01041201SKSl0E010.mp4?label=mp4_1080p&amp;template=1920x1080.25.0&amp;media_id=4874117988679687&amp;tp=8x8A3El:YTkl0eM8&amp;us=0&amp;ori=1&amp;bf=4&amp;ot=h&amp;ps=3lckmu&amp;uid=6xTbLC&amp;ab=,8143-g0,8013-g0,3601-g19,7598-g0&amp;Expires=1724074020&amp;ssig=OgFaj88BL2&amp;KID=unistore,video&quot;&gt;&lt;/video&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="../media/image/article/Snipaste_2024-08-20_00-18-01.png" alt="图片：成功实现保存视频" /></p>
+<p>哈哈哈哈！</p>
+<p>正当我欣喜若狂，拿着下载好的视频和用那两个网站下载好的视频进行对比时，我突然傻眼了。<br />
+左边是我自己下载的，右边是用那两个网站下载的。<br />
+<img src="../media/image/article/Snipaste_2024-08-20_00-22-14.png" alt="图片：对比1" /><br />
+大小的差距更是离谱。<br />
+<img src="../media/image/article/Snipaste_2024-08-20_00-22-30.png" alt="图片：对比2" /><br />
+即使我把视频质量调整到1080p，还是比从那两个网站下载的的质量要低得多。</p>
+<p>而且我自己下载的还是有水印的。而网站下载的没有。</p>
+<p>而且我后来发现，如果用“复制视频地址”的那个地址打开视频，就是可以直接右键下载的🥲。</p>
+<h3 id="神秘的url">神秘的url</h3>
+<p>于是我去看了一下那两个网站解析出来的视频的url。<br />
+譬如对于某个视频，有如下的一系列url：</p>
+<pre><code>1、右键“复制视频地址”得到的：http://t.cn/A6CIU9pi
+
+2、输入链接“1”之后，浏览器显示的url：https://weibo.com/tv/show/1034:4874117988679687
+
+3、video标签的url：//f.video.weibocdn.com/o0/i2M3bZF3lx083v7CjStq01041201SKSl0E010.mp4?label=mp4_1080p&amp;template=1920x1080.25.0&amp;media_id=4874117988679687&amp;tp=8x8A3El:YTkl0eM8&amp;us=0&amp;ori=1&amp;bf=4&amp;ot=h&amp;ps=3lckmu&amp;uid=3ZoTIp&amp;ab=,8143-g0,8013-g0,3601-g19,7598-g0&amp;Expires=1724088955&amp;ssig=FzQh5JRx5z&amp;KID=unistore,video
+
+4、两个网站解析出来的url：https://ad.video.weibocdn.com/o0/EMnNHuurlx083v7bUpLO01041207zwdK0E030?Expires=1724085252&amp;ssig=ne2EcJZIkc&amp;KID=unistore,video
+</code></pre>
+<blockquote>
+<p>注：解析出来的url似乎是有时限的。写完时“4”已经无法打开了（403）。</p>
+</blockquote>
+<p>对于“3”这个url其实是比较好理解的，在域名之后，<code>i2M3bZF3lx083v7CjStq01041201SKSl0E010.mp4</code>表示请求的文件名，再后面的都是一些请求参数。</p>
+<p>对于“4”这个神秘的url，同样在域名之后参数之前的<code>EMnNHuurlx083v7bUpLO01041207zwdK0E030</code>，可能也是一个文件的文件名，只是不带后缀名而已。</p>
+<p>但问题在于，如何通过“1”或“2”或“3”中的这些标识了视频资源的各种id（例如“1”的<code>A6CIU9pi</code>、“2”的4874117988679687，“3”的<code>i2M3bZF3lx083v7CjStq01041201SKSl0E010</code>）来得到用于请求“4”的<code>EMnNHuurlx083v7bUpLO01041207zwdK0E030</code>呢。</p>
+<p>在微博视频的页面中，按下F12，在“网络”选项卡中寻找<code>EMnNHuurlx083v7bUpLO01041207zwdK0E030</code>，很遗憾，没有任何痕迹。但那两个网站却能够通过“1”、“2”、“3”或者它们的任意排列组合来找到这个神秘的字符串……</p>
+<p>我目前的水平没办法想出其中奥秘，只能说，也许这两个网站的作者在微博后端工作过。</p>
+
+		<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+	</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+	<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '可以匿名评论哟',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+
+</body>
+</html>
