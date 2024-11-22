@@ -1,5 +1,5 @@
 # C语言自定义错误打印函数
-最后编辑：2024/6/10/12:33
+最后编辑：2024/9/23/13:09
 
 ## 引子
 写程序难免需要错误处理，而为了把错误信息输出到标准错误中，通常会选择使用`fprintf`函数来打印错误信息。
@@ -32,7 +32,7 @@ error("%d", error_code);
 ## 实现
 正好标准库中有一个非常适合实现这个功能的函数，它就是`vprintf`，当然它还需要和`stdarg.h`头中的仨哥们`va_list`、`va_start`和`va_end`配合一下：
 ```c
-void error(char* fmt, ...){
+void error(char const * const fmt, ...){
 	va_list ap;
 	va_start(ap, fmt);
 	printf("\033[31m");  // 将字体转为红色
@@ -61,3 +61,36 @@ vfprintf(stderr, fmt, ap);
 即可。
 
 > 这个`vprintf`和`vfprintf`可能是专门为套娃而生的。
+
+## 完整示例
+```c
+#include <stdarg.h>
+#include <stdio.h>
+
+void error(char const* const fmt, ...){
+	va_list ap;
+	va_start(ap, fmt);
+	fprintf(stderr, "\033[31m");  // 将字体转为红色
+	fprintf(stderr, "error: ");
+	fprintf(stderr, "\033[0m");  // 将字体转为默认颜色
+	vfprintf(stderr, fmt, ap);  // 这里才是真正打印错误信息的地方
+	va_end(ap);
+}
+
+void warning(char const* const fmt, ...){
+	va_list ap;
+	va_start(ap, fmt);
+	fprintf(stderr, "\033[35m");  // 将字体转为紫色
+	fprintf(stderr, "warning: ");
+	fprintf(stderr, "\033[0m");  // 将字体转为默认颜色
+	vfprintf(stderr, fmt, ap);  // 这里才是真正打印错误信息的地方
+	va_end(ap);
+}
+
+int main(int argc, char const *argv[])
+{
+	error("这是错误，错误代码%d\n", 100);
+	warning("这是警告，警告代码%d\n", 200);
+	return 0;
+}
+```

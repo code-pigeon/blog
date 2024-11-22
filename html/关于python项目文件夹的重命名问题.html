@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>关于python项目文件夹的重命名问题</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> 
+		<h1 id="关于python项目文件夹的重命名问题">关于python项目文件夹的重命名问题</h1>
+<p>首次编辑：2024/11/22/15:26<br />
+最后编辑：2024/11/22/15:46</p>
+<p>写项目的时候，一开始可能只是一个小小的需求，也不知道起什么名字。后来越写越大了，感觉这个名字配不上它的逼格，于是又想着改一个名字。</p>
+<p>此时可能会遇到一些问题，比如项目的git仓库会不会受到影响，（假如用了python）项目的python虚拟环境会不会受影响。</p>
+<p>试了一下，结论是：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>是否受影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>git仓库</td>
+<td>否</td>
+</tr>
+<tr>
+<td>python虚拟环境</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p>git好像只依赖于<code>.git</code>文件夹，并不关心根路径名的问题。</p>
+<p>python虚拟环境就不一样了。</p>
+<p>python虚拟环境中会有一个叫<code>activate</code>的脚本，在Linux和Windows下它们的路径分别是（假设虚拟环境的文件夹名为<code>venv</code>）：</p>
+<pre><code class="language-bash">#Linux
+venv/bin/activate
+# Windows
+venv/Scripts/activate.bat
+</code></pre>
+<p>如果修改了项目文件夹的名字，则需要到这个<code>activate</code>脚本中去找到<code>VIRTUAL_ENV</code>这个变量，并修改它的值。<br />
+例如在Linux中，这个变量的赋值语句如下：</p>
+<pre><code class="language-bash">VIRTUAL_ENV=&quot;/path/to/yourProject&quot;
+</code></pre>
+<p>假如把项目名<code>yourProject</code>改成了<code>myProject</code>，则需要对<code>VIRTUAL_ENV</code>进行相应的修改：</p>
+<pre><code class="language-bash">VIRTUAL_ENV=&quot;/path/to/myProject&quot;
+</code></pre>
+<p>这样虚拟环境才能正常工作。</p>
+<blockquote>
+<p><strong>【注】</strong></p>
+<p>在Linux中还会看到有不同后缀名的<code>activate</code>脚本，例如<code>.csh</code>；<br />
+Windows也类似，有<code>.ps1</code>的后缀名版本。</p>
+<p>需要修改哪一个后缀名的脚本取决于使用的命令行。<br />
+如果是用Windows cmd，就用<code>activate.bat</code>；<br />
+如果是用Windows powershell，就用<code>activate.ps1</code>；<br />
+如果是用Linux C Shell，就用<code>activate.csh</code>；<br />
+如果是用Linux bash，就用<code>activate</code>；</p>
+<p>当然也可以全部都改（狗头）</p>
+</blockquote>
+<p>令人惊讶的是，我上网找居然找不到这个问题，更多的是在讨论“怎么修改虚拟环境文件夹名而不导致出错”。</p>
+
+		<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+	</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+	<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '可以匿名评论哟',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+
+</body>
+</html>

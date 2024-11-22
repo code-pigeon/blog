@@ -225,6 +225,9 @@ blockquote {
 /*  font-style: italic;*/
 }
 
+blockquote p{
+  font-size: smaller;
+}
 /* end retro */
 
 

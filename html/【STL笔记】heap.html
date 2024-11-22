@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【STL笔记】heap</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> 
+		<h1 id="【STL笔记】heap">【STL笔记】heap</h1>
+<p>首次编辑：24/9/20/10:39<br />
+最后编辑：24/9/20/11:11</p>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+int main(){
+
+// 1. stl中没有叫heap的数据结构，堆是以vector的形式存储的
+
+    // Initializing a vector
+    std::vector&lt;int&gt; v1 = { 20, 30, 40, 25, 15 };
+ 
+// 2. 构建堆（make_heap）
+
+    std::make_heap(v1.begin(), v1.end());  // 默认为大顶堆
+ 
+    std::cout &lt;&lt; &quot;2. 堆中的最大元素为：&quot;;
+    std::cout &lt;&lt; v1.front() &lt;&lt; std::endl;  // 注意v1.back()并不能获得最小元素
+ 
+    // make_heap还可以有第三个参数，指定比较函数，默认为std::less()
+    // std::make_heap(v1.begin(), v1.end(), std::greater&lt;int&gt;());  // 这样相当于小顶堆了
+
+// 3. 添加堆元素（std::vector::push_back 加 std::push_heap）
+
+    // ！注意在这之前v1要是一个堆，若不是，则会产生错误
+    v1.push_back(200);
+    std::push_heap(v1.begin(), v1.end());
+
+    std::cout &lt;&lt; &quot;3. 堆中的最大元素为：&quot;;
+    std::cout &lt;&lt; v1.front() &lt;&lt; std::endl;  // 注意v1.back()并不能获得最小元素
+
+    // push_heap也可以有第三个参数，指定比较函数
+    // std::push_heap(v1.begin(), v1.end(), std::greater&lt;int&gt;());
+
+// 4. 删除堆顶元素（std::pop_heap 加 std::vector::pop_back）
+
+    // ！调用者要保证，在调用pop_heap时[first, last)已经是一个堆(使用相同的排序准则)
+    std::pop_heap(v1.begin(), v1.end());  // 这会把堆顶的最大元素交换到vecotr末尾，然后把除了尾部的元素的剩余区间重新调整成堆。
+    v1.pop_back();
+
+    std::cout &lt;&lt; &quot;4. 堆中的最大元素为：&quot;;
+    std::cout &lt;&lt; v1.front() &lt;&lt; std::endl;  // 注意v1.back()并不能获得最小元素
+
+    // pop_heap也可以有第三个参数，指定比较函数
+    // std::pop_heap(v1.begin(), v1.end(), std::greater&lt;int&gt;());
+
+// 5. 对vector堆进行排序（sort_heap）
+
+    // ！注意：调用者仍需确保区间已经是一个堆。
+    std::sort_heap(v1.begin(), v1.end());
+
+    std::cout &lt;&lt; &quot;5. 排序之后的vector为：&quot;;
+    for (auto i : v1){
+    	std::cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+    }
+    std::cout &lt;&lt; std::endl;
+
+    // sort_heap也可以有第三个参数，指定比较函数
+    // std::sort_heap(v1.begin(), v1.end(), std::greater&lt;int&gt;());
+
+    return 0;
+}
+
+// 6. 判断一个vector是不是堆（is_heap)
+	
+	bool res = std::is_heap(v1.begin(), v1.end());  // 返回bool
+
+	if ( res == true){
+		std::cout &lt;&lt; &quot;6. v1 为堆&quot; &lt;&lt; std::endl;
+	}else{
+		std::cout &lt;&lt; &quot;6. v1 非堆&quot; &lt;&lt; std::endl;
+	}
+
+	// sort_heap也可以有第三个参数，指定比较函数
+	// std::is_heap(v1.begin(), v1.end(), std::greater&lt;int&gt;());
+
+// 7. 判断vector中为堆的区间（is_heap_until）
+
+	// 按下不表
+
+</code></pre>
+<h2 id="参考">参考</h2>
+<ul>
+<li>博客园，<a href="https://www.cnblogs.com/deathmr/p/9015644.html">C++ 标准库中的堆(heap)</a></li>
+<li>GeeksForGeeks，<a href="https://www.geeksforgeeks.org/cpp-stl-heap/">Heap in C++ STL</a></li>
+</ul>
+
+		<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+	</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+	<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '可以匿名评论哟',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+
+</body>
+</html>
