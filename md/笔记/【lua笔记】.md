@@ -1,4 +1,6 @@
 # 【lua笔记】
+*参考*：《Programming in Lua》第4版，Roberto Ierusalimschy
+
 ## lua函数
 ### 函数参数默认值的实现
 ```lua

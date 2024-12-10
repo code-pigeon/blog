@@ -25,6 +25,17 @@
 	</header>
 	<div class=fluid> 
 		{{ md:markdown_file.md }}
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="index.html" class="leancloud_visitors" data-flag-title="title">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
 		<h2 id="评论">评论</h2>
 		<!-- <div class="giscus"></div> -->
 		<div id="vcomments"></div>
@@ -68,7 +79,7 @@
             el: '#vcomments',
             appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
             appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
-            placeholder: '可以匿名评论哟',
+            placeholder: '期待你的评论',
             avatar: 'wavatar',
             visitor: true,
             enableQQ: true

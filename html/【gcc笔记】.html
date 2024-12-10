@@ -25,6 +25,7 @@
 	</header>
 	<div class=fluid> 
 		<h1 id="gcc笔记">gcc笔记</h1>
+<p>最后编辑：24/12/09/19:42</p>
 <h2 id="gcc基本命令">gcc基本命令</h2>
 <p><em>参考视频</em>：<a href="https://www.bilibili.com/video/BV1V84y1D7nU">gcc编译器的简单入门教程</a></p>
 <pre><code class="language-bash">gcc main.c  # 编译为可执行文件，文件默认与源码同名
@@ -55,6 +56,18 @@ gcc main.c -o main -l myMath -L ./lib/ -I ./inc/  # -l指定动态库名，-L指
 
 # 需要说明的是，如果动态库文件和可执行文件不在同一目录下，默认系统是找不到动态库的，此时需要别的方式让系统能去存放动态库的文件夹下寻找动态库，挺麻烦的，这里先不表。
 </code></pre>
+<h2 id="gcc和环境变量">gcc和环境变量</h2>
+<h3 id="头文件搜索">头文件搜索</h3>
+<p><code>CPATH</code>：指定头文件搜索路径（相当于gcc的<code>-I</code>选项）。多个路径之间用<code>:</code>分隔。<br />
+<code>C_INCLUDE_PATH</code>：同<code>CPATH</code>，但只对C语言源文件有效。<br />
+<code>CPLUS_INCLUDE_PATH</code>：同<code>CPATH</code>，但只对C++语言源文件有效。</p>
+<h3 id="库文件搜索">库文件搜索</h3>
+<p><code>LIBRARY_PATH</code>：指定库文件搜索路径（（相当于gcc的<code>-L</code>选项）。多个路径之间用<code>:</code>分隔。</p>
+<blockquote>
+<p><code>LD_LIBRARY_PATH</code>用于指定进程运行时，动态链接库的搜索路径。</p>
+</blockquote>
+<h3 id="参考">参考</h3>
+<p><a href="https://gcc.gnu.org/onlinedocs/gcc/Environment-Variables.html">GNU官网</a></p>
 <h2 id="gcc和响应文件">gcc和响应文件</h2>
 <p>有时候一个编译的语句太长了：</p>
 <pre><code class="language-bash"># 假设这很长
@@ -64,8 +77,7 @@ gcc test1.c test2.c test3.c -o test -llib1 -llib2 -llib3
 <pre><code>test1.c 
 test2.c 
 test3.c
--o test# 假设这很长
-gcc test1.c test2.c test3.c -o test -llib1 -llib2 -llib3
+-o test
 -llib1
 -llib2
 -llib3
@@ -136,9 +148,33 @@ x/10x &lt;pointer&gt;  # 以16进制的形式查看连续的10个地址的数据
 where
 </code></pre>
 
+
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="html/【gcc笔记】.html" class="leancloud_visitors" data-flag-title="【gcc笔记】">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		<!-- CC -->
+ 		<blockquote>
+		<p><strong>作者</strong>：码鸽<br />
+		<strong>链接</strong>：<a href="https://code-pigeon.github.io/blog/html/【gcc笔记】.html">https://code-pigeon.github.io/blog/html/【gcc笔记】.html</a><br />
+		<strong>版权声明</strong>：博客所有原创内容（包括但不限于文章、图像等）除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>国际许可协议。任何人均可自由传播，但禁止用于商业用途且必须署名并以相同方式分享。</p>
+		</blockquote>
+		<!-- \CC -->
+
+		<!-- comment -->
 		<h2 id="评论">评论</h2>
 		<!-- <div class="giscus"></div> -->
 		<div id="vcomments"></div>
+		<!-- \comment -->
 	</div>
 
 	<div class="left-sidebar">
@@ -156,7 +192,7 @@ where
 	<script src="../js/toc.js" type="text/javascript" ></script>
 
 	<!-- giscus -->
-<!-- 	<script src="https://giscus.app/client.js"
+	<!-- <script src="https://giscus.app/client.js"
 	        data-repo="code-pigeon/blog"
 	        data-repo-id="R_kgDOMDeCsA"
 	        data-category="Announcements"
@@ -179,7 +215,7 @@ where
 	        el: '#vcomments',
 	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
 	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
-	        placeholder: '可以匿名评论哟',
+	        placeholder: '期待你的评论',
 	        avatar: 'wavatar',
 	        visitor: true,
 	        enableQQ: true

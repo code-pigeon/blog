@@ -1,4 +1,6 @@
 # gcc笔记
+最后编辑：24/12/09/19:42
+
 ## gcc基本命令
 *参考视频*：[gcc编译器的简单入门教程](https://www.bilibili.com/video/BV1V84y1D7nU)
 ```bash
@@ -31,6 +33,19 @@ gcc main.c -o main -l myMath -L ./lib/ -I ./inc/  # -l指定动态库名，-L指
 # 需要说明的是，如果动态库文件和可执行文件不在同一目录下，默认系统是找不到动态库的，此时需要别的方式让系统能去存放动态库的文件夹下寻找动态库，挺麻烦的，这里先不表。
 ```
 
+## gcc和环境变量
+### 头文件搜索
+`CPATH`：指定头文件搜索路径（相当于gcc的`-I`选项）。多个路径之间用`:`分隔。
+`C_INCLUDE_PATH`：同`CPATH`，但只对C语言源文件有效。
+`CPLUS_INCLUDE_PATH`：同`CPATH`，但只对C++语言源文件有效。
+
+### 库文件搜索
+`LIBRARY_PATH`：指定库文件搜索路径（（相当于gcc的`-L`选项）。多个路径之间用`:`分隔。
+> `LD_LIBRARY_PATH`用于指定进程运行时，动态链接库的搜索路径。
+
+### 参考
+[GNU官网](https://gcc.gnu.org/onlinedocs/gcc/Environment-Variables.html)
+
 ## gcc和响应文件
 有时候一个编译的语句太长了：
 ```bash
@@ -42,8 +57,7 @@ gcc test1.c test2.c test3.c -o test -llib1 -llib2 -llib3
 test1.c 
 test2.c 
 test3.c
--o test# 假设这很长
-gcc test1.c test2.c test3.c -o test -llib1 -llib2 -llib3
+-o test
 -llib1
 -llib2
 -llib3
@@ -52,7 +66,6 @@ gcc test1.c test2.c test3.c -o test -llib1 -llib2 -llib3
 ```bash
 gcc @test.rsp
 ```
-
 
 ## gdb调试器
 ```bash

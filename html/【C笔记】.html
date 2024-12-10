@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【C笔记】</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> 
+		<h1 id="C笔记">C笔记</h1>
+<p>最后编辑：24/11/27/23:15</p>
+<h2 id="time.h">time.h</h2>
+<p>类型介绍：</p>
+<pre><code class="language-c">time_t
+// 以整型的形式存储时间（即时间戳），0表示1970年1月1日8:00:00
+
+clock_t
+// todo：目前不研究，以后再补充
+
+struct tm {
+   int tm_sec;         // 秒，范围从 0 到 59     
+   int tm_min;         // 分，范围从 0 到 59     
+   int tm_hour;        // 小时，范围从 0 到 23     
+   int tm_mday;        // 一月中的第几天，范围从 1 到 31 
+   int tm_mon;         // 月，范围从 0 到 11     
+   int tm_year;        // 自 1900 年起的年数（这和时间戳的1970并不一致）     
+   int tm_wday;        // 一周中的第几天，范围从 0 到 6 
+   int tm_yday;        // 一年中的第几天，范围从 0 到 365 
+   int tm_isdst;       // 夏令时             
+};
+// struct tm以结构化的形式（年月日时分）存储时间
+</code></pre>
+<h3 id="关于时间戳和时间结构体的函数">关于时间戳和时间结构体的函数</h3>
+<pre><code class="language-c">// 1. 获取当前时间戳
+time_t t = time(NULL);
+// 或者
+time_t t;
+time(&amp;t);
+
+// 2. 两个时间戳的差
+// 函数原型：
+double difftime(time_t time1, time_t time2);
+
+// 3. 时间戳 ==&gt; 时间结构体（指针）
+struct tm *struct_t     = localtime(&amp;t);    // 以当前时区来表示
+struct tm *struct_t_UTC = gmtime(&amp;t);   // 以格林尼治时间来表示
+/* 注：
+    （此二函数是线程不安全的！）
+    这里返回的时间结构体指针指向了 静态内存区域，不需要手动管理内存 
+    不过这意味着每次调用localtime或者gmtime的时候，会覆盖之前的内容。  
+*/
+
+// 4. 时间结构体 ===&gt; 时间戳
+time_t t = mktime(struct_t);    // 以当前时区来转化
+
+// 5. 时间戳/时间结构体 ==&gt; 字符串
+const char* str_from_t          = ctime(&amp;t);            // &quot;Tue Nov 26 15:35:43 2024&quot;
+const char* str_from_struct_t   = asctime(struct_t);    // &quot;Tue Nov 26 15:35:43 2024&quot;
+/* 注：
+    （此二函数是线程不安全的！）
+    同样地，返回的字符指针指向的是一个静态分配的内存区域
+    每次调用这两个函数的其中之一也会覆盖之前的内容
+*/
+
+// 6. 时间结构体 ==&gt; 格式化字符串
+char buffer[128];
+strftime(buffer, sizeof(buffer), &quot;%Y-%m-%d %H:%M:%S&quot;, &amp;now);
+// 下文会给出所有可能的格式化方式
+
+// 7. 格式化字符串 ==&gt; 时间结构体
+struct tm tm = {0};
+if (strptime(&quot;24/11/27/22:50&quot;, &quot;%y/%m/%d/%H:%M&quot;, &amp;tm) == NULL){
+    /* Handle error */;
+}
+</code></pre>
+<blockquote>
+<p><code>strptime</code>这个函数在编译时需要定义宏<code>_XOPEN_SOURCE=600</code>：</p>
+<pre><code class="language-bash">gcc -D_XOPEN_SOURCE=600 main.c 
+</code></pre>
+<p>否则会出现警告：<code>warning: implicit declaration of function ‘strptime’; did you mean ‘strftime’?</code>。<br />
+尚不明原因。</p>
+<p>参考<a href="https://sourceforge.net/p/wput/bugs/75/">0.6.2 warning: implicit declaration of function 'strptime'</a></p>
+</blockquote>
+<h4 id="strftime的所有格式">strftime的所有格式</h4>
+<p><strong>日期和时间元素</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">格式符号</th>
+<th align="left">描述</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">%Y</td>
+<td align="left">四位年份</td>
+<td align="left">2024</td>
+</tr>
+<tr>
+<td align="left">%y</td>
+<td align="left">两位年份</td>
+<td align="left">24（表示2024）</td>
+</tr>
+<tr>
+<td align="left">%m</td>
+<td align="left">月份（01到12）</td>
+<td align="left">11（11月）</td>
+</tr>
+<tr>
+<td align="left">%d</td>
+<td align="left">一个月中的天数（01到31）</td>
+<td align="left">26（26日）</td>
+</tr>
+<tr>
+<td align="left">%H</td>
+<td align="left">小时（00到23，24小时制）</td>
+<td align="left">08（上午8点）</td>
+</tr>
+<tr>
+<td align="left">%I</td>
+<td align="left">小时（01到12，12小时制）</td>
+<td align="left">08（下午8点）</td>
+</tr>
+<tr>
+<td align="left">%M</td>
+<td align="left">分钟（00到59）</td>
+<td align="left">30（30分）</td>
+</tr>
+<tr>
+<td align="left">%S</td>
+<td align="left">秒（00到59）</td>
+<td align="left">45（45秒）</td>
+</tr>
+<tr>
+<td align="left">%p</td>
+<td align="left">AM/PM标记</td>
+<td align="left">AM（上午）</td>
+</tr>
+<tr>
+<td align="left">%A</td>
+<td align="left">星期几的完整名称</td>
+<td align="left">Monday（星期一）</td>
+</tr>
+<tr>
+<td align="left">%a</td>
+<td align="left">星期几的缩写</td>
+<td align="left">Mon（周一）</td>
+</tr>
+<tr>
+<td align="left">%B</td>
+<td align="left">月份的完整名称</td>
+<td align="left">November（十一月）</td>
+</tr>
+<tr>
+<td align="left">%b</td>
+<td align="left">月份的缩写</td>
+<td align="left">Nov（11月）</td>
+</tr>
+<tr>
+<td align="left">%d</td>
+<td align="left">一个月中的天数（01到31）</td>
+<td align="left">26</td>
+</tr>
+<tr>
+<td align="left">%j</td>
+<td align="left">一年中的第几天（001到366）</td>
+<td align="left">330（第330天）</td>
+</tr>
+<tr>
+<td align="left">%U</td>
+<td align="left">一年中的第几周（00到53，星期天是周首）</td>
+<td align="left">47（第47周）</td>
+</tr>
+<tr>
+<td align="left">%W</td>
+<td align="left">一年中的第几周（00到53，星期一是周首）</td>
+<td align="left">47（第47周）</td>
+</tr>
+<tr>
+<td align="left">%Z</td>
+<td align="left">时区名称（例如&quot;UTC&quot;）</td>
+<td align="left">UTC</td>
+</tr>
+<tr>
+<td align="left">%z</td>
+<td align="left">时区偏移（例如+0800）</td>
+<td align="left">+0800</td>
+</tr>
+</tbody>
+</table>
+<p><strong>时间和日期的其他常用格式</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">格式符号</th>
+<th align="left">描述</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">%c</td>
+<td align="left">完整的日期和时间（本地格式）</td>
+<td align="left">Mon Nov 26 08:30:45 2024</td>
+</tr>
+<tr>
+<td align="left">%x</td>
+<td align="left">本地日期（如 MM/DD/YY）</td>
+<td align="left">11/26/24</td>
+</tr>
+<tr>
+<td align="left">%X</td>
+<td align="left">本地时间（如 HH:MM:SS）</td>
+<td align="left">08:30:45</td>
+</tr>
+<tr>
+<td align="left">%F</td>
+<td align="left">等同于 %Y-%m-%d（ISO 8601日期）</td>
+<td align="left">2024-11-26</td>
+</tr>
+<tr>
+<td align="left">%T</td>
+<td align="left">等同于 %H:%M:%S（ISO 8601时间）</td>
+<td align="left">08:30:45</td>
+</tr>
+<tr>
+<td align="left">%r</td>
+<td align="left">12小时制的时间（%I:%M:%S %p）</td>
+<td align="left">08:30:45 AM</td>
+</tr>
+<tr>
+<td align="left">%R</td>
+<td align="left">24小时制的时间（%H:%M）</td>
+<td align="left">08:30</td>
+</tr>
+</tbody>
+</table>
+<h2 id="C语言中的文件操作">C语言中的文件操作</h2>
+<h3 id="打开文件fopen">打开文件fopen</h3>
+<pre><code class="language-c">// 打开文件
+FILE* f = fopen(&quot;test.txt&quot;, &quot;r&quot;);  // 只读形式打开
+</code></pre>
+<h3 id="文件操作指针">文件操作指针</h3>
+<pre><code class="language-c">// 1. ftell(FILE* file_ptr)
+long position = ftell(f); // 返回目前文件操作指针的相对与文件开头的位置
+/* 
+比如说test.txt中存放了一段文字I'm so handsome.
+刚打开时文件是这样的：
+-----------------------
+_ptr
+↓
+I'm so handsome.
+-----------------------
+ftell返回的就是0
+
+假如文件指针移动到了字母h处，即
+-----------------------
+       _ptr
+       ↓
+I'm so handsome.
+-----------------------
+ftell返回的就是7
+*/
+
+//2. fseek(FILE* file_ptr, offset, origin)
+fseek(f, 0, SEEK_SET);  // 将文件指针f所指向的文件的_ptr设置到文件开头（SEEK_SET表示文件开头），偏移量为0
+/*
+SEEK_SET 为文件开头
+SEEK_CUR 为当前_ptr的位置
+SEEK_END 为文件末尾
+*/
+
+//3. rewind(file_ptr)
+rewind(f);  // 重置_ptr到文件开头
+</code></pre>
+<h3 id="文件读写">文件读写</h3>
+<pre><code class="language-c">// size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
+size_t n = fwrite(data_array, 3, 2, file_ptr);  // 从data_array的开头开始写入数据到文件中
+// 以3bytes为写入单位
+// 写入2个单位大小
+// 故写入的总大小为3*2 = 6
+/*
+比方说          
+                      data_array
+                         ↓
+char[7] = data_array = {'c', 'p', 'p', '=', 'c', '+', '+'};  
+
+此时一次写入的单位大小为3（byte），写入2个3byte的数据，所以会将&quot;cpp=c+&quot;写入到文件中
+
+如果执行成功，fwrite返回的n应该等于nmemb的大小，在本例中为2；若不相等，则会显示一个错误。
+*/
+
+// size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)
+size_t n = fread(read_buf, 3, 2, file_ptr);  // 从文件当前的操作指针开始，以3bytes为一个单位，读取2个单位（即3bytes）的数据。
+/*
+基本与fwrite相同，唯一需要注意的点是，读文件并不一定从文件开头开始读，要看此时的文件操作指针在什么位置。
+*/
+
+</code></pre>
+<h2 id="【C笔记】打印不同的颜色字体">【C笔记】打印不同的颜色字体</h2>
+<blockquote>
+<p>实际上是利用了终端的功能，详见<a href="Linux%E7%BB%88%E7%AB%AF%E6%8E%A7%E5%88%B6.html">《Linux终端控制》</a></p>
+</blockquote>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;\033[31m&quot;); // Set text color to red
+    printf(&quot;This text will be in red color\n&quot;);
+    printf(&quot;\033[0m&quot;);  // Reset text color to default
+    printf(&quot;This text will be in default color\n&quot;);
+    return 0;
+}
+</code></pre>
+<ul>
+<li>30m - Black</li>
+<li>31m - Red</li>
+<li>32m - Green</li>
+<li>33m - Yellow</li>
+<li>34m - Blue</li>
+<li>35m - Purple</li>
+<li>36m - Cyan</li>
+<li>37m - White</li>
+</ul>
+<h2 id="宏技巧">宏技巧</h2>
+<p>首次编辑：24/5/15/17:26<br />
+最后编辑：24/5/15/</p>
+<pre><code class="language-c++">/*
+    1、 需要以C的形式编译某些内容，但不知道源文件是C还是C++
+*/
+#ifdef __cplusplus
+extern &quot;C&quot; {
+#endif
+
+// C 语言代码或头文件包含
+
+#ifdef __cplusplus
+}
+#endif
+
+/*
+    2、 需要以C的形式编译某些内容，且已知源文件是c++文件
+*/
+extern &quot;C&quot; {
+    // C 语言代码或头文件包含
+}
+</code></pre>
+
+
+		<!-- CC -->
+		<br />
+		<hr />
+		<blockquote>
+		<p><strong>作者</strong>：码鸽<br />
+		<strong>链接</strong>：<a href="https://code-pigeon.github.io/blog/html/【C笔记】.html">https://code-pigeon.github.io/blog/html/【C笔记】.html</a><br />
+		<strong>版权声明</strong>：博客所有原创内容（包括但不限于文章、图像等）除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>国际许可协议。任何人均可自由传播，但禁止用于商业用途且必须署名并以相同方式分享。</p>
+		</blockquote>
+		<!-- \CC -->
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="html/【C笔记】.html" class="leancloud_visitors" data-flag-title="【C笔记】">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+
+		<!-- comment -->
+		<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+		<!-- \comment -->
+	</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+	<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+
+</body>
+</html>

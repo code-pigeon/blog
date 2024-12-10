@@ -2,7 +2,7 @@
 
 /* begin retro (https://github.com/markdowncss/retro) */
 
-p code {
+code {
   /* 行内代码 */
   margin: 0 0.2rem;
   padding: 0 0.3rem;
@@ -221,13 +221,11 @@ blockquote {
   border-left: 3px solid #45a9f9;
   background-color: #66666619;
   padding: 0.1rem 1rem;
+/*  font-size: smaller;*/
 /*  font-family: "楷体", "KaiTi", cursive;*/
 /*  font-style: italic;*/
 }
 
-blockquote p{
-  font-size: smaller;
-}
 /* end retro */
 
 
