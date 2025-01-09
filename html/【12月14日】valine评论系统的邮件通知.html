@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>【12月14日】valine评论系统的邮件通知</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<nav>
+		    <ul>
+		        <li><a href="../index.html">首页</a></li>
+		        <li><a href="分类.html">分类</a></li>
+		        <li><a href="时间轴.html">时间轴</a></li>
+		        <!-- <li><a href="/contact">项目</a></li> -->
+		        <li><a href="https://github.com/code-pigeon">github</a></li>
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> 
+		<h1 id="valine评论系统的邮件通知">valine评论系统的邮件通知</h1>
+<p>首次编辑：24/12/14/14:52<br />
+最后编辑：24/12/14/20:42</p>
+<p>一开始搭博客地时候，觉得有评论功能就行了，邮不邮件提醒不是很重要。但后来呢……果然人的欲望永远不会被满足……现在还是觉得有人评论了都不知道，那我这么多博客页面，也不可能一个个找看有没有新评论吧。而且要是回复了访客，他们也不知道我回复了，他总不可能评论完之后再专门回来看看自己的评论有没有被回复吧。</p>
+<p>所以还是想着整一个评论邮件提醒功能。</p>
+<p>但这么一遭下来，感觉问题还真是挺多的。</p>
+<h2 id="LeanCloud云引擎改版">LeanCloud云引擎改版</h2>
+<p>valine官方自带的评论邮件提醒功能很早就移除了，咱也不知道为什么。不过valine还是在文档中推荐了第三方的邮件提醒项目（<a href="https://github.com/zhaojun1998/Valine-Admin">Valine-Admin</a>）。</p>
+<p>Valine-Admin依赖LeanCloud提供的云引擎，这个云引擎好像在最近改版了，说是根据具体用途给了用户三个选择。但Valine-Admin的最后一次更新都是几年前了，部署教程自然也还是基于老版的云引擎写的。</p>
+<p>我可就犯蒙了，看了半天不知道LeanCloud给的那三种用途具体都对应什么场景。好在这个选完可以随时改动，我也就随便选了个“web后端”应用场景。</p>
+<p>幸运的是剩下的基本和Valine-Admin里给的教程差不多。</p>
+<p>但也有不幸的事。</p>
+<h2 id="部署失败">部署失败</h2>
+<p>LeanCloud的云引擎使用git部署，也就是直接给云引擎塞一个git仓库地址它就能自己部署了。</p>
+<p>结果我试了发现部署失败，一堆报错，Valine-Admin也没有开github issues，啥信息都没有。</p>
+<h2 id="顺藤摸瓜">顺藤摸瓜</h2>
+<p>事实上在经过上面两件事之后我就停止了探索。直到昨天才重新想着来搞一下。</p>
+<p>Valine-Admin实际上也是fork别的项目的，我就去看了它的祖宗项目。</p>
+<p>然后发现它的祖宗项目有开github issues，就看了一下，果然好多跟我一样遇到部署失败问题的。其中有一个朋友在里面给出了解决方案，他也将修改后的项目做成了自己的仓库，我就直接用了<a href="https://github.com/Druadach/Valine-Admin">他的仓库</a>。终于，部署成功了。</p>
+<h2 id="博客地址又成了个问题">博客地址又成了个问题</h2>
+<p>当初在用github托管博客的时候，博客的地址可以选用<code>code-pigeon.github.io</code>或者<code>code-pigeon.github.io/XXX</code>。区别在于选用前者那么我的博客地址就霸占了整个域名了，以后如果还想用这个github帐号搞别的网站可能会比较麻烦。但后者可以比较灵活，比如我现在的博客地址叫<code>code-pigeon.github.io/blog</code>，以后如果想再搞一个别的什么网站，我可以用<code>code-pigeon.github.io/other-usage</code>。所以我还是选择了后者。</p>
+<p>但测试的时候，发现邮件中给的博客页面的地址居然是<code>code-pigeon.github.io/blog/blog</code>，给我看傻眼了。</p>
+<p>然后慢慢debug，发现原来是因为需要在Valine-Admin的部署环境中提供博客地址，我填了<code>code-pigeon.github.io/blog</code>，然后Valine-Admin会自动识别后面的路由<code>/blog</code>，然后它居然默认博客地址是只有域名没有路由的，所以最后就把识别出来的路由和我给的博客地址组合起来，作为博客页面的地址，于是地址里就多出了一个<code>/blog</code>。</p>
+<p>……</p>
+<p>于是我又在Valine-Admin的部署环境中把博客地址填为不带路由的<code>code-pigeon.github.io</code>，以为这样就可以了。</p>
+<p>这个邮件提醒功能发出的邮件中有两个网址链接，一个是评论所在的具体页面，比如<code>code-pigeon.github.io/blog/【C笔记】.html</code>；另一个是博客的地址。前面说到的出问题的是前面的具体页面地址，后面的博客地址是没问题的。</p>
+<p>然后现在改完之后，前面那个的问题是解决了，可后面那个又错了，变成了<code>code-pigeon.github.io</code>，访问了就是404。</p>
+<p>……</p>
+<p>看来还得自己对这个Valine-Admin做点修改以适配自己的博客。</p>
+
+
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="/blog/html/【12月14日】valine评论系统的邮件通知.html" class="leancloud_visitors" data-flag-title="【12月14日】valine评论系统的邮件通知">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		<!-- CC -->
+ 		<blockquote>
+		<p><strong>作者</strong>：码鸽<br />
+		<strong>链接</strong>：<a href="https://code-pigeon.github.io/blog/html/【12月14日】valine评论系统的邮件通知.html">https://code-pigeon.github.io/blog/html/【12月14日】valine评论系统的邮件通知.html</a><br />
+		<strong>版权声明</strong>：博客所有原创内容（包括但不限于文章、图像等）除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>国际许可协议。任何人均可自由传播，但禁止用于商业用途且必须署名并以相同方式分享。</p>
+		</blockquote>
+		<!-- \CC -->
+
+		<!-- comment -->
+		<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+		<!-- \comment -->
+	</div>
+
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	<script src="../js/toc.js" type="text/javascript" ></script>
+
+	<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+
+</body>
+</html>
