@@ -8,23 +8,23 @@ from pathlib import Path
 
 
 class DependencyChecker:
-    def __init__(self, config_path, md_dir_path, html_dir_path, cache_path):
+    def __init__(self, config_path, cache_path):
         """
         初始化依赖检查模块
         
         Args:
             config_path: config.yaml文件路径
-            md_dir_path: markdown文件夹路径
-            html_dir_path: html文件夹路径
             cache_path: cache文件路径
         """
         self.config_path = self.normalize_path(config_path)
-        self.md_dir_path = self.normalize_path(md_dir_path)
-        self.html_dir_path = self.normalize_path(html_dir_path)
         self.cache_path = self.normalize_path(cache_path)
         
         # 加载配置
         self.config = self.load_config()
+        
+        # 从配置文件中读取目录路径
+        self.md_dir_path = self.normalize_path(self.config['md_dir'])
+        self.html_dir_path = self.normalize_path(self.config['html_dir'])
         
         # 缓存数据
         self.cache_data = {}
@@ -406,11 +406,9 @@ def main():
     """主函数，用于测试"""
     # 这里需要替换为实际的路径
     config_path = "config.yaml"
-    md_dir_path = "md"
-    html_dir_path = "html"
     cache_path = "cache.json"
     
-    checker = DependencyChecker(config_path, md_dir_path, html_dir_path, cache_path)
+    checker = DependencyChecker(config_path, cache_path)
     cache_data = checker.run()
     
     # 打印需要构建的文件
