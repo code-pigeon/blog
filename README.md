@@ -230,3 +230,83 @@ has_toc: false
 - markdown渲染html使用python的Markdown库
 - 模板引擎使用chevron
 - 提取markdown头部信息使用python-frontmatter库
+
+### 扩展模块rss
+模块有2个输入，一个输出。
+
+输入1为一个config.yaml文件，其内容如下：
+```yaml
+# --- 博客信息 --------------------------------------------------------
+blog_name: 乌鸦之家
+blog_signature: '岁岁年年，碎碎念念'
+author: "乌鸦"
+footer_note: © 2025 乌鸦之家
+
+site: "https://code-pigeon.github.io/blog/"     # 博客基址
+```
+
+输入2为一个cache.json文件，其内容如下：
+```json
+{
+  "D:/DataDisk/workspace/blog/md/index.md": {
+    "file_updated": 1760234911.6160536,
+    "should_build": false,
+    "title": "我的第一篇博客",
+    "category": [],
+    "date": "25/04/25/21:34",
+    "updated": null,
+    "link": "https://code-pigeon.github.io/blog/html/index.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/index.html",
+    "description": "{{title}}，测试；{{build_time}}；{{html_dir}}\n这里应该是fancy_banner所在的位置{{&gt; fancy_banner }}。。。。。。。。。。。。。。。。。。\n所以说其实部分模板中不能嵌套部分模板？\n{{&gt; test }}\n@####################################\n鸽子窝\n\n欢迎来到鸽子窝\n\n 喜欢回忆过去，喜欢幻想将来，唯独不喜欢珍惜现在。"
+  },
+  "D:/DataDisk/workspace/blog/md/test/test - 副本.md": {
+    "file_updated": 1745588576.3264618,
+    "should_build": false,
+    "title": "莫蓝特受伤了",
+    "category": [
+      "test"
+    ],
+    "date": "25/04/25/11:40",
+    "updated": null,
+    "link": "https://code-pigeon.github.io/blog/html/test - 副本.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/test%20-%20%E5%89%AF%E6%9C%AC.html",
+    "description": "莫兰特又受伤了\n伺机待发接送地方军哦i\na mama:\n这公司开始严抓考勤了\na mama:\n一个Q迟到4次都要被说\na mama:\n[动画表情]\na最好看的姐姐:\n倒闭前兆\na最好看的姐姐:\n[动画表情]\na mama:\n以前每年还有工资普调，38,618，双11还发奖金\na mama:\n去年双11开始不发奖金了\na mama:\n今年普调也没有\na mama:\n然后今天hr还找我们领导投诉考勤问题了\na mama:\n这么计较上班时间，那下班晚了怎么不补钱给我\na道:\n奴伙，刀郎去年最红的歌叫什么？\n🐦:\n罗刹海市"
+  }
+}
+```
+现在我需要根据这个cache.json中的记录，输入一个feed.xml文件，就是rss2.0。它的大概内容你可以参考：
+```xml
+<rss version="2.0">
+<channel>
+<title>码鸽</title>
+<link>https://code-pigeon.github.io/blog/</link>
+<description>咕~码鸽的咕言咕语</description>
+<item>
+<title>我也用cloudflare R2来做图床了</title>
+<link>https://code-pigeon.github.io/blog/web/html/20250421cloudflare-as-image-host.html</link>
+<pubDate>Mon, 21 Apr 2025 19:16:00 +0800</pubDate>
+<guid isPermaLink="true">https://code-pigeon.github.io/blog/web/html/20250421cloudflare-as-image-host.html</guid>
+<description><![CDATA[在，我提到了我对图床的要求。找了不少免费图床，最后只有一家图床满足我的要求。复述一下我对图床的要求：我希望图床能够保留文件的文件名，而不是随机给我另外生成一个。（这样能够方便我实现备用图床的机制，详见我之前的博客图床的选择今天逛博客的时候又看到了别人用大名鼎鼎的cloudflare R2来做图床的，不知道为什么记忆错乱，老是以为自己试过这个cloudflare了，其实并没有，于是今天尝试了一下，没想到这么简单，而且它也满足我对图床的要求（就是图片的链接有点丑）。...... <a href='https://code-pigeon.github.io/blog/web/html/20250421cloudflare-as-image-host.html'>Read more</a>]]></description>
+</item>
+</channel>
+</rss>
+```
+我说明一下，这个`<title>码鸽</title>`字段来自于config.yaml中的blog_name字段，`<link>https://code-pigeon.github.io/blog/</link>`来自于config.yaml中的site字段，`<description>咕~码鸽的咕言咕语</description>`来自于config.yaml中的blog_signature字段。然后item下面的字段的话，你应该看得明白，`<title>我也用cloudflare R2来做图床了</title>`对应cache.json中的title，`<link>https://code-pigeon.github.io/blog/web/html/20250421cloudflare-as-image-host.html</link>`对应cache.json中的quote_link，pubDate对应date，其它的我就不赘叙了。
+
+然后有一个特别重要的要求，就是这些feed的item要按照cache.json中所记录的date字段进行排序。如果date字段为空，那么这个记录就不加入feed中。
+
+然后最多只能有10个feed 的item。
+
+另外，这个`<pubDate>`要特别注意格式，好像是有个规范叫rfc822是吧，反正你要处理到它符合rss2.0的规范。
+
+注意：
+构建feed.xml使用python自带的xml库，这样才能使代码简单一点
+
+差点忘了，时间要能够支持以下格式：
+"%y/%m/%d/%H:%M",  # 24/9/24/19:05
+        "%Y/%m/%d/%H:%M",  # 2024/9/24/19:05
+        "%Y/%m/%d",         # 2024/9/24
+        "%y/%m/%d",         # 24/9/24
+        "%Y-%m-%d",         # 2024-9-24
+
+用python帮我实现一下这个模块
