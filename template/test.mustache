@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{{title}}}</title>
+	<link href="{{css_url}}index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="{{css_url}}code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="{{css_url}}date_and_updated.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="{{{img_url}}}pigeon2.png" alt="个人头像" class="avatar">
+	        <span class="nickname">{{{author}}}</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+		    <ul>
+		    	{{#nav}}
+		    		<li><a href="{{url}}">{{label}}</a></li>
+		    	{{/nav}}
+		    </ul>
+		</nav>
+	</header>
+	<div class=fluid> 
+		{{> fancy_banner}}	
+		{{#auto_h1}}
+		<h1 id="{{{title}}}">{{{title}}}</h1>
+		{{/auto_h1}}
+		<div class="article-meta">
+			{{#date}}
+			<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">{{{date}}}</time>
+			</div>
+			{{/date}}
+			{{#updated}}
+			<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+				</svg>
+				<span class="meta-label">更新</span>
+				<time class="meta-time">{{{updated}}}</time>
+			</div>
+			{{/updated}}
+		</div>
+		<i>分类：{{# category }} / {{.}}{{/ category}} </i>
+
+
+		{{> content }}
+
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="/blog/{{html_dir}}{{{ stem }}}.html" class="leancloud_visitors" data-flag-title="{{{page_title}}}">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		{{#cc}}
+ 		<blockquote>
+		<p><strong>作者</strong>：{{author}}<br />
+		<strong>链接</strong>：<a href="{{website_root}}{{html_dir}}{{{stem}}}.html">{{website_root}}{{html_dir}}{{stem}}.html</a><br />
+		<strong>版权声明</strong>：博客所有原创内容（包括但不限于文章、图像等）除特别声明外，均采用<a href="https://creativecommons.org/licenses/{{cc}}/4.0/">cc {{cc}} 4.0</a>国际许可协议。任何人均可自由传播，但禁止用于商业用途且必须署名并以相同方式分享。</p>
+		</blockquote>
+		{{/cc}}
+
+
+		{{#has_comment}}
+		<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+		{{/has_comment}}
+	</div>
+
+	{{#has_toc}}
+	<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+	{{/has_toc}}
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	{{#has_toc}}
+	<script src="../js/toc.js" type="text/javascript" ></script>
+	{{/has_toc}}
+
+	{{#has_comment}}
+	<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+	{{/has_comment}}
+
+	<script type="text/javascript">
+		// 定义备用路径
+		const fallbackBaseUrl = "{{{img_url2}}}"; // 备用路径
+
+		// 监听所有 .fluid 下的 img 标签
+		document.addEventListener('DOMContentLoaded', function() {
+			const images = document.querySelectorAll('div.fluid img, div.profile img');
+			images.forEach(function(img) {
+				img.addEventListener('error', function() {
+					const currentSrc = img.src;
+
+					// 如果当前已经是备用路径，则移除 src（避免无限循环）
+					if (currentSrc.includes(fallbackBaseUrl)) {
+						img.removeAttribute('src'); // 仅显示 alt
+						return;
+					}
+
+					// 替换主路径为备用路径（保留文件名）
+					const fileName = currentSrc.split('/').pop(); // 提取文件名（如 "test.png"）
+					const newSrc = fallbackBaseUrl + fileName;    // 拼接备用路径
+					img.src = newSrc; // 尝试加载备用图
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>

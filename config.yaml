@@ -1,0 +1,80 @@
+# --- 博客信息 --------------------------------------------------------
+title: 自由云端
+blog_description: '岁岁年年，碎碎念念'
+author: "自由人"
+footer_note: © 2025 自由云端
+
+# cc: "by-nc-nd"          # 版权声明
+cc: false
+
+# ignore_prefix: "IGNORE_"
+
+
+# 默认标签
+# default_tags:
+
+
+md_dir: md
+html_dir: html
+partials_dir: partials
+
+
+# --- 博客构建器相关 --------------------------------------------------------------
+# 目录配置
+md_dir: "md/"
+html_dir: "html/"
+template_dir: "template/"
+
+# 扩展开关
+extensions:
+    - dependency_checker
+    - category_page
+    - timeline_page
+    - rss
+
+# 分类扩展
+# hidden: false                       # 隐藏文件（无法在页面中访问到）
+# hidden_category_prefix: 'IGNORE_'   # 隐藏文件夹
+# category_page_name: '分类'
+
+
+# 时间轴扩展
+# timeline_page_name: '时间轴'
+
+
+# --- 页面配置 ----------------------------------------------------------
+
+# 链接信息
+nav:
+    - label: '首页'
+      url: 'index.html'
+    - label: '分类'
+      url: '分类.html'
+    - label: '时间轴'
+      url: '时间轴.html'
+    - label: 'github'
+      url: 'https://github.com/code-pigeon'
+
+# --- 页面配置 ----------------------------------------------------------
+# 基本
+auto_h1: true           # 自动生成标题h1标签
+has_comment: true       # 评论
+has_toc: true           # 目录
+# add_to_category: true   # 添加至“分类”页面？
+# add_to_timeline: true   # 添加至“时间轴”页面？
+private: false          # 私有（不提交至GitHub）
+# html_name             # 这个会在生成html的过程中添加
+# content               # 这个会在生成html的过程中添加
+
+template: 'test.mustache'   # 默认模板
+
+# markdown解析扩展
+md_parser_extension: ['fenced_code', 'tables', 'footnotes', 'nl2br']
+
+# 互联网相关
+img_url:    "../media/article/"                                                 # 图床
+img_url2:   "https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/"              # 备用图床
+site: "https://code-pigeon.github.io/blog/"     # 博客基址
+js_url:     '../js/'
+css_url:    '../css/'
+html_url:   

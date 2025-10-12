@@ -1,0 +1,43 @@
+<!-- template.mustache -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+</head>
+<body>
+  <header>
+
+    <h1>{{ blog_title }}</h1>
+    <hr>
+  </header>
+
+  <!-- template.mustache 中使用 metadata -->
+  <h2>{{ title }}</h2>
+  <p><strong>分类:</strong> 
+  {{# category }} 
+    <span>#{{.}}</span>
+  {{/ category}} 
+
+
+  | <strong>发布日期:</strong> {{ date }}</p>
+  
+  {{# tags }}
+    <span>#{{.}}</span>
+  {{/ tags }}
+
+  <main>
+
+
+    {{> content }}
+  </main>
+
+  <footer>
+    <p>{{ footer_note }}</p>
+    <p>作者: {{ author }}</p>
+    {{>fancy_banner}}
+  </footer>
+</body>
+</html>
+
+
