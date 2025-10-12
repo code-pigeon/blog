@@ -108,24 +108,31 @@ class DependencyChecker:
         return False
 
     def get_all_markdown_files(self):
-        """获取所有markdown文件的绝对路径（Linux风格）"""
+        """获取所有markdown文件的绝对路径（Linux风格），忽略以NOCHECK_开头的文件"""
         md_files = []
         md_dir = Path(self.md_dir_path)
         
         for file_path in md_dir.rglob("*.md"):
+            # 跳过以NOCHECK_开头的文件
+            if file_path.stem.startswith("NOCHECK_"):
+                continue
             md_files.append(self.normalize_path(file_path.absolute()))
         
         return md_files
 
     def get_all_html_files(self):
-        """获取所有html文件的绝对路径（Linux风格）"""
+        """获取所有html文件的绝对路径（Linux风格），忽略以NOCHECK_开头的文件"""
         html_files = []
         html_dir = Path(self.html_dir_path)
         
         for file_path in html_dir.glob("*.html"):
+            # 跳过以NOCHECK_开头的文件
+            if file_path.stem.startswith("NOCHECK_"):
+                continue
             html_files.append(self.normalize_path(file_path.absolute()))
         
         return html_files
+
 
     def get_category_from_path(self, md_file_path):
         """
@@ -279,14 +286,14 @@ class DependencyChecker:
             }
 
     def clean_orphaned_html_files(self):
-        """清理孤立的html文件（有html但没有对应的markdown）"""
+        """清理孤立的html文件（有html但没有对应的markdown），忽略以NOCHECK_开头的文件"""
         all_md_files = self.get_all_markdown_files()
         all_html_files = self.get_all_html_files()
         
         # 构建markdown文件对应的html文件路径集合
         md_html_paths = {self.get_html_file_path(md_file) for md_file in all_md_files}
         
-        # 找出孤立的html文件
+        # 找出孤立的html文件（不包括NOCHECK_开头的文件）
         orphaned_html_files = [html_file for html_file in all_html_files 
                               if html_file not in md_html_paths]
         
@@ -306,6 +313,20 @@ class DependencyChecker:
         
         # 检查是否需要强制重建所有文件
         force_rebuild_all = self.should_force_rebuild_all()
+        
+        # 清理缓存中不存在的文件
+        cache_keys_to_remove = []
+        for cached_file_path in self.cache_data.keys():
+            if cached_file_path not in all_md_files:
+                cache_keys_to_remove.append(cached_file_path)
+        
+        # 删除不存在的文件记录
+        for key in cache_keys_to_remove:
+            del self.cache_data[key]
+            print(f"已删除缓存中不存在的文件记录: {key}")
+        
+        if cache_keys_to_remove:
+            print(f"共删除 {len(cache_keys_to_remove)} 条不存在的文件记录")
         
         for md_file_path in all_md_files:
             print(f"处理文件: {md_file_path}")
