@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时光轴</title>
+    <meta charset="utf-8">
+    <link href="{{css_url}}index.css" rel="stylesheet">
+    <link href="{{css_url}}timeline.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+    {{>header}}
+    <div class="fluid">
+        <h1 style="text-align: center; margin-bottom: 2rem;">时光轴</h1>
+        {{#timeline}}
+        <div class="timeline">
+            {{#years}}
+            <div class="timeline-year">
+                <h1>{{year}}年</h1>
+            </div>
+            
+            {{#months}}
+            <div class="timeline-month">
+                <h2>{{month}}月</h2>
+            </div>
+            
+            {{#timelineItems}}
+            <div class="timeline-item">
+                <div class="article-title"><a href="{{link}}">{{title}}</a></div>
+                <div class="article-meta">
+                    <span class="article-date">{{date}}</span>
+                    <div class="article-tags">
+                        {{#category}}
+                        <span class="tag">{{.}}</span>
+                        {{/category}}
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    {{description}}
+                </div>
+            </div>
+            {{/timelineItems}}
+            {{/months}}
+            {{/years}}
+            
+            {{#miss_date.0}}
+            <div class="timeline-year">
+                <h1>日期丢失</h1>
+            </div>
+            {{/miss_date.0}}
+            {{#miss_date}}
+            <div class="timeline-item">
+                <div class="article-title"><a href="{{link}}">{{title}}</a></div>
+                <div class="article-meta">
+                    <span class="article-date">{{date}}</span>
+                    <div class="article-tags">
+                        {{#category}}
+                        <span class="tag">{{.}}</span>
+                        {{/category}}
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    {{description}}
+                </div>
+            </div>
+            {{/miss_date}}
+        </div>
+        {{/timeline}}
+    </div>
+
+    <!-- toc -->
+    <div class="left-sidebar">
+        <div class="toc"></div>
+        <div class="toc-toggle"></div>
+    </div>
+
+    <script>
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            // 添加滚动动画效果
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+    
+    <script src="{{js_url}}toc.js" type="text/javascript"></script>
+    <script src="{{js_url}}image.js" type="text/javascript"></script>
+    <script src="{{js_url}}Valine.min.js" type="text/javascript"></script>
+</body>
+</html>

@@ -310,3 +310,1172 @@ site: "https://code-pigeon.github.io/blog/"     # 博客基址
         "%Y-%m-%d",         # 2024-9-24
 
 用python帮我实现一下这个模块
+
+
+### 扩展模块时间轴
+模块有3个输入，1个输出
+输入1为一个config.yaml文件，其内容大概如下：
+```yaml
+md_dir: "md/"
+html_dir: "html/"
+template_dir: "template/" # 模板的路径
+partials_dir: partials  # 部分模板的路径
+```
+用python的yaml库读取到一个变量中即可。
+
+
+输入2为一个.mustache模板文件，这个文件存在config.yaml中template_dir指示的路径下，其内容大概如下：
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{{title}}}</title>
+  <link href="{{css_url}}index.css" rel="stylesheet">
+  <!-- syntax highlighting -->
+  <link rel="stylesheet" type="text/css" href="{{css_url}}code_highlight.css">
+  <link rel="stylesheet" type="text/css" href="{{css_url}}date_and_updated.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <!-- table of content -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+  <header>
+    <!-- 左侧个人形象部分 -->
+      <div class="profile">
+          <img src="{{{img_url}}}pigeon2.png" alt="个人头像" class="avatar">
+          <span class="nickname">{{{author}}}</span>
+      </div>
+      
+      <!-- 右侧导航菜单（保持原有结构） -->
+    <nav>
+        <ul>
+          {{#nav}}
+            <li><a href="{{url}}">{{label}}</a></li>
+          {{/nav}}
+        </ul>
+    </nav>
+  </header>
+  <div class=fluid> 
+    <h1 id="时光轴">时光轴</h1>
+    {{> content }}
+
+    <br />
+    <hr />
+
+    <!-- visitor -->
+    <!-- id 将作为查询条件 -->
+    <span id="/blog/{{html_dir}}{{{ stem }}}.html" class="leancloud_visitors" data-flag-title="{{{page_title}}}">
+        <em class="post-meta-item-text">阅读量 </em>
+        <i class="leancloud-visitors-count">0</i>
+    </span>
+    <!-- \visitor -->
+
+    <br />
+
+  </div>
+
+  {{#has_toc}}
+  <div class="left-sidebar">
+    <div class="toc"></div>
+    <div class="toc-toggle"></div>
+  </div>
+  {{/has_toc}}
+
+  <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <!-- /////////////// script region //////////////// -->
+
+  <script src="../js/code_highlight.js" type="text/javascript"></script>
+    
+  <!-- table of cotent -->
+  {{#has_toc}}
+  <script src="../js/toc.js" type="text/javascript" ></script>
+  {{/has_toc}}
+
+  <script type="text/javascript">
+    // 定义备用路径
+    const fallbackBaseUrl = "{{{img_url2}}}"; // 备用路径
+
+    // 监听所有 .fluid 下的 img 标签
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('div.fluid img, div.profile img');
+      images.forEach(function(img) {
+        img.addEventListener('error', function() {
+          const currentSrc = img.src;
+
+          // 如果当前已经是备用路径，则移除 src（避免无限循环）
+          if (currentSrc.includes(fallbackBaseUrl)) {
+            img.removeAttribute('src'); // 仅显示 alt
+            return;
+          }
+
+          // 替换主路径为备用路径（保留文件名）
+          const fileName = currentSrc.split('/').pop(); // 提取文件名（如 "test.png"）
+          const newSrc = fallbackBaseUrl + fileName;    // 拼接备用路径
+          img.src = newSrc; // 尝试加载备用图
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
+看到其中的`{{> content }}`了吗，这个部分模板是接下来需要经过处理之后才能获得的。
+
+输入3为一个cache.json文件，其内容如下：
+```json
+{
+  "D:/DataDisk/workspace/blog/md/index.md": {
+    "file_updated": 1760234911.6160536,
+    "should_build": false,
+    "title": "我的第一篇博客",
+    "category": [],
+    "date": "25/04/25/21:34",
+    "updated": null,
+    "link": "https://code-pigeon.github.io/blog/html/index.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/index.html",
+    "description": "{{title}}，测试；{{build_time}}；{{html_dir}}\n这里应该是fancy_banner所在的位置{{&gt; fancy_banner }}。。。。。。。。。。。。。。。。。。\n所以说其实部分模板中不能嵌套部分模板？\n{{&gt; test }}\n@####################################\n鸽子窝\n\n欢迎来到鸽子窝\n\n 喜欢回忆过去，喜欢幻想将来，唯独不喜欢珍惜现在。"
+  },
+  "D:/DataDisk/workspace/blog/md/test/test - 副本.md": {
+    "file_updated": 1745588576.3264618,
+    "should_build": false,
+    "title": "莫蓝特受伤了",
+    "category": [
+      "test"
+    ],
+    "date": "25/04/25/11:40",
+    "updated": null,
+    "link": "https://code-pigeon.github.io/blog/html/test - 副本.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/test%20-%20%E5%89%AF%E6%9C%AC.html",
+    "description": "莫兰特又受伤了\n伺机待发接送地方军哦i\na mama:\n这公司开始严抓考勤了\na mama:\n一个Q迟到4次都要被说\na mama:\n[动画表情]\na最好看的姐姐:\n倒闭前兆\na最好看的姐姐:\n[动画表情]\na mama:\n以前每年还有工资普调，38,618，双11还发奖金\na mama:\n去年双11开始不发奖金了\na mama:\n今年普调也没有\na mama:\n然后今天hr还找我们领导投诉考勤问题了\na mama:\n这么计较上班时间，那下班晚了怎么不补钱给我\na道:\n奴伙，刀郎去年最红的歌叫什么？\n🐦:\n罗刹海市"
+  }
+}
+```
+
+需要对这些记录进行排序之后，生成时光轴页面的主要内容（即博文链接根据时间进行排序）（注意，这里的链接使用相对路径，即`https://code-pigeon.github.io/blog/html/index.html`的链接只要为`index.html`即可），生成的页面内容将作为一个部分模板content，最后插入到.mustache的`{{> content }}`处，页面内容的排版和视觉风格由你来定，当然，其.mustache模板文件的风格我已经写好了，你可以写个风格搭一点的排版和css。
+```css
+/*//////////////////////////////////////////////////////////////////////////////////////*/
+
+/* begin retro (https://github.com/markdowncss/retro) */
+
+code {
+  /* 行内代码 */
+  margin: 0 0.2rem;
+  padding: 0 0.3rem;
+  background-color: #303841;
+  border-radius: 0.25rem;
+/*  border: 1px solid #505050;*/
+}
+
+pre,
+pre code {
+  font-family: Source Code Pro,DejaVu Sans Mono,Ubuntu Mono,Anonymous Pro,Droid Sans Mono,Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,PingFang SC,Microsoft YaHei,sans-serif;
+
+/* ---- print ---------------------------------------------------------------------------------------------*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/* ---- end print ---------------------------------------------------------------------------------------------*/
+
+a {
+/*  color: #01ff70;*/
+  text-decoration: none;
+  color: #45a9f9;
+/*  font-family: "宋体", "SimSun", cursive;*/
+  font-family: "宋体", "SimSun";
+}
+
+a:hover,
+a:focus,
+a:active {
+/*  color: #2ecc40;*/
+  color: #62bfff;
+}
+
+
+.retro-no-decoration {
+  text-decoration: none;
+}
+
+html {
+  font-size: 12px;
+  transition: all 0.35s ease 0.1s;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+p,
+.retro-p {
+  font-size: 1rem;
+  letter-spacing: 0.1rem; 
+/*  margin-bottom: 1.3rem;*/
+}
+
+h1,
+.retro-h1,
+h2,
+.retro-h2,
+h3,
+.retro-h3,
+h4,
+.retro-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+  font-family: "宋体", "SimSun", sans-serif;
+  color: #fff;
+}
+
+h1,
+.retro-h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+/*  margin-bottom: 4rem;*/
+  font-size: 3.88rem;
+}
+
+h2,
+.retro-h2 {
+  font-size: 2.78rem;
+}
+
+h3,
+.retro-h3 {
+  font-size: 1.9rem;
+}
+
+h4,
+.retro-h4 {
+  font-size: 1.414rem;
+}
+
+h5,
+.retro-h5 {
+  font-size: 1.121rem;
+}
+
+h6,
+.retro-h6 {
+  font-size: .88rem;
+}
+
+small,
+.retro-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+html,
+body {
+/*  background-color: #222;*/
+  background-color: #22262a;
+  min-height: 100%;
+}
+
+body {
+  color: #bbb;
+  font-family: Helvetica Neue, NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,serif;
+/*  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;*/
+  line-height: 1.45;
+}
+
+pre {
+/*  background-color: #333;*/
+/*  background-color: #393f46;*/
+}
+
+blockquote {
+/*  border-left: 3px solid #01ff70;*/
+  border-left: 3px solid #45a9f9;
+  background-color: #66666619;
+  padding: 0.1rem 1rem;
+/*  font-size: smaller;*/
+/*  font-family: "楷体", "KaiTi", cursive;*/
+/*  font-style: italic;*/
+}
+
+/* end retro */
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* begin left-sidebar */
+
+.left-sidebar{
+  position: fixed;
+  top: 50%; /* Adjust as per your layout */
+  left: 0%; /* This will position the div on the left side */
+  transform: translate(0, -50%); /* Center vertically based on its own height */
+
+  display: flex;
+
+}
+
+.toc-toggle{
+  width: 20px;
+  height: 3.2rem;
+  background-color: #45a9f977;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+/*  margin-top: 0.4rem;*/
+  cursor: pointer;
+}
+
+.toc-toggle:hover{
+  background-color: #45a9f9aa;
+}
+
+.toc-hidden{
+  margin-left: -17.5rem;  /*  此值等于.toc.width + .toc.padding-right */
+}
+
+/* end left-sidebar */
+
+
+/* begin tocbot */
+
+.toc {
+  background-color: #313438;
+  padding: 1rem 0;
+  padding-right: 0.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  border-radius: 0 0.1rem 0.5rem 0;
+  max-height: calc(100vh - 40px); 
+  width: 17rem;
+  transition: all 0.45s ease;
+}
+
+.toc a{
+  color: white;
+}
+
+.toc-list{
+  padding-left: 1.9rem;
+}
+
+/* Style for the main list items */
+.toc-list-item {
+  list-style: none;
+/*  margin-bottom: 8px;*/
+}
+
+/* Style for the links */
+.toc-link {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px 5px 5px 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the links */
+.toc-link:hover {
+  background-color: #e0e0e02e;
+}
+
+/* Active link style */
+.is-active-link {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* end tocbot */
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+header {
+    font: ;
+    display: flex;
+    justify-content: space-between; /* 改为左右分布 */
+    align-items: center;
+    height: 4rem;
+    padding: 0 2rem; /* 增加左右内边距 */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem; /* 头像和昵称之间的间距 */
+}
+
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    /*border-radius: 50%;*/ /* 圆形头像 */
+    object-fit: cover; /* 保持图片比例 */
+}
+
+.nickname {
+    color: #ddd;
+    font-weight: bold;
+}
+
+
+header nav{
+  min-width: 20rem;
+}
+
+header li{
+  display: inline-block;
+  margin: 0 0.8rem;
+}
+
+header li a{
+    color: #ddd;
+}
+
+.fluid{
+/*  margin-top: 6rem;*/
+  margin: 3rem auto 2rem;
+  max-width: 50rem;
+  padding: .25rem;
+}
+
+img {
+  margin: 0.7rem auto;
+}
+
+
+/* ---- footnotes -------------------------------------------- */
+
+  sup::before{
+    content:"[";
+  }
+
+  sup::after{
+    content:"]";
+  }
+
+  .footnote-backref::before{
+    content:"[";
+  }
+  
+  .footnote-backref::after{
+    content:"]";
+  }
+
+  .footnote-backref{
+    color: #bbb;
+  }
+
+
+/* ---- table ------------------------------------------------ */
+
+  table {
+      width: 90%;
+      margin: 1.5rem auto;
+      border-collapse: collapse;
+  /*    border-left: 1px white solid;*/
+  /*    border-right: 1px white solid;*/
+  /*    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);*/
+
+  }
+
+  th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #444444;
+  }
+
+  th {
+      background-color: #222222;
+      color: #ffffff;
+  }
+
+  tr:nth-child(even) {
+      background-color: #282828;
+  }
+
+
+/* ---- giscus ----------------------------------------------- */
+  .giscus{
+    
+  }
+
+
+/* ---- scroll bar ------------------------------------------- */
+
+  /* firefox并不支持，但以下主要也是为了调整chrome系的浏览器的滚动条 */
+  
+  ::-webkit-scrollbar {
+      width: 0.5rem; /* 垂直滚动条的宽度 */
+      height: 0.5rem; /* 水平滚动条的高度 */
+    
+  }
+  /* 鼠标悬浮在滚动条上的颜色变化 */
+  ::-webkit-scrollbar-thumb:hover {
+      background: #555; /* 鼠标悬浮时的颜色 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #888; /* 手柄颜色 */
+          border-radius: 6px;
+  }
+```
+注意：
+- 模板引擎使用python的chervon
+- 再次提醒，从cache.json生成的时光轴的页面主要内容content将作为**部分模板**来给chervon进行处理。除了content之外，其它的部分模板将存放在config.yaml所指示的路径partials_dir中，应该一起读取以供chervon处理。
+- 如果有date为空的记录，这些记录在页面中就展示为“创建时间丢失”这一分类之中。
+
+请你帮我用python写一下这个模块。
+
+### 时间轴页面的模板
+请帮我生成一个博客时光轴页面的模板（模板风格使用chervon这种）
+
+要求：
+- `<h1>``<h2>`等的h标签要给时间，比如“2025年”，“5月”这样标记时间的东西。然后博文的标题或者跳转链接之类的不应该使用h标签
+
+风格你可以大致参考我的风格：
+```css
+/*//////////////////////////////////////////////////////////////////////////////////////*/
+
+/* begin retro (https://github.com/markdowncss/retro) */
+
+code {
+  /* 行内代码 */
+  margin: 0 0.2rem;
+  padding: 0 0.3rem;
+  background-color: #303841;
+  border-radius: 0.25rem;
+/*  border: 1px solid #505050;*/
+}
+
+pre,
+pre code {
+  font-family: Source Code Pro,DejaVu Sans Mono,Ubuntu Mono,Anonymous Pro,Droid Sans Mono,Menlo,Monaco,Consolas,Inconsolata,Courier,monospace,PingFang SC,Microsoft YaHei,sans-serif;
+
+/* ---- print ---------------------------------------------------------------------------------------------*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/* ---- end print ---------------------------------------------------------------------------------------------*/
+
+a {
+/*  color: #01ff70;*/
+  text-decoration: none;
+  color: #45a9f9;
+/*  font-family: "宋体", "SimSun", cursive;*/
+  font-family: "宋体", "SimSun";
+}
+
+a:hover,
+a:focus,
+a:active {
+/*  color: #2ecc40;*/
+  color: #62bfff;
+}
+
+
+.retro-no-decoration {
+  text-decoration: none;
+}
+
+html {
+  font-size: 12px;
+  transition: all 0.35s ease 0.1s;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+p,
+.retro-p {
+  font-size: 1rem;
+  letter-spacing: 0.1rem; 
+/*  margin-bottom: 1.3rem;*/
+}
+
+h1,
+.retro-h1,
+h2,
+.retro-h2,
+h3,
+.retro-h3,
+h4,
+.retro-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+  font-family: "宋体", "SimSun", sans-serif;
+  color: #fff;
+}
+
+h1,
+.retro-h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+/*  margin-bottom: 4rem;*/
+  font-size: 3.88rem;
+}
+
+h2,
+.retro-h2 {
+  font-size: 2.78rem;
+}
+
+h3,
+.retro-h3 {
+  font-size: 1.9rem;
+}
+
+h4,
+.retro-h4 {
+  font-size: 1.414rem;
+}
+
+h5,
+.retro-h5 {
+  font-size: 1.121rem;
+}
+
+h6,
+.retro-h6 {
+  font-size: .88rem;
+}
+
+small,
+.retro-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+html,
+body {
+/*  background-color: #222;*/
+  background-color: #22262a;
+  min-height: 100%;
+}
+
+body {
+  color: #bbb;
+  font-family: Helvetica Neue, NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,serif;
+/*  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;*/
+  line-height: 1.45;
+}
+
+pre {
+/*  background-color: #333;*/
+/*  background-color: #393f46;*/
+}
+
+blockquote {
+/*  border-left: 3px solid #01ff70;*/
+  border-left: 3px solid #45a9f9;
+  background-color: #66666619;
+  padding: 0.1rem 1rem;
+/*  font-size: smaller;*/
+/*  font-family: "楷体", "KaiTi", cursive;*/
+/*  font-style: italic;*/
+}
+
+/* end retro */
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* begin left-sidebar */
+
+.left-sidebar{
+  position: fixed;
+  top: 50%; /* Adjust as per your layout */
+  left: 0%; /* This will position the div on the left side */
+  transform: translate(0, -50%); /* Center vertically based on its own height */
+
+  display: flex;
+
+}
+
+.toc-toggle{
+  width: 20px;
+  height: 3.2rem;
+  background-color: #45a9f977;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+/*  margin-top: 0.4rem;*/
+  cursor: pointer;
+}
+
+.toc-toggle:hover{
+  background-color: #45a9f9aa;
+}
+
+.toc-hidden{
+  margin-left: -17.5rem;  /*  此值等于.toc.width + .toc.padding-right */
+}
+
+/* end left-sidebar */
+
+
+/* begin tocbot */
+
+.toc {
+  background-color: #313438;
+  padding: 1rem 0;
+  padding-right: 0.5rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  border-radius: 0 0.1rem 0.5rem 0;
+  max-height: calc(100vh - 40px); 
+  width: 17rem;
+  transition: all 0.45s ease;
+}
+
+.toc a{
+  color: white;
+}
+
+.toc-list{
+  padding-left: 1.9rem;
+}
+
+/* Style for the main list items */
+.toc-list-item {
+  list-style: none;
+/*  margin-bottom: 8px;*/
+}
+
+/* Style for the links */
+.toc-link {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px 5px 5px 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the links */
+.toc-link:hover {
+  background-color: #e0e0e02e;
+}
+
+/* Active link style */
+.is-active-link {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* end tocbot */
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+header {
+    font: ;
+    display: flex;
+    justify-content: space-between; /* 改为左右分布 */
+    align-items: center;
+    height: 4rem;
+    padding: 0 2rem; /* 增加左右内边距 */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem; /* 头像和昵称之间的间距 */
+}
+
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    /*border-radius: 50%;*/ /* 圆形头像 */
+    object-fit: cover; /* 保持图片比例 */
+}
+
+.nickname {
+    color: #ddd;
+    font-weight: bold;
+}
+
+
+header nav{
+  min-width: 20rem;
+}
+
+header li{
+  display: inline-block;
+  margin: 0 0.8rem;
+}
+
+header li a{
+    color: #ddd;
+}
+
+.fluid{
+/*  margin-top: 6rem;*/
+  margin: 3rem auto 2rem;
+  max-width: 50rem;
+  padding: .25rem;
+}
+
+img {
+  margin: 0.7rem auto;
+}
+
+
+/* ---- footnotes -------------------------------------------- */
+
+  sup::before{
+    content:"[";
+  }
+
+  sup::after{
+    content:"]";
+  }
+
+  .footnote-backref::before{
+    content:"[";
+  }
+  
+  .footnote-backref::after{
+    content:"]";
+  }
+
+  .footnote-backref{
+    color: #bbb;
+  }
+
+
+/* ---- table ------------------------------------------------ */
+
+  table {
+      width: 90%;
+      margin: 1.5rem auto;
+      border-collapse: collapse;
+  /*    border-left: 1px white solid;*/
+  /*    border-right: 1px white solid;*/
+  /*    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);*/
+
+  }
+
+  th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #444444;
+  }
+
+  th {
+      background-color: #222222;
+      color: #ffffff;
+  }
+
+  tr:nth-child(even) {
+      background-color: #282828;
+  }
+
+
+/* ---- giscus ----------------------------------------------- */
+  .giscus{
+    
+  }
+
+
+/* ---- scroll bar ------------------------------------------- */
+
+  /* firefox并不支持，但以下主要也是为了调整chrome系的浏览器的滚动条 */
+  
+  ::-webkit-scrollbar {
+      width: 0.5rem; /* 垂直滚动条的宽度 */
+      height: 0.5rem; /* 水平滚动条的高度 */
+    
+  }
+  /* 鼠标悬浮在滚动条上的颜色变化 */
+  ::-webkit-scrollbar-thumb:hover {
+      background: #555; /* 鼠标悬浮时的颜色 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #888; /* 手柄颜色 */
+          border-radius: 6px;
+  }
+
+```
+
+### cache.json转化为timeline模板可接受的格式
+cache.json（内容如下）：
+```json
+{
+  "D:/DataDisk/workspace/blog/md/index.md": {
+    "file_updated": 1760234911.6160536,
+    "should_build": false,
+    "title": "我的第一篇博客",
+    "category": [],
+    "date": "25/04/25/21:34",
+    "updated": null,
+    "link": "https://code-pigeon.github.io/blog/html/index.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/index.html",
+    "description": "{{title}}，测试；{{build_time}}；{{html_dir}}\n这里应该是fancy_banner所在的位置{{&gt; fancy_banner }}。。。。。。。。。。。。。。。。。。\n所以说其实部分模板中不能嵌套部分模板？\n{{&gt; test }}\n@####################################\n鸽子窝\n\n欢迎来到鸽子窝\n\n 喜欢回忆过去，喜欢幻想将来，唯独不喜欢珍惜现在。"
+  },
+  "D:/DataDisk/workspace/blog/md/test/test - 副本.md": {
+    "file_updated": 1745588576.3264618,
+    "should_build": false,
+    "title": "莫蓝特受伤了",
+    "category": [
+      "test"
+    ],
+    "date": "25/04/25/11:40",
+    "updated": null,
+    "link": "https://code-pigeon.github.io/blog/html/test - 副本.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/test%20-%20%E5%89%AF%E6%9C%AC.html",
+    "description": "莫兰特又受伤了\n伺机待发接送地方军哦i\na mama:\n这公司开始严抓考勤了\na mama:\n一个Q迟到4次都要被说\na mama:\n[动画表情]\na最好看的姐姐:\n倒闭前兆\na最好看的姐姐:\n[动画表情]\na mama:\n以前每年还有工资普调，38,618，双11还发奖金\na mama:\n去年双11开始不发奖金了\na mama:\n今年普调也没有\na mama:\n然后今天hr还找我们领导投诉考勤问题了\na mama:\n这么计较上班时间，那下班晚了怎么不补钱给我\na道:\n奴伙，刀郎去年最红的歌叫什么？\n🐦:\n罗刹海市"
+  }
+}
+```
+将这样的json格式文件转化为下面的格式。
+
+```json
+{
+  "years": [
+    {
+      "year": "2025",
+      "months": [
+        {
+          "month": "5",
+          "timelineItems": [
+            {
+              "position": "left",
+              "date": "2025年5月15日",
+              "link": "post1.html",
+              "title": "探索人工智能的未来发展",
+              "description": "这篇文章探讨了人工智能技术的未来发展趋势，包括机器学习、自然语言处理和计算机视觉等领域的最新进展。"
+            },
+            {
+              "position": "right",
+              "date": "2025年5月10日",
+              "link": "post2.html",
+              "title": "Web开发最佳实践",
+              "description": "分享一些现代Web开发的最佳实践，包括响应式设计、性能优化和可访问性等方面的建议。"
+            }
+          ]
+        },
+        {
+          "month": "4",
+          "timelineItems": [
+            {
+              "position": "left",
+              "date": "2025年4月25日",
+              "link": "post3.html",
+              "title": "深入理解CSS Grid布局",
+              "description": "详细介绍CSS Grid布局系统的使用方法，包括基本概念、常用属性和实际应用案例。"
+            },
+            {
+              "position": "right",
+              "date": "2025年4月18日",
+              "link": "post4.html",
+              "title": "JavaScript ES2025新特性预览",
+              "description": "探索即将到来的JavaScript ES2025标准中的新特性和语法改进，帮助开发者提前准备。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": "2024",
+      "months": [
+        {
+          "month": "12",
+          "timelineItems": [
+            {
+              "position": "left",
+              "date": "2024年12月20日",
+              "link": "post5.html",
+              "title": "年度技术回顾与展望",
+              "description": "回顾2024年最重要的技术发展，并对2025年的技术趋势进行预测和展望。"
+            },
+            {
+              "position": "right",
+              "date": "2024年12月5日",
+              "link": "post6.html",
+              "title": "构建高效的前端工作流",
+              "description": "分享如何建立高效的前端开发工作流，包括工具选择、自动化流程和团队协作等方面的经验。"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "miss_date": [
+    {
+      "position": "left",
+      "date": "2014年5月21日",
+      "link": "post7.html",
+      "title": "不知道",
+      "description": "介介"
+    },
+    {
+      "position": "right",
+      "date": "2020年4月5日",
+      "link": "post8.html",
+      "title": "你深情",
+      "description": "写成了我们"
+    }
+  ]
+}
+```
+时间以cache.json中的`date`字段为准。
+如果`date`为空，那么就放在`miss_date`这么一个集合中。
+
+至于`position`这个字段，那么就一个左一个右就行了。
+
+然后日期解析的话，要能够支持以下格式：
+"%y/%m/%d/%H:%M",  # 24/9/24/19:05
+"%Y/%m/%d/%H:%M",  # 2024/9/24/19:05
+"%Y/%m/%d",         # 2024/9/24
+"%y/%m/%d",         # 24/9/24
+"%Y-%m-%d",         # 2024-9-24
+
+用python编写一个这个模板，结果不需要保存到外寸，打印字符串即可
+
+### timeline扩展
+打开一个模板文件，然后

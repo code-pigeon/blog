@@ -1,6 +1,5 @@
 ---
 title: 我的第一篇博客
-date: 25/04/25/21:34
 template: test.mustache
 auto_h1: false
 ---	

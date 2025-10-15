@@ -5,8 +5,186 @@ import chevron
 import frontmatter
 import markdown
 from pathlib import Path
+from html.parser import HTMLParser
 from typing import Dict, Any, List, Optional
+import html
 import re
+
+class SmartExcerptGenerator:
+    """
+    智能文章简介生成器
+    """
+    
+    def __init__(self, max_length: int = 200, preserve_formatting: bool = True,
+                 line_break_strategy: str = "smart"):
+        """
+        初始化生成器
+        
+        Args:
+            max_length: 简介最大长度
+            preserve_formatting: 是否保留基本格式
+            line_break_strategy: 换行处理策略
+                - "preserve": 保留所有换行
+                - "compact": 所有换行转空格
+                - "smart": 智能合并（默认）
+        """
+        self.max_length = max_length
+        self.preserve_formatting = preserve_formatting
+        self.line_break_strategy = line_break_strategy
+        
+        # 配置参数
+        self.sentence_enders = ['。', '！', '？', '.', '!', '?']
+        self.word_separators = ['，', ',', ' ']
+        
+        # 编译正则表达式
+        self._complex_elements_patterns = [
+            (re.compile(r'<pre>[\s\S]*?</pre>', re.IGNORECASE), ''),
+            (re.compile(r'<code>[\s\S]*?</code>', re.IGNORECASE), ''),
+            (re.compile(r'<img[^>]*>', re.IGNORECASE), ''),
+            (re.compile(r'<table[\s\S]*?</table>', re.IGNORECASE), ''),
+            (re.compile(r'<script[\s\S]*?</script>', re.IGNORECASE), ''),
+            (re.compile(r'<style[\s\S]*?</style>', re.IGNORECASE), ''),
+        ]
+
+    def generate(self, html_content: str, max_length: Optional[int] = None, 
+                 preserve_formatting: Optional[bool] = None,
+                 line_break_strategy: Optional[str] = None) -> str:
+        """
+        生成文章简介
+        """
+        if not html_content:
+            return ""
+        
+        # 使用参数或默认值
+        current_max_length = max_length if max_length is not None else self.max_length
+        current_preserve_formatting = (
+            preserve_formatting if preserve_formatting is not None 
+            else self.preserve_formatting
+        )
+        current_strategy = (
+            line_break_strategy if line_break_strategy is not None 
+            else self.line_break_strategy
+        )
+        
+        # 处理流程
+        content = html.unescape(html_content)
+        content = self._remove_complex_elements(content)
+        
+        if current_preserve_formatting:
+            content = self._preserve_basic_formatting(content, current_strategy)
+        else:
+            content = self._remove_all_tags(content)
+            content = self._handle_line_breaks(content, current_strategy)
+            
+        content = self._clean_whitespace(content, current_strategy)
+        excerpt = self._smart_truncate(content, current_max_length)
+        
+        return excerpt
+
+    def _preserve_basic_formatting(self, content: str, strategy: str) -> str:
+        """保留基本文本格式并处理换行"""
+        # 处理段落和换行
+        if strategy == "preserve":
+            # 保留所有换行结构
+            content = re.sub(r'</p>\s*<p>', '\n\n', content)
+            content = re.sub(r'<p[^>]*>', '', content)
+            content = re.sub(r'</p>', '\n', content)
+            content = re.sub(r'<br\s*/?>', '\n', content)
+        elif strategy == "compact":
+            # 所有换行转空格
+            content = re.sub(r'</p>\s*<p>', ' ', content)
+            content = re.sub(r'<p[^>]*>', '', content)
+            content = re.sub(r'</p>', ' ', content)
+            content = re.sub(r'<br\s*/?>', ' ', content)
+        else:  # smart
+            # 智能处理：段落间保留换行，行内换行转空格
+            content = re.sub(r'</p>\s*<p>', '\n\n', content)
+            content = re.sub(r'<p[^>]*>', '', content)
+            content = re.sub(r'</p>', '\n', content)
+            content = re.sub(r'<br\s*/?>', ' ', content)  # <br> 转空格
+        
+        # 处理其他格式
+        content = re.sub(r'<h[1-6][^>]*>(.*?)</h[1-6]>', r'**\1**', content)
+        content = re.sub(r'<strong>(.*?)</strong>', r'**\1**', content)
+        content = re.sub(r'<b>(.*?)</b>', r'**\1**', content)
+        content = re.sub(r'<em>(.*?)</em>', r'*\1*', content)
+        content = re.sub(r'<i>(.*?)</i>', r'*\1*', content)
+        content = re.sub(r'<li>(.*?)</li>', r'• \1', content)
+        
+        # 最后移除所有剩余的HTML标签
+        content = self._remove_all_tags(content)
+        return content
+
+    def _handle_line_breaks(self, content: str, strategy: str) -> str:
+        """处理纯文本中的换行符"""
+        if strategy == "preserve":
+            # 保留原始换行
+            return content
+        elif strategy == "compact":
+            # 所有换行转空格
+            return re.sub(r'\s+', ' ', content)
+        else:  # smart
+            # 合并连续换行，保留段落分隔
+            content = re.sub(r'\n\s*\n', '\n\n', content)
+            # 单换行转空格
+            content = re.sub(r'(?<!\n)\n(?!\n)', ' ', content)
+            return content
+
+    def _clean_whitespace(self, content: str, strategy: str) -> str:
+        """清理空白字符"""
+        if strategy == "preserve":
+            # 保留换行，只清理其他空白
+            content = re.sub(r'[^\S\n]+', ' ', content)  # 非换行空白转空格
+        else:
+            # 所有连续空白转单个空格
+            content = re.sub(r'\s+', ' ', content)
+        
+        return content.strip()
+
+    def _remove_complex_elements(self, content: str) -> str:
+        """移除复杂HTML元素"""
+        for pattern, replacement in self._complex_elements_patterns:
+            content = pattern.sub(replacement, content)
+        return content
+
+    def _remove_all_tags(self, content: str) -> str:
+        """移除所有HTML标签"""
+        return re.sub(r'<[^>]+>', '', content)
+
+    def _smart_truncate(self, text: str, max_length: int) -> str:
+        """智能截断文本"""
+        if len(text) <= max_length:
+            return text
+        
+        truncated = text[:max_length]
+        
+        # 查找合适的截断点
+        truncate_points = []
+        
+        for ender in self.sentence_enders:
+            pos = truncated.rfind(ender)
+            if pos != -1:
+                truncate_points.append(pos)
+        
+        for separator in self.word_separators:
+            pos = truncated.rfind(separator)
+            if pos != -1:
+                truncate_points.append(pos)
+        
+        # 在换行处截断（如果使用preserve策略）
+        if self.line_break_strategy == "preserve":
+            line_break_pos = truncated.rfind('\n')
+            if line_break_pos != -1:
+                truncate_points.append(line_break_pos)
+        
+        if truncate_points:
+            best_point = max(truncate_points)
+            if best_point > max_length * 0.6:
+                return truncated[:best_point + 1] + '...'
+        
+        return truncated + '...'
+
+
 
 class MarkdownBuilder:
     def __init__(self, config_path: str, cache_path: str):
@@ -112,7 +290,7 @@ class MarkdownBuilder:
         
         return html_content
     
-    def extract_description(self, html_content: str, max_length: int = 300) -> str:
+    def extract_description1(self, html_content: str, max_length: int = 300) -> str:
         """
         从HTML内容中提取描述
         
@@ -156,6 +334,78 @@ class MarkdownBuilder:
             else:
                 return truncated
     
+    def extract_description2(self, content, max_length=100):
+        """
+        智能截断HTML内容，保持标签完整性
+        :param content: 原始HTML内容
+        :param max_length: 最大字符数
+        :return: 安全截断后的HTML内容
+        """
+        class HTMLTruncator(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.output = []
+                self.stack = []
+                self.total_len = 0
+                self.truncated = False
+
+            def handle_starttag(self, tag, attrs):
+                if self.truncated:
+                    return
+                self.stack.append(tag)
+                attrs_str = ''.join([f' {k}="{v}"' for k, v in attrs])
+                self.output.append(f"<{tag}{attrs_str}>")
+
+            def handle_endtag(self, tag):
+                if self.truncated:
+                    return
+                if self.stack and self.stack[-1] == tag:
+                    self.stack.pop()
+                    self.output.append(f"</{tag}>")
+
+            def handle_startendtag(self, tag, attrs):
+                if self.truncated:
+                    return
+                attrs_str = ''.join([f' {k}="{v}"' for k, v in attrs])
+                self.output.append(f"<{tag}{attrs_str}/>")
+
+            def handle_data(self, data):
+                if self.truncated:
+                    return
+                
+                remaining = max_length - self.total_len
+                if remaining <= 0:
+                    self.truncated = True
+                    return
+                    
+                if len(data) > remaining:
+                    data = data[:remaining]
+                    self.truncated = True
+                    
+                self.total_len += len(data)
+                self.output.append(data)
+
+        truncator = HTMLTruncator()
+        truncator.feed(content)
+        
+        # 补全未闭合的标签
+        while truncator.stack:
+            tag = truncator.stack.pop()
+            truncator.output.append(f"</{tag}>")
+        
+        # 添加省略提示
+        if truncator.truncated:
+            truncator.output.append("...")
+        
+        return ''.join(truncator.output)
+
+
+    def extract_description(self, content, max_length=200):
+        generator = SmartExcerptGenerator()
+        ret = generator.generate(content, max_length)
+        return ret
+
+
     def process_markdown_file(self, md_file_path: str) -> Optional[Dict[str, Any]]:
         """
         处理单个markdown文件

@@ -1,0 +1,154 @@
+/* 时光轴特定样式 */
+h1 h2 {
+  font-size: 2.5rem !important;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #45a9f9;
+    transform: translateX(-50%);
+}
+
+.timeline-year {
+    position: relative;
+    width: 100%;
+    margin: 1.6rem 0;
+}
+
+.timeline-year h1 {
+    font-size: 2.3rem;
+    text-align: center;
+    background-color: #22262a;
+    display: inline-block;
+    padding: 0.5rem 2rem;
+    border: 2px solid #45a9f9;
+    border-radius: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-month {
+    position: relative;
+    width: 100%;
+    margin: 1.2rem 0;
+}
+
+.timeline-month h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    background-color: #22262a;
+    display: inline-block;
+    padding: 0.3rem 1.5rem;
+    border: 1px solid #45a9f9;
+    border-radius: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    width: 45%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #2a2e32;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item:nth-child(odd) {
+    left: -3%;
+}
+
+.timeline-item:nth-child(even) {
+    left: 54%; /* 从55%改为50% */
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: #45a9f9;
+    border-radius: 50%;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -40px;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -40px;
+}
+
+
+.article-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.tag {
+    background-color: #45a9f9;
+    color: #22262a;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.article-excerpt {
+    color: #bbb;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: calc(100% - 60px);
+        left: 40px !important;
+    }
+    
+    .timeline-item::after {
+        left: -30px !important;
+    }
+    
+    .timeline-year h1,
+    .timeline-month h2 {
+        left: 20px;
+        transform: none;
+    }
+}

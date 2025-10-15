@@ -271,8 +271,8 @@ class DependencyChecker:
                 post = frontmatter.load(f)
                 
             frontmatter_data = {}
-            frontmatter_data['title'] = post.get('title', '')
-            frontmatter_data['date'] = post.get('date', '')
+            frontmatter_data['title'] = post.get('title', None)
+            frontmatter_data['date'] = post.get('date', None)
             frontmatter_data['updated'] = post.get('updated', None)
             
             return frontmatter_data
@@ -280,8 +280,8 @@ class DependencyChecker:
         except Exception as e:
             print(f"解析markdown文件frontmatter失败: {md_file_path}, 错误: {e}")
             return {
-                'title': '',
-                'date': '',
+                'title': None,
+                'date': None,
                 'updated': None
             }
 

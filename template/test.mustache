@@ -13,24 +13,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
 </head>
 <body>
-	<header>
-		<!-- 左侧个人形象部分 -->
-	    <div class="profile">
-	        <img src="{{{img_url}}}pigeon2.png" alt="个人头像" class="avatar">
-	        <span class="nickname">{{{author}}}</span>
-	    </div>
-	    
-	    <!-- 右侧导航菜单（保持原有结构） -->
-		<nav>
-		    <ul>
-		    	{{#nav}}
-		    		<li><a href="{{url}}">{{label}}</a></li>
-		    	{{/nav}}
-		    </ul>
-		</nav>
-	</header>
+	{{> header}}
 	<div class=fluid> 
-		{{> fancy_banner}}	
 		{{#auto_h1}}
 		<h1 id="{{{title}}}">{{{title}}}</h1>
 		{{/auto_h1}}
@@ -53,8 +37,12 @@
 				<time class="meta-time">{{{updated}}}</time>
 			</div>
 			{{/updated}}
+			{{#category}}
+			<div class="meta-item">
+				<span class="meta-label">{{.}}</span>
+			</div>
+			{{/category}}
 		</div>
-		<i>分类：{{# category }} / {{.}}{{/ category}} </i>
 
 
 		{{> content }}
@@ -64,7 +52,7 @@
 
 		<!-- visitor -->
 		<!-- id 将作为查询条件 -->
-		<span id="/blog/{{html_dir}}{{{ stem }}}.html" class="leancloud_visitors" data-flag-title="{{{page_title}}}">
+		<span id="/blog/{{html_dir}}{{{ stem }}}.html" class="leancloud_visitors" data-flag-title="{{{title}}}">
 		    <em class="post-meta-item-text">阅读量 </em>
 		    <i class="leancloud-visitors-count">0</i>
 		</span>
@@ -99,11 +87,11 @@
 
 	<!-- /////////////// script region //////////////// -->
 
-	<script src="../js/code_highlight.js" type="text/javascript"></script>
+	<script src="{{js_url}}code_highlight.js" type="text/javascript"></script>
 		
 	<!-- table of cotent -->
 	{{#has_toc}}
-	<script src="../js/toc.js" type="text/javascript" ></script>
+	<script src="{{js_url}}toc.js" type="text/javascript" ></script>
 	{{/has_toc}}
 
 	{{#has_comment}}
@@ -125,7 +113,7 @@
 	</script> -->
 
 	<!-- Valine -->
-	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script src="{{js_url}}Valine.min.js" type="text/javascript"></script>
 	<script>
 	    new Valine({
 	        el: '#vcomments',
@@ -140,31 +128,8 @@
 	</script>
 	{{/has_comment}}
 
-	<script type="text/javascript">
-		// 定义备用路径
-		const fallbackBaseUrl = "{{{img_url2}}}"; // 备用路径
-
-		// 监听所有 .fluid 下的 img 标签
-		document.addEventListener('DOMContentLoaded', function() {
-			const images = document.querySelectorAll('div.fluid img, div.profile img');
-			images.forEach(function(img) {
-				img.addEventListener('error', function() {
-					const currentSrc = img.src;
-
-					// 如果当前已经是备用路径，则移除 src（避免无限循环）
-					if (currentSrc.includes(fallbackBaseUrl)) {
-						img.removeAttribute('src'); // 仅显示 alt
-						return;
-					}
-
-					// 替换主路径为备用路径（保留文件名）
-					const fileName = currentSrc.split('/').pop(); // 提取文件名（如 "test.png"）
-					const newSrc = fallbackBaseUrl + fileName;    // 拼接备用路径
-					img.src = newSrc; // 尝试加载备用图
-				});
-			});
-		});
-	</script>
+	<!-- image -->
+	<script src="{{js_url}}image.js" type="text/javascript"></script>
 
 </body>
 </html>

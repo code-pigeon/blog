@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客时光轴</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/timeline.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+    {{>header}}
+    <div class="fluid">
+        <h1 style="text-align: center; margin-bottom: 2rem;">时光轴</h1>
+        {{#timeline}}
+        <div class="timeline">
+            {{#years}}
+            <div class="timeline-year">
+                <h1>{{year}}年</h1>
+            </div>
+            
+            {{#months}}
+            <div class="timeline-month">
+                <h2>{{month}}月</h2>
+            </div>
+            
+            {{#timelineItems}}
+            <div class="timeline-item">
+                <div class="article-title"><a href="{{link}}">{{title}}</a></div>
+                <div class="article-meta">
+                    <span class="article-date">{{date}}</span>
+                    <div class="article-tags">
+                        {{#category}}
+                        <span class="tag">{{.}}</span>
+                        {{/category}}
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    {{description}}
+                </div>
+            </div>
+            {{/timelineItems}}
+            {{/months}}
+            {{/years}}
+            {{#miss_date}}
+            <div class="timeline-item">
+                <div class="article-title"><a href="{{link}}">{{title}}</a></div>
+                <div class="article-meta">
+                    <span class="article-date">{{date}}</span>
+                    <div class="article-tags">
+                        {{#category}}
+                        <span class="tag">{{.}}</span>
+                        {{/category}}
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    {{description}}
+                </div>
+            </div>
+            {{/miss_date}}
+        </div>
+        {{/timeline}}
+        <div class="timeline">
+            <!-- 2025年 -->
+            <div class="timeline-year">
+                <h1>2025年</h1>
+            </div>
+            
+            <!-- 5月 -->
+            <div class="timeline-month">
+                <h2>5月</h2>
+            </div>
+            
+            <!-- 文章1 -->
+            <div class="timeline-item">
+                <div class="article-title"><a href="article1.html">深入理解JavaScript闭包</a></div>
+                <div class="article-meta">
+                    <span class="article-date">2025-05-15</span>
+                    <div class="article-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">前端</span>
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    闭包是JavaScript中一个重要的概念，它允许函数访问并操作函数外部的变量...
+                </div>
+            </div>
+            
+            <!-- 文章2 -->
+            <div class="timeline-item">
+                <div class="article-title"><a href="article2.html">CSS Grid布局完全指南</a></div>
+                <div class="article-meta">
+                    <span class="article-date">2025-05-10</span>
+                    <div class="article-tags">
+                        <span class="tag">CSS</span>
+                        <span class="tag">布局</span>
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    CSS Grid布局是一种强大的二维布局系统，可以轻松创建复杂的网页布局...
+                </div>
+            </div>
+            
+            <!-- 4月 -->
+            <div class="timeline-month">
+                <h2>4月</h2>
+            </div>
+            
+            <!-- 文章3 -->
+            <div class="timeline-item">
+                <div class="article-title"><a href="article3.html">Vue 3组合式API实践</a></div>
+                <div class="article-meta">
+                    <span class="article-date">2025-04-25</span>
+                    <div class="article-tags">
+                        <span class="tag">Vue</span>
+                        <span class="tag">前端框架</span>
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    Vue 3引入了组合式API，这是一种更灵活的组织组件逻辑的方式...
+                </div>
+            </div>
+            
+            <!-- 2024年 -->
+            <div class="timeline-year">
+                <h1>2024年</h1>
+            </div>
+            
+            <!-- 12月 -->
+            <div class="timeline-month">
+                <h2>12月</h2>
+            </div>
+            
+            <!-- 文章4 -->
+            <div class="timeline-item">
+                <div class="article-title"><a href="article4.html">Node.js性能优化技巧</a></div>
+                <div class="article-meta">
+                    <span class="article-date">2024-12-20</span>
+                    <div class="article-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">后端</span>
+                        <span class="tag">性能</span>
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    在这篇文章中，我们将探讨一些提高Node.js应用性能的实用技巧...
+                </div>
+            </div>
+            
+            <!-- 11月 -->
+            <div class="timeline-month">
+                <h2>11月</h2>
+            </div>
+            
+            <!-- 文章5 -->
+            <div class="timeline-item">
+                <div class="article-title"><a href="article5.html">TypeScript类型系统深入解析</a></div>
+                <div class="article-meta">
+                    <span class="article-date">2024-11-15</span>
+                    <div class="article-tags">
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">类型系统</span>
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    TypeScript的类型系统是其最强大的功能之一，本文将深入探讨其工作原理...
+                </div>
+            </div>
+            
+            <!-- 文章6 -->
+            <div class="timeline-item">
+                <div class="article-title"><a href="article6.html">Webpack 5模块联邦详解</a></div>
+                <div class="article-meta">
+                    <span class="article-date">2024-11-05</span>
+                    <div class="article-tags">
+                        <span class="tag">Webpack</span>
+                        <span class="tag">构建工具</span>
+                    </div>
+                </div>
+                <div class="article-excerpt">
+                    Webpack 5引入的模块联邦功能彻底改变了微前端的实现方式...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="left-sidebar">
+        <div class="toc"></div>
+        <div class="toc-toggle"></div>
+    </div>
+    <!-- table of cotent -->
+    <!--  -->
+    <script src="../js/toc.js" type="text/javascript" ></script>
+    <!--  -->
+
+    <script>
+        // // 简单的TOC切换功能
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const tocToggle = document.createElement('div');
+        //     tocToggle.className = 'toc-toggle';
+        //     tocToggle.innerHTML = '☰';
+            
+        //     const toc = document.createElement('div');
+        //     toc.className = 'toc';
+        //     toc.innerHTML = `
+        //         <nav class="toc-nav">
+        //             <ul class="toc-list">
+        //                 <li class="toc-list-item"><a href="#2025" class="toc-link">2025年</a></li>
+        //                 <li class="toc-list-item"><a href="#2024" class="toc-link">2024年</a></li>
+        //             </ul>
+        //         </nav>
+        //     `;
+            
+        //     const leftSidebar = document.createElement('div');
+        //     leftSidebar.className = 'left-sidebar';
+        //     leftSidebar.appendChild(tocToggle);
+        //     leftSidebar.appendChild(toc);
+            
+        //     document.body.appendChild(leftSidebar);
+            
+        //     tocToggle.addEventListener('click', function() {
+        //         toc.classList.toggle('toc-hidden');
+        //     });
+            
+        //     // 为年份和月份添加ID以便TOC链接
+        //     const years = document.querySelectorAll('.timeline-year h1');
+        //     const months = document.querySelectorAll('.timeline-month h2');
+            
+        //     years.forEach((year, index) => {
+        //         year.id = `year-${index}`;
+        //     });
+        // });
+    </script>
+
+    <script>
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            // 添加滚动动画效果
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        // 定义备用路径
+        const fallbackBaseUrl = "https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/"; // 备用路径
+
+        // 监听所有 .fluid 下的 img 标签
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('div.fluid img, div.profile img');
+            images.forEach(function(img) {
+                img.addEventListener('error', function() {
+                    const currentSrc = img.src;
+
+                    // 如果当前已经是备用路径，则移除 src（避免无限循环）
+                    if (currentSrc.includes(fallbackBaseUrl)) {
+                        img.removeAttribute('src'); // 仅显示 alt
+                        return;
+                    }
+
+                    // 替换主路径为备用路径（保留文件名）
+                    const fileName = currentSrc.split('/').pop(); // 提取文件名（如 "test.png"）
+                    const newSrc = fallbackBaseUrl + fileName;    // 拼接备用路径
+                    img.src = newSrc; // 尝试加载备用图
+                });
+            });
+        });
+    </script>
+</body>
+</html>

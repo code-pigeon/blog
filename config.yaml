@@ -1,7 +1,7 @@
 # --- 博客信息 --------------------------------------------------------
 blog_name: 乌鸦之家
-blog_signature: '岁岁年年，碎碎念念'
-author: "自由人"
+blog_signature: '乌鸦的碎碎念'
+author: "乌鸦"
 footer_note: © 2025 乌鸦之家
 
 # cc: "by-nc-nd"          # 版权声明
@@ -14,9 +14,7 @@ cc: false
 # default_tags:
 
 
-md_dir: md
-html_dir: html
-partials_dir: partials
+
 
 
 # --- 博客构建器相关 --------------------------------------------------------------
@@ -24,13 +22,7 @@ partials_dir: partials
 md_dir: "md/"
 html_dir: "html/"
 template_dir: "template/"
-
-# 扩展开关
-extensions:
-    - dependency_checker
-    - category_page
-    - timeline_page
-    - rss
+partials_dir: "partials/"
 
 # 分类扩展
 # hidden: false                       # 隐藏文件（无法在页面中访问到）
@@ -49,9 +41,9 @@ nav:
     - label: '首页'
       url: 'index.html'
     - label: '分类'
-      url: '分类.html'
+      url: 'NOCHECK_category.html'
     - label: '时间轴'
-      url: '时间轴.html'
+      url: 'NOCHECK_timeline.html'
     - label: 'github'
       url: 'https://github.com/code-pigeon'
 
@@ -78,3 +70,14 @@ site: "https://code-pigeon.github.io/blog/"     # 博客基址
 js_url:     '../js/'
 css_url:    '../css/'
 html_url:   
+
+
+# --- 扩展管理 ----------------------------------------------------------
+# 扩展开关
+extensions:
+  - category
+  - timeline
+  - rss
+
+# --- timeline ----------------------------------------------------------
+timeline_template: "timeline.mustache"
