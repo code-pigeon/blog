@@ -1,0 +1,153 @@
+/* 基础样式 */
+
+/* 分类页面特定样式 */
+.categories-container {
+    margin: 2rem auto;
+    max-width: 50rem;
+    padding: 0 1rem;
+}
+
+.category-section {
+    margin-bottom: 3rem;
+}
+
+.category {
+    font-family: "宋体", "SimSun", sans-serif;
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #45a9f9;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-item {
+    margin-bottom: 1.2rem;
+    padding: 0.8rem 1rem 0.8rem 2rem;
+    background-color: #2a2e32;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-item:hover {
+    background-color: #313438;
+}
+
+/* 修改后的布局 */
+.post-content {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.post-title {
+    color: #ddd;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+    margin-right: 1rem;
+}
+
+.post-title:hover {
+    color: #62bfff;
+}
+
+.post-date {
+    color: #888;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+/* 标签样式 */
+.post-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.post-tag {
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    background-color: #888888;
+    color: #22262a;
+}
+
+/* 标签颜色变体 */
+.post-tag--primary {
+    background-color: #45a9f9;
+    color: #fff;
+}
+
+.post-tag--secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.post-tag--success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.post-tag--warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.post-tag--info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.post-tag--light {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.empty-category {
+    color: #888;
+    font-style: italic;
+    padding: 1rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .post-item {
+        padding: 0.6rem 0.8rem;
+        flex-wrap: wrap;
+    }
+    
+    .category {
+        font-size: 1.8rem;
+    }
+    
+    .post-content {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .post-tags {
+        margin-left: 0;
+        margin-right: auto;
+        order: -1;
+    }
+    
+    .post-date {
+        margin-left: auto;
+    }
+}

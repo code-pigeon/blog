@@ -75,9 +75,13 @@ html_url:
 # --- 扩展管理 ----------------------------------------------------------
 # 扩展开关
 extensions:
-  - category
-  - timeline
-  - rss
+    category: null
+    timeline: null
+    rss: {}
 
 # --- timeline ----------------------------------------------------------
 timeline_template: "timeline.mustache"
+
+
+# --- category ----------------------------------------------------------
+category_template: "category.mustache"

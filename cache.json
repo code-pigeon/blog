@@ -1,42 +1,48 @@
 {
   "D:/DataDisk/workspace/blog/md/IGNORE_test爱情.md": {
     "file_updated": 1760229183.3667588,
-    "should_build": false,
+    "should_build": true,
     "title": "深入理解生成器",
     "category": [],
     "date": "25/04/27/23:22",
     "updated": null,
+    "html_filename": "IGNORE_test爱情.html",
+    "quote_html_filename": "IGNORE_test%E7%88%B1%E6%83%85.html",
     "link": "https://code-pigeon.github.io/blog/html/IGNORE_test爱情.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/IGNORE_test%E7%88%B1%E6%83%85.html",
     "description": "**深入理解生成器** 内容……"
   },
   "D:/DataDisk/workspace/blog/md/index.md": {
     "file_updated": 1760507330.4170244,
-    "should_build": false,
+    "should_build": true,
     "title": "我的第一篇博客",
     "category": [],
     "date": null,
     "updated": null,
+    "html_filename": "index.html",
+    "quote_html_filename": "index.html",
     "link": "https://code-pigeon.github.io/blog/html/index.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/index.html",
     "description": "{{title}}，测试；{{build_time}}；{{html_dir}} *这里应该是fancy_banner所在的位置{{> fancy_banner }}。。。。。。。。。。。。。。。。。。* 所以说其实部分模板中不能嵌套部分模板？ {{> test }} @#################################### **鸽子窝** 欢迎来到鸽子窝 喜欢回忆过去，..."
   },
   "D:/DataDisk/workspace/blog/md/test/test - 副本.md": {
     "file_updated": 1760497871.2451057,
-    "should_build": false,
+    "should_build": true,
     "title": "杨瀚森雄起！",
     "category": [
       "test"
     ],
     "date": "25/10/15/11:10",
     "updated": null,
+    "html_filename": "test - 副本.html",
+    "quote_html_filename": "test%20-%20%E5%89%AF%E6%9C%AC.html",
     "link": "https://code-pigeon.github.io/blog/html/test - 副本.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/test%20-%20%E5%89%AF%E6%9C%AC.html",
     "description": "杨瀚森作为新一代的中国新星，能否在NBA站稳脚跟呢？ 让我们拭目以待。"
   },
   "D:/DataDisk/workspace/blog/md/test/test2/莫蓝特受伤了.md": {
     "file_updated": 1760231352.9895134,
-    "should_build": false,
+    "should_build": true,
     "title": "莫蓝特受伤了",
     "category": [
       "test",
@@ -44,30 +50,36 @@
     ],
     "date": "25/04/25/11:40",
     "updated": null,
+    "html_filename": "莫蓝特受伤了.html",
+    "quote_html_filename": "%E8%8E%AB%E8%93%9D%E7%89%B9%E5%8F%97%E4%BC%A4%E4%BA%86.html",
     "link": "https://code-pigeon.github.io/blog/html/莫蓝特受伤了.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E8%8E%AB%E8%93%9D%E7%89%B9%E5%8F%97%E4%BC%A4%E4%BA%86.html",
     "description": "**莫兰特又受伤了** 伺机待发接送地方军哦i a mama: 这公司开始严抓考勤了 a mama: 一个Q迟到4次都要被说 a mama: [动画表情] a最好看的姐姐: 倒闭前兆 a最好看的姐姐: [动画表情] a mama: 以前每年还有工资普调，38,618，双11还发奖金 a mama: 去年双11开始不发奖金了 a mama: 今年普调也没有 a mama: ..."
   },
   "D:/DataDisk/workspace/blog/md/文章/《论至九站》.md": {
     "file_updated": 1760229217.3024795,
-    "should_build": false,
+    "should_build": true,
     "title": "论持久战",
     "category": [
       "文章"
     ],
     "date": "2025/2/4",
     "updated": null,
+    "html_filename": "《论至九站》.html",
+    "quote_html_filename": "%E3%80%8A%E8%AE%BA%E8%87%B3%E4%B9%9D%E7%AB%99%E3%80%8B.html",
     "link": "https://code-pigeon.github.io/blog/html/《论至九站》.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E8%AE%BA%E8%87%B3%E4%B9%9D%E7%AB%99%E3%80%8B.html",
     "description": "{{title}}，测试；{{build_time}}；{{html_dir}} {{> fancy_banner }} **鸽子窝** 欢迎来到鸽子窝 喜欢回忆过去，喜欢幻想将来，唯独不喜欢珍惜现在。 --> **关于我** **爱好** • 🏀：篮球 • 🎤：唱歌 • 🎱：桌球 • 🏊︎：游泳 • 🖊︎：记录 • 📔：看小说 • 🏓：乒乓球 • 🐘：中国象棋（曾经的爱好） • ..."
   },
   "D:/DataDisk/workspace/blog/md/双开行动.md": {
     "file_updated": 1760502972.6177492,
-    "should_build": false,
+    "should_build": true,
     "title": null,
     "category": [],
     "date": null,
     "updated": "24/8/2/ ",
+    "html_filename": "双开行动.html",
+    "quote_html_filename": "%E5%8F%8C%E5%BC%80%E8%A1%8C%E5%8A%A8.html",
     "link": "https://code-pigeon.github.io/blog/html/双开行动.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E5%8F%8C%E5%BC%80%E8%A1%8C%E5%8A%A8.html",
     "description": "《双开行动》——刘学文 于2023/06/01读完，评语“有点狗血” 测试 测试/// **个人评价** • 评分：★★★☆☆ 确实还是差点意思，主角毋庸置疑的好人，反派是毋庸置疑的反派。剧里的反派女角色行为出奇的一致，都是在名利场里傻傻地相信着真爱，而正派的女角色行为同样出其的一致，都喜欢动不动就留信出家。 f **书摘** **词** • 可心 • 伉俪 • 下野 • 里出外进 • 附庸风雅 ..."
@@ -81,21 +93,10 @@
     ],
     "date": "25/10/15/14:07",
     "updated": null,
+    "html_filename": "《坤传》.html",
+    "quote_html_filename": "%E3%80%8A%E5%9D%A4%E4%BC%A0%E3%80%8B.html",
     "link": "https://code-pigeon.github.io/blog/html/《坤传》.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%9D%A4%E4%BC%A0%E3%80%8B.html",
     "description": "本文非常的具有技术含量，看好了。 已知1+1=2 2+1=3 则1+1+2+1=2+3=5。 这是本世纪最伟大的发现，你有没有被震撼到呢？"
-  },
-  "D:/DataDisk/workspace/blog/md/test/test.md": {
-    "file_updated": 1760508517.0350146,
-    "should_build": true,
-    "title": "测试",
-    "category": [
-      "test"
-    ],
-    "date": "25/04/25/11:40",
-    "updated": null,
-    "link": "https://code-pigeon.github.io/blog/html/test.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/test.html",
-    "description": "**莫兰特又受伤了** 黑卡7好玩吗 @🐦 我打算卖了 这玩意挺保值的 给你佳能r玩 双十一我准备换门了 换回索尼玩 你觉得好玩我就卖佳能 都行 韩国中秋放14天 （不调休） 草"
   }
 }

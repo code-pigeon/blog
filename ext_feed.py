@@ -36,7 +36,7 @@ def generate_feed(config_file, cache_file, output_file='feed.xml'):
         
         if item_date:
             items.append({
-                'title': item_data.get('title', ''),
+                'title': item_data.get('title') or "无题",
                 'link': item_data.get('quote_link', ''),
                 'date': item_date,
                 'description': item_data.get('description', ''),

@@ -349,6 +349,11 @@ class DependencyChecker:
                 # 生成链接
                 link, quote_link = self.generate_link(md_file_path)
                 
+                # html文件名
+                html_filename = self.get_html_filename(md_file_path)
+                quote_html_filename = quote(html_filename, safe=':/')
+
+
                 # 更新缓存，存储时间戳
                 self.cache_data[self.normalize_path(md_file_path)] = {
                     "file_updated": current_timestamp,  # 存储时间戳而不是格式化字符串
@@ -357,6 +362,8 @@ class DependencyChecker:
                     "category": category,
                     "date": frontmatter_data['date'],
                     "updated": frontmatter_data['updated'],
+                    "html_filename": html_filename,
+                    "quote_html_filename": quote_html_filename,
                     "link": link,
                     "quote_link": quote_link,
                     "description": ""  # 暂不处理description字段

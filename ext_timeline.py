@@ -5,7 +5,6 @@
 import json
 import yaml
 import chevron
-from urllib.parse import urlparse
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Any, Optional, Union
@@ -21,11 +20,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def extract_filename(url):
-    """从URL中提取文件名"""
-    parsed = urlparse(url)
-    path = parsed.path
-    return Path(path).name
 
 class TimelineGenerator:
     """时间线生成器"""
@@ -219,7 +213,8 @@ class TimelineGenerator:
                 parsed_date = self.parse_date(date_str) if date_str else None
                 
                 timeline_item = {
-                    "link": extract_filename(item_data.get('link', '')),
+                    "quote_link": item_data.get('quote_link', ''),
+                    "quote_html_filename": item_data.get('quote_html_filename', ''),
                     "title": item_data.get('title') or '无题',
                     "category": item_data.get("category", ''),
                     "description": item_data.get('description', '')

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>时光轴</title>
-    <meta charset="utf-8">
     <link href="{{css_url}}index.css" rel="stylesheet">
     <link href="{{css_url}}timeline.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -27,7 +26,7 @@
             
             {{#timelineItems}}
             <div class="timeline-item">
-                <div class="article-title"><a href="{{link}}">{{title}}</a></div>
+                <div class="article-title"><a href="{{quote_html_filename}}">{{title}}</a></div>
                 <div class="article-meta">
                     <span class="article-date">{{date}}</span>
                     <div class="article-tags">
@@ -51,7 +50,7 @@
             {{/miss_date.0}}
             {{#miss_date}}
             <div class="timeline-item">
-                <div class="article-title"><a href="{{link}}">{{title}}</a></div>
+                <div class="article-title"><a href="{{quote_html_filename}}">{{title}}</a></div>
                 <div class="article-meta">
                     <span class="article-date">{{date}}</span>
                     <div class="article-tags">
