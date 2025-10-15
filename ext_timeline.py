@@ -34,14 +34,15 @@ class TimelineGenerator:
         "%Y-%m-%d %H:%M",  # 2024-9-24 19:05
     ]
     
-    def __init__(self, config_path: str = "config.yaml"):
+    def __init__(self, config, cache_data):
         """
         初始化时间线生成器
         
         Args:
             config_path: 配置文件路径
         """
-        self.config = self._load_config(config_path)
+        self.config = config
+        self.cache_data = cache_data
         self.partials = {}
         
     def _load_config(self, config_path: str) -> Dict[str, Any]:
@@ -288,7 +289,7 @@ class TimelineGenerator:
         logger.info(f"时间线数据转换完成: {len(result['years'])} 年, {len(items_without_date)} 条无日期记录")
         return result
     
-    def generate_timeline(self, output_path: Optional[str] = None) -> bool:
+    def run(self, output_path: Optional[str] = None) -> bool:
         """
         生成时间线HTML页面
         
@@ -300,11 +301,11 @@ class TimelineGenerator:
         """
         try:
             # 加载缓存数据
-            cache_path = self.config.get("cache_path", "cache.json")
-            cache_data = self._load_cache_data(cache_path)
+            # cache_path = self.config.get("cache_path", "cache.json")
+            # self.cache_data = self._load_cache_data(cache_path)
             
             # 转换数据
-            transformed_data = self.transform_cache_to_timeline(cache_data)
+            transformed_data = self.transform_cache_to_timeline(self.cache_data)
             self.config['timeline'] = transformed_data
             
             # 加载模板
@@ -345,7 +346,7 @@ def main():
     """主函数"""
     try:
         generator = TimelineGenerator()
-        success = generator.generate_timeline()
+        success = generator.run()
         return 0 if success else 1
     except Exception as e:
         logger.error(f"程序执行失败: {e}")

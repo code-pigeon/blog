@@ -186,8 +186,8 @@ class SmartExcerptGenerator:
 
 
 
-class MarkdownBuilder:
-    def __init__(self, config_path: str, cache_path: str):
+class MarkdownRenderer:
+    def __init__(self, config: Dict, cache_data: Dict):
         """
         初始化构建器
         
@@ -195,11 +195,11 @@ class MarkdownBuilder:
             config_path: config.yaml 文件路径
             cache_path: cache.json 文件路径
         """
-        self.config_path = config_path
-        self.cache_path = cache_path
-        self.global_config = None
+        # self.config_path = config_path
+        # self.cache_path = cache_path
+        self.global_config = config
         self.partials = {}
-        self.cache_data = {}
+        self.cache_data = cache_data
         self.cache_updates = {}  # 用于存储需要更新的cache数据
         
     def load_config(self) -> Dict[str, Any]:
@@ -228,6 +228,26 @@ class MarkdownBuilder:
                 self.cache_data = json.load(f)
         return self.cache_data
     
+    def update_cache(self) -> bool:
+        """
+        更新缓存数据中的description字段
+        
+        Returns:
+            是否成功更新
+        """
+        try:
+            # 更新cache_data中的description字段
+            for md_file_path, updated_description in self.cache_updates.items():
+                if md_file_path in self.cache_data:
+                    self.cache_data[md_file_path]['description'] = updated_description
+            
+            print(f"✓ 已更新缓存数据中的 {len(self.cache_updates)} 个description字段")
+            return True
+            
+        except Exception as e:
+            print(f"✗ 更新缓存数据失败: {str(e)}")
+            return False
+
     def save_cache(self) -> bool:
         """
         将更新后的缓存数据写回文件
@@ -236,16 +256,11 @@ class MarkdownBuilder:
             是否成功保存
         """
         try:
-            # 更新cache_data中的description字段
-            for md_file_path, updated_description in self.cache_updates.items():
-                if md_file_path in self.cache_data:
-                    self.cache_data[md_file_path]['description'] = updated_description
-            
             # 写回文件
             with open(self.cache_path, 'w', encoding='utf-8') as f:
                 json.dump(self.cache_data, f, ensure_ascii=False, indent=2)
             
-            print(f"✓ 已更新cache.json中的 {len(self.cache_updates)} 个description字段")
+            print(f"✓ 已保存缓存数据到文件")
             return True
             
         except Exception as e:
@@ -490,7 +505,7 @@ class MarkdownBuilder:
                 'error': str(e)
             }
     
-    def build_all(self) -> List[Dict[str, Any]]:
+    def run(self) -> List[Dict[str, Any]]:
         """
         构建所有需要构建的markdown文件
         
@@ -501,9 +516,9 @@ class MarkdownBuilder:
         self.cache_updates = {}
         
         # 加载所有必要的数据
-        self.load_config()
+        # self.load_config()
         self.load_partials()
-        self.load_cache()
+        # self.load_cache()
         
         results = []
         
@@ -535,24 +550,26 @@ class MarkdownBuilder:
         
         # 所有文件处理完成后，更新cache.json
         if self.cache_updates:
-            self.save_cache()
+            self.update_cache()
         else:
             print("ℹ 没有需要更新的description字段")
         
-        return results
+        # 输出构建统计
+        successful_builds = [r for r in results if r['success']]
+        failed_builds = [r for r in results if not r['success']]
+        
+        print(f"\n构建完成!")
+        print(f"成功: {len(successful_builds)} 个文件")
+        print(f"失败: {len(failed_builds)} 个文件")
+
+        return self.cache_data
 
 # 使用示例
 if __name__ == "__main__":
     # 初始化构建器
-    builder = MarkdownBuilder("config.yaml", "cache.json")
+    builder = MarkdownRenderer("config.yaml", "cache.json")
     
     # 执行构建
-    results = builder.build_all()
+    results = builder.run()
     
-    # 输出构建统计
-    successful_builds = [r for r in results if r['success']]
-    failed_builds = [r for r in results if not r['success']]
     
-    print(f"\n构建完成!")
-    print(f"成功: {len(successful_builds)} 个文件")
-    print(f"失败: {len(failed_builds)} 个文件")

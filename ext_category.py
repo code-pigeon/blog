@@ -7,7 +7,7 @@ from typing import Dict, List, Any, Optional
 class CategoryGenerator:
     """分类页面生成器"""
     
-    def __init__(self, config_path: str = "config.yaml", cache_path: str = "cache.json"):
+    def __init__(self, config, cache_data):
         """
         初始化分类生成器
         
@@ -15,10 +15,10 @@ class CategoryGenerator:
             config_path: 配置文件路径
             cache_path: 缓存数据文件路径
         """
-        self.config_path = Path(config_path)
-        self.cache_path = Path(cache_path)
-        self.config: Dict[str, Any] = {}
-        self.cache_data: Dict[str, Any] = {}
+        # self.config_path = Path(config_path)
+        # self.cache_path = Path(cache_path)
+        self.config: Dict[str, Any] = config
+        self.cache_data: Dict[str, Any] = cache_data
         self.partials: Dict[str, str] = {}
         
     def load_config(self) -> None:
@@ -214,8 +214,8 @@ class CategoryGenerator:
         """
         try:
             # 加载必要的数据
-            self.load_config()
-            self.load_cache_data()
+            # self.load_config()
+            # self.load_cache_data()
             self.load_partials()
             
             # 生成HTML

@@ -1,7 +1,7 @@
 {
   "D:/DataDisk/workspace/blog/md/IGNORE_test爱情.md": {
     "file_updated": 1760229183.3667588,
-    "should_build": true,
+    "should_build": false,
     "title": "深入理解生成器",
     "category": [],
     "date": "25/04/27/23:22",
@@ -14,7 +14,7 @@
   },
   "D:/DataDisk/workspace/blog/md/index.md": {
     "file_updated": 1760507330.4170244,
-    "should_build": true,
+    "should_build": false,
     "title": "我的第一篇博客",
     "category": [],
     "date": null,
@@ -25,24 +25,9 @@
     "quote_link": "https://code-pigeon.github.io/blog/html/index.html",
     "description": "{{title}}，测试；{{build_time}}；{{html_dir}} *这里应该是fancy_banner所在的位置{{> fancy_banner }}。。。。。。。。。。。。。。。。。。* 所以说其实部分模板中不能嵌套部分模板？ {{> test }} @#################################### **鸽子窝** 欢迎来到鸽子窝 喜欢回忆过去，..."
   },
-  "D:/DataDisk/workspace/blog/md/test/test - 副本.md": {
-    "file_updated": 1760497871.2451057,
-    "should_build": true,
-    "title": "杨瀚森雄起！",
-    "category": [
-      "test"
-    ],
-    "date": "25/10/15/11:10",
-    "updated": null,
-    "html_filename": "test - 副本.html",
-    "quote_html_filename": "test%20-%20%E5%89%AF%E6%9C%AC.html",
-    "link": "https://code-pigeon.github.io/blog/html/test - 副本.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/test%20-%20%E5%89%AF%E6%9C%AC.html",
-    "description": "杨瀚森作为新一代的中国新星，能否在NBA站稳脚跟呢？ 让我们拭目以待。"
-  },
   "D:/DataDisk/workspace/blog/md/test/test2/莫蓝特受伤了.md": {
     "file_updated": 1760231352.9895134,
-    "should_build": true,
+    "should_build": false,
     "title": "莫蓝特受伤了",
     "category": [
       "test",
@@ -58,7 +43,7 @@
   },
   "D:/DataDisk/workspace/blog/md/文章/《论至九站》.md": {
     "file_updated": 1760229217.3024795,
-    "should_build": true,
+    "should_build": false,
     "title": "论持久战",
     "category": [
       "文章"
@@ -73,7 +58,7 @@
   },
   "D:/DataDisk/workspace/blog/md/双开行动.md": {
     "file_updated": 1760502972.6177492,
-    "should_build": true,
+    "should_build": false,
     "title": null,
     "category": [],
     "date": null,
@@ -86,7 +71,7 @@
   },
   "D:/DataDisk/workspace/blog/md/文章/《坤传》.md": {
     "file_updated": 1760508493.7421057,
-    "should_build": true,
+    "should_build": false,
     "title": "坤传",
     "category": [
       "文章"
@@ -98,5 +83,20 @@
     "link": "https://code-pigeon.github.io/blog/html/《坤传》.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%9D%A4%E4%BC%A0%E3%80%8B.html",
     "description": "本文非常的具有技术含量，看好了。 已知1+1=2 2+1=3 则1+1+2+1=2+3=5。 这是本世纪最伟大的发现，你有没有被震撼到呢？"
+  },
+  "D:/DataDisk/workspace/blog/md/test/杨瀚森雄起！.md": {
+    "file_updated": 1760525740.5178576,
+    "should_build": false,
+    "title": "杨瀚森雄起！",
+    "category": [
+      "test"
+    ],
+    "date": "25/10/15/11:10",
+    "updated": null,
+    "html_filename": "杨瀚森雄起！.html",
+    "quote_html_filename": "%E6%9D%A8%E7%80%9A%E6%A3%AE%E9%9B%84%E8%B5%B7%EF%BC%81.html",
+    "link": "https://code-pigeon.github.io/blog/html/杨瀚森雄起！.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E6%9D%A8%E7%80%9A%E6%A3%AE%E9%9B%84%E8%B5%B7%EF%BC%81.html",
+    "description": "前方的记者王冰冰为您报道： 杨瀚森作为新一代的中国新星，能否在NBA站稳脚跟呢？ 让我们拭目以待。"
   }
 }

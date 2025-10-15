@@ -4,14 +4,14 @@ import yaml
 from datetime import datetime
 import time
 
-def generate_feed(config_file, cache_file, output_file='feed.xml'):
+def generate_feed(config, cache_data, output_file='feed.xml'):
     # 读取config.yaml
-    with open(config_file, 'r', encoding='utf-8') as f:
-        config = yaml.safe_load(f)
+    # with open(config_file, 'r', encoding='utf-8') as f:
+    #     config = yaml.safe_load(f)
     
-    # 读取cache.json
-    with open(cache_file, 'r', encoding='utf-8') as f:
-        cache = json.load(f)
+    # # 读取cache.json
+    # with open(cache_file, 'r', encoding='utf-8') as f:
+    #     cache_data = json.load(f)
     
     # 创建RSS根元素
     rss = ET.Element('rss', version='2.0')
@@ -25,7 +25,7 @@ def generate_feed(config_file, cache_file, output_file='feed.xml'):
     
     # 处理cache中的文章数据
     items = []
-    for file_path, item_data in cache.items():
+    for file_path, item_data in cache_data.items():
         # 检查date字段是否为空
         if not item_data.get('date'):
             continue

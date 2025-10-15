@@ -399,14 +399,21 @@ class DependencyChecker:
         self.process_markdown_files()
         
         # 保存缓存
-        self.save_cache()
-        print(f"缓存已保存，共 {len(self.cache_data)} 条记录")
+        # self.save_cache()
+        # print(f"缓存已保存，共 {len(self.cache_data)} 条记录")
         
         # 统计需要构建的文件数量
         build_count = sum(1 for entry in self.cache_data.values() if entry['should_build'])
         print(f"需要构建的文件数量: {build_count}")
         
-        return self.cache_data
+        # 打印需要构建的文件
+        print("\n需要构建的文件:")
+        for file_path, data in self.cache_data.items():
+            if data['should_build']:
+                readable_time = self.timestamp_to_readable(data['file_updated'])
+                print(f"- {file_path} (修改时间: {readable_time})")
+
+        return self.config, self.cache_data
 
 
 def main():
@@ -416,14 +423,9 @@ def main():
     cache_path = "cache.json"
     
     checker = DependencyChecker(config_path, cache_path)
-    cache_data = checker.run()
+    config, cache_data = checker.run()
     
-    # 打印需要构建的文件
-    print("\n需要构建的文件:")
-    for file_path, data in cache_data.items():
-        if data['should_build']:
-            readable_time = checker.timestamp_to_readable(data['file_updated'])
-            print(f"- {file_path} (修改时间: {readable_time})")
+    
 
 if __name__ == "__main__":
     main()
