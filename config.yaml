@@ -44,6 +44,8 @@ nav:
       url: 'NOCHECK_category.html'
     - label: '时间轴'
       url: 'NOCHECK_timeline.html'
+    - label: 'RSS订阅'
+      url: 'https://code-pigeon.github.io/blog/feed'
     - label: 'github'
       url: 'https://github.com/code-pigeon'
 
