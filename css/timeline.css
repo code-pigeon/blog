@@ -1,8 +1,8 @@
 /* 时光轴特定样式 */
-h1 h2 {
+/*h1 h2 {
   font-size: 2.5rem !important;
 }
-
+*/
 .timeline {
     position: relative;
     max-width: 800px;
@@ -27,8 +27,8 @@ h1 h2 {
     margin: 1.6rem 0;
 }
 
-.timeline-year h1 {
-    font-size: 2.3rem;
+.timeline-year h2 {
+    /*font-size: 2.3rem;*/
     text-align: center;
     background-color: #22262a;
     display: inline-block;
@@ -47,8 +47,8 @@ h1 h2 {
     margin: 1.2rem 0;
 }
 
-.timeline-month h2 {
-    font-size: 1.8rem;
+.timeline-month h3 {
+    /*font-size: 1.8rem;*/
     text-align: center;
     background-color: #22262a;
     display: inline-block;

@@ -2,14 +2,14 @@
 	<!-- 左侧个人形象部分 -->
     <div class="profile">
         <img src="{{{img_url}}}pigeon2.png" alt="个人头像" class="avatar">
-        <span class="nickname">{{{author}}}</span>
+        <span class="nickname">{{{blog_name}}}</span>
     </div>
     
     <!-- 右侧导航菜单（保持原有结构） -->
 	<nav>
 	    <ul>
 	    	{{#nav}}
-	    		<li><a href="{{url}}">{{label}}</a></li>
+	    		<li><a href="{{url}}">{{{label}}}</a></li>
 	    	{{/nav}}
 	    </ul>
 	</nav>

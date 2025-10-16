@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>clash在linux上的使用</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <span class="nickname">乌鸦</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+		    <ul>
+		    		    		<li><a href="index.html">首页</a></li>
+		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
+		    		    </ul>
+		</nav>
+	</header>	<div class=fluid> 
+				<h1 id="clash在linux上的使用">clash在linux上的使用</h1>
+				<div class="article-meta">
+						<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">24-12-03 16:14</time>
+			</div>
+									<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+				</svg>
+				<span class="meta-label">更新</span>
+				<time class="meta-time">24-12-04 17:03</time>
+			</div>
+									<div class="meta-item">
+				<span class="meta-label">杂谈</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">编程杂谈</span>
+			</div>
+					</div>
+
+
+		<p>在Windows上有带图形界面的clash for windows，但是clash Linux端的好像没有带图形化界面的，只有命令行。我一开始回避了这个问题，只在windows上用clash，但是最近因为想给博客升级，有时候上github都上不去，Linux端科学上网的需求还是无法回避，所以就学习了一下如何在Linux上使用命令行版本的clash。</p>
+		<h2>环境</h2>
+		<p>Ubuntu20.04 x86-64</p>
+		<h2>正文</h2>
+		<h3>命令行版clash的下载和安装</h3>
+		<p><strong>下载</strong><br />
+		现在网上可以找到很多clash的下载<sup id="fnref:clash下载"><a class="footnote-ref" href="#fn:clash下载">1</a></sup>，clash也有很多版本，我使用的是clash-verge<sup id="fnref:clash-verge"><a class="footnote-ref" href="#fn:clash-verge">2</a></sup>，下载地址为<a href="https://github.com/zzzgydi/clash-verge/releases">https://github.com/zzzgydi/clash-verge/releases</a>。</p>
+		<blockquote>
+		<p><strong>clash的版本问题</strong></p>
+		<p>clash好像有很多个版本，好像clash的作者在23年底被请去喝茶了，github仓库也被删了，不过好像有个不愿意透露姓名的小黑子<sup id="fnref:clash-rev"><a class="footnote-ref" href="#fn:clash-rev">7</a></sup>说他接过了维护clash的重任，但我看了一下，23年底更新了一两次之后就没有继续更新了。</p>
+		<p>现存的版本我看到有叫clash的，有叫clash-verge的（就是我用的版本），小黑子的版本叫clash-rev，知乎上有人说有个叫Mihomo<sup id="fnref:《Clash-/-Mihomo-装配指南-(Ubuntu)》"><a class="footnote-ref" href="#fn:《Clash-/-Mihomo-装配指南-(Ubuntu)》">8</a></sup>的……<br />
+		而clash for windows对应的是哪个我也不太清楚，或者只是为这些个版本中的某个编写了用户界面。</p>
+		</blockquote>
+		<p>我下的是<code>clash-verge_1.3.8_amd64.deb</code>，因为<code>AppImage</code>运行起来好像会缺东西，而<code>.deb</code>可以借助apt来同时下载缺的东西。</p>
+		<p><strong>安装</strong></p>
+		<pre><code class="language-bash">sudo apt install path/to/clash-verge_1.3.8_amd64.deb
+		</code></pre>
+		<p>测试安装是否成功</p>
+		<pre><code class="language-bash">$ clash -v
+		Clash 2023.08.17 linux amd64 with go1.21.0 Thu Aug 17 15:07:25 UTC 2023
+		</code></pre>
+		<h3>配置</h3>
+		<p>一般配置文件（<code>config.yaml</code>）会放在<code>~/.config/clash/</code>路径下。</p>
+		<p><strong>通过订阅链接获得配置文件</strong><br />
+		在命令行输入：</p>
+		<pre><code class="language-bash">$ cd ~/.config/clash/ 
+		$ wget -O config.yaml &lt;订阅链接&gt;
+		</code></pre>
+		<p>将<code>&lt;订阅链接&gt;</code>替换为实际的订阅链接。</p>
+		<p><strong>直接复制配置文件内容</strong><br />
+		也可以在clash for windows中，复制配置文件的内容，然后在<code>~/.config/clash/</code>路径下，新建一个<code>config.yaml</code>，然后将复制的内容粘贴上来。</p>
+		<h3>设置网络代理</h3>
+		<p>在正式使用之前，还需要设置一下网络代理。<br />
+		回到桌面，右键依次点击“设置”、“网络”、“网络代理最右边的按钮”、“手动”，然后在下面的选项中填入<br />
+		|项目名称|第一栏|第二栏|<br />
+		|--|--|--|<br />
+		|HTTP代理|127.0.0.1|7890|<br />
+		|HTTPS代理|127.0.0.1|7890|<br />
+		|Socks主机|127.0.0.1|7891|<br />
+		|忽略主机|localhost, 127.0.0.0/8, ::1|</p>
+		<blockquote>
+		<p>这样做有个问题，就是在关闭clash之后，再访问网址，会出现“代理服务器拒绝连接”。</p>
+		<p>我尝试过使用命令行来设置网络代理（即<code>export http_proxy=http://127.0.0.1:7890</code>），这样子当命令行窗口关闭之后，网络代理就又失效了，不过问题是，这样子设置，好像网络代理只在当前命令行窗口生效，在浏览器的眼里仍然是没有代理的。</p>
+		<p>所以解决办法应该只能是一直开着clash了，如果想像clash for windows一样有个关闭代理的方法，可以直接把节点切换为<code>DIRECT</code>（如何切换节点参考<a href="#切换节点">下文</a>）。</p>
+		</blockquote>
+		<h3>启动</h3>
+		<p>在命令行下输入：</p>
+		<pre><code class="language-bash">$ clash
+		</code></pre>
+		<p>就可以启动了，正常情况下启动后将输出运行日志。</p>
+		<h3>切换节点</h3>
+		<p>切换节点需要使用到clash提供的api<sup id="fnref:使用Clash-API切换节点"><a class="footnote-ref" href="#fn:使用Clash-API切换节点">3</a></sup><sup id="fnref:clash知识库"><a class="footnote-ref" href="#fn:clash知识库">4</a></sup><sup id="fnref:clash.Rev-Docs"><a class="footnote-ref" href="#fn:clash.Rev-Docs">5</a></sup><sup id="fnref:clash.gitbook.io"><a class="footnote-ref" href="#fn:clash.gitbook.io">6</a></sup>。</p>
+		<p>clash开启之后会监听9090端口，这时候在浏览器网址框中输入本地ip<code>127.0.0.1:9090</code>能够看到clash返回了一个json数据<code>hello: "clash"</code>。</p>
+		<blockquote>
+		<p>我使用的clash-verge是没有ui界面的，不过我看很多教程中<sup id="fnref:eaglebear2002.github.io"><a class="footnote-ref" href="#fn:eaglebear2002.github.io">9</a></sup><sup id="fnref:大哥云教程合集"><a class="footnote-ref" href="#fn:大哥云教程合集">10</a></sup>，在浏览器输入的不是本地ip，而是<code>http://clash.razord.top/#/proxies</code>，然后返回的是一个类似clash for windows的ui界面。感觉应该是个不同的clash版本。</p>
+		</blockquote>
+		<p>参考clash api，要切换节点需要向<code>127.0.0.1:9090</code>发送POST请求，可以在命令行下使用curl来实现：</p>
+		<pre><code class="language-bash">curl -X PUT -H &quot;Content-Type: application/json&quot; -d '{&quot;name&quot;:&quot;&lt;节点名&gt;&quot;}' http://127.0.0.1:9090/proxies/&lt;代理组名&gt;
+		</code></pre>
+		<p>这里的<code>&lt;节点名&gt;</code>和<code>&lt;代理组名&gt;</code>要参考自己的配置文件（<code>config.yaml</code>），一般在配置文件中会有如下的内容：</p>
+		<pre><code class="language-yaml">proxy-groups:
+		  - name: &lt;代理组名&gt;
+		    type: select
+		    proxies:
+		      - &lt;节点名1&gt;
+		      - &lt;节点名2&gt;
+		      - DIRECT
+		</code></pre>
+		<h4>使得切换节点立即生效</h4>
+		<p>但是节点的切换并不会立即生效，而是需要关闭clash，重新启动，或者再发送下面的一个请求：</p>
+		<pre><code class="language-bash">curl &quot;http://127.0.0.1:9090/configs&quot; -X PUT -d '{&quot;path&quot;: &quot;&quot;, &quot;payload&quot;: &quot;&quot;}'
+		</code></pre>
+		<hr />
+		<!-- clash下载 -->
+		<!-- api参考 -->
+		<!-- 切换代理 -->
+		<!-- 安装指南 -->
+		<!-- 有ui的 -->
+		<!-- 无ui的 -->
+		<!-- 知乎，Arkcia，[《Clash / Mihomo 装配指南 (Ubuntu)》](https://zhuanlan.zhihu.com/p/690371003) -->
+		
+		<div class="footnote">
+		<hr />
+		<ol>
+		<li id="fn:clash下载">
+		<p><a href="https://clash.wiki/">clash知识库</a>&#160;<a class="footnote-backref" href="#fnref:clash下载" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:clash-verge">
+		<p>github，zzzgydi，<a href="https://github.com/zzzgydi/clash-verge/releases">clash-verge</a>&#160;<a class="footnote-backref" href="#fnref:clash-verge" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:使用Clash-API切换节点">
+		<p>Kronos，<a href="https://sakronos.github.io/Note/2021/03/06/%E4%BD%BF%E7%94%A8Clash-APIj%E5%88%87%E6%8D%A2%E8%8A%82%E7%82%B9/">使用Clash-API切换节点</a>&#160;<a class="footnote-backref" href="#fnref:使用Clash-API切换节点" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:clash知识库">
+		<p><a href="https://clash.wiki/runtime/external-controller.html">clash知识库</a>&#160;<a class="footnote-backref" href="#fnref:clash知识库" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:clash.Rev-Docs">
+		<p>Clash.Rev——不愿透露姓名的小黑子维护的新Clash项目，<a href="https://merlinkodo.github.io/Clash-Rev-Doc/api/">Clash.Rev Docs</a>&#160;<a class="footnote-backref" href="#fnref:clash.Rev-Docs" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:clash.gitbook.io">
+		<p><a href="https://clash.gitbook.io/doc/restful-api">https://clash.gitbook.io/doc</a>&#160;<a class="footnote-backref" href="#fnref:clash.gitbook.io" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:clash-rev">
+		<p>github，MerlinKodo，<a href="https://github.com/MerlinKodo/clash-rev/releases">clash-rev</a>&#160;<a class="footnote-backref" href="#fnref:clash-rev" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:《Clash-/-Mihomo-装配指南-(Ubuntu)》">
+		<p>知乎，Arkcia，<a href="https://zhuanlan.zhihu.com/p/690371003">《Clash / Mihomo 装配指南 (Ubuntu)》</a>&#160;<a class="footnote-backref" href="#fnref:《Clash-/-Mihomo-装配指南-(Ubuntu)》" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:eaglebear2002.github.io">
+		<p><a href="https://eaglebear2002.github.io/%E6%8A%80%E6%9C%AF%E7%A7%91%E6%99%AE/Ubuntu%2022.04%20%E5%AE%89%E8%A3%85%20Clash/">EagleBear2002 的博客，Ubuntu 22.04 安装 Clash</a>&#160;<a class="footnote-backref" href="#fnref:eaglebear2002.github.io" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:大哥云教程合集">
+		<p>大哥云教程合集，<a href="https://doc.6bc.net/article/35/">《Ubuntu 使用 Clash For Linux 客户端教程》</a>&#160;<a class="footnote-backref" href="#fnref:大哥云教程合集" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:《如何在-Clash-for-Linux上配置服务》">
+		<p>Helium-Network，<a href="https://www.henet.uk/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-clash-for-linux%E4%B8%8A%E9%85%8D%E7%BD%AE%E6%9C%8D%E5%8A%A1/">《如何在 Clash for Linux上配置服务》</a>&#160;<a class="footnote-backref" href="#fnref:《如何在-Clash-for-Linux上配置服务》" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:clash">
+		<p>github，doreamon-design，<a href="https://github.com/doreamon-design/clash/releases">clash</a>&#160;<a class="footnote-backref" href="#fnref:clash" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+		</li>
+		<li id="fn:clash-for-linux-install">
+		<p>github，nelvko，<a href="https://github.com/nelvko/clash-for-linux-install?tab=readme-ov-file#%E5%BC%95%E7%94%A8">clash-for-linux-install</a>&#160;<a class="footnote-backref" href="#fnref:clash-for-linux-install" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+		</li>
+		</ol>
+		</div>
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="/blog/html/clash%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html" class="leancloud_visitors" data-flag-title="clash在linux上的使用">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		
+
+				<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+			</div>
+
+		<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+	
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+		<script src="../js/toc.js" type="text/javascript" ></script>
+	
+		<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+	
+	<!-- image -->
+	<script src="../js/image.js" type="text/javascript"></script>
+
+</body>
+</html>

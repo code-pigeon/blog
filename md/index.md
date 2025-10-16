@@ -1,25 +1,11 @@
 ---
-title: 我的第一篇博客
-template: test.mustache
+title: 其实这是首页
 auto_h1: false
 ---	
-{{title}}，测试；{{build_time}}；{{html_dir}}
-
-<i>这里应该是fancy_banner所在的位置{{> fancy_banner }}。。。。。。。。。。。。。。。。。。</i>
-
-
-所以说其实部分模板中不能嵌套部分模板？
-{{> test }}
-@####################################
-
-# 鸽子窝
-> 欢迎来到鸽子窝
-<!-- > 喜欢回忆过去，喜欢幻想将来，唯独不喜欢珍惜现在。 -->
+# 乌鸦之家
+> 感谢光临
 
 ## 关于我
-### 作者
-{{author}}
-
 ### 爱好
 - 🏀：篮球
 - 🎤：唱歌
@@ -31,6 +17,11 @@ auto_h1: false
 - 🐘：中国象棋（曾经的爱好）
 - 🖌：画画（曾经的爱好）
 
+### 我的其它社媒账号
+- 抖音：[乌鸦有想法](https://www.douyin.com/user/MS4wLjABAAAABuryJcmnmTlY6lTkKhc-YDd3AH6_KzwiRnM-WaCizKk)
+- B站：[乌鸦有想法](https://space.bilibili.com/516728425)
+- 公众号：乌鸦碎碎念
+
 ## 联系我
 - 邮箱：`code_pigeon@163.com`
 
@@ -40,7 +31,7 @@ auto_h1: false
 	- 代码编辑器：[sublime text](https://www.sublimetext.com/)
 	- 操作系统、处理器架构：Windows11 x86-64
 - 工具
-	- 博客构建器：geziwo（自己写的，感觉不太好用，目前不考虑开源）
+	- 博客构建器：gezi（自己写的，感觉不太好用，目前不考虑开源）
 		- 模板引擎：[chevron](https://github.com/noahmorrison/chevron)
 		- markdown解析：[python-markdown](https://github.com/Python-Markdown/markdown)
 	- 代码高亮：[highlight.js](https://highlightjs.org/)
@@ -57,11 +48,17 @@ auto_h1: false
 	- 编程助手：[深度求索（deepseek）](https://www.deepseek.com/)
 
 ### 下一步目标
-- 写一个能自动生成front_matter的sublime插件；
-- 研究一下rss生成；
 - 可能要考虑放弃Valine评论系统了，阅读量都很少，别说评论了。
+- 添加扩展的依赖检查功能
+- 添加对模板文件、部分模板文件的依赖检查
 
-### 博客构建器geziwo版本日志
+### 博客构建器版本日志
+1.1.3
+
+- 全新的架构
+- 添加缓存设计
+- rss订阅
+
 1.1.1
 
 - 将工作环境迁移至Windows；
@@ -129,3 +126,4 @@ auto_h1: false
 所以我选择了搭建博客，博客页面的功能、外观全部可以由自己决定。
 
 因为博客毕竟还是面向网络的，我无法假定这个博客永远没有访客，这也许可以督促我把博文写得更细致一些吧（有些文字是真的写完回头再看自己也看不懂）。所以现在的博客也好像不仅仅是记笔记而已了，出现了很多分享性的博文。
+

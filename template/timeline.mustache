@@ -16,12 +16,12 @@
         <div class="timeline">
             {{#years}}
             <div class="timeline-year">
-                <h1>{{year}}年</h1>
+                <h2>{{year}}年</h2>
             </div>
             
             {{#months}}
             <div class="timeline-month">
-                <h2>{{month}}月</h2>
+                <h3>{{month}}月</h3>
             </div>
             
             {{#timelineItems}}
@@ -45,14 +45,14 @@
             
             {{#miss_date.0}}
             <div class="timeline-year">
-                <h1>日期丢失</h1>
+                <h2>日期丢失</h2>
             </div>
             {{/miss_date.0}}
             {{#miss_date}}
             <div class="timeline-item">
                 <div class="article-title"><a href="{{quote_html_filename}}">{{title}}</a></div>
                 <div class="article-meta">
-                    <!-- <span class="article-date">{date}</span> -->
+                    <span class="article-date"></span>
                     <div class="article-tags">
                         {{#category}}
                         <span class="tag">{{.}}</span>

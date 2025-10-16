@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>维护之路</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <span class="nickname">乌鸦之家</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+		    <ul>
+		    		    		<li><a href="index.html">首页</a></li>
+		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
+		    		    </ul>
+		</nav>
+	</header>	<div class=fluid> 
+				<h1 id="维护之路">维护之路</h1>
+				<div class="article-meta">
+						<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">24-07-27 11:38</time>
+			</div>
+												<div class="meta-item">
+				<span class="meta-label">杂谈</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">折腾记录</span>
+			</div>
+					</div>
+
+
+		<p>11:38</p>
+		<p>这网站架起来之后就像健身练肌肉一样，把一处练大了，就觉得整体不均衡，得把另一块地儿练练，然后又觉得这块练起来了哪里不均衡，无限循环，一发不可收拾。一开始架完这个网站是觉得能满足需求，后来博客写得多了，越来越多原本没想到的问题就冒了出来，于是又打算改进一些。</p>
+		<p>昨晚在捣鼓这个网站的时候，有一次github page构建失败了，一开始看不懂那些报错信息，后来才明白过来，原来github page自带构建系统Jekyll，可以自动处理markdown，生成对应的html文件，也有模板引擎功能……那么我忙活这么久时间折腾这个博客构建系统是不是白忙活了……不过过程也还是有意思的，至少我也还实现了自己想实现的一些特性。</p>
+		<p>后来构建好了之后，又发现图片没法显示，挺烦人的，又是跨域问题。一开始都不想在博客里放图片的，毕竟markdown放图片本身就是一件麻烦的事，后来想写的东西多了，还是觉得图片挺刚需的，就还是妥协了。没想到因为跨域问题，外链是没法用了，图片全得自己存个仓库里，怎一个麻烦了得。或许后面会学到什么好的解决方法。</p>
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="/blog/html/7%E6%9C%8827%E6%97%A5.html" class="leancloud_visitors" data-flag-title="维护之路">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		
+
+				<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+			</div>
+
+		<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+	
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+		<script src="../js/toc.js" type="text/javascript" ></script>
+	
+		<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+	
+	<!-- image -->
+	<script src="../js/image.js" type="text/javascript"></script>
+
+</body>
+</html>

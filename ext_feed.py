@@ -4,7 +4,7 @@ import yaml
 from datetime import datetime
 import time
 
-def generate_feed(config, cache_data, output_file='feed.xml'):
+def generate_feed(config, cache_data, output_file='feed/index.xml'):
     # 读取config.yaml
     # with open(config_file, 'r', encoding='utf-8') as f:
     #     config = yaml.safe_load(f)
@@ -61,7 +61,7 @@ def generate_feed(config, cache_data, output_file='feed.xml'):
         
         # 处理description，使用CDATA
         description_elem = ET.SubElement(item_elem, 'description')
-        description_elem.text = f"<![CDATA[{item['description']}]]>"
+        description_elem.text = item['description']
     
     # 生成XML
     tree = ET.ElementTree(rss)
@@ -105,5 +105,5 @@ def format_rfc822(dt):
     return dt.strftime('%a, %d %b %Y %H:%M:%S +0800')
 
 # 使用示例
-if __name__ == "__main__":
-    generate_feed('config.yaml', 'cache.json', 'feed.xml')
+# if __name__ == "__main__":
+#     generate_feed('config.yaml', 'cache.json', 'feed/index.xml')

@@ -62,7 +62,104 @@ class CategoryGenerator:
         except Exception as e:
             raise RuntimeError(f"加载部分模板时发生错误: {e}")
     
-    def transform_data_to_category(self, input_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def transform_data(self, input_data):
+        """
+        将原始博客数据转换为按分类组织的结构
+        
+        Args:
+            input_data: 原始博客数据字典
+            
+        Returns:
+            dict: 转换后的分类结构数据
+        """
+        
+        # 初始化结果数据结构
+        result = {
+            "category": []
+        }
+        
+        # 使用字典来跟踪分类和子分类
+        category_map = {}
+        
+        for file_path, post_data in input_data.items():
+            # 处理日期
+            date_str = post_data.get('date')
+            date = date_str.split(' ')[0] if date_str and ' ' in date_str else date_str or "日期丢失"
+            
+            # 提取文章信息
+            post_info = {
+                "date": date,
+                "title": post_data.get("title") or "无题",
+                "quote_html_filename": post_data.get("quote_html_filename"),
+                "tags": []
+            }
+            
+            categories = post_data.get("category", [])
+            
+            # 处理分类和标签
+            category_name = categories[0] if categories else "未分类"
+            subcategory_name = categories[1] if len(categories) > 1 else None
+            
+            # 第三个及以后的元素作为标签
+            if len(categories) > 2:
+                post_info["tags"] = categories[2:]
+            
+            # 创建或获取分类
+            if category_name not in category_map:
+                new_category = {
+                    "name": category_name,
+                    "subcategory": [] if category_name != "未分类" else None
+                }
+                category_map[category_name] = new_category
+            
+            current_category = category_map[category_name]
+            
+            # 处理文章放置
+            if category_name == "未分类":
+                # 未分类的文章直接放在主分类下
+                if "posts" not in current_category:
+                    current_category["posts"] = []
+                current_category["posts"].append(post_info)
+            else:
+                if subcategory_name:
+                    # 有子分类的情况
+                    # 查找是否已存在该子分类
+                    subcategory = None
+                    for sc in current_category["subcategory"]:
+                        if sc["name"] == subcategory_name:
+                            subcategory = sc
+                            break
+                    
+                    if not subcategory:
+                        # 创建新的子分类
+                        subcategory = {
+                            "name": subcategory_name,
+                            "posts": []
+                        }
+                        current_category["subcategory"].append(subcategory)
+                    
+                    subcategory["posts"].append(post_info)
+                else:
+                    # 只有主分类，没有子分类
+                    if "posts" not in current_category:
+                        current_category["posts"] = []
+                    current_category["posts"].append(post_info)
+        
+        # 将分类添加到结果中，确保"未分类"在最后
+        sorted_categories = sorted(
+            [cat for cat in category_map.values() if cat["name"] != "未分类"],
+            key=lambda x: x["name"]
+        )
+        
+        # 添加未分类（如果存在）
+        if "未分类" in category_map:
+            sorted_categories.append(category_map["未分类"])
+        
+        result["category"] = sorted_categories
+        
+        return result
+
+    def transform_data0(self, input_data: Dict[str, Any]) -> List[Dict[str, Any]]:
         """
         将输入数据转换为分类格式
         
@@ -97,9 +194,21 @@ class CategoryGenerator:
                 category_name = "未分类"
                 tags = []
             
+            # 创建时间
+            # 如果是"23-01-01 1:23"这样的数据，那么取"23-01-01"；
+            # 如果是"23-01-02"这样的数据，直接取全部；
+            # 如果是None，取"日期丢失"
+            date_str = post_data.get('date')
+            if date_str is None:
+                date = "日期丢失"
+            else:
+                # 如果有空格，取空格前的内容；否则取整段
+                date = date_str.split(' ')[0] if ' ' in date_str else date_str
+
+
             # 创建帖子信息
             post_info = {
-                'date': post_data.get('date', ''),
+                'date': date,
                 'title': post_data.get('title') or "无题",
                 'quote_link': post_data.get('quote_link', ''),
                 'quote_html_filename': post_data.get('quote_html_filename', ''),
@@ -165,7 +274,7 @@ class CategoryGenerator:
             生成的HTML字符串
         """
         # 转换数据
-        transformed_data = self.transform_data_to_category(self.cache_data)
+        transformed_data = self.transform_data(self.cache_data)
         self.config['category'] = transformed_data
         
         # 加载模板

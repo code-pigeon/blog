@@ -32,6 +32,8 @@ class TimelineGenerator:
         "%y/%m/%d",        # 24/9/24
         "%Y-%m-%d",        # 2024-9-24
         "%Y-%m-%d %H:%M",  # 2024-9-24 19:05
+        "%y-%m-%d",        # 24-09-24
+        "%y-%m-%d %H:%M",  # 24-09-24 19:05
     ]
     
     def __init__(self, config, cache_data):

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>图床的选择</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <span class="nickname">乌鸦之家</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+		    <ul>
+		    		    		<li><a href="index.html">首页</a></li>
+		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
+		    		    </ul>
+		</nav>
+	</header>	<div class=fluid> 
+				<h1 id="图床的选择">图床的选择</h1>
+				<div class="article-meta">
+						<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">25-04-17 10:22</time>
+			</div>
+									<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+				</svg>
+				<span class="meta-label">更新</span>
+				<time class="meta-time">25-04-21 22:39</time>
+			</div>
+									<div class="meta-item">
+				<span class="meta-label">杂谈</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">折腾记录</span>
+			</div>
+					</div>
+
+
+		<blockquote>
+		<p>话说这种又像唠嗑又涉及了一点技术的博文到底应该怎么分类呢。</p>
+		</blockquote>
+		<p>图床好选，符合要求的图床不好选。</p>
+		<p>一般在图床上传了图片之后，得到的链接都会有个随机的名字。比方说，图片的名字是<code>图片.jpg</code>，上传之后得到的链接往往是<code>JW7b0A.jpg</code>这种莫名其妙的文件名。</p>
+		<p>这和我的需求是不相符的，因为我想要实现一种备用图床的机制。</p>
+		<p>比如说，<code>图片.jpg</code>上传到图床1之后，返回链接<code>http://tuchuang1/图片.jpg</code>，上传到备用图床时返回<code>http://tuchuang2/图片.jpg</code>，那么当图床1寄了之后，只需要用js的<code>onerror</code>把图床链接从<code>http://tuchuang1/</code>替换为<code>http://tuchuang2/</code>，只要备用图床没寄，那么图片就仍然可以正常显示。<br />
+		这样做的好处在于，无论博文中有多少图片链接，都可以进行统一处理，因为图片名是不变的，需要替换的只有链接的前缀<code>http://tuchuang1/</code>。</p>
+		<p>但是这种方式要求图床能够返回确定的图片名称，而不是随机的，如果<code>图片.jpg</code>上传到图床1，得到链接<code>http://tuchuang1/JW7b0A.jpg</code>，上传到图床2，得到链接<code>http://tuchuang2/8U2n3lB.jpg</code>，那么假如图床1寄了，则不只是替换前缀这么简单，需要把整个链接都换掉。但是这样就无法进行统一处理，需要针对每张图片都记录一下它的备用链接，显然在工程上是非常麻烦的。</p>
+		<p>所以我只能寻找那些不会改变我文件名的图床，但目前看来，只有一个符合了要求：</p>
+		<ul>
+		<li><a href="https://stardots.io/">stardots.io</a>：可免费上传至多800张图片</li>
+		</ul>
+		<p>在这个图床里，还可以自定义自己的相册名，比如说，相册名叫<code>album</code>，上传的图片为<code>图片.jpg</code>，那么得到的链接可能是<code>https://i.stardots.io/album/图片.jpg</code>，完美地满足了我的需求。</p>
+		<blockquote>
+		<p>25/04/21/22:39 更新：一个相当震惊的事情发生了，今天我再上传图片的时候发现这个图床也开始给图片随机改名字了……</p>
+		</blockquote>
+		<p>还有一个图床可以有不改变文件名的链接，但是它对于每个图片都有另一个随机的链接前缀。比如说<code>图片.jpg</code>，上传之后，链接为<code>https://i.postimg.cc/d3fRK4hL/图片.jpg</code>，看起来好像符合要求，但其实中间的<code>d3fRK4hL</code>是完全随机的，不同图片的这串码就会不一样。最后顺便贴一下这个图床的链接：</p>
+		<ul>
+		<li><a href="https://postimages.org/">postimages.org</a>：好像是完全免费的</li>
+		</ul>
+		<p>其它的图床大多都一样，都是会随机地修改文件名，而且不仅是这一点相同，它们的页面、注册方式等等，无论是从样式还是工作方法看都是一模一样的的，应该是使用了某个相同的图床建站模板。在此也列举一下这些探索过的图床：</p>
+		<ul>
+		<li><a href="https://jpg.dog/">JPG.DOG</a></li>
+		<li><a href="https://imgse.com/">路过图床</a></li>
+		<li><a href="https://imgloc.com/">imgloc.com</a></li>
+		<li><a href="https://catbox.moe/">Catbox</a></li>
+		<li><a href="https://imgbb.com/">imgbb.com</a></li>
+		<li><a href="https://freeimage.host/">freeimage.host</a></li>
+		<li><a href="https://imgur.com/">imgur.com</a></li>
+		</ul>
+		<p>当然这些都只是白嫖的方案，花钱的话应该很容易就能满足我的需求。</p>
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="/blog/html/%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9.html" class="leancloud_visitors" data-flag-title="图床的选择">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		
+
+				<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+			</div>
+
+	
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	
+		<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+	
+	<!-- image -->
+	<script src="../js/image.js" type="text/javascript"></script>
+
+</body>
+</html>

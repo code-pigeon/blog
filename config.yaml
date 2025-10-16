@@ -58,7 +58,8 @@ private: false          # 私有（不提交至GitHub）
 # html_name             # 这个会在生成html的过程中添加
 # content               # 这个会在生成html的过程中添加
 
-template: 'test.mustache'   # 默认模板
+# template: 'post.mustache'   # 默认模板
+template: 'post.mustache'   # 默认模板
 
 # markdown解析扩展
 md_parser_extension: ['fenced_code', 'tables', 'footnotes', 'nl2br']

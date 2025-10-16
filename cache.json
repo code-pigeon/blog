@@ -1,21 +1,8 @@
 {
-  "D:/DataDisk/workspace/blog/md/IGNORE_test爱情.md": {
-    "file_updated": 1760229183.3667588,
-    "should_build": false,
-    "title": "深入理解生成器",
-    "category": [],
-    "date": "25/04/27/23:22",
-    "updated": null,
-    "html_filename": "IGNORE_test爱情.html",
-    "quote_html_filename": "IGNORE_test%E7%88%B1%E6%83%85.html",
-    "link": "https://code-pigeon.github.io/blog/html/IGNORE_test爱情.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/IGNORE_test%E7%88%B1%E6%83%85.html",
-    "description": "**深入理解生成器** 内容……"
-  },
   "D:/DataDisk/workspace/blog/md/index.md": {
-    "file_updated": 1760507330.4170244,
-    "should_build": false,
-    "title": "我的第一篇博客",
+    "file_updated": 1760610851.4526029,
+    "should_build": true,
+    "title": "其实这是首页",
     "category": [],
     "date": null,
     "updated": null,
@@ -23,80 +10,1681 @@
     "quote_html_filename": "index.html",
     "link": "https://code-pigeon.github.io/blog/html/index.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/index.html",
-    "description": "{{title}}，测试；{{build_time}}；{{html_dir}} *这里应该是fancy_banner所在的位置{{> fancy_banner }}。。。。。。。。。。。。。。。。。。* 所以说其实部分模板中不能嵌套部分模板？ {{> test }} @#################################### **鸽子窝** 欢迎来到鸽子窝 喜欢回忆过去，..."
+    "description": "**乌鸦之家** 感谢光临 **关于我** **爱好** • 🏀：篮球 • 🎤：唱歌 • 🎱：桌球 • 🏊︎：游泳 • 🖊︎：记录 • 📔：看小说 • 🏓：乒乓球 • 🐘：中国象棋（曾经的爱好） • 🖌：画画（曾经的爱好） **我的其它社媒账号** • 抖音：乌鸦有想法 • B站：乌鸦有想法 • 公众号：乌鸦碎碎念 **联系我** • 邮箱： **建站相关** **建站环境和工具** 环境 • ..."
   },
-  "D:/DataDisk/workspace/blog/md/test/test2/莫蓝特受伤了.md": {
-    "file_updated": 1760231352.9895134,
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/8月14日——逛博客.md": {
+    "file_updated": 1760587874.2385364,
     "should_build": false,
-    "title": "莫蓝特受伤了",
+    "title": "逛博客",
     "category": [
-      "test",
-      "test2"
+      "杂谈",
+      "家长里短",
+      "2024"
     ],
-    "date": "25/04/25/11:40",
-    "updated": null,
-    "html_filename": "莫蓝特受伤了.html",
-    "quote_html_filename": "%E8%8E%AB%E8%93%9D%E7%89%B9%E5%8F%97%E4%BC%A4%E4%BA%86.html",
-    "link": "https://code-pigeon.github.io/blog/html/莫蓝特受伤了.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/%E8%8E%AB%E8%93%9D%E7%89%B9%E5%8F%97%E4%BC%A4%E4%BA%86.html",
-    "description": "**莫兰特又受伤了** 伺机待发接送地方军哦i a mama: 这公司开始严抓考勤了 a mama: 一个Q迟到4次都要被说 a mama: [动画表情] a最好看的姐姐: 倒闭前兆 a最好看的姐姐: [动画表情] a mama: 以前每年还有工资普调，38,618，双11还发奖金 a mama: 去年双11开始不发奖金了 a mama: 今年普调也没有 a mama: ..."
+    "date": "24-08-14 18:37",
+    "updated": "24-08-14",
+    "html_filename": "8月14日——逛博客.html",
+    "quote_html_filename": "8%E6%9C%8814%E6%97%A5%E2%80%94%E2%80%94%E9%80%9B%E5%8D%9A%E5%AE%A2.html",
+    "link": "https://code-pigeon.github.io/blog/html/8月14日——逛博客.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/8%E6%9C%8814%E6%97%A5%E2%80%94%E2%80%94%E9%80%9B%E5%8D%9A%E5%AE%A2.html",
+    "description": "这次博客升级，因为有很多地方需要参考，所以翻出了在自己收藏夹里的一些个人博客。 博客改造完之后，因为忙了挺久（严格说其实就一天差不多），不太想继续琢磨什么，就想着逛逛那些在这两天发现的博客。 我发现很多有趣的东西都在个人博客里，博主们在博客里分享自己的见闻、想法、心情。在这些不起眼的角落里，互联网的身影显得有些陌生。 很多博主都特别优秀，特别是江苏省的那些，..."
   },
-  "D:/DataDisk/workspace/blog/md/文章/《论至九站》.md": {
-    "file_updated": 1760229217.3024795,
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/《曾少年之小时候》.md": {
+    "file_updated": 1760587856.86206,
     "should_build": false,
-    "title": "论持久战",
+    "title": "《曾少年之小时候》",
     "category": [
-      "文章"
+      "杂谈",
+      "家长里短",
+      "2024"
     ],
-    "date": "2025/2/4",
-    "updated": null,
-    "html_filename": "《论至九站》.html",
-    "quote_html_filename": "%E3%80%8A%E8%AE%BA%E8%87%B3%E4%B9%9D%E7%AB%99%E3%80%8B.html",
-    "link": "https://code-pigeon.github.io/blog/html/《论至九站》.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E8%AE%BA%E8%87%B3%E4%B9%9D%E7%AB%99%E3%80%8B.html",
-    "description": "{{title}}，测试；{{build_time}}；{{html_dir}} {{> fancy_banner }} **鸽子窝** 欢迎来到鸽子窝 喜欢回忆过去，喜欢幻想将来，唯独不喜欢珍惜现在。 --> **关于我** **爱好** • 🏀：篮球 • 🎤：唱歌 • 🎱：桌球 • 🏊︎：游泳 • 🖊︎：记录 • 📔：看小说 • 🏓：乒乓球 • 🐘：中国象棋（曾经的爱好） • ..."
+    "date": "24-07-26 20:10",
+    "updated": "24-07-29",
+    "html_filename": "《曾少年之小时候》.html",
+    "quote_html_filename": "%E3%80%8A%E6%9B%BE%E5%B0%91%E5%B9%B4%E4%B9%8B%E5%B0%8F%E6%97%B6%E5%80%99%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《曾少年之小时候》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E6%9B%BE%E5%B0%91%E5%B9%B4%E4%B9%8B%E5%B0%8F%E6%97%B6%E5%80%99%E3%80%8B.html",
+    "description": "这部电视剧是我在今年学校刷抖音的时候看到的，当时看了一些剪辑的片段，觉得还挺有意思的，于是把名字记了下来，想着哪天无聊就可以来看一看。 在学校里只看了一两集，大部分在回家的时间里和家人一起看了。 虽然目前还没有全部看完，但我觉得这部剧已经预定是我今年看过最佳的电视剧了。 24/07/26/20:19 昨天晚上把这部剧看完了，看完之后的感觉是，真该死啊，怎么把它看完了。然后有一种深入骨髓的失落感，..."
   },
-  "D:/DataDisk/workspace/blog/md/双开行动.md": {
-    "file_updated": 1760502972.6177492,
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【10月29日】吐槽开发那些事.md": {
+    "file_updated": 1760587129.2722147,
     "should_build": false,
-    "title": null,
-    "category": [],
+    "title": "吐槽开发那些事",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2024"
+    ],
+    "date": "24-10-29 22:02",
+    "updated": "24-10-29 23:00",
+    "html_filename": "【10月29日】吐槽开发那些事.html",
+    "quote_html_filename": "%E3%80%9010%E6%9C%8829%E6%97%A5%E3%80%91%E5%90%90%E6%A7%BD%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/【10月29日】吐槽开发那些事.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%9010%E6%9C%8829%E6%97%A5%E3%80%91%E5%90%90%E6%A7%BD%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B.html",
+    "description": "做开发的，最忌讳造轮子，毕竟时间本身就是最大的成本，哪个甲方/老板不给时限。 会在开发时自己造轮子可能分两种人，第一种是愣头青，新手开发者；第二种是大神，当然这种人写代码也许大多都是“just for fun”，时间成本并不在他们的考虑范围内。 于是开发时不得不使用别人造好的轮子，可能是一些拿来即用的库，也可能是开源的代码。 作为“科学家”，高校研究生大多数会用python，我们课题组也不例外。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【11月21日】逛博客2——惊人的发现.md": {
+    "file_updated": 1760587116.8751457,
+    "should_build": false,
+    "title": "逛博客2——惊人的发现",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2024"
+    ],
+    "date": "24-11-21 20:32",
+    "updated": "24-11-21 22:58",
+    "html_filename": "【11月21日】逛博客2——惊人的发现.html",
+    "quote_html_filename": "%E3%80%9011%E6%9C%8821%E6%97%A5%E3%80%91%E9%80%9B%E5%8D%9A%E5%AE%A22%E2%80%94%E2%80%94%E6%83%8A%E4%BA%BA%E7%9A%84%E5%8F%91%E7%8E%B0.html",
+    "link": "https://code-pigeon.github.io/blog/html/【11月21日】逛博客2——惊人的发现.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%9011%E6%9C%8821%E6%97%A5%E3%80%91%E9%80%9B%E5%8D%9A%E5%AE%A22%E2%80%94%E2%80%94%E6%83%8A%E4%BA%BA%E7%9A%84%E5%8F%91%E7%8E%B0.html",
+    "description": "最近一直在摸鱼，逛起了博客。 这一逛起来连短视频都不刷了，挺不错的。 **个站商店** 我先是在一个博主的友链中看到了这个叫做个站商店的博客导航网站，他和我之前上一篇随笔《逛博客》中所提到的十年之约、开往差不多是相同类型的东西，都是收录了很多个人博客。 不过个站商店最吸引我的还是它在列出博主的同时，还收集了这些博主的rss，然后在一个标签页上显示出各个博主最新发布的文章。..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【12月12日】最近的生活：唱歌、跑步.md": {
+    "file_updated": 1760587106.5713346,
+    "should_build": false,
+    "title": "最近的生活：唱歌、跑步",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2024"
+    ],
+    "date": "24-12-11 21:04",
+    "updated": "24-12-12 14:33",
+    "html_filename": "【12月12日】最近的生活：唱歌、跑步.html",
+    "quote_html_filename": "%E3%80%9012%E6%9C%8812%E6%97%A5%E3%80%91%E6%9C%80%E8%BF%91%E7%9A%84%E7%94%9F%E6%B4%BB%EF%BC%9A%E5%94%B1%E6%AD%8C%E3%80%81%E8%B7%91%E6%AD%A5.html",
+    "link": "https://code-pigeon.github.io/blog/html/【12月12日】最近的生活：唱歌、跑步.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%9012%E6%9C%8812%E6%97%A5%E3%80%91%E6%9C%80%E8%BF%91%E7%9A%84%E7%94%9F%E6%B4%BB%EF%BC%9A%E5%94%B1%E6%AD%8C%E3%80%81%E8%B7%91%E6%AD%A5.html",
+    "description": "**最近的主题：唱歌** 虽然之前也爱唱歌，但是高音总是上不去，从低声往上唱，声音会越来越虚，而且会容易破，再到非常高的音的时候，就只能是娘娘的假声了。所以平时唱那些有高音的歌只能是在家里自己唱唱，跟同学朋友去KTV，都只能挑些容易唱的，往往有些歌手因为唱功问题，他们的歌曲就比较好唱，所以在KTV的时候就会经常点，搞得同学朋友以为我很喜欢那些个歌手，其实是因为他们的歌很好唱。 我相信喜欢唱歌，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【8月23日】纪念死去的页游：坦克大战online.md": {
+    "file_updated": 1760587926.7370808,
+    "should_build": false,
+    "title": "纪念死去的页游：坦克大战online",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2024"
+    ],
+    "date": "24-08-23 14:27",
+    "updated": "24-08-23",
+    "html_filename": "【8月23日】纪念死去的页游：坦克大战online.html",
+    "quote_html_filename": "%E3%80%908%E6%9C%8823%E6%97%A5%E3%80%91%E7%BA%AA%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E9%A1%B5%E6%B8%B8%EF%BC%9A%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98online.html",
+    "link": "https://code-pigeon.github.io/blog/html/【8月23日】纪念死去的页游：坦克大战online.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%908%E6%9C%8823%E6%97%A5%E3%80%91%E7%BA%AA%E5%BF%B5%E6%AD%BB%E5%8E%BB%E7%9A%84%E9%A1%B5%E6%B8%B8%EF%BC%9A%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98online.html",
+    "description": "前天在家里打扫，再一次翻出了尘封的玩具。里面有一些自己做的手工，都是坦克模样。 还在上小学的时候，某天我哥突然带着我玩这款不知从哪里找到的网页游戏。到现在已经过去十几年了。 也不知从哪一天起，我就再也没上线过这款游戏。 上中学后的某一天，我突然心血来潮，想再上线去看看。打开电脑，在搜索框搜索“坦克大战online”，却没有找到游戏的官网，取而代之的是网友在一个帖子里的那句“倒闭了”。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/租房笔记.md": {
+    "file_updated": 1760587938.711787,
+    "should_build": false,
+    "title": "租房笔记",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2024"
+    ],
+    "date": "24-09-04 18:25",
+    "updated": "24-09-04",
+    "html_filename": "租房笔记.html",
+    "quote_html_filename": "%E7%A7%9F%E6%88%BF%E7%AC%94%E8%AE%B0.html",
+    "link": "https://code-pigeon.github.io/blog/html/租房笔记.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E7%A7%9F%E6%88%BF%E7%AC%94%E8%AE%B0.html",
+    "description": "**隔断房，串串房，甲醛** 隔断房也称串串房，一个大房间/客厅可能会被房东隔断成为多间小房间。隔断房租金低，但隔音差，消防水电方面也有隐患。 甲醛，毒气和隔断房基本脱不开干系，隔断的房间基本都会使用到会释放甲醛的材料1。住这种房基本就是去当人体净化器。 另外，隔断房在法律上也是不允许的（听说国家没有明确的规定，但地方政府一般都不允许），如果被举报了可能要扫地出门了。 **如何辨别隔断房** • ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20250424跟着师兄的节奏游泳差点把自己送走了.md": {
+    "file_updated": 1760587090.5528777,
+    "should_build": false,
+    "title": "跟着师兄的节奏游泳，差点把自己送走了",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2025"
+    ],
+    "date": "25-04-24 21:47",
+    "updated": null,
+    "html_filename": "20250424跟着师兄的节奏游泳差点把自己送走了.html",
+    "quote_html_filename": "20250424%E8%B7%9F%E7%9D%80%E5%B8%88%E5%85%84%E7%9A%84%E8%8A%82%E5%A5%8F%E6%B8%B8%E6%B3%B3%E5%B7%AE%E7%82%B9%E6%8A%8A%E8%87%AA%E5%B7%B1%E9%80%81%E8%B5%B0%E4%BA%86.html",
+    "link": "https://code-pigeon.github.io/blog/html/20250424跟着师兄的节奏游泳差点把自己送走了.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20250424%E8%B7%9F%E7%9D%80%E5%B8%88%E5%85%84%E7%9A%84%E8%8A%82%E5%A5%8F%E6%B8%B8%E6%B3%B3%E5%B7%AE%E7%82%B9%E6%8A%8A%E8%87%AA%E5%B7%B1%E9%80%81%E8%B5%B0%E4%BA%86.html",
+    "description": "师兄是去年打篮球的时候认识的，当时我们还有宿舍，就在操场旁边，经常和同学一起去打篮球，因为都是同一个学院的，又经常碰到，就和师兄认识了。 不过那时候的活动仅限于打篮球，和吃夜宵，还不知道师兄会游泳。这学期一次出来打球的时候，场上有个哥们说他之前游泳的时候时候受过伤，问怎么受的伤，说是从岸边出发的时候，脚蹬泳池壁的那一下磕到了，说是跟腱断了还是什么，给大伙听呆了。我说我一直以为游泳是最安全的运动，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251015又得解释一下为什么那么久没碰博客了.md": {
+    "file_updated": 1760609595.9729953,
+    "should_build": true,
+    "title": "又得解释一下为什么那么久没碰博客了┭┮﹏┭┮",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2025"
+    ],
+    "date": "25-10-15 22:57",
+    "updated": "25-10-16 18:11",
+    "html_filename": "20251015又得解释一下为什么那么久没碰博客了.html",
+    "quote_html_filename": "20251015%E5%8F%88%E5%BE%97%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E9%82%A3%E4%B9%88%E4%B9%85%E6%B2%A1%E7%A2%B0%E5%8D%9A%E5%AE%A2%E4%BA%86.html",
+    "link": "https://code-pigeon.github.io/blog/html/20251015又得解释一下为什么那么久没碰博客了.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20251015%E5%8F%88%E5%BE%97%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E9%82%A3%E4%B9%88%E4%B9%85%E6%B2%A1%E7%A2%B0%E5%8D%9A%E5%AE%A2%E4%BA%86.html",
+    "description": "写不写博客，和我的心境有很大的关系。 写博客，能记录下自己的生活，体会，收获。 但这些的前提是我处在一个相对自由的环境里。 假如我现在是个社畜，把自己一天三分之一甚至更多的时间拿去干那些消耗我心力的事情，那么我还会有心思写博客吗？显然是不会的。 从研二找实习开始，到现在研三秋招找工作，我的精力和思绪一直被其它的东西影响着，我要么在为工作努力学着自己不喜欢的东西，做着自己不想做的事情，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/自我检讨.md": {
+    "file_updated": 1760587071.5458868,
+    "should_build": false,
+    "title": "自我检讨",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2025"
+    ],
+    "date": "25-04-16 20:38",
+    "updated": "25-04-16 22:09",
+    "html_filename": "自我检讨.html",
+    "quote_html_filename": "%E8%87%AA%E6%88%91%E6%A3%80%E8%AE%A8.html",
+    "link": "https://code-pigeon.github.io/blog/html/自我检讨.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E8%87%AA%E6%88%91%E6%A3%80%E8%AE%A8.html",
+    "description": "检讨一下多久没有写博客了！ 本来去年年末还想着跟风写个年终总结，结果是什么都没搞。 自从一月份开始准备实习之后，就再没跟新过博客了。然而现在还是没找到实习，都是一场空，不如继续写博客。"
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/逛博客3.md": {
+    "file_updated": 1760587065.9058654,
+    "should_build": false,
+    "title": "逛博客3 | 看完优秀的人的博客，我又得自我反思了……",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2025"
+    ],
+    "date": "25-04-17 22:52",
+    "updated": "25-04-18 13:12",
+    "html_filename": "逛博客3.html",
+    "quote_html_filename": "%E9%80%9B%E5%8D%9A%E5%AE%A23.html",
+    "link": "https://code-pigeon.github.io/blog/html/逛博客3.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E9%80%9B%E5%8D%9A%E5%AE%A23.html",
+    "description": "忘了今天怎么点开的博客说的了，也是一个博客聚合网站。随便点击了几篇博客看，然后就看到了一位大佬的博客。为什么说她是大佬呢，倒也不是因为她的编程水平有多么之高，也不是因为她的工作能力有多么之强。 她是码农不错，但她绝不仅仅是个码农。 然后良师傅又甩来了大牛朋友 Tiantian Xu 的IG 和她的 100 days project。我顺藤摸瓜地找到了后来让我受益匪浅，反复读过四五遍的她的 100 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/clash在linux上的使用.md": {
+    "file_updated": 1760587044.530411,
+    "should_build": false,
+    "title": "clash在linux上的使用",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-12-03 16:14",
+    "updated": "24-12-04 17:03",
+    "html_filename": "clash在linux上的使用.html",
+    "quote_html_filename": "clash%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html",
+    "link": "https://code-pigeon.github.io/blog/html/clash在linux上的使用.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/clash%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html",
+    "description": "在Windows上有带图形界面的clash for windows，但是clash Linux端的好像没有带图形化界面的，只有命令行。我一开始回避了这个问题，只在windows上用clash，但是最近因为想给博客升级，有时候上github都上不去，Linux端科学上网的需求还是无法回避，所以就学习了一下如何在Linux上使用命令行版本的clash。 **环境** Ubuntu20.04 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/css样式随网页宽度变化而变化的实现.md": {
+    "file_updated": 1760587038.7628157,
+    "should_build": false,
+    "title": "css样式随网页宽度变化而变化的实现",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-05-26 20:48",
+    "updated": "24-05-26 21:10",
+    "html_filename": "css样式随网页宽度变化而变化的实现.html",
+    "quote_html_filename": "css%E6%A0%B7%E5%BC%8F%E9%9A%8F%E7%BD%91%E9%A1%B5%E5%AE%BD%E5%BA%A6%E5%8F%98%E5%8C%96%E8%80%8C%E5%8F%98%E5%8C%96%E7%9A%84%E5%AE%9E%E7%8E%B0.html",
+    "link": "https://code-pigeon.github.io/blog/html/css样式随网页宽度变化而变化的实现.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/css%E6%A0%B7%E5%BC%8F%E9%9A%8F%E7%BD%91%E9%A1%B5%E5%AE%BD%E5%BA%A6%E5%8F%98%E5%8C%96%E8%80%8C%E5%8F%98%E5%8C%96%E7%9A%84%E5%AE%9E%E7%8E%B0.html",
+    "description": "**引子** 一开始接触编程最想做的事情之一就是搭建自己的个人网站，所以很早就学了前端。不过涉猎了一些之后并没有过多钻研，所以有些技术还是不知道怎么实现。 现在笔记越记越多了，用markdown记的，却没有用什么markdown笔记软件，因为各类软件的功能总是不尽人意。直到现在也还是用代码编辑器写markdown，虽然写起来没什么问题，但回头想要翻阅却有诸多不便。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/C语言__vaze宏引发的探究.md": {
+    "file_updated": 1760587032.8746927,
+    "should_build": false,
+    "title": "`__vasz`宏引发的探究",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-05-19 18:38",
+    "updated": "24-05-19 19:06",
+    "html_filename": "C语言__vaze宏引发的探究.html",
+    "quote_html_filename": "C%E8%AF%AD%E8%A8%80__vaze%E5%AE%8F%E5%BC%95%E5%8F%91%E7%9A%84%E6%8E%A2%E7%A9%B6.html",
+    "link": "https://code-pigeon.github.io/blog/html/C语言__vaze宏引发的探究.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/C%E8%AF%AD%E8%A8%80__vaze%E5%AE%8F%E5%BC%95%E5%8F%91%E7%9A%84%E6%8E%A2%E7%A9%B6.html",
+    "description": "**引子** 在研究C语言可变参数函数的实现时，看到了这样一个宏： 让人匪夷所思。 这里的x的“实参”是一个类型关键字，返回一个大于且能被整除的数。 据说是为了实现内存对齐，所有数据都从4的整数倍内存地址开始存。 所以为什么这个宏是这么写的呢？ **分析** 先看看式子中恒定的后半部分，一般是4（字节），4减1为3，再按位取反，得到。看十六进制或许还不太清楚，我们再把它写成2进制： ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/C语言中返回局部变量指针的探究.md": {
+    "file_updated": 1760587025.62712,
+    "should_build": false,
+    "title": "C语言中返回局部变量指针的探究",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-03-19 20:26",
+    "updated": "24-03-19 ",
+    "html_filename": "C语言中返回局部变量指针的探究.html",
+    "quote_html_filename": "C%E8%AF%AD%E8%A8%80%E4%B8%AD%E8%BF%94%E5%9B%9E%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%8C%87%E9%92%88%E7%9A%84%E6%8E%A2%E7%A9%B6.html",
+    "link": "https://code-pigeon.github.io/blog/html/C语言中返回局部变量指针的探究.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E8%BF%94%E5%9B%9E%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E6%8C%87%E9%92%88%E7%9A%84%E6%8E%A2%E7%A9%B6.html",
+    "description": "**简短的故事** 学汇编的时候，知道了在函数结束之后，函数栈应该是会被清理的。由于局部变量位于函数栈中，所以理论上一个函数若返回它的局部变量的地址是不可行的，这个地址中的数据会被清理。 所以如果如下定义一个函数会发生警告： 然而神奇的是，如果我像下面这样写，警告就消失了： 而如果再在main函数当中输出，也会发现确实等于3。一度导致我纠结了很久。 后来才知道，两种方式都是不安全的，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/C语言实现交互式终端.md": {
+    "file_updated": 1760587849.485006,
+    "should_build": false,
+    "title": "C语言实现交互式终端",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-06-21 14:34",
+    "updated": "24-06-21 15:15",
+    "html_filename": "C语言实现交互式终端.html",
+    "quote_html_filename": "C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%BB%88%E7%AB%AF.html",
+    "link": "https://code-pigeon.github.io/blog/html/C语言实现交互式终端.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%BB%88%E7%AB%AF.html",
+    "description": "**实现** 我们首先需要一个循环，能够循环读入用户在标准输入敲下的字符： 为了能够实现输入EOF（在Windows中是，Linux中是）退出循环，我舍弃了这种读取输入的方式，因为在模式下，似乎无法很好地读入EOF。 通常我们需要在输出命令之前输出一个命令行提示符，否则很难分清楚程序是正在等待输入还是卡死了： 到这里就可以在while循环中实现你想要对字符串进行的处理了。 然而这里还有一个小陷阱。..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/C语言自定义错误打印函数.md": {
+    "file_updated": 1760587948.429038,
+    "should_build": false,
+    "title": "C语言自定义错误打印函数",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
     "date": null,
-    "updated": "24/8/2/ ",
-    "html_filename": "双开行动.html",
-    "quote_html_filename": "%E5%8F%8C%E5%BC%80%E8%A1%8C%E5%8A%A8.html",
-    "link": "https://code-pigeon.github.io/blog/html/双开行动.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/%E5%8F%8C%E5%BC%80%E8%A1%8C%E5%8A%A8.html",
-    "description": "《双开行动》——刘学文 于2023/06/01读完，评语“有点狗血” 测试 测试/// **个人评价** • 评分：★★★☆☆ 确实还是差点意思，主角毋庸置疑的好人，反派是毋庸置疑的反派。剧里的反派女角色行为出奇的一致，都是在名利场里傻傻地相信着真爱，而正派的女角色行为同样出其的一致，都喜欢动不动就留信出家。 f **书摘** **词** • 可心 • 伉俪 • 下野 • 里出外进 • 附庸风雅 ..."
+    "updated": "24-09-23 13:09",
+    "html_filename": "C语言自定义错误打印函数.html",
+    "quote_html_filename": "C%E8%AF%AD%E8%A8%80%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0.html",
+    "link": "https://code-pigeon.github.io/blog/html/C语言自定义错误打印函数.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/C%E8%AF%AD%E8%A8%80%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF%E6%89%93%E5%8D%B0%E5%87%BD%E6%95%B0.html",
+    "description": "**引子** 写程序难免需要错误处理，而为了把错误信息输出到标准错误中，通常会选择使用函数来打印错误信息。 为了方便观看，还可能使用彩色打印 显然在每个出错的地方都写上这么冗长的一句代码不仅观感非常差，而且一旦需要修改将会非常麻烦。 所以在思考写出这样一个函数： 它能够像一样使用，但又能够将错误信息输出到标准错误中，还能够输出彩色的字符： **实现** ..."
   },
-  "D:/DataDisk/workspace/blog/md/文章/《坤传》.md": {
-    "file_updated": 1760508493.7421057,
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Linux终端控制.md": {
+    "file_updated": 1760587015.4254727,
     "should_build": false,
-    "title": "坤传",
+    "title": "Linux终端控制",
     "category": [
-      "文章"
+      "杂谈",
+      "编程杂谈"
     ],
-    "date": "25/10/15/14:07",
-    "updated": null,
-    "html_filename": "《坤传》.html",
-    "quote_html_filename": "%E3%80%8A%E5%9D%A4%E4%BC%A0%E3%80%8B.html",
-    "link": "https://code-pigeon.github.io/blog/html/《坤传》.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%9D%A4%E4%BC%A0%E3%80%8B.html",
-    "description": "本文非常的具有技术含量，看好了。 已知1+1=2 2+1=3 则1+1+2+1=2+3=5。 这是本世纪最伟大的发现，你有没有被震撼到呢？"
+    "date": "24-06-10 13:21",
+    "updated": "24-06-10 18:50",
+    "html_filename": "Linux终端控制.html",
+    "quote_html_filename": "Linux%E7%BB%88%E7%AB%AF%E6%8E%A7%E5%88%B6.html",
+    "link": "https://code-pigeon.github.io/blog/html/Linux终端控制.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/Linux%E7%BB%88%E7%AB%AF%E6%8E%A7%E5%88%B6.html",
+    "description": "**从在终端输出彩色字符开始** 以前还不知道怎么在终端输出彩色的字符，直到后来知道了输出像这样的字符可以改变字体的颜色。 目前知道在python里的和C语言中的打印函数打印该字符串都可以改变字体颜色，其它语言还没试过。 其中表示黑色，从30到37都代表了不同的颜色： 感觉长得有点不一样？是的，其实是的缩写，对应上面的黑色。 但其实前面的这个0和1更像是开关，在第一次打印之后，..."
   },
-  "D:/DataDisk/workspace/blog/md/test/杨瀚森雄起！.md": {
-    "file_updated": 1760525740.5178576,
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/python多个装饰器执行的顺序.md": {
+    "file_updated": 1760586994.1807065,
     "should_build": false,
-    "title": "杨瀚森雄起！",
+    "title": "python多个装饰器执行的顺序",
     "category": [
-      "test"
+      "杂谈",
+      "编程杂谈"
     ],
-    "date": "25/10/15/11:10",
+    "date": "24-03-09 11:06",
+    "updated": "24-03-10 10:59",
+    "html_filename": "python多个装饰器执行的顺序.html",
+    "quote_html_filename": "python%E5%A4%9A%E4%B8%AA%E8%A3%85%E9%A5%B0%E5%99%A8%E6%89%A7%E8%A1%8C%E7%9A%84%E9%A1%BA%E5%BA%8F.html",
+    "link": "https://code-pigeon.github.io/blog/html/python多个装饰器执行的顺序.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/python%E5%A4%9A%E4%B8%AA%E8%A3%85%E9%A5%B0%E5%99%A8%E6%89%A7%E8%A1%8C%E7%9A%84%E9%A1%BA%E5%BA%8F.html",
+    "description": "**引子** **背景** 本来是在写个人网站，以前的代码中，几乎每个视图函数都有类似于： 我就在想怎么能减少重复书写同样的代码，于是想到了装饰器。 正当我得意洋洋启动服务器测试时，却发现当文件不存在时，装饰器中的语句根本不会执行，程序会直接崩溃。 **不小心解决了** 正当我觉得心灰意冷，打算另辟蹊径的时候，我尝试调换了一下和这两个装饰器的位置，结果就成功了…… 很显然这和装饰器的执行顺序有关。..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/python源码中PyLongObject结构体的骚操作.md": {
+    "file_updated": 1760586972.2565217,
+    "should_build": false,
+    "title": "python源码中PyLongObject结构体的骚操作",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-11-24 17:23",
+    "updated": "24-11-25 12:32",
+    "html_filename": "python源码中PyLongObject结构体的骚操作.html",
+    "quote_html_filename": "python%E6%BA%90%E7%A0%81%E4%B8%ADPyLongObject%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E9%AA%9A%E6%93%8D%E4%BD%9C.html",
+    "link": "https://code-pigeon.github.io/blog/html/python源码中PyLongObject结构体的骚操作.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/python%E6%BA%90%E7%A0%81%E4%B8%ADPyLongObject%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E9%AA%9A%E6%93%8D%E4%BD%9C.html",
+    "description": "这两天在考虑升级自己的模板引擎，给写博文的markdown添加一下头部的元数据。现在元数据的解析器也找好了，问题是这个解析器真的只解析，不管存储，于是我需要解决存储元数据的问题。因为这些数据可能会有不同的类型，所以还需要能够存储不同类型的数据（虽然现在其实没有这么细致的需求，但是为了防止以后哪天突然就有这个需求了）。 在考虑的时候还想着直接把模板引擎的控制语句（比如）也用Lua来实现，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/tkinter画布canvas绘制图片不显示.md": {
+    "file_updated": 1760586961.8579395,
+    "should_build": false,
+    "title": "tkinter画布canvas绘制图片不显示",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-03-22 13:59",
+    "updated": "24-03-22 14:08",
+    "html_filename": "tkinter画布canvas绘制图片不显示.html",
+    "quote_html_filename": "tkinter%E7%94%BB%E5%B8%83canvas%E7%BB%98%E5%88%B6%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA.html",
+    "link": "https://code-pigeon.github.io/blog/html/tkinter画布canvas绘制图片不显示.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/tkinter%E7%94%BB%E5%B8%83canvas%E7%BB%98%E5%88%B6%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA.html",
+    "description": "**原因与解决办法** 在canvas中创建图片一般如下： 但如果将创建图片的步骤封装在函数中： 会发现图片无法显示。 **原因** 这是由于image这个变量定义于函数func中，属于局部变量，在函数结束之后，变量就被垃圾回收了。 而所指定的参数却直接与这个被回收的变量相关，因此图片无法显示。 **解决办法** 只要保证image这个变量不被垃圾回收即可。 按照这个思路可以采取的办法有很多，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/tkinter项目打包python运行环境.md": {
+    "file_updated": 1760586919.8187134,
+    "should_build": false,
+    "title": "tkinter项目打包python运行环境",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-02-25 00:35",
+    "updated": "24-02-25 00:57",
+    "html_filename": "tkinter项目打包python运行环境.html",
+    "quote_html_filename": "tkinter%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85python%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html",
+    "link": "https://code-pigeon.github.io/blog/html/tkinter项目打包python运行环境.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/tkinter%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85python%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83.html",
+    "description": "**尝试过程** 最开始灵感还是来自于韦易笑的知乎回答（见参考第一条），它介绍了一个思路，下载python官网提供的嵌入式python运行环境，解压到项目的runtime文件夹下，然后在项目根目录下写个bat或者exe调用runtime中的python，并运行入口脚本。 invoke.bat应该类似这样： 不过如果python使用了tkinter，则这样还不足够，会显示没有叫tkinter的模块。..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Ubuntu下darknet_yolo4的编译.md": {
+    "file_updated": 1760588034.8802466,
+    "should_build": false,
+    "title": "Ubuntu下darknet yolo4的编译",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-05-17 23:16",
+    "updated": "24-05-18 12:47",
+    "html_filename": "Ubuntu下darknet_yolo4的编译.html",
+    "quote_html_filename": "Ubuntu%E4%B8%8Bdarknet_yolo4%E7%9A%84%E7%BC%96%E8%AF%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/Ubuntu下darknet_yolo4的编译.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/Ubuntu%E4%B8%8Bdarknet_yolo4%E7%9A%84%E7%BC%96%E8%AF%91.html",
+    "description": "**参考链接** • YOLOv4-darknet installation and usage on your system (Windows & Linux) • Installing and Building Darknet • 官网 **0 说明** 此博客只记录darknet yolo4 + opencv的编译安装，不涉及cuda和cuDNN。 **1 编译的源文件** ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/unity3D_FPS_game_interaction.md": {
+    "file_updated": 1760586893.2583055,
+    "should_build": false,
+    "title": "【unity3D学习记录】FPS角色交互",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "25-04-23 22:33",
     "updated": null,
-    "html_filename": "杨瀚森雄起！.html",
-    "quote_html_filename": "%E6%9D%A8%E7%80%9A%E6%A3%AE%E9%9B%84%E8%B5%B7%EF%BC%81.html",
-    "link": "https://code-pigeon.github.io/blog/html/杨瀚森雄起！.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/%E6%9D%A8%E7%80%9A%E6%A3%AE%E9%9B%84%E8%B5%B7%EF%BC%81.html",
-    "description": "前方的记者王冰冰为您报道： 杨瀚森作为新一代的中国新星，能否在NBA站稳脚跟呢？ 让我们拭目以待。"
+    "html_filename": "unity3D_FPS_game_interaction.html",
+    "quote_html_filename": "unity3D_FPS_game_interaction.html",
+    "link": "https://code-pigeon.github.io/blog/html/unity3D_FPS_game_interaction.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/unity3D_FPS_game_interaction.html",
+    "description": "*环境：Unity 2023.2.20f1c1* 在上一期学习记录中，我们完成了FPS游戏的角色的移动、跳跃、镜头旋转的功能。但此时角色和环境唯一的互动方式就是可以踩在某个东西上，这显然非常的无聊。 在这一期学习记录中，我将介绍一下如何实现角色和其它物体的交互。 本期将要实现的场景为：角色与开关（keypad）交互打开大门。 闲话少叙，进入正题。 **创建场景** ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/unity3D_FPS_game_movement.md": {
+    "file_updated": 1760586885.6898427,
+    "should_build": false,
+    "title": "【unity3D学习记录】FPS角色移动",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "25-04-18 22:49",
+    "updated": null,
+    "html_filename": "unity3D_FPS_game_movement.html",
+    "quote_html_filename": "unity3D_FPS_game_movement.html",
+    "link": "https://code-pigeon.github.io/blog/html/unity3D_FPS_game_movement.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/unity3D_FPS_game_movement.html",
+    "description": "*环境：Unity 2023.2.20f1c1* **新系统的安装** • 点击上方的*Window*选项卡，在下拉菜单中选择*Package Manager*； • 在弹出的窗口中，选择*Unity Registry*，然后在右侧搜索框中输入*Input System*； • 在最右边的面板中点击*Install*按钮； **创建并配置Input Actions** ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/v1.0.2改版日志（详细版）.md": {
+    "file_updated": 1760587837.431571,
+    "should_build": false,
+    "title": "v1.0.2改版日志（详细版）",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-07-27 12:04",
+    "updated": "24-07-27 14:06",
+    "html_filename": "v1.0.2改版日志（详细版）.html",
+    "quote_html_filename": "v1.0.2%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%EF%BC%88%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89.html",
+    "link": "https://code-pigeon.github.io/blog/html/v1.0.2改版日志（详细版）.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/v1.0.2%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%EF%BC%88%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89.html",
+    "description": "**前言——手搓网站构建器的动机** 我的网站架构其实是比较简单的，一开始的想法就是能够有一个自动实现把markdown转成html而且能够将转化得来的html自动嵌入网页模板的工具。对我来说静态网页足够了。 这种工具非常常见，我也试过一些。但很多都不太理想，页面的风格大多只能够从其他人制作的模板中选择（当然原因其实是我没有耐心去研究怎么在人家的项目中DIY），而我本身有种奇怪的属性，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/v1.0.3改版日志——评论系统的选择.md": {
+    "file_updated": 1760587830.9049292,
+    "should_build": false,
+    "title": "v1.0.3改版日志——评论系统的选择",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-08-13 16:03",
+    "updated": "24-08-13 22:20",
+    "html_filename": "v1.0.3改版日志——评论系统的选择.html",
+    "quote_html_filename": "v1.0.3%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%E2%80%94%E2%80%94%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%89%E6%8B%A9.html",
+    "link": "https://code-pigeon.github.io/blog/html/v1.0.3改版日志——评论系统的选择.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/v1.0.3%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%E2%80%94%E2%80%94%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%89%E6%8B%A9.html",
+    "description": "**评论系统的选择** 对于动态网页的评论系统，有能力的完全可以自己手搓，因为动态网站必须拥有服务器，有了服务器就能够处理网络请求，那么评论只不过就是一个携带文本的请求罢了。 但是对于不具备网络请求能力的静态网站，评论系统的搭建就得另辟蹊径了。 有一种很直接的思路，既然静态网站自己没有服务器，那就用别人现成的服务器来处理不就行了。这确实就是评论系统所做的，它会帮助你存储并管理你的评论信息。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows下fgets对于CTRL+Z输入的响应.md": {
+    "file_updated": 1760587587.5134022,
+    "should_build": false,
+    "title": "Windows下fgets对于CTRL+Z输入的响应",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-06-30 14:49",
+    "updated": "24-07-18",
+    "html_filename": "Windows下fgets对于CTRL+Z输入的响应.html",
+    "quote_html_filename": "Windows%E4%B8%8Bfgets%E5%AF%B9%E4%BA%8ECTRL%2BZ%E8%BE%93%E5%85%A5%E7%9A%84%E5%93%8D%E5%BA%94.html",
+    "link": "https://code-pigeon.github.io/blog/html/Windows下fgets对于CTRL+Z输入的响应.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/Windows%E4%B8%8Bfgets%E5%AF%B9%E4%BA%8ECTRL%2BZ%E8%BE%93%E5%85%A5%E7%9A%84%E5%93%8D%E5%BA%94.html",
+    "description": "**Windows下CTRL+Z在标准输入中的作用** 程序读入文件需要用一个“文件结束符”（通常记作，即“End of File”）来标记文件的结尾，标准输入作为一个特殊的文件，同样也有它的，它就是。 在终端按下键，然后再按下键即可以输入，在终端会显示，但它实际上和手动输入的加上并不相同，前者为1个字符，后者为两个字符。 但在使用C标准库的读入一行命令行输入时，却发现并不总是会解释为。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows命令行不加解释器和文件后缀名直接运行Python脚本.md": {
+    "file_updated": 1760588042.5179849,
+    "should_build": false,
+    "title": "Windows命令行不加解释器和文件后缀名直接运行Python脚本",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-02-29 20:30",
+    "updated": "24-02-25 20:44",
+    "html_filename": "Windows命令行不加解释器和文件后缀名直接运行Python脚本.html",
+    "quote_html_filename": "Windows%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8D%E5%8A%A0%E8%A7%A3%E9%87%8A%E5%99%A8%E5%92%8C%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8CPython%E8%84%9A%E6%9C%AC.html",
+    "link": "https://code-pigeon.github.io/blog/html/Windows命令行不加解释器和文件后缀名直接运行Python脚本.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/Windows%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8D%E5%8A%A0%E8%A7%A3%E9%87%8A%E5%99%A8%E5%92%8C%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8CPython%E8%84%9A%E6%9C%AC.html",
+    "description": "**引子** 都知道Windows cmd中，运行可执行文件和bat时，可以直接输入不带后缀的文件名。 而执行python脚本时，却需要指明python作为解释器，而且文件要有后缀名。 这样对于运行python脚本无疑带来了麻烦。 **方法** 看了很多资料博客，也问了chatGPT，最后总结出了最简单有效的方式。 简洁版： 1. 在环境变量中添加； 2. 将文件的默认应用设置为python。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows将多个图标编译为dll.md": {
+    "file_updated": 1760587824.3992963,
+    "should_build": false,
+    "title": "Windows将多个图标编译为dll",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-07-18 09:52",
+    "updated": "24-07-18 10:21",
+    "html_filename": "Windows将多个图标编译为dll.html",
+    "quote_html_filename": "Windows%E5%B0%86%E5%A4%9A%E4%B8%AA%E5%9B%BE%E6%A0%87%E7%BC%96%E8%AF%91%E4%B8%BAdll.html",
+    "link": "https://code-pigeon.github.io/blog/html/Windows将多个图标编译为dll.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/Windows%E5%B0%86%E5%A4%9A%E4%B8%AA%E5%9B%BE%E6%A0%87%E7%BC%96%E8%AF%91%E4%B8%BAdll.html",
+    "description": "**方法** **工具** • MinGW **步骤** 假如这是文件夹的内容： 首先新建一个文件，内容为： 然后在命令行下输入： 得到的中就包含有我们想要放入的文件了。 **使用这个dll文件在windows下自定义文件夹图标** 这个dll的一个用处就是拿来更换文件夹/快捷方式的图标了，这也是我挖掘这个方法的原因。 右键点击一个快捷方式，选择“属性”，在属性窗口中点击“更改图标”，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows应用DPI感知.md": {
+    "file_updated": 1760587816.7432556,
+    "should_build": false,
+    "title": "Windows应用DPI感知",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-07-22 13:55",
+    "updated": "24-07-22",
+    "html_filename": "Windows应用DPI感知.html",
+    "quote_html_filename": "Windows%E5%BA%94%E7%94%A8DPI%E6%84%9F%E7%9F%A5.html",
+    "link": "https://code-pigeon.github.io/blog/html/Windows应用DPI感知.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/Windows%E5%BA%94%E7%94%A8DPI%E6%84%9F%E7%9F%A5.html",
+    "description": "**环境** • 操作系统：Windows 11 • 编译环境：mingw gcc + cmd **引子** 写Windows应用程序的时候，经常会出现图形、字体边角很多锯齿的现象。 这种现象可能是因为没有开启抗锯齿，于是开启了抗锯齿。但发现开启了抗锯齿之后，还是存在很多肉眼可见的锯齿，特别是对于字体。 于是后来才知道dpi（dot per inch，每英寸点数）这个概念，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows的exe文件调用命令行运行py文件打开的Tk窗口无法置顶解决办法.md": {
+    "file_updated": 1760586878.675894,
+    "should_build": false,
+    "title": "Windows的exe文件调用命令行运行py文件打开的Tk窗口无法置顶解决办法",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-03-05 16:17",
+    "updated": "24-03-05 ",
+    "html_filename": "Windows的exe文件调用命令行运行py文件打开的Tk窗口无法置顶解决办法.html",
+    "quote_html_filename": "Windows%E7%9A%84exe%E6%96%87%E4%BB%B6%E8%B0%83%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%90%E8%A1%8Cpy%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E7%9A%84Tk%E7%AA%97%E5%8F%A3%E6%97%A0%E6%B3%95%E7%BD%AE%E9%A1%B6%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html",
+    "link": "https://code-pigeon.github.io/blog/html/Windows的exe文件调用命令行运行py文件打开的Tk窗口无法置顶解决办法.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/Windows%E7%9A%84exe%E6%96%87%E4%BB%B6%E8%B0%83%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%90%E8%A1%8Cpy%E6%96%87%E4%BB%B6%E6%89%93%E5%BC%80%E7%9A%84Tk%E7%AA%97%E5%8F%A3%E6%97%A0%E6%B3%95%E7%BD%AE%E9%A1%B6%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html",
+    "description": "**引子** 用Tkinter写了一个小游戏，要打包给没有编程基础的人玩。因为大家早已习惯了一件事：只有exe文件才可以双击运行，遂决定编译一个exe文件，在exe文件中调用命令，即可以运行该py文件。 但发现直接在cmd下执行该命令时，弹出的Tk窗口会自动置于所有已打开的窗口之上，且点击其他窗口时可以顺利使其他窗口置顶。但通过双击exe文件打开的Tk窗口却会位于资源管理器窗口之下。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows设置视觉风格（visual_style）.md": {
+    "file_updated": 1760587807.0855367,
+    "should_build": false,
+    "title": "Windows设置视觉风格（visual style）",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-07-23 17:48",
+    "updated": "24-07-24 09:36",
+    "html_filename": "Windows设置视觉风格（visual_style）.html",
+    "quote_html_filename": "Windows%E8%AE%BE%E7%BD%AE%E8%A7%86%E8%A7%89%E9%A3%8E%E6%A0%BC%EF%BC%88visual_style%EF%BC%89.html",
+    "link": "https://code-pigeon.github.io/blog/html/Windows设置视觉风格（visual_style）.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/Windows%E8%AE%BE%E7%BD%AE%E8%A7%86%E8%A7%89%E9%A3%8E%E6%A0%BC%EF%BC%88visual_style%EF%BC%89.html",
+    "description": "**引子** 很多时候，无论使用什么语言什么库，似乎只要在Windows下写出来的桌面应用，外观都是奇丑无比： 这是Windows控件的默认风格，老版的Windows程序窗口都长这副模样。但对于今天的审美来说这肯定是个灾难。Windows也明白这一点，所以在后来的版本中支持了不同风格的窗口控件，称之为视觉风格（visual style）。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/wxWidgets定义新事件类型（event_type）.md": {
+    "file_updated": 1760586873.1956637,
+    "should_build": false,
+    "title": "wxWidgets定义新事件类型（event type）",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "2024-08-12 16:51",
+    "updated": "2024-08-12",
+    "html_filename": "wxWidgets定义新事件类型（event_type）.html",
+    "quote_html_filename": "wxWidgets%E5%AE%9A%E4%B9%89%E6%96%B0%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B%EF%BC%88event_type%EF%BC%89.html",
+    "link": "https://code-pigeon.github.io/blog/html/wxWidgets定义新事件类型（event_type）.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/wxWidgets%E5%AE%9A%E4%B9%89%E6%96%B0%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B%EF%BC%88event_type%EF%BC%89.html",
+    "description": "**引子** 在wxWidgets中，有很多事件（events），每个事件类又具有很多不同的事件类型（event types）1。 例如，是一个鼠标事件，而、则是鼠标事件的两个事件类型。 所以说事件是一个类（class），而事件类型是一个枚举值（enum）。 **自定义事件类型以及使用** • 创建新的事件类型： 需要注意这行代码必须写在文件中，不能写在头文件中。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/x86架构操作系统内核的实现_p1.md": {
+    "file_updated": 1760586856.1893127,
+    "should_build": false,
+    "title": "x86架构操作系统内核的实现",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-05-25 16:37",
+    "updated": "24-05-25",
+    "html_filename": "x86架构操作系统内核的实现_p1.html",
+    "quote_html_filename": "x86%E6%9E%B6%E6%9E%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%86%85%E6%A0%B8%E7%9A%84%E5%AE%9E%E7%8E%B0_p1.html",
+    "link": "https://code-pigeon.github.io/blog/html/x86架构操作系统内核的实现_p1.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/x86%E6%9E%B6%E6%9E%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%86%85%E6%A0%B8%E7%9A%84%E5%AE%9E%E7%8E%B0_p1.html",
+    "description": "**记录** 找不到什么项目干，于是还是想起了自己的一大愿望——写个操作系统。 应该是某个睡前的夜晚，在刷知乎，刷到了关于写操作系统的问题，然后看到了其中的一个回答，这岂不正合我意。 作者也是参考了另一个流传很广的OS制作教程http://www.jamesmolloy.co.uk/，不过这个链接已经失效了，甚至在网上的其它地方都找不到教程的内容。..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/关于Flask中View_function_mapping_is_overwriting_an_existing_endpoint_function.md": {
+    "file_updated": 1760586843.380305,
+    "should_build": false,
+    "title": "关于Flask中View function mapping is overwriting an existing endpoint function",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-03-10 11:03",
+    "updated": "24-03-10 11:57",
+    "html_filename": "关于Flask中View_function_mapping_is_overwriting_an_existing_endpoint_function.html",
+    "quote_html_filename": "%E5%85%B3%E4%BA%8EFlask%E4%B8%ADView_function_mapping_is_overwriting_an_existing_endpoint_function.html",
+    "link": "https://code-pigeon.github.io/blog/html/关于Flask中View_function_mapping_is_overwriting_an_existing_endpoint_function.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E5%85%B3%E4%BA%8EFlask%E4%B8%ADView_function_mapping_is_overwriting_an_existing_endpoint_function.html",
+    "description": "**引子** **背景** 本来是在写个人网站，以前的代码中，几乎每个视图函数都有类似于： 我就在想怎么能减少重复书写同样的代码，于是想到了装饰器。 写到这里还没什么问题，但当我再加一个视图函数，同样也使用了这个装饰器的时候，报错出现了。 **解决办法** 解决办法网上很容易搜到， 1. 第一种是给装饰器加上 • 第二种是在中加上参数 **为什么会出现这个错误？** **最简单的情况** ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/关于python项目文件夹的重命名问题.md": {
+    "file_updated": 1760586834.7802975,
+    "should_build": false,
+    "title": "关于python项目文件夹的重命名问题",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-11-22 15:26",
+    "updated": "24-11-22 15:46",
+    "html_filename": "关于python项目文件夹的重命名问题.html",
+    "quote_html_filename": "%E5%85%B3%E4%BA%8Epython%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E9%87%8D%E5%91%BD%E5%90%8D%E9%97%AE%E9%A2%98.html",
+    "link": "https://code-pigeon.github.io/blog/html/关于python项目文件夹的重命名问题.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E5%85%B3%E4%BA%8Epython%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E9%87%8D%E5%91%BD%E5%90%8D%E9%97%AE%E9%A2%98.html",
+    "description": "写项目的时候，一开始可能只是一个小小的需求，也不知道起什么名字。后来越写越大了，感觉这个名字配不上它的逼格，于是又想着改一个名字。 此时可能会遇到一些问题，比如项目的git仓库会不会受到影响，（假如用了python）项目的python虚拟环境会不会受影响。 试了一下，结论是： ||是否受影响| |--|--| |git仓库|否| |python虚拟环境|是| git好像只依赖于文件夹，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/关于交互式解释器的命令行提示符.md": {
+    "file_updated": 1760587518.3289628,
+    "should_build": false,
+    "title": "关于交互式解释器的命令行提示符",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-06-21 17:46",
+    "updated": "24-06-21 18:02",
+    "html_filename": "关于交互式解释器的命令行提示符.html",
+    "quote_html_filename": "%E5%85%B3%E4%BA%8E%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8F%90%E7%A4%BA%E7%AC%A6.html",
+    "link": "https://code-pigeon.github.io/blog/html/关于交互式解释器的命令行提示符.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E5%85%B3%E4%BA%8E%E4%BA%A4%E4%BA%92%E5%BC%8F%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8F%90%E7%A4%BA%E7%AC%A6.html",
+    "description": "最近一直想写一个解释器。 在这个过程中我会参考其它的一些交互式解释器的做法，比如对于提示符，在python中，命令提示符为“>>> ”，lua中为“> ”。 一般情况下，输入完成之后按下回车，解释器就会开始解析输入的内容。 但也有例外，比如python和lua在定义函数时，写完了开头的“def f:”或“func fun()”之后，并不会立刻解析输入，而是会输出不一样的提示符（python中为“...."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/创建及使用静态库.md": {
+    "file_updated": 1760587505.9268515,
+    "should_build": false,
+    "title": "C/C++创建及使用静态库",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-08-11 02:37",
+    "updated": "24-08-11 ",
+    "html_filename": "创建及使用静态库.html",
+    "quote_html_filename": "%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E5%BA%93.html",
+    "link": "https://code-pigeon.github.io/blog/html/创建及使用静态库.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E5%88%9B%E5%BB%BA%E5%8F%8A%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E5%BA%93.html",
+    "description": "**方法** **工具** GNU Binutils • ar • gcc **步骤** • 创建静态库 标志表示创建一个静态库，如果静态库已经存在，则覆盖之。按照惯例，静态库的库名以“lib”开头、“.a”作为后缀名。 这里的当然就是由源文件编译而来的目标文件了。同时，源文件对应的头文件也需要保留。 • 使用静态库 **参考** youtube视频Creating and Linking ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/白嫖weibo的视频资源记.md": {
+    "file_updated": 1760587493.9985662,
+    "should_build": false,
+    "title": "白嫖weibo的视频资源记",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-08-19 23:36",
+    "updated": "24-08-21 01:16",
+    "html_filename": "白嫖weibo的视频资源记.html",
+    "quote_html_filename": "%E7%99%BD%E5%AB%96weibo%E7%9A%84%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E8%AE%B0.html",
+    "link": "https://code-pigeon.github.io/blog/html/白嫖weibo的视频资源记.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E7%99%BD%E5%AB%96weibo%E7%9A%84%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E8%AE%B0.html",
+    "description": "因为搞了个简易视频壁纸命令行程序，所以要开始收集视频了。 在微博上白嫖视频，最简单的方式当然是用现成的工具。 • sucps.com：需要关注公众号。 • 下载狗：有每日下载次数限额。 这两个工具都可以下载。 ~~不过作为一个程序员~~，总是好奇背后的原理。而且我也想学会自己白嫖，就不用求人了。 **探索过程** 了解html页面的话，肯定最先想到的是在浏览器里按下，然后点击目标视频，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/简单的视频桌面壁纸实现.md": {
+    "file_updated": 1760587486.3607774,
+    "should_build": false,
+    "title": "简单的视频桌面壁纸实现",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-08-19 18:13",
+    "updated": "24-08-19",
+    "html_filename": "简单的视频桌面壁纸实现.html",
+    "quote_html_filename": "%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%E5%AE%9E%E7%8E%B0.html",
+    "link": "https://code-pigeon.github.io/blog/html/简单的视频桌面壁纸实现.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%E5%AE%9E%E7%8E%B0.html",
+    "description": "涉及的技术： - win32 api编程 - C语言 **C语言实现** 改编自B站up主偶尔有点小迷糊的视频1。 原理是用视频播放器播放视频，然后把播放视频的窗口放到桌面上。（讲得很简单，详细可以参考偶尔老师的视频） 因为播放器窗口自己也需要初始化，而这个函数是同步的，并不等待播放器窗口创建之后才完成，所以如果不进行优化，可能会出现主程序的流程跑完了，播放器进程才加载好的情况，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/编译带图标的exe文件.md": {
+    "file_updated": 1760586801.2244835,
+    "should_build": false,
+    "title": "编译带图标的exe文件",
+    "category": [
+      "杂谈",
+      "编程杂谈"
+    ],
+    "date": "24-02-25 00:17",
+    "updated": "24-02-25 00:30",
+    "html_filename": "编译带图标的exe文件.html",
+    "quote_html_filename": "%E7%BC%96%E8%AF%91%E5%B8%A6%E5%9B%BE%E6%A0%87%E7%9A%84exe%E6%96%87%E4%BB%B6.html",
+    "link": "https://code-pigeon.github.io/blog/html/编译带图标的exe文件.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E7%BC%96%E8%AF%91%E5%B8%A6%E5%9B%BE%E6%A0%87%E7%9A%84exe%E6%96%87%E4%BB%B6.html",
+    "description": "**尝试过程** 先参考了第一个链接（见参考），做了如下事情： 文件结构为： ico.rc的内容为： 接着运行。 但出现报错： 死活不成功，然后参考了链接二，加了个选项，就成功了。 现在的文件结构为： 接下来直接用gcc把main.c和ico.o编译并链接到一起即可： **参考** • 给GCC编译出来的可执行文件添加图标 • PW系列 | 用windres 编译.rc 资源文件"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/p、np、npc、np-hard.md": {
+    "file_updated": 1760537518.9851654,
+    "should_build": false,
+    "title": "p、np、npc、np-hard",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "p、np、npc、np-hard.html",
+    "quote_html_filename": "p%E3%80%81np%E3%80%81npc%E3%80%81np-hard.html",
+    "link": "https://code-pigeon.github.io/blog/html/p、np、npc、np-hard.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/p%E3%80%81np%E3%80%81npc%E3%80%81np-hard.html",
+    "description": "• p问题：多项式时间内可解决； • np问题（nondeterministic）：多项式时间内可验证，但不知道多项式时间内是否可解决； • npc问题：多项式时间内可验证，且多项式时间内不可解决； • np hard问题：多项式时间内不可验证。"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/useful_blog.md": {
+    "file_updated": 1760537518.3792727,
+    "should_build": false,
+    "title": "useful blog",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "useful_blog.html",
+    "quote_html_filename": "useful_blog.html",
+    "link": "https://code-pigeon.github.io/blog/html/useful_blog.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/useful_blog.html",
+    "description": "python装饰器"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《modernTkinter》.md": {
+    "file_updated": 1760538081.6797473,
+    "should_build": false,
+    "title": "《modernTkinter》",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《modernTkinter》.html",
+    "quote_html_filename": "%E3%80%8AmodernTkinter%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《modernTkinter》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8AmodernTkinter%E3%80%8B.html",
+    "description": "**4. A First (Real) Example** **4.3 Step-by-Step Walkthrough** **Incorporating Tk** 一个Tk程序首先需要包含两个模块： **Setting up the Main Application Window** 接下来需要设置应用的主窗口，并设置窗口名： **Creating a Content Frame** ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt1.md": {
+    "file_updated": 1760538092.639293,
+    "should_build": false,
+    "title": "《PCAssemblyLanguage》chpt1",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《PCAssemblyLanguage》chpt1.html",
+    "quote_html_filename": "%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt1.html",
+    "link": "https://code-pigeon.github.io/blog/html/《PCAssemblyLanguage》chpt1.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt1.html",
+    "description": "《PC Assembly Language》Paul A. Carter **第1章-介绍Introduction** **1.2 Computer Organization** **1.2.1 内存（Memory）** **1.2.3 80x86 CPU家族** **实模式** • 程序可以访问任何内存地址（甚至是别的程序的内存） • 程序内存需要分段，每个段不超过64K ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt2.md": {
+    "file_updated": 1760538100.3568726,
+    "should_build": false,
+    "title": "《PCAssemblyLanguage》chpt2",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《PCAssemblyLanguage》chpt2.html",
+    "quote_html_filename": "%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt2.html",
+    "link": "https://code-pigeon.github.io/blog/html/《PCAssemblyLanguage》chpt2.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt2.html",
+    "description": "《PC Assembly Language》Paul A. Carter **第2章-基础汇编语言Basic Assembly Language** **2.1 使用整型（Working with Integers）** **2.1.1 整型的表示（Integer representation）** unsigned integers； signed integers： - signed ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt3.md": {
+    "file_updated": 1760538105.5830882,
+    "should_build": false,
+    "title": "《PCAssemblyLanguage》chpt3",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《PCAssemblyLanguage》chpt3.html",
+    "quote_html_filename": "%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt3.html",
+    "link": "https://code-pigeon.github.io/blog/html/《PCAssemblyLanguage》chpt3.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt3.html",
+    "description": "《PC Assembly Language》Paul A. Carter **第3章-位操作Bit Operations** **3.1 位移（Shift Operations）** **3.1.1 逻辑位移（Logical shifts）** 逻辑位移中，新增的bit位总是0。 在汇编语言中，用和来执行逻辑位移操作。 位移的位数可以是立即数，也可以是存放在寄存器中的数字。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt4.md": {
+    "file_updated": 1760538111.8459668,
+    "should_build": false,
+    "title": "《PCAssemblyLanguage》chpt4",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《PCAssemblyLanguage》chpt4.html",
+    "quote_html_filename": "%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt4.html",
+    "link": "https://code-pigeon.github.io/blog/html/《PCAssemblyLanguage》chpt4.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt4.html",
+    "description": "《PC Assembly Language》Paul A. Carter **第4章-子程序Subprograms** **4.1 间接寻址（Indirect Addressing）** 因为ax大小为1个字，所以会从以ebx为起始的地址开始读取一个字，并存入ax中。 若用al代替ax，因为al大小为1个字节，所以会从以ebx为起始的地址开始读取一个字节，并存入al。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt7.md": {
+    "file_updated": 1760538117.8358803,
+    "should_build": false,
+    "title": "《PCAssemblyLanguage》chpt7",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《PCAssemblyLanguage》chpt7.html",
+    "quote_html_filename": "%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt7.html",
+    "link": "https://code-pigeon.github.io/blog/html/《PCAssemblyLanguage》chpt7.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8APCAssemblyLanguage%E3%80%8Bchpt7.html",
+    "description": "《PC Assembly Language》Paul A. Carter **第7章-结构体与C++（Structures and C++）** **7.1 结构体** ANSI C标准规定： 1. 结构体中各变量的排序与在内存中的排序相同； 2. 第一个变量相对结构体地址的偏移量为0； 3. 在中定义了宏，可以用来计算结构体中变量相对结构体地址的偏移量（用法为，strut为结果体名，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt13_Windows_Memory_Architecture.md": {
+    "file_updated": 1760538132.7832294,
+    "should_build": false,
+    "title": "《windows核心编程》Chpt13_Windows_Memory_Architecture",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《windows核心编程》Chpt13_Windows_Memory_Architecture.html",
+    "quote_html_filename": "%E3%80%8Awindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8BChpt13_Windows_Memory_Architecture.html",
+    "link": "https://code-pigeon.github.io/blog/html/《windows核心编程》Chpt13_Windows_Memory_Architecture.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8Awindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8BChpt13_Windows_Memory_Architecture.html",
+    "description": "**Virtual Memory** **概念** • free：进程虚拟内存中没有使用的区域（region）is free。 • reserving：进程在使用某块虚拟内存区域之前，需要先对其进行分配（allocate），这一动作称为reserving。 • releasing：当虚拟内存的某块区域不再需要使用时，可以释放（releasing）它。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt2_Characters.md": {
+    "file_updated": 1760538138.7699585,
+    "should_build": false,
+    "title": "《windows核心编程》Chpt2_Characters",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《windows核心编程》Chpt2_Characters.html",
+    "quote_html_filename": "%E3%80%8Awindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8BChpt2_Characters.html",
+    "link": "https://code-pigeon.github.io/blog/html/《windows核心编程》Chpt2_Characters.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8Awindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8BChpt2_Characters.html",
+    "description": "**Chapter 2：Working with Characters and Strings** **须知** 在学习的过程中，看到了不少网友对这个头文件的吐槽，说这种过时的东西完全没有存在的必要。 我简单搜索了一下，他们的意思是，开发时用上tchar.h，那么后续的开发和维护会变得麻烦。而在如今，一两个字符的空间大小很廉价，以巨大代价换取这点空间不划算。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt3_Kernel_Objects.md": {
+    "file_updated": 1760538143.8057816,
+    "should_build": false,
+    "title": "《windows核心编程》Chpt3_Kernel_Objects",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《windows核心编程》Chpt3_Kernel_Objects.html",
+    "quote_html_filename": "%E3%80%8Awindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8BChpt3_Kernel_Objects.html",
+    "link": "https://code-pigeon.github.io/blog/html/《windows核心编程》Chpt3_Kernel_Objects.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8Awindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8BChpt3_Kernel_Objects.html",
+    "description": "**Chapter 3：Kernel Objects** **What Is a Kernel Object?** **Usage Counting** Kernel对象属于Kernel。 Kernel对象内部记录了调用自己的进程的数量，当调用Kernel对象的进程数量为0时，Kernel会销毁该Kernel对象。 **Security** Kernel对象受到安全描述符（security ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt4_Process.md": {
+    "file_updated": 1760538149.1384037,
+    "should_build": false,
+    "title": "《windows核心编程》Chpt4_Process",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "《windows核心编程》Chpt4_Process.html",
+    "quote_html_filename": "%E3%80%8Awindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8BChpt4_Process.html",
+    "link": "https://code-pigeon.github.io/blog/html/《windows核心编程》Chpt4_Process.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8Awindows%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B%E3%80%8BChpt4_Process.html",
+    "description": "**Chapter 4：Processes** **Overview** 进程被定义为程序的运行实例（instance），一个进程包含： - 一个kernel对象，操作系统用此对象管理进程；kernel对象也记录了进程运行的统计信息。 - 一个地址空间，包含所有exe和dll代码和数据，同时也包含动态分配的内存空间（如线程栈和堆）。 **Writing Your First Windows ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【c++笔记】.md": {
+    "file_updated": 1760537517.8328984,
+    "should_build": false,
+    "title": "C++笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【c++笔记】.html",
+    "quote_html_filename": "%E3%80%90c%2B%2B%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【c++笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90c%2B%2B%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**奇异递归模板模式(Curiously Recurring Template Pattern)** 参考链接 简单说就是把子类作为父类的模板参数。 **静态多态性返回可变和不可变对象** 这源于我在看奇异递归模板模式(Curiously Recurring Template Pattern)时看到的例子： 不熟悉肯定是看懵了，两个成员函数的名字一模一样，区别只在于。 ChatGPT： 在使用 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【cmake笔记】.md": {
+    "file_updated": 1760537517.2881823,
+    "should_build": false,
+    "title": "cmake 笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【cmake笔记】.html",
+    "quote_html_filename": "%E3%80%90cmake%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【cmake笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90cmake%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**** add_executable(myexe test.cpp)：以test.cpp为源码创建一个名为myexe的可执行文件； **设置编译器为MinGW** 在Windows下，除非调用CMake时显式指定了生成器，否则CMake使用最新的Visual Studio安装作为默认生成器。此行为是硬编码的，不能更改。 所以只能写个bat包装一下cmake命令： 参考链接：关于C ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【cmd笔记】bat脚本.md": {
+    "file_updated": 1760537516.2040029,
+    "should_build": false,
+    "title": "windows .bat批处理文件 笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【cmd笔记】bat脚本.html",
+    "quote_html_filename": "%E3%80%90cmd%E7%AC%94%E8%AE%B0%E3%80%91bat%E8%84%9A%E6%9C%AC.html",
+    "link": "https://code-pigeon.github.io/blog/html/【cmd笔记】bat脚本.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90cmd%E7%AC%94%E8%AE%B0%E3%80%91bat%E8%84%9A%E6%9C%AC.html",
+    "description": "**判断文件是否存在** **exit /b** 这表示退出当前的批处理，而不是退出整个cmd.exe。 **内置变量ERRORLEVEL** 这是一个无需声明的内置变量，cmd中此变量用于表示上一段命令是否执行成功，若成功，则为0。 例如： 如果在批处理文件中使用来设置退出代码为 1，那么在调用该批处理文件的CMD窗口中，的值就会变为 1。这样就可以通过判断的值来获取批处理文件的执行状态。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【C笔记】.md": {
+    "file_updated": 1760586786.2370636,
+    "should_build": false,
+    "title": "C笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": "24-11-27 23:15",
+    "html_filename": "【C笔记】.html",
+    "quote_html_filename": "%E3%80%90C%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【C笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90C%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**time.h** 类型介绍： **关于时间戳和时间结构体的函数** 这个函数在编译时需要定义宏： 否则会出现警告：。 尚不明原因。 参考0.6.2 warning: implicit declaration of function 'strptime' **strftime的所有格式** **日期和时间元素** |格式符号|描述|示例| |:---|:---|:---| ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【flask笔记】.md": {
+    "file_updated": 1760537515.3356626,
+    "should_build": false,
+    "title": "flask笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【flask笔记】.html",
+    "quote_html_filename": "%E3%80%90flask%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【flask笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90flask%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**模板继承** ： ： 部分模板一般用下划线开头，与完整的模板区分开来。 **引入静态文件** 用函数： 会被flask自动整成一个路由，可以通过来访问静态文件。 **Bootstrap** 链接 好像是个前端框架：Bootstrap是一个流行的前端开发框架，它提供了一系列的HTML、CSS和JavaScript工具，用于快速构建响应式网站和Web应用程序。 **表单** 要使用的库 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【gcc笔记】.md": {
+    "file_updated": 1760586760.1149015,
+    "should_build": false,
+    "title": "gcc笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": "24-12-09 19:42",
+    "html_filename": "【gcc笔记】.html",
+    "quote_html_filename": "%E3%80%90gcc%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【gcc笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90gcc%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**gcc基本命令** *参考视频*：gcc编译器的简单入门教程 **gcc和环境变量** **头文件搜索** ：指定头文件搜索路径（相当于gcc的选项）。多个路径之间用分隔。 ：同，但只对C语言源文件有效。 ：同，但只对C++语言源文件有效。 **库文件搜索** ：指定库文件搜索路径（（相当于gcc的选项）。多个路径之间用分隔。 用于指定进程运行时，动态链接库的搜索路径。 **参考** ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【gcc笔记】动态库.md": {
+    "file_updated": 1760587465.1594253,
+    "should_build": false,
+    "title": "gcc笔记——动态库",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": "24-08-17 16:55",
+    "updated": "24-08-17 17:18",
+    "html_filename": "【gcc笔记】动态库.html",
+    "quote_html_filename": "%E3%80%90gcc%E7%AC%94%E8%AE%B0%E3%80%91%E5%8A%A8%E6%80%81%E5%BA%93.html",
+    "link": "https://code-pigeon.github.io/blog/html/【gcc笔记】动态库.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90gcc%E7%AC%94%E8%AE%B0%E3%80%91%E5%8A%A8%E6%80%81%E5%BA%93.html",
+    "description": "**位置无关代码** 动态库应该被编译为位置无关的代码，在这种情况下，glocal offset table这张表记录着所有动态链接符号的位置。 和选项都可以生成位置无关的代码。前者编译出更快的代码，但对于global offset table的尺寸有限制，后者则没有。 **三种名字** • real name：文件的真实名字，通常遵循的结构，即为动态库的名字，、、分别代表大、小版本号和发布号。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【git笔记】.md": {
+    "file_updated": 1760537514.0488124,
+    "should_build": false,
+    "title": "git笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【git笔记】.html",
+    "quote_html_filename": "%E3%80%90git%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【git笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90git%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**参考视频**： 【GeekHour】一小时Git教程 【Git全套教程】轻松搞笑 快速上手 | 保姆级 **基础** **分支** **远程仓库**"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【Linux笔记】tar——压缩与解压.md": {
+    "file_updated": 1760538173.5119655,
+    "should_build": false,
+    "title": "【Linux笔记】tar——压缩与解压",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【Linux笔记】tar——压缩与解压.html",
+    "quote_html_filename": "%E3%80%90Linux%E7%AC%94%E8%AE%B0%E3%80%91tar%E2%80%94%E2%80%94%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/【Linux笔记】tar——压缩与解压.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90Linux%E7%AC%94%E8%AE%B0%E3%80%91tar%E2%80%94%E2%80%94%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B.html",
+    "description": "**打包与压缩** **打包文件（生成新的tar文件）：** **打包并压缩文件（生成新的.tar.gz文件）：** **注**：打包和压缩是不一样的概念 - gzip这种压缩方式默认只能压缩一个文件，所以当有多个文件需要压缩时，就需要用到把多个文件打包成一个文件，这就是tar -cf打包的作用。打包操作并不涉及压缩。 - 而tar -zcf实际是两个步骤的结合： 1. 先把多个文件打包成一个...."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【Linux笔记】执行bash三种方式的区别.md": {
+    "file_updated": 1760537513.607319,
+    "should_build": false,
+    "title": "【Linux笔记】bash/sh、./和source执行bash脚本的区别",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【Linux笔记】执行bash三种方式的区别.html",
+    "quote_html_filename": "%E3%80%90Linux%E7%AC%94%E8%AE%B0%E3%80%91%E6%89%A7%E8%A1%8Cbash%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB.html",
+    "link": "https://code-pigeon.github.io/blog/html/【Linux笔记】执行bash三种方式的区别.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90Linux%E7%AC%94%E8%AE%B0%E3%80%91%E6%89%A7%E8%A1%8Cbash%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB.html",
+    "description": "• 显式指定解释器（如）的情况下，每次执行脚本时都会开启一个子shell，因此不保留当前的shell变量； • 使用source或者点./执行（如、），在当前shell环境加载脚本，因此保留脚本中的变量； 例如： 有脚本文件内容为 在终端中用bash命令调用该脚本后，echo ${name}，会发现name为空。 但若用source或者 . 调用，再echo ${name}，会返回cxk"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【Linux笔记】数值运算.md": {
+    "file_updated": 1760537513.135986,
+    "should_build": false,
+    "title": "【Linux笔记】数值运算——双小括号、let、expr",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【Linux笔记】数值运算.html",
+    "quote_html_filename": "%E3%80%90Linux%E7%AC%94%E8%AE%B0%E3%80%91%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97.html",
+    "link": "https://code-pigeon.github.io/blog/html/【Linux笔记】数值运算.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90Linux%E7%AC%94%E8%AE%B0%E3%80%91%E6%95%B0%E5%80%BC%E8%BF%90%E7%AE%97.html",
+    "description": "**1. 双小括号** **双小括号可以进行整型运算，要取出结果需要在前面加$符号** **给变量赋值** • 方式1 • 方式2 **也可以进行逻辑运算，真1假0，同样要用$取结果** **2. let命令** **作用和双小括号基本相同，但效率会低一些** **3. expr命令** **expr后面输入的数字和符号之间都要有空格，也支持大于小于等判断，但像> < * 之类的符号，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【lua笔记】.md": {
+    "file_updated": 1760537512.6724706,
+    "should_build": false,
+    "title": "【lua笔记】",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【lua笔记】.html",
+    "quote_html_filename": "%E3%80%90lua%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【lua笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90lua%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "*参考*：《Programming in Lua》第4版，Roberto Ierusalimschy **lua函数** **函数参数默认值的实现** **lua与C交互** **例1** **头文件包含** 若不知道是C还是C++程序 若确定是C程序： 若确定是C++程序 **向lua栈添加元素** **访问lua栈元素** **查询lua栈元素的类型** 判断lua栈的元素是否为某一类型： ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【make技巧】复制文件夹下的所有文件到另一个文件夹中.md": {
+    "file_updated": 1760537512.2269194,
+    "should_build": false,
+    "title": "【make技巧】复制文件夹下的所有文件到另一个文件夹中",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【make技巧】复制文件夹下的所有文件到另一个文件夹中.html",
+    "quote_html_filename": "%E3%80%90make%E6%8A%80%E5%B7%A7%E3%80%91%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD.html",
+    "link": "https://code-pigeon.github.io/blog/html/【make技巧】复制文件夹下的所有文件到另一个文件夹中.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90make%E6%8A%80%E5%B7%A7%E3%80%91%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD.html",
+    "description": "**情景描述** 假设项目文件夹如下： 要通过makefile实现自动将src下的所有文件复制到obj文件夹中： **实现**"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【make笔记】.md": {
+    "file_updated": 1760537511.5442913,
+    "should_build": false,
+    "title": "make笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【make笔记】.html",
+    "quote_html_filename": "%E3%80%90make%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【make笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90make%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "*参考视频*：跟着GNU make官方文档从入门到精通makefile(持续更新中) **1-入门** **第一个makefile** 在项目根目录下新建一个makefile文件（无需后缀） 编辑makefile文件 编辑完成后，直接在项目根目录下执行即可。 **伪目标.PHONY** 在makefile文件中添加clean目标 这样在命令行执行，clean:下面的两条语句就会执行。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【python笔记】contextlib，自定义with语句.md": {
+    "file_updated": 1760537511.1584983,
+    "should_build": false,
+    "title": "【python笔记】contextlib，自定义with语句",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【python笔记】contextlib，自定义with语句.html",
+    "quote_html_filename": "%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91contextlib%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89with%E8%AF%AD%E5%8F%A5.html",
+    "link": "https://code-pigeon.github.io/blog/html/【python笔记】contextlib，自定义with语句.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91contextlib%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89with%E8%AF%AD%E5%8F%A5.html",
+    "description": "*参考书籍*： 《深度学习入门——自制框架》[日]斋藤康毅 步骤18.5 使用with语句切换 **with语法** python中的语句，用于自动进行后处理。 如文件读写： 这段代码等价于 可以看到其实就是帮助程序员自动将打开的文件关闭。 **contextlib.contextmanager装饰器** 使用contextlib中的contextmanager装饰器，就可以实现自定义的语句了： ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【python笔记】python装饰器.md": {
+    "file_updated": 1760587450.8067074,
+    "should_build": false,
+    "title": "python装饰器",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": "24-03-08 23:09",
+    "updated": "24-03-08 23:21",
+    "html_filename": "【python笔记】python装饰器.html",
+    "quote_html_filename": "%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91python%E8%A3%85%E9%A5%B0%E5%99%A8.html",
+    "link": "https://code-pigeon.github.io/blog/html/【python笔记】python装饰器.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91python%E8%A3%85%E9%A5%B0%E5%99%A8.html",
+    "description": "**形如@dec(param1 = 1, param2 = 2)的装饰器** 输出为："
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【python笔记】弱引用weakref.md": {
+    "file_updated": 1760537510.3202794,
+    "should_build": false,
+    "title": "【python笔记】弱引用weakref",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【python笔记】弱引用weakref.html",
+    "quote_html_filename": "%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91%E5%BC%B1%E5%BC%95%E7%94%A8weakref.html",
+    "link": "https://code-pigeon.github.io/blog/html/【python笔记】弱引用weakref.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91%E5%BC%B1%E5%BC%95%E7%94%A8weakref.html",
+    "description": "*参考书籍*： 《深度学习入门——自制框架》[日]斋藤康毅 步骤17.4 weakref模块 强引用会出现循环引用的情况 这样a、b、c三个对象的引用计数都为2，即使执行，引用计数仍然为1，a、b、c都不会被释放（计数为0时，python会自动释放内存空间） 可以发现运行之后，b引用的对象变成了，表明引用的对象已经被删除。 此时再运行，输出会变成。"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【python笔记】虚拟环境.md": {
+    "file_updated": 1760537509.8598833,
+    "should_build": false,
+    "title": "【python笔记】虚拟环境",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【python笔记】虚拟环境.html",
+    "quote_html_filename": "%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html",
+    "link": "https://code-pigeon.github.io/blog/html/【python笔记】虚拟环境.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html",
+    "description": "**1. 虚拟环境的建立** **2. 虚拟环境的激活与去激活** **激活** cd 到虚拟环境文件夹下的Scripts，在终端执行activate **去激活** cd 到虚拟环境文件夹下的Scripts，在终端执行deactivate.bat **3. 在虚拟环境中下载库** **4. 查看当前库依赖** **5. 把库依赖记录到requirements.txt中** **6. ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【ros1笔记】.md": {
+    "file_updated": 1760537509.4340074,
+    "should_build": false,
+    "title": "ros1笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【ros1笔记】.html",
+    "quote_html_filename": "%E3%80%90ros1%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【ros1笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90ros1%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**先修事项** • ros的安装 • ros的包（package）和节点（node）的概念 **第一个package** 准备好项目文件夹： 进入到路径下，执行： 其中，第一个参数是自己创建的包名，后面的为包的依赖项。 此命令执行后，会在执行该命令的路径下生成文件夹，该文件夹中有2个文件夹（和）、2个文件（和）。 此时项目文件夹的内容如下： 此时再返回到路径下，执行： 将会在路径下生成和文件夹。..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【STL笔记】heap.md": {
+    "file_updated": 1760586743.7452614,
+    "should_build": false,
+    "title": "【STL笔记】heap",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": "24-09-20 10:39",
+    "updated": "24-09-20 11:11",
+    "html_filename": "【STL笔记】heap.html",
+    "quote_html_filename": "%E3%80%90STL%E7%AC%94%E8%AE%B0%E3%80%91heap.html",
+    "link": "https://code-pigeon.github.io/blog/html/【STL笔记】heap.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90STL%E7%AC%94%E8%AE%B0%E3%80%91heap.html",
+    "description": "**参考** • 博客园，C++ 标准库中的堆(heap) • GeeksForGeeks，Heap in C++ STL"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【sublime笔记】.md": {
+    "file_updated": 1760586726.900485,
+    "should_build": false,
+    "title": "sublime text笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": "24-11-28 12:11",
+    "html_filename": "【sublime笔记】.html",
+    "quote_html_filename": "%E3%80%90sublime%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【sublime笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90sublime%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**0. 参考** • sublime官网文档 • 《Mastering Sublime Text》Dan Peleg • ST Community Docs，Reference • Sublime Text API reference **1. 基本用法** **1.1 一般快捷键** +：通过查找跳转到目录下任意文件； ++：通过查找使用快捷键； +：跳转到匹配的括号处； +：跳转到行； ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【xmake笔记】.md": {
+    "file_updated": 1760537507.981002,
+    "should_build": false,
+    "title": "xmake 笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【xmake笔记】.html",
+    "quote_html_filename": "%E3%80%90xmake%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【xmake笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90xmake%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**设置编译器为MinGW** **指定目标编译/运行** **设置所有目标为debug模式** **调试运行** windows下的默认调试器为vs，可以手动更改调时器："
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【汇编积累】.md": {
+    "file_updated": 1760537507.3454776,
+    "should_build": false,
+    "title": "汇编积累",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【汇编积累】.html",
+    "quote_html_filename": "%E3%80%90%E6%B1%87%E7%BC%96%E7%A7%AF%E7%B4%AF%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【汇编积累】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90%E6%B1%87%E7%BC%96%E7%A7%AF%E7%B4%AF%E3%80%91.html",
+    "description": "**指令** ：reserve byte，在数据段（.data/.bss）分配32768字节的空间； ：按位与； ：向输出端口写入数据； ： **寄存器** **段寄存器** • cs：用于存储代码段的基址（Code Segment）； • ds：用于存储数据段的基址（Data Segment）； • es：在早期的x86系统中，ES寄存器用于访问额外的数据段（Extra Segment）； • ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【疑难杂症记录】Verifying_shim_SBAT_data_failed_Security_Policy_Violation.md": {
+    "file_updated": 1760587397.2015681,
+    "should_build": false,
+    "title": "Verifying shim SBAT data failed: Security Policy Violation",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": "24-08-19 18:04",
+    "updated": "24-08-19 18:10",
+    "html_filename": "【疑难杂症记录】Verifying_shim_SBAT_data_failed_Security_Policy_Violation.html",
+    "quote_html_filename": "%E3%80%90%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E8%AE%B0%E5%BD%95%E3%80%91Verifying_shim_SBAT_data_failed_Security_Policy_Violation.html",
+    "link": "https://code-pigeon.github.io/blog/html/【疑难杂症记录】Verifying_shim_SBAT_data_failed_Security_Policy_Violation.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E8%AE%B0%E5%BD%95%E3%80%91Verifying_shim_SBAT_data_failed_Security_Policy_Violation.html",
+    "description": "**起因** Windows+Ubuntu双系统用户，在windows进行更新之后可能会出现这样的问题。 我就是昨天切回了Windows，今天就出现了这个问题。 **解决方法** 在开机之后进入BIOS，关闭Secure Boot即可。 不过听说这是个临时解决方法，详细参考蓝点网：Windows 10/11和Linux双系统用户请勿安装最新更新 否则系统将无法启动。"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【编译原理笔记】.md": {
+    "file_updated": 1760537503.6057816,
+    "should_build": false,
+    "title": "编译原理笔记",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "【编译原理笔记】.html",
+    "quote_html_filename": "%E3%80%90%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "link": "https://code-pigeon.github.io/blog/html/【编译原理笔记】.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%E3%80%91.html",
+    "description": "**为什么需要follow集** follow集的存在还是为了计算first集，如果没有空字符ε的存在，那么follow集是没有必要的。 这种情况下，B的first集一定是b； 但如果B可以推导出ε 那么B推导完可能直接消失了，这就需要看看在B后面可能跟着什么，而因为B为空，所以B后面跟着的东西实际上是B的前一个非终结符后面跟着的东西。 在上面这个例子中，因为B可能为空，所以有可能，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/编程笔记/操作系统的启动过程.md": {
+    "file_updated": 1760537500.4083846,
+    "should_build": false,
+    "title": "操作系统的启动过程",
+    "category": [
+      "笔记",
+      "编程笔记"
+    ],
+    "date": null,
+    "updated": null,
+    "html_filename": "操作系统的启动过程.html",
+    "quote_html_filename": "%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/操作系统的启动过程.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B.html",
+    "description": "GRUB加载内核的具体步骤如下： 1. 启动和初始化： - 计算机启动时，BIOS会加载MBR（主引导记录）到内存中，MBR包含GRUB的启动代码。 - GRUB启动代码会加载并执行GRUB的启动脚本，通常位于硬盘的第二个扇区。 2. 配置GRUB： - 启动脚本会加载GRUB配置文件，该文件定义了启动选项，如内核文件的位置、启动参数等。 - GRUB会根据配置文件读取内核映像和参数。 3. ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《北京爷们儿》.md": {
+    "file_updated": 1760586718.2616794,
+    "should_build": false,
+    "title": "《北京爷们儿》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 11:44",
+    "updated": "24-08-02 19:24",
+    "html_filename": "《北京爷们儿》.html",
+    "quote_html_filename": "%E3%80%8A%E5%8C%97%E4%BA%AC%E7%88%B7%E4%BB%AC%E5%84%BF%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《北京爷们儿》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%8C%97%E4%BA%AC%E7%88%B7%E4%BB%AC%E5%84%BF%E3%80%8B.html",
+    "description": "《北京爷们儿》——庸人 于2021/6/13读完 今天，晚上 7 点多，把《北京爷们儿》看完了。 结局好突然，没想到山林是那么死的。 精卫…这个另东子魂牵梦绕的人，兜兜转转，最后居然以这样的方式再次出现在东子身边。 从东子在深圳与精卫别离之后，我就一直在想他们会以什么方式重聚。 21/6/13（摘自日志） 《北京爷们儿》是我最喜欢的小说，到现在仍是如此，没有之一。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《医学生》.md": {
+    "file_updated": 1760586671.4356966,
+    "should_build": false,
+    "title": "《医学生》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-10-21 18:21",
+    "updated": "24-10-24 18:39",
+    "html_filename": "《医学生》.html",
+    "quote_html_filename": "%E3%80%8A%E5%8C%BB%E5%AD%A6%E7%94%9F%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《医学生》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%8C%BB%E5%AD%A6%E7%94%9F%E3%80%8B.html",
+    "description": "《医学生》——向林 于2023/06/30读完，评语“从医学科普的角度评价应该算可以，但从小说的角度看不是很行”。 当时可能已经对看过的其它类型小说有些厌倦了，想尝试一下不同类型或者想开阔一下眼界才看的这本书。 本书中所涉及到很多医疗知识，这方面我也不懂没办法过多评价。但是如果从小说的角度评价这本书，那就不太值得一读了，甚至可以说小说的作用仅仅只是为了包装书中所涉及的医疗知识。作者文笔也一般，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《双开行动》.md": {
+    "file_updated": 1760587381.0148363,
+    "should_build": false,
+    "title": "《双开行动》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 18:19",
+    "updated": "24-08-02",
+    "html_filename": "《双开行动》.html",
+    "quote_html_filename": "%E3%80%8A%E5%8F%8C%E5%BC%80%E8%A1%8C%E5%8A%A8%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《双开行动》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%8F%8C%E5%BC%80%E8%A1%8C%E5%8A%A8%E3%80%8B.html",
+    "description": "《双开行动》——刘学文 于2023/06/01读完，评语“有点狗血” **个人评价** • 评分：★★★☆☆ 确实还是差点意思，主角毋庸置疑的好人，反派是毋庸置疑的反派。剧里的反派女角色行为出奇的一致，都是在名利场里傻傻地相信着真爱，而正派的女角色行为同样出其的一致，都喜欢动不动就留信出家。 **书摘** **词** • 可心 • 伉俪 • 下野 • 里出外进 • 附庸风雅 • 久居芝兰之室，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《圈子圈套》.md": {
+    "file_updated": 1760587357.3068867,
+    "should_build": false,
+    "title": "《圈子圈套》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 13:39",
+    "updated": "24-08-02",
+    "html_filename": "《圈子圈套》.html",
+    "quote_html_filename": "%E3%80%8A%E5%9C%88%E5%AD%90%E5%9C%88%E5%A5%97%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《圈子圈套》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%9C%88%E5%AD%90%E5%9C%88%E5%A5%97%E3%80%8B.html",
+    "description": "《圈子圈套》——王强 于2021/03/30读完，评语“每看完一本书后都觉得感概万分……荡气回肠” 这本书，太让我喜欢了，可能是因为 Jim 的聪明睿智，也可能是因为他和菲比之间有趣的爱情，也可能是打商战时的尔虞我诈，又或者是在与上下属相处时的哲学艺术，过程太精彩了。而结尾又令人感慨无限，当小说进入尾声的时候，作者开始透漏出小说所想表达的东西时，读起来就非常的耐人寻味了，那种呼之欲出的感觉，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《外婆的英雄世界》.md": {
+    "file_updated": 1760587344.6984198,
+    "should_build": false,
+    "title": "《外婆的英雄世界》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-06-14 18:48",
+    "updated": "24-06-14 19:14",
+    "html_filename": "《外婆的英雄世界》.html",
+    "quote_html_filename": "%E3%80%8A%E5%A4%96%E5%A9%86%E7%9A%84%E8%8B%B1%E9%9B%84%E4%B8%96%E7%95%8C%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《外婆的英雄世界》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%A4%96%E5%A9%86%E7%9A%84%E8%8B%B1%E9%9B%84%E4%B8%96%E7%95%8C%E3%80%8B.html",
+    "description": "《外婆的英雄世界》——赵挺 这本书是昨天（24/6/13）在图书馆无意间发现的，当时刚看完《变成种子的小孩》，想再在书展区找一本书来看。这个书名可能恰好契合了我对平淡故事的喜爱，我挑出了它，随意浏览了开头的片段。也许是因为很无聊想找本书看，也许是因为开头确实没有那么不吸引我，总之我坐着继续看了下去…… **书摘** 我说，年轻人应该多出去走走，最好走遍全世界。 外婆说，年轻人，走遍世界也好，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《如英》.md": {
+    "file_updated": 1760587335.3280594,
+    "should_build": false,
+    "title": "《如英》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 15:15",
+    "updated": "24-08-02",
+    "html_filename": "《如英》.html",
+    "quote_html_filename": "%E3%80%8A%E5%A6%82%E8%8B%B1%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《如英》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%A6%82%E8%8B%B1%E3%80%8B.html",
+    "description": "《如英》——常小琥 于2023/07/18读完，评语“好压抑的故事” 和上世纪六、七十年代有关的故事，总是会显得非常黑暗沉重，如英一辈子都活在阴影当中。 24/8/2/15:27 **个人评价** • 评分：★★★★★ **书摘** **词** • 瓷实 • 孤削 • 补缀 • 绀色 • 竹车 • 诋辱 • 学究 • 爬犁 • 胡吣 • 岑静 • 绒须 • 山岚 • 麦茬 • 老鸹 • 刁悍 • ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《小巷人家》.md": {
+    "file_updated": 1760587316.1205347,
+    "should_build": false,
+    "title": "《小巷人家》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 12:33",
+    "updated": "24-08-02",
+    "html_filename": "《小巷人家》.html",
+    "quote_html_filename": "%E3%80%8A%E5%B0%8F%E5%B7%B7%E4%BA%BA%E5%AE%B6%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《小巷人家》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E5%B0%8F%E5%B7%B7%E4%BA%BA%E5%AE%B6%E3%80%8B.html",
+    "description": "《小巷人家》——大米 于2023/5/16读完 因为在宿舍没什么事情，消遣也就成了刚需，我于是无聊就打开看。 其它时间，之前的《我是个算命先生》看完了，之前在推荐里找到一本《小巷人家》，似乎就讲些平平淡淡的生活，我于是饶有兴趣地打开看了看。还挺好看的，这书看了能对上世纪改革开放的经济民生和政治动向都有切身的体会。不过看到后面才知道这本书的真面目，它应该更算是一部言情小说。..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《我在北京卖模特》.md": {
+    "file_updated": 1760586683.340602,
+    "should_build": false,
+    "title": "《我在北京卖模特》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-11-15 18:27",
+    "updated": "24-11-15",
+    "html_filename": "《我在北京卖模特》.html",
+    "quote_html_filename": "%E3%80%8A%E6%88%91%E5%9C%A8%E5%8C%97%E4%BA%AC%E5%8D%96%E6%A8%A1%E7%89%B9%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《我在北京卖模特》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E6%88%91%E5%9C%A8%E5%8C%97%E4%BA%AC%E5%8D%96%E6%A8%A1%E7%89%B9%E3%80%8B.html",
+    "description": "《我在北京卖模特》——赫连心心 于2024/11/15读完 看到这个书名时，我想到的是我看过的另外一本书，叫做《我在北京送快递》，于是心想以后是不是会有什么《我在北京开滴滴》、《我在北京捡垃圾》之类的书涌现出来。 不过看了介绍，这本书介绍了作者在模特圈的经历见闻，这是一个对我来说很陌生的行业，恰好在读书app上可以免费看，我就把它加入书架了。 这本书很新，好像就是24年出版的，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《我在北京送快递》.md": {
+    "file_updated": 1760587303.056676,
+    "should_build": false,
+    "title": "《我在北京送快递》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 14:37",
+    "updated": "24-08-02",
+    "html_filename": "《我在北京送快递》.html",
+    "quote_html_filename": "%E3%80%8A%E6%88%91%E5%9C%A8%E5%8C%97%E4%BA%AC%E9%80%81%E5%BF%AB%E9%80%92%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《我在北京送快递》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E6%88%91%E5%9C%A8%E5%8C%97%E4%BA%AC%E9%80%81%E5%BF%AB%E9%80%92%E3%80%8B.html",
+    "description": "《我在北京送快递》——胡安焉 于2024/07/09读完，评语“不错，很喜欢作者的经历和文字” 这本书我躺在我读书app的书架里挺久了，直到这个暑假为了跑步时不无聊才把它拿出来看。当时同时在看的还有水浒传，但是没有在跑步时看水浒，因为跑步时我用了读书app的朗读功能来听书，水浒传生僻字太多，只好找一本用字相对简单的书。 我很喜欢作者的经历，他经历了毕业即失业，打过几乎算是贱卖自己的工作，创过业，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《斗贼》.md": {
+    "file_updated": 1760603623.590202,
+    "should_build": false,
+    "title": "《斗贼》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 18:22",
+    "updated": "24-08-02",
+    "html_filename": "《斗贼》.html",
+    "quote_html_filename": "%E3%80%8A%E6%96%97%E8%B4%BC%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《斗贼》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E6%96%97%E8%B4%BC%E3%80%8B.html",
+    "description": "《斗贼》——常书欣 于2023/05/03读完，评语“棒！期待下一部” 我预备着路上无聊，得有点事干，于是在微信读书里找书看。 不是很想回看看过的书，还没看完的图说字源不太算那种看起来可以很上瘾的，而郭德纲的那本书其实也不是特别好看，特别是在我看完《我与地坛》之后，感觉这种散文类型的书是真的不太好看，或者说不对我的胃口，我还是比较适合看小说，于是就想找本小说看。历史小说我读过几本了，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《曾少年》.md": {
+    "file_updated": 1760587269.834121,
+    "should_build": false,
+    "title": "《曾少年》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-07-30 21:02",
+    "updated": "24-07-31 01:13",
+    "html_filename": "《曾少年》.html",
+    "quote_html_filename": "%E3%80%8A%E6%9B%BE%E5%B0%91%E5%B9%B4%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《曾少年》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E6%9B%BE%E5%B0%91%E5%B9%B4%E3%80%8B.html",
+    "description": "《曾少年》——九夜茴 这本书是因为看了剧版的《曾少年之小时候》才看的，此时距离我看完《曾少年之小时候》仅仅只有两天，我第一次翻看《曾少年》这本书也仅仅只是在昨天。 本来还是想着要学点东西的，但这两天总是提不起劲来，下午百无聊赖的时候，想着就不浪费时间刷视频了，再继续看看《曾少年》吧。 现在还没有把书看完，但已经把剧版《曾少年之小时候》所对应的章节都看完了。这本书比我想象中的要薄，看书速度慢如我，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《植物的战斗》.md": {
+    "file_updated": 1760586706.169948,
+    "should_build": false,
+    "title": "《植物的战斗》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-11-19 22:04",
+    "updated": "24-11-19",
+    "html_filename": "《植物的战斗》.html",
+    "quote_html_filename": "%E3%80%8A%E6%A4%8D%E7%89%A9%E7%9A%84%E6%88%98%E6%96%97%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《植物的战斗》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E6%A4%8D%E7%89%A9%E7%9A%84%E6%88%98%E6%96%97%E3%80%8B.html",
+    "description": "《植物的战斗》——汪诘·科学有故事团队 于2024/11/19读完 在读书app的记录中，我居然在23年的1月1日就已经开始看这本书了，那时候刚考完研不久，没有了负担，近乎报复性地看书。但是在某天之后，我看到一半就不太想继续看下去了，每次都是翻看看个一两分钟就不想看了，然后逐渐被我遗忘在书架中。但不看也并不是这本书不好看。我本身就不是一个容易专注的人，特别是在看书这件事情上，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《混在985》.md": {
+    "file_updated": 1760587256.186027,
+    "should_build": false,
+    "title": "《混在985》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 16:55",
+    "updated": "24-08-02 17:54",
+    "html_filename": "《混在985》.html",
+    "quote_html_filename": "%E3%80%8A%E6%B7%B7%E5%9C%A8985%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《混在985》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E6%B7%B7%E5%9C%A8985%E3%80%8B.html",
+    "description": "《混在985》——画字儿 于2023/06/13看完 我记得我刚看这本书的时候就在想，这个作者一定是个女生，因为在开头“新生入学”的那章里描写女生宿舍的实物细节可太多了，不是真的生活过的我想肯定写不出来。在看这本书的前不久我刚好了解了一点书法的东西，作者的这个笔名就让我想起书法里的“画字”。后来在网上查到作者还真的是学过美术专业的。在我看书的读书app上，作者还会对读者的评论进行回复，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《疯娘》.md": {
+    "file_updated": 1760587245.8830135,
+    "should_build": false,
+    "title": "《疯娘》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-15 20:13",
+    "updated": "24-08-15 20:28",
+    "html_filename": "《疯娘》.html",
+    "quote_html_filename": "%E3%80%8A%E7%96%AF%E5%A8%98%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《疯娘》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E7%96%AF%E5%A8%98%E3%80%8B.html",
+    "description": "《疯娘》——王恒绩 今天在短时频平台看到的这个故事，评论里说这个故事是由小说改编的。我于是去看了一下原文。 文字很朴素，故事却很感人。看到结尾时，还是会像在短视频里第一次看到结局一样，被狠狠刀了一下。 同时又了解到这个故事是有真实原型的，而且原型比小说更加悲惨，不禁唏嘘。 所以又会感叹自己的生活其实是多么美好。在那些没人关注的穷山僻壤里，又隐藏着多少这样的故事呢。 敬佩作者！ ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《试错》.md": {
+    "file_updated": 1760586649.7178876,
+    "should_build": false,
+    "title": "《试错》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-12-08 16:15",
+    "updated": "24-12-09 18:32",
+    "html_filename": "《试错》.html",
+    "quote_html_filename": "%E3%80%8A%E8%AF%95%E9%94%99%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《试错》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E8%AF%95%E9%94%99%E3%80%8B.html",
+    "description": "《试错》——枪泥 于2024/12/06看完 这是一本属于程序员的创业小说，还是非虚构的小说。整体读下来感觉非常涨知识，因为我目前对创业这一块的知识的了解是几乎没有的，通过本书了解到了创业过程的前前后后，也体会到了创业者在此过程中所面对的林林总总。 作者本人就是程序员，没有很深厚的文学功底，所以他的文字还是十分亲切的，读起来十分轻松。不过虽然文字很朴实，但并不意味着不好看，正如序中所说的，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《追问》.md": {
+    "file_updated": 1760586635.1727746,
+    "should_build": false,
+    "title": "《追问》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-09-16 21:20",
+    "updated": "24-10-17 23:03",
+    "html_filename": "《追问》.html",
+    "quote_html_filename": "%E3%80%8A%E8%BF%BD%E9%97%AE%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《追问》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E8%BF%BD%E9%97%AE%E3%80%8B.html",
+    "description": "《追问》——丁捷 **看书历程** 我感觉最近自己的问题很大，在有电视剧看的情况下，我居然还是会选择短视频，很机械地刷。 还好刷到了这本书，一听介绍我就来劲了啊，最喜欢这种阴暗的故事了。 24/9/16/21:21 看完了第一个故事，感觉是“就这？”，还没有看到能匹配我在短视频里看到的那种夸张描述的情节。 24/9/16/22:00 昨晚睡前看完了第二个故事，感觉还是“就这？”。..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《酥油和麻辣烫》.md": {
+    "file_updated": 1760587237.999991,
+    "should_build": false,
+    "title": "《酥油和麻辣烫》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 14:22",
+    "updated": "24-08-02 ",
+    "html_filename": "《酥油和麻辣烫》.html",
+    "quote_html_filename": "%E3%80%8A%E9%85%A5%E6%B2%B9%E5%92%8C%E9%BA%BB%E8%BE%A3%E7%83%AB%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《酥油和麻辣烫》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E9%85%A5%E6%B2%B9%E5%92%8C%E9%BA%BB%E8%BE%A3%E7%83%AB%E3%80%8B.html",
+    "description": "《酥油和麻辣烫》——孙睿 于2023/07/14读完，评语“有些看不懂” 这是一本中短篇小说的小说集。小时候我比较喜欢这种中短篇小说，因为很容易看完，那时的我觉得一直看同一个故事是件枯燥乏味的事情。但现在比较喜欢稍微长一点的了，所以当时看这本书可能也只是出于一种“找不到啥书看就随便看看吧”的心理。正如我当时的评语里说的，这本书里的故事我经常是直到看完了都不知道作者想表达的是啥，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《鸡犬不宁》.md": {
+    "file_updated": 1760587227.0187154,
+    "should_build": false,
+    "title": "《鸡犬不宁》",
+    "category": [
+      "笔记",
+      "读书笔记"
+    ],
+    "date": "24-08-02 17:56",
+    "updated": "24-08-02 ",
+    "html_filename": "《鸡犬不宁》.html",
+    "quote_html_filename": "%E3%80%8A%E9%B8%A1%E7%8A%AC%E4%B8%8D%E5%AE%81%E3%80%8B.html",
+    "link": "https://code-pigeon.github.io/blog/html/《鸡犬不宁》.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%8A%E9%B8%A1%E7%8A%AC%E4%B8%8D%E5%AE%81%E3%80%8B.html",
+    "description": "《鸡犬不宁》——庄无邪 于2023/07/27读完，评语“猜错主角系列” 开篇是从一个刑警队副队长开始的，前面有挺长一段剧情都是围绕着他来写的，直到引出主角的时候，主角还只是一个神秘的角色。然后主角一直神秘了很久，直到那种“神秘”的真面目一层层揭开，主角也开始一点点发挥能力，然后到接近结局才幡然醒悟，原来他才是主角！这大概就是我看这本书的最大感受。 悬疑类型的书，我觉得还挺好看的，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20250421cloudflare-as-image-host.md": {
+    "file_updated": 1760587095.2356312,
+    "should_build": false,
+    "title": "我也用cloudflare R2来做图床了",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "25-04-21 19:16",
+    "updated": null,
+    "html_filename": "20250421cloudflare-as-image-host.html",
+    "quote_html_filename": "20250421cloudflare-as-image-host.html",
+    "link": "https://code-pigeon.github.io/blog/html/20250421cloudflare-as-image-host.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20250421cloudflare-as-image-host.html",
+    "description": "在之前的博客中，我提到了我对图床的要求。找了不少免费图床，最后只有一家图床满足我的要求。 复述一下我对图床的要求：我希望图床能够保留文件的文件名，而不是随机给我另外生成一个。（这样能够方便我实现备用图床的机制，详见我之前的博客图床的选择 今天逛博客的时候又看到了别人用大名鼎鼎的cloudflare R2来做图床的，不知道为什么记忆错乱，老是以为自己试过这个cloudflare了，其实并没有，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/5月31日.md": {
+    "file_updated": 1760586379.3969655,
+    "should_build": false,
+    "title": "完工！",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "24-05-31 23:17",
+    "updated": null,
+    "html_filename": "5月31日.html",
+    "quote_html_filename": "5%E6%9C%8831%E6%97%A5.html",
+    "link": "https://code-pigeon.github.io/blog/html/5月31日.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/5%E6%9C%8831%E6%97%A5.html",
+    "description": "差不多折腾了一个星期终于把博客系统搭好了。虽然还很简陋，但是至少已经能用了。 这一个星期只要有空几乎就埋头搞这个，刚好这几天都下雨，也没什么好玩的，每天都迫不及待地想要完成这个博客，几乎没闲着，B站视频也堆了好多新动态没刷了。前天甚至只能设置番茄钟来强迫自己每过一段时间都起来走一走。 太开心了，但因为语文差不知道说什么了😂。 理工男的表达能力如上所示☝。 洗澡睡觉了。"
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/7月27日.md": {
+    "file_updated": 1760587133.8183198,
+    "should_build": false,
+    "title": "维护之路",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "24-07-27 11:38",
+    "updated": null,
+    "html_filename": "7月27日.html",
+    "quote_html_filename": "7%E6%9C%8827%E6%97%A5.html",
+    "link": "https://code-pigeon.github.io/blog/html/7月27日.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/7%E6%9C%8827%E6%97%A5.html",
+    "description": "11:38 这网站架起来之后就像健身练肌肉一样，把一处练大了，就觉得整体不均衡，得把另一块地儿练练，然后又觉得这块练起来了哪里不均衡，无限循环，一发不可收拾。一开始架完这个网站是觉得能满足需求，后来博客写得多了，越来越多原本没想到的问题就冒了出来，于是又打算改进一些。 昨晚在捣鼓这个网站的时候，有一次github page构建失败了，一开始看不懂那些报错信息，后来才明白过来，原来github ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/8月17日——看不懂的开源协议.md": {
+    "file_updated": 1760587863.934649,
+    "should_build": false,
+    "title": "看不懂的开源协议",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "24-08-17 15:14",
+    "updated": "24-08-17",
+    "html_filename": "8月17日——看不懂的开源协议.html",
+    "quote_html_filename": "8%E6%9C%8817%E6%97%A5%E2%80%94%E2%80%94%E7%9C%8B%E4%B8%8D%E6%87%82%E7%9A%84%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE.html",
+    "link": "https://code-pigeon.github.io/blog/html/8月17日——看不懂的开源协议.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/8%E6%9C%8817%E6%97%A5%E2%80%94%E2%80%94%E7%9C%8B%E4%B8%8D%E6%87%82%E7%9A%84%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE.html",
+    "description": "15:15 自己也写了一些很简单的项目，比如这个博客网页的模板引擎，里面使用了开源的cmark项目的分支cmark-gfm。 对于要不要把自己的项目开源，我自己也有一些想法。 第一是自己现在对开源这个事还不是太熟悉，只知道开源的东西所有人都可以免费获取它的源代码，但对于开源协议和背后的法律效应是一概不知。而且又听说国内的开源环境恶劣，甚至还出现过开源软件作者被商业使用者告上法庭的情况，原告变被告，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/【12月14日】valine评论系统的邮件通知.md": {
+    "file_updated": 1760587100.2584906,
+    "should_build": false,
+    "title": "valine评论系统的邮件通知",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "24-12-14 14:52",
+    "updated": "24-12-14 20:42",
+    "html_filename": "【12月14日】valine评论系统的邮件通知.html",
+    "quote_html_filename": "%E3%80%9012%E6%9C%8814%E6%97%A5%E3%80%91valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5.html",
+    "link": "https://code-pigeon.github.io/blog/html/【12月14日】valine评论系统的邮件通知.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%9012%E6%9C%8814%E6%97%A5%E3%80%91valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5.html",
+    "description": "一开始搭博客地时候，觉得有评论功能就行了，邮不邮件提醒不是很重要。但后来呢……果然人的欲望永远不会被满足……现在还是觉得有人评论了都不知道，那我这么多博客页面，也不可能一个个找看有没有新评论吧。而且要是回复了访客，他们也不知道我回复了，他总不可能评论完之后再专门回来看看自己的评论有没有被回复吧。 所以还是想着整一个评论邮件提醒功能。 但这么一遭下来，感觉问题还真是挺多的。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/图床的选择.md": {
+    "file_updated": 1760587077.944173,
+    "should_build": false,
+    "title": "图床的选择",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "25-04-17 10:22",
+    "updated": "25-04-21 22:39",
+    "html_filename": "图床的选择.html",
+    "quote_html_filename": "%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9.html",
+    "link": "https://code-pigeon.github.io/blog/html/图床的选择.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9.html",
+    "description": "话说这种又像唠嗑又涉及了一点技术的博文到底应该怎么分类呢。 图床好选，符合要求的图床不好选。 一般在图床上传了图片之后，得到的链接都会有个随机的名字。比方说，图片的名字是，上传之后得到的链接往往是这种莫名其妙的文件名。 这和我的需求是不相符的，因为我想要实现一种备用图床的机制。 比如说，上传到图床1之后，返回链接，上传到备用图床时返回，那么当图床1寄了之后，只需要用js的把图床链接从替换为，..."
   }
 }

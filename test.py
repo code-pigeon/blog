@@ -39,19 +39,32 @@ template_content = '''
     <p>作者: {{ author }}</p>
     {{> fancy_banner }}
   </footer>
+
+  {{#tree}}
+    {{#apple_tree}}
+    apple树真得存在
+    {{/apple_tree}}
+  应该得不到渲染
+  {{/tree}}
+
 </body>
 </html>
 '''
 
 # 将上下文改为字典格式
 template_context = {
+    'true': False,
     'blog_title': 'haha',
     'category': ['test1', 'test2'],  # 或者保持为列表 
     'title': '我的博客文章',
     'date': '2024-01-01',
     'footer_note': '版权信息',
     'author': '作者名',
-    'tags': ['标签1', '标签2', '标签3']
+    'tags': ['标签1', '标签2', '标签3'],
+    'tree': {
+      'apple_tree': True,
+      'banana_tree': False,
+    }
 }
 
 render_partials = {

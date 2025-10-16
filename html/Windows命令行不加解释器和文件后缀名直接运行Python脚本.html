@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Windows命令行不加解释器和文件后缀名直接运行Python脚本</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <span class="nickname">乌鸦</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+		    <ul>
+		    		    		<li><a href="index.html">首页</a></li>
+		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
+		    		    </ul>
+		</nav>
+	</header>	<div class=fluid> 
+				<h1 id="Windows命令行不加解释器和文件后缀名直接运行Python脚本">Windows命令行不加解释器和文件后缀名直接运行Python脚本</h1>
+				<div class="article-meta">
+						<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">24-02-29 20:30</time>
+			</div>
+									<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+				</svg>
+				<span class="meta-label">更新</span>
+				<time class="meta-time">24-02-25 20:44</time>
+			</div>
+									<div class="meta-item">
+				<span class="meta-label">杂谈</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">编程杂谈</span>
+			</div>
+					</div>
+
+
+		<h2>引子</h2>
+		<p>都知道Windows cmd中，运行可执行文件和bat时，可以直接输入不带后缀的文件名。</p>
+		<pre><code class="language-bat">rem 运行main.exe
+		main
+		
+		rem 运行mybat.bat
+		mybat
+		</code></pre>
+		<p>而执行python脚本时，却需要指明python作为解释器，而且文件要有后缀名。</p>
+		<pre><code class="language-bat">rem 当然首先需要python所在目录在环境变量PATH中
+		python script.py
+		</code></pre>
+		<p>这样对于运行python脚本无疑带来了麻烦。</p>
+		<h2>方法</h2>
+		<p>看了很多资料博客，也问了chatGPT，最后总结出了最简单有效的方式。</p>
+		<p>简洁版：<br />
+		1. 在<code>PATHEXT</code>环境变量中添加<code>.PY;</code>；<br />
+		2. 将<code>.py</code>文件的默认应用设置为python。</p>
+		<p>详细版（win11）：<br />
+		1. <code>win</code>+<code>s</code>，搜索环境变量，点击“编辑系统环境变量”，在弹出的窗口中点击右下角的“环境变量”。在“系统变量”中寻找<code>PATHEXT</code>，双击，在变量值的最前面加上<code>.PY;</code>。然后确定退出。<br />
+		2. <code>win</code>+<code>s</code>，搜索默认应用，在第一个搜索框中输入<code>.py</code>，如果下面出现的应用不是Python，就点击它，在弹出的窗口中选择python。</p>
+		<h2>后记</h2>
+		<p>寻找解决办法期间还涉猎了些关于命令行的<code>ftype</code>和<code>assoc</code>的知识，还找到了注册表里，但那些太复杂，而且设置默认应用时到最后可能也没效果，真正立竿见影的方法只有在带图形界面的默认应用选项中设置。</p>
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="/blog/html/Windows%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8D%E5%8A%A0%E8%A7%A3%E9%87%8A%E5%99%A8%E5%92%8C%E6%96%87%E4%BB%B6%E5%90%8E%E7%BC%80%E5%90%8D%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8CPython%E8%84%9A%E6%9C%AC.html" class="leancloud_visitors" data-flag-title="Windows命令行不加解释器和文件后缀名直接运行Python脚本">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		
+
+				<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+			</div>
+
+		<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+	
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+		<script src="../js/toc.js" type="text/javascript" ></script>
+	
+		<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+	
+	<!-- image -->
+	<script src="../js/image.js" type="text/javascript"></script>
+
+</body>
+</html>
