@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 核心跳转代码 -->
+    <meta http-equiv="refresh" content="0; url=html/index.html">
+    <title>跳转中...</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            text-align: center;
+            padding: 50px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>页面跳转中</h1>
+    <div class="spinner"></div>
+    <p>正在自动跳转到目标页面，请稍候...</p>
+    <p>如果您的浏览器没有自动跳转，请 <a href="html/index.html">点击这里</a>。</p>
+    
+    <!-- 备用JavaScript跳转（防止某些浏览器不兼容meta跳转） -->
+    <script>
+        setTimeout(function(){
+            window.location.href = "html/index.html";
+        }, 0); // 300毫秒后备跳转
+    </script>
+</body>
+</html>
