@@ -363,6 +363,7 @@ BOOL SetEnvironmentVariable(
 UINT SetErrorMode(UINT fuErrorMode);
 ```
 参数`fuErrorMode`可以是以下值或其组合：
+
 |Flag|Description|
 |--|--|
 |SEM_FAILCRITICALERRORS|The system does not display the critical-error-handler message box and returns the error to the calling process.|

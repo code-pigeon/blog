@@ -219,6 +219,7 @@ HRESULT StringCchPrintfEx(PTSTR pszDest, size_t cchDest,
 同样也有包含“Cb”的函数，例如`StringCbCat(Ex)`，`StringCbCopy(Ex)`、`StringCbPrintf(Ex)`；这一组函数的`size`参数以字节（Byte）为单位，可以使用`sizeof`来获取字节数。
 
 所有上述函数的返回值类型`HRESULT`的可能取值为：
+
 |HRESULT值|描述|
 |--|--|
 |S_OK|Success. The destination buffer contains the source string and is terminated by '\0'|
@@ -249,6 +250,7 @@ wprintf(L"The resulting string is: %s\n", str1);
 不同于`_s`族函数，这些函数在字符串数组空间不足时，会对字符串进行截断，而不是清空（所以在上一个示例中，str1 = "Hello wor" + '\0'）。
 
 上面提到的函数例子中，有带Ex后缀的版本，这些版本提供了额外的三个参数，作用如下：
+
 |参数/值|描述|
 |--|--|
 |size_t* pcchRemaining|指向一个size_t数据，该数据显示dest数组剩下的空间（包含结束符'\0'，所以最小总是为1）。若该参数传入值为NULL，则不返回dest数组剩余的空间|

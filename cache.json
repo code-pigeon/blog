@@ -1,8 +1,8 @@
 {
   "D:/DataDisk/workspace/blog/md/index.md": {
-    "file_updated": 1760610851.4526029,
+    "file_updated": 1760777720.7288208,
     "should_build": true,
-    "title": "其实这是首页",
+    "title": "乌鸦之家",
     "category": [],
     "date": null,
     "updated": null,
@@ -10,7 +10,7 @@
     "quote_html_filename": "index.html",
     "link": "https://code-pigeon.github.io/blog/html/index.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/index.html",
-    "description": "**乌鸦之家** 感谢光临 **关于我** **爱好** • 🏀：篮球 • 🎤：唱歌 • 🎱：桌球 • 🏊︎：游泳 • 🖊︎：记录 • 📔：看小说 • 🏓：乒乓球 • 🐘：中国象棋（曾经的爱好） • 🖌：画画（曾经的爱好） **我的其它社媒账号** • 抖音：乌鸦有想法 • B站：乌鸦有想法 • 公众号：乌鸦碎碎念 **联系我** • 邮箱： **建站相关** **建站环境和工具** 环境 • ..."
+    "description": "感谢光临 博文在右上角的“分类”或者“时光轴”里看哦。 **关于** **本站** 这是一个分享个人日常生活和一些博客搭建记录的网站。 最开始创建的初衷其实是记录技术笔记，不过现在已经不怎么记了。 后面应该会侧重于日常生活的分享。 欢迎常来玩！ **我的爱好** • 🏀：篮球 • 🎤：唱歌 • 🎱：桌球 • 🏊︎：游泳 • 🖊︎：记录 • 📔：看小说 • 🏓：乒乓球 • ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/8月14日——逛博客.md": {
     "file_updated": 1760587874.2385364,
@@ -200,7 +200,7 @@
     "description": "忘了今天怎么点开的博客说的了，也是一个博客聚合网站。随便点击了几篇博客看，然后就看到了一位大佬的博客。为什么说她是大佬呢，倒也不是因为她的编程水平有多么之高，也不是因为她的工作能力有多么之强。 她是码农不错，但她绝不仅仅是个码农。 然后良师傅又甩来了大牛朋友 Tiantian Xu 的IG 和她的 100 days project。我顺藤摸瓜地找到了后来让我受益匪浅，反复读过四五遍的她的 100 ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/clash在linux上的使用.md": {
-    "file_updated": 1760587044.530411,
+    "file_updated": 1760776274.1820912,
     "should_build": true,
     "title": "clash在linux上的使用",
     "category": [
@@ -423,38 +423,6 @@
     "quote_link": "https://code-pigeon.github.io/blog/html/unity3D_FPS_game_movement.html",
     "description": "*环境：Unity 2023.2.20f1c1* **新系统的安装** • 点击上方的*Window*选项卡，在下拉菜单中选择*Package Manager*； • 在弹出的窗口中，选择*Unity Registry*，然后在右侧搜索框中输入*Input System*； • 在最右边的面板中点击*Install*按钮； **创建并配置Input Actions** ..."
   },
-  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/v1.0.2改版日志（详细版）.md": {
-    "file_updated": 1760587837.431571,
-    "should_build": true,
-    "title": "v1.0.2改版日志（详细版）",
-    "category": [
-      "杂谈",
-      "编程杂谈"
-    ],
-    "date": "24-07-27 12:04",
-    "updated": "24-07-27 14:06",
-    "html_filename": "v1.0.2改版日志（详细版）.html",
-    "quote_html_filename": "v1.0.2%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%EF%BC%88%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89.html",
-    "link": "https://code-pigeon.github.io/blog/html/v1.0.2改版日志（详细版）.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/v1.0.2%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%EF%BC%88%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89.html",
-    "description": "**前言——手搓网站构建器的动机** 我的网站架构其实是比较简单的，一开始的想法就是能够有一个自动实现把markdown转成html而且能够将转化得来的html自动嵌入网页模板的工具。对我来说静态网页足够了。 这种工具非常常见，我也试过一些。但很多都不太理想，页面的风格大多只能够从其他人制作的模板中选择（当然原因其实是我没有耐心去研究怎么在人家的项目中DIY），而我本身有种奇怪的属性，..."
-  },
-  "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/v1.0.3改版日志——评论系统的选择.md": {
-    "file_updated": 1760587830.9049292,
-    "should_build": true,
-    "title": "v1.0.3改版日志——评论系统的选择",
-    "category": [
-      "杂谈",
-      "编程杂谈"
-    ],
-    "date": "24-08-13 16:03",
-    "updated": "24-08-13 22:20",
-    "html_filename": "v1.0.3改版日志——评论系统的选择.html",
-    "quote_html_filename": "v1.0.3%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%E2%80%94%E2%80%94%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%89%E6%8B%A9.html",
-    "link": "https://code-pigeon.github.io/blog/html/v1.0.3改版日志——评论系统的选择.html",
-    "quote_link": "https://code-pigeon.github.io/blog/html/v1.0.3%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%E2%80%94%E2%80%94%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%89%E6%8B%A9.html",
-    "description": "**评论系统的选择** 对于动态网页的评论系统，有能力的完全可以自己手搓，因为动态网站必须拥有服务器，有了服务器就能够处理网络请求，那么评论只不过就是一个携带文本的请求罢了。 但是对于不具备网络请求能力的静态网站，评论系统的搭建就得另辟蹊径了。 有一种很直接的思路，既然静态网站自己没有服务器，那就用别人现成的服务器来处理不就行了。这确实就是评论系统所做的，它会帮助你存储并管理你的评论信息。 ..."
-  },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows下fgets对于CTRL+Z输入的响应.md": {
     "file_updated": 1760587587.5134022,
     "should_build": true,
@@ -600,7 +568,7 @@
     "description": "**引子** **背景** 本来是在写个人网站，以前的代码中，几乎每个视图函数都有类似于： 我就在想怎么能减少重复书写同样的代码，于是想到了装饰器。 写到这里还没什么问题，但当我再加一个视图函数，同样也使用了这个装饰器的时候，报错出现了。 **解决办法** 解决办法网上很容易搜到， 1. 第一种是给装饰器加上 • 第二种是在中加上参数 **为什么会出现这个错误？** **最简单的情况** ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/关于python项目文件夹的重命名问题.md": {
-    "file_updated": 1760586834.7802975,
+    "file_updated": 1760776323.5951786,
     "should_build": true,
     "title": "关于python项目文件夹的重命名问题",
     "category": [
@@ -613,7 +581,7 @@
     "quote_html_filename": "%E5%85%B3%E4%BA%8Epython%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E9%87%8D%E5%91%BD%E5%90%8D%E9%97%AE%E9%A2%98.html",
     "link": "https://code-pigeon.github.io/blog/html/关于python项目文件夹的重命名问题.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E5%85%B3%E4%BA%8Epython%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E9%87%8D%E5%91%BD%E5%90%8D%E9%97%AE%E9%A2%98.html",
-    "description": "写项目的时候，一开始可能只是一个小小的需求，也不知道起什么名字。后来越写越大了，感觉这个名字配不上它的逼格，于是又想着改一个名字。 此时可能会遇到一些问题，比如项目的git仓库会不会受到影响，（假如用了python）项目的python虚拟环境会不会受影响。 试了一下，结论是： ||是否受影响| |--|--| |git仓库|否| |python虚拟环境|是| git好像只依赖于文件夹，..."
+    "description": "写项目的时候，一开始可能只是一个小小的需求，也不知道起什么名字。后来越写越大了，感觉这个名字配不上它的逼格，于是又想着改一个名字。 此时可能会遇到一些问题，比如项目的git仓库会不会受到影响，（假如用了python）项目的python虚拟环境会不会受影响。 试了一下，结论是： git好像只依赖于文件夹，并不关心根路径名的问题。 python虚拟环境就不一样了。 ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/关于交互式解释器的命令行提示符.md": {
     "file_updated": 1760587518.3289628,
@@ -661,10 +629,10 @@
     "quote_html_filename": "%E7%99%BD%E5%AB%96weibo%E7%9A%84%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E8%AE%B0.html",
     "link": "https://code-pigeon.github.io/blog/html/白嫖weibo的视频资源记.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E7%99%BD%E5%AB%96weibo%E7%9A%84%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E8%AE%B0.html",
-    "description": "因为搞了个简易视频壁纸命令行程序，所以要开始收集视频了。 在微博上白嫖视频，最简单的方式当然是用现成的工具。 • sucps.com：需要关注公众号。 • 下载狗：有每日下载次数限额。 这两个工具都可以下载。 ~~不过作为一个程序员~~，总是好奇背后的原理。而且我也想学会自己白嫖，就不用求人了。 **探索过程** 了解html页面的话，肯定最先想到的是在浏览器里按下，然后点击目标视频，..."
+    "description": "因为搞了个简易视频壁纸命令行程序，所以要开始收集视频了。 在微博上白嫖视频，最简单的方式当然是用现成的工具。 • sucps.com：需要关注公众号。 • 下载狗：有每日下载次数限额。 这两个工具都可以下载。 不过作为一个程序员，总是好奇背后的原理。而且我也想学会自己白嫖，就不用求人了。 **探索过程** 了解html页面的话，肯定最先想到的是在浏览器里按下，然后点击目标视频，找到对应的元素，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/简单的视频桌面壁纸实现.md": {
-    "file_updated": 1760587486.3607774,
+    "file_updated": 1760776531.063308,
     "should_build": true,
     "title": "简单的视频桌面壁纸实现",
     "category": [
@@ -677,7 +645,7 @@
     "quote_html_filename": "%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%E5%AE%9E%E7%8E%B0.html",
     "link": "https://code-pigeon.github.io/blog/html/简单的视频桌面壁纸实现.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%86%E9%A2%91%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%E5%AE%9E%E7%8E%B0.html",
-    "description": "涉及的技术： - win32 api编程 - C语言 **C语言实现** 改编自B站up主偶尔有点小迷糊的视频1。 原理是用视频播放器播放视频，然后把播放视频的窗口放到桌面上。（讲得很简单，详细可以参考偶尔老师的视频） 因为播放器窗口自己也需要初始化，而这个函数是同步的，并不等待播放器窗口创建之后才完成，所以如果不进行优化，可能会出现主程序的流程跑完了，播放器进程才加载好的情况，..."
+    "description": "涉及的技术： • win32 api编程 • C语言 **C语言实现** 改编自B站up主偶尔有点小迷糊的视频1。 原理是用视频播放器播放视频，然后把播放视频的窗口放到桌面上。（讲得很简单，详细可以参考偶尔老师的视频） 因为播放器窗口自己也需要初始化，而这个函数是同步的，并不等待播放器窗口创建之后才完成，所以如果不进行优化，可能会出现主程序的流程跑完了，播放器进程才加载好的情况，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/编译带图标的exe文件.md": {
     "file_updated": 1760586801.2244835,
@@ -760,7 +728,7 @@
     "description": "《PC Assembly Language》Paul A. Carter **第1章-介绍Introduction** **1.2 Computer Organization** **1.2.1 内存（Memory）** **1.2.3 80x86 CPU家族** **实模式** • 程序可以访问任何内存地址（甚至是别的程序的内存） • 程序内存需要分段，每个段不超过64K ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt2.md": {
-    "file_updated": 1760538100.3568726,
+    "file_updated": 1760776368.6035469,
     "should_build": true,
     "title": "《PCAssemblyLanguage》chpt2",
     "category": [
@@ -840,7 +808,7 @@
     "description": "**Virtual Memory** **概念** • free：进程虚拟内存中没有使用的区域（region）is free。 • reserving：进程在使用某块虚拟内存区域之前，需要先对其进行分配（allocate），这一动作称为reserving。 • releasing：当虚拟内存的某块区域不再需要使用时，可以释放（releasing）它。 ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt2_Characters.md": {
-    "file_updated": 1760538138.7699585,
+    "file_updated": 1760776387.1499643,
     "should_build": true,
     "title": "《windows核心编程》Chpt2_Characters",
     "category": [
@@ -872,7 +840,7 @@
     "description": "**Chapter 3：Kernel Objects** **What Is a Kernel Object?** **Usage Counting** Kernel对象属于Kernel。 Kernel对象内部记录了调用自己的进程的数量，当调用Kernel对象的进程数量为0时，Kernel会销毁该Kernel对象。 **Security** Kernel对象受到安全描述符（security ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt4_Process.md": {
-    "file_updated": 1760538149.1384037,
+    "file_updated": 1760776402.2280571,
     "should_build": true,
     "title": "《windows核心编程》Chpt4_Process",
     "category": [
@@ -936,7 +904,7 @@
     "description": "**判断文件是否存在** **exit /b** 这表示退出当前的批处理，而不是退出整个cmd.exe。 **内置变量ERRORLEVEL** 这是一个无需声明的内置变量，cmd中此变量用于表示上一段命令是否执行成功，若成功，则为0。 例如： 如果在批处理文件中使用来设置退出代码为 1，那么在调用该批处理文件的CMD窗口中，的值就会变为 1。这样就可以通过判断的值来获取批处理文件的执行状态。 ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【C笔记】.md": {
-    "file_updated": 1760586786.2370636,
+    "file_updated": 1760776429.0719151,
     "should_build": true,
     "title": "C笔记",
     "category": [
@@ -949,7 +917,7 @@
     "quote_html_filename": "%E3%80%90C%E7%AC%94%E8%AE%B0%E3%80%91.html",
     "link": "https://code-pigeon.github.io/blog/html/【C笔记】.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E3%80%90C%E7%AC%94%E8%AE%B0%E3%80%91.html",
-    "description": "**time.h** 类型介绍： **关于时间戳和时间结构体的函数** 这个函数在编译时需要定义宏： 否则会出现警告：。 尚不明原因。 参考0.6.2 warning: implicit declaration of function 'strptime' **strftime的所有格式** **日期和时间元素** |格式符号|描述|示例| |:---|:---|:---| ..."
+    "description": "**time.h** 类型介绍： **关于时间戳和时间结构体的函数** 这个函数在编译时需要定义宏： 否则会出现警告：。 尚不明原因。 参考0.6.2 warning: implicit declaration of function 'strptime' **strftime的所有格式** **日期和时间元素** **时间和日期的其他常用格式** **C语言中的文件操作** ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【flask笔记】.md": {
     "file_updated": 1760537515.3356626,
@@ -1208,7 +1176,7 @@
     "description": "**参考** • 博客园，C++ 标准库中的堆(heap) • GeeksForGeeks，Heap in C++ STL"
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【sublime笔记】.md": {
-    "file_updated": 1760586726.900485,
+    "file_updated": 1760776442.076604,
     "should_build": true,
     "title": "sublime text笔记",
     "category": [
@@ -1686,5 +1654,53 @@
     "link": "https://code-pigeon.github.io/blog/html/图床的选择.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9.html",
     "description": "话说这种又像唠嗑又涉及了一点技术的博文到底应该怎么分类呢。 图床好选，符合要求的图床不好选。 一般在图床上传了图片之后，得到的链接都会有个随机的名字。比方说，图片的名字是，上传之后得到的链接往往是这种莫名其妙的文件名。 这和我的需求是不相符的，因为我想要实现一种备用图床的机制。 比如说，上传到图床1之后，返回链接，上传到备用图床时返回，那么当图床1寄了之后，只需要用js的把图床链接从替换为，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20251017熟悉又陌生的面孔shieldsio一个专门生成徽章的服务.md": {
+    "file_updated": 1760765528.3355258,
+    "should_build": true,
+    "title": "熟悉又陌生的面孔：Shields.io（一个专门生成徽章的服务）",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "25-10-17 13:19",
+    "updated": "25-10-18 13:31",
+    "html_filename": "20251017熟悉又陌生的面孔shieldsio一个专门生成徽章的服务.html",
+    "quote_html_filename": "20251017%E7%86%9F%E6%82%89%E5%8F%88%E9%99%8C%E7%94%9F%E7%9A%84%E9%9D%A2%E5%AD%94shieldsio%E4%B8%80%E4%B8%AA%E4%B8%93%E9%97%A8%E7%94%9F%E6%88%90%E5%BE%BD%E7%AB%A0%E7%9A%84%E6%9C%8D%E5%8A%A1.html",
+    "link": "https://code-pigeon.github.io/blog/html/20251017熟悉又陌生的面孔shieldsio一个专门生成徽章的服务.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20251017%E7%86%9F%E6%82%89%E5%8F%88%E9%99%8C%E7%94%9F%E7%9A%84%E9%9D%A2%E5%AD%94shieldsio%E4%B8%80%E4%B8%AA%E4%B8%93%E9%97%A8%E7%94%9F%E6%88%90%E5%BE%BD%E7%AB%A0%E7%9A%84%E6%9C%8D%E5%8A%A1.html",
+    "description": "今天又发现了一个第三方网站可以更简单地查询和使用徽章substats.swo.moe（更新于：25-10-18 13:31） **啥是Shields.io徽章** 对于这个东西，我想做对编程比较熟悉的人应该太眼熟了。很多GitHub项目的README文档中都会出现这种东西。 虽然说见了很多次这个东西，但是也是直到今天想美化一下首页里我的社媒的跳转链接的时候，才终于知道这是个啥。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/v1.0.2改版日志（详细版）.md": {
+    "file_updated": 1760587837.431571,
+    "should_build": true,
+    "title": "v1.0.2改版日志（详细版）",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "24-07-27 12:04",
+    "updated": "24-07-27 14:06",
+    "html_filename": "v1.0.2改版日志（详细版）.html",
+    "quote_html_filename": "v1.0.2%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%EF%BC%88%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89.html",
+    "link": "https://code-pigeon.github.io/blog/html/v1.0.2改版日志（详细版）.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/v1.0.2%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%EF%BC%88%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89.html",
+    "description": "**前言——手搓网站构建器的动机** 我的网站架构其实是比较简单的，一开始的想法就是能够有一个自动实现把markdown转成html而且能够将转化得来的html自动嵌入网页模板的工具。对我来说静态网页足够了。 这种工具非常常见，我也试过一些。但很多都不太理想，页面的风格大多只能够从其他人制作的模板中选择（当然原因其实是我没有耐心去研究怎么在人家的项目中DIY），而我本身有种奇怪的属性，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/v1.0.3改版日志——评论系统的选择.md": {
+    "file_updated": 1760761051.8380384,
+    "should_build": true,
+    "title": "v1.0.3改版日志——评论系统的选择",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "24-08-13 16:03",
+    "updated": "24-08-13 22:20",
+    "html_filename": "v1.0.3改版日志——评论系统的选择.html",
+    "quote_html_filename": "v1.0.3%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%E2%80%94%E2%80%94%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%89%E6%8B%A9.html",
+    "link": "https://code-pigeon.github.io/blog/html/v1.0.3改版日志——评论系统的选择.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/v1.0.3%E6%94%B9%E7%89%88%E6%97%A5%E5%BF%97%E2%80%94%E2%80%94%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%80%89%E6%8B%A9.html",
+    "description": "**评论系统的选择** 对于动态网页的评论系统，有能力的完全可以自己手搓，因为动态网站必须拥有服务器，有了服务器就能够处理网络请求，那么评论只不过就是一个携带文本的请求罢了。 但是对于不具备网络请求能力的静态网站，评论系统的搭建就得另辟蹊径了。 有一种很直接的思路，既然静态网站自己没有服务器，那就用别人现成的服务器来处理不就行了。这确实就是评论系统所做的，它会帮助你存储并管理你的评论信息。 ..."
   }
 }

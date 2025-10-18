@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>熟悉又陌生的面孔：Shields.io（一个专门生成徽章的服务）</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- goatcounter -->
+	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+	<!-- code highlight -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
+	        <span class="nickname">乌鸦之家</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+		    <ul>
+		    		    		<li><a href="index.html">首页</a></li>
+		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
+		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
+		    		    </ul>
+		</nav>
+	</header>	<div class=fluid> 
+				<h1 id="熟悉又陌生的面孔：Shields.io（一个专门生成徽章的服务）">熟悉又陌生的面孔：Shields.io（一个专门生成徽章的服务）</h1>
+				<div class="article-meta">
+						<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">25-10-17 13:19</time>
+			</div>
+									<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+				</svg>
+				<span class="meta-label">更新</span>
+				<time class="meta-time">25-10-18 13:31</time>
+			</div>
+									<div class="meta-item">
+				<span class="meta-label">杂谈</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">折腾记录</span>
+			</div>
+					</div>
+
+
+<blockquote>
+<p>今天又发现了一个第三方网站可以更简单地查询和使用徽章<a href="https://substats.swo.moe/">substats.swo.moe</a>（更新于：25-10-18 13:31）</p>
+</blockquote>
+<h2>啥是Shields.io徽章</h2>
+<p><a href="https://space.bilibili.com/516728425"><img alt="B站" src="https://img.shields.io/badge/dynamic/json?url=https://api.bilibili.com/x/relation/stat?vmid=516728425&amp;query=data.follower&amp;label=乌鸦有想法&amp;color=00A1D6&amp;logo=bilibili" /></a></p>
+<p>对于这个东西，我想做对编程比较熟悉的人应该太眼熟了。很多GitHub项目的README文档中都会出现这种东西。</p>
+<p>虽然说见了很多次这个东西，但是也是直到今天想美化一下首页里我的社媒的跳转链接的时候，才终于知道这是个啥。</p>
+<p>deepseek说，这是<a href="https://shields.io"><img alt="Shields.io" src="https://img.shields.io/badge/shields.io-000?logo=shieldsdotio&amp;logoColor=white&amp;style=flat-square" /></a>这个网站提供的功能，这玩意儿的正式名称叫做“徽章”。</p>
+<p>在一些项目中，或者博客中，使用Shields.io提供的徽章已经是一种非常常见的做法了。很多大平台，比如B站、抖音之类的都在Shields.io创建了属于自己的徽章。</p>
+<p><img alt="B站" src="https://img.shields.io/badge/bilibili-00A1D6?style=for-the-badge&amp;logo=bilibili&amp;logoColor=white" /></p>
+<p>当然对于我们个人也是可以创建属于自己的徽章的，而且这玩意儿居然还是免费的。</p>
+<p>那么要如何在自己的博客中使用这些徽章呢？</p>
+<h2>徽章的使用</h2>
+<p>虽然只是刚刚接触这玩意儿，不过感觉已经看了个七七八八了。</p>
+<pre><code>https://img.shields.io/badge/乌鸦有想法-000000
+</code></pre>
+<p>如果在浏览器的地址栏输入上面的链接，那么将会出现如下东西：<br />
+<img alt="徽章：乌鸦有想法" src="https://img.shields.io/badge/乌鸦有想法-000000" /></p>
+<p>聪明的你肯定看出来了：<br />
+- <code>https://img.shields.io</code>是shield的域名；<br />
+- <code>badge</code>是基本样式，“badge”意为徽章；<br />
+- <code>乌鸦有想法</code>是要显示的文字；<br />
+- <code>000000</code>是颜色代码，这里也可以直接写颜色名，如red、blue等；</p>
+<p>所以如果想换成红色背景就可以写</p>
+<pre><code>https://img.shields.io/badge/乌鸦有想法-red
+</code></pre>
+<p>效果为：<br />
+<img alt="徽章：红底的乌鸦有想法" src="https://img.shields.io/badge/乌鸦有想法-red" /></p>
+<p>那怎么在博客中用呢？</p>
+<p>如果是使用markdown写博客，那么很好办：</p>
+<pre><code class="language-markdown">![徽章：红底的乌鸦有想法](https://img.shields.io/badge/乌鸦有想法-red)
+</code></pre>
+<p>也可以用纯html：</p>
+<pre><code class="language-html">&lt;img src=&quot;https://img.shields.io/badge/乌鸦有想法-red&quot; /&gt;
+</code></pre>
+<p>其实就是插入图片的链接就行了。</p>
+<p>当然如果想要让这个徽章成为可以点击的标签，那么只需要在图片外面套一个超链接就行了。<br />
+markdown：</p>
+<pre><code class="language-markdown">[![徽章：红底的乌鸦有想法](https://img.shields.io/badge/乌鸦有想法-red)](https://space.bilibili.com/516728425)
+</code></pre>
+<p>html：</p>
+<pre><code class="language-html">&lt;a href=&quot;https://space.bilibili.com/516728425&quot;&gt;
+    &lt;img src=&quot;https://img.shields.io/badge/乌鸦有想法-red&quot; /&gt;
+&lt;/a&gt;
+</code></pre>
+<p>另外，徽章实际上还支持两段文本</p>
+<pre><code>https://img.shields.io/badge/乌鸦有想法-赛博乌鸦-yellow
+</code></pre>
+<p>效果如下：<br />
+<img alt="两段文本" src="https://img.shields.io/badge/乌鸦有想法-赛博乌鸦-yellow" /></p>
+<h3>使用知名平台的logo</h3>
+<p>知名的平台基本都有在shields.io创建自己的logo，所以可以直接在链接中引用这些logo。以B站举个例：</p>
+<pre><code>https://img.shields.io/badge/B站?logo=bilibili
+</code></pre>
+<p>加上请求参数<code>logo=bilibili</code>即可获得B站logo（其它平台也一样，比如github，那么就换成<code>logo=github</code>）</p>
+<p>效果如下：<br />
+<img alt="B站徽章" src="https://img.shields.io/badge/B站-000000?logo=bilibili" /></p>
+<p>当然这个logo的颜色还可以改变，只需要在后面加上参数<code>logoColor=颜色代码</code>就可以了，比如<code>https://img.shields.io/badge/B站?logo=bilibili&amp;logoColor=222</code>，效果如下：</p>
+<p><img alt="B站徽章" src="https://img.shields.io/badge/B站-000000?logo=bilibili&amp;logoColor=fff" /></p>
+<h3>在链接中使用api</h3>
+<p><a href="https://space.bilibili.com/516728425"><img alt="B站" src="https://img.shields.io/badge/dynamic/json?url=https://api.bilibili.com/x/relation/stat?vmid=516728425&amp;query=data.follower&amp;label=乌鸦有想法&amp;color=00A1D6&amp;logo=bilibili" /></a><br />
+有没有好奇后面那串数字是什么意义？</p>
+<p>那其实是我的B站粉丝数。</p>
+<p>这种徽章其实还有个专门的名字，叫动态徽章，因为我的粉丝数可能会随时变化，这个徽章就可以同步更新。</p>
+<p>所以这类徽章的链接都中会有个<code>dynamic</code>（意为动态）。让我们看看上面那个徽章的链接长什么样：</p>
+<pre><code>https://img.shields.io/badge/dynamic/json?url=https://api.bilibili.com/x/relation/stat?vmid=516728425&amp;query=data.follower&amp;label=乌鸦有想法&amp;color=00A1D6&amp;logo=bilibili
+</code></pre>
+<p>后面的<code>label</code>、<code>color</code>、<code>logo</code>其实就是之前说的徽章文本、颜色、logo。</p>
+<p>前面的<code>json?url=https://api.bilibili.com/x/relation/stat?vmid=516728425&amp;query=data.follower</code>才是动态徽章的重点。</p>
+<p>像B站的话，它会提供一些开放的api，比如<code>https://api.bilibili.com/x/relation/stat?vmid=516728425</code>这个api，如果直接在浏览器地址栏里输入，那么将会返回这样的东西：</p>
+<pre><code class="language-json">{
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;0&quot;,
+    &quot;ttl&quot;: 1,
+    &quot;data&quot;: {
+        &quot;mid&quot;: 516728425,
+        &quot;following&quot;: 510,
+        &quot;whisper&quot;: 0,
+        &quot;black&quot;: 0,
+        &quot;follower&quot;: 447
+    }
+}
+</code></pre>
+<p>对网络有了解的朋友应该知道这是json格式的返回信息，所以shields.io就通过<code>query=data.follower</code>这个额外的参数去定位到返回数据中的<code>follower</code>这个数据，它表示的是B站用户（在这里是我）的粉丝量。</p>
+<p>像这种从api中获得的数据，就是“动态徽章”中“动态”的来源了。</p>
+<p>互联网中除了json格式，xml格式也是一种数据传递比较常用的格式，那么在使用shields.io动态徽章时，就可以把上面链接中的<code>json</code>换成<code>xml</code>了，像这样：</p>
+<pre><code>https://img.shields.io/badge/dynamic/xml?url=（此处放置api链接）&amp;query=（此处放置筛选路径）
+</code></pre>
+<p>至于这些api怎么找，其实我也不是自己找的，2025年了嘛，问AI就行了。</p>
+<hr />
+<p>我对shields.io徽章的了解大概就这些了，其它的什么神奇的用法和功能，就等需要时再聊吧。</p>
+<p>再会！</p>
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="/blog/html/20251017%E7%86%9F%E6%82%89%E5%8F%88%E9%99%8C%E7%94%9F%E7%9A%84%E9%9D%A2%E5%AD%94shieldsio%E4%B8%80%E4%B8%AA%E4%B8%93%E9%97%A8%E7%94%9F%E6%88%90%E5%BE%BD%E7%AB%A0%E7%9A%84%E6%9C%8D%E5%8A%A1.html" class="leancloud_visitors" data-flag-title="熟悉又陌生的面孔：Shields.io（一个专门生成徽章的服务）">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		
+
+				<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+			</div>
+
+		<div class="left-sidebar">
+		<div class="toc"></div>
+		<div class="toc-toggle"></div>
+	</div>
+	
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+		<script src="../js/toc.js" type="text/javascript" ></script>
+	
+		<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+	
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
+	
+	<!-- image -->
+	<script src="../js/image.js" type="text/javascript"></script>
+
+</body>
+</html>

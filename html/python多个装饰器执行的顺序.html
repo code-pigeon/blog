@@ -8,6 +8,10 @@
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
 	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- goatcounter -->
+	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+	<!-- code highlight -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -16,7 +20,7 @@
 	<header>
 		<!-- 左侧个人形象部分 -->
 	    <div class="profile">
-	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
 	        <span class="nickname">乌鸦之家</span>
 	    </div>
 	    
@@ -25,9 +29,8 @@
 		    <ul>
 		    		    		<li><a href="index.html">首页</a></li>
 		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
-		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
 		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
-		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
 		    		    </ul>
 		</nav>
 	</header>	<div class=fluid> 
@@ -56,71 +59,71 @@
 					</div>
 
 
-		<h2>引子</h2>
-		<h3>背景</h3>
-		<p>本来是在写个人网站，以前的代码中，几乎每个视图函数都有类似于：</p>
-		<pre><code class="language-python">@app.route(&quot;/&quot;)
-		def index():
-		    try:
-		        return send_file(&quot;index.html&quot;)
-		    except FileNotFoundError as e:
-		        abort(404)
-		</code></pre>
-		<p>我就在想怎么能减少重复书写同样的代码，于是想到了装饰器。</p>
-		<pre><code class="language-python">def not_found(func):
-		    def wrapper(*args, **kwargs):
-		        print(&quot;进入装饰器&quot;)
-		        try:
-		            func(*args, **kwargs)
-		        except:
-		            print(&quot;失败！文件未找到&quot;)
-		            return &quot;失败！文件未找到&quot;
-		    return wrapper
-		
-		
-		@not_found
-		@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
-		def index():
-		    return send_file(&quot;index.html&quot;)
-		</code></pre>
-		<p>正当我得意洋洋启动服务器测试时，却发现当文件不存在时，装饰器中的语句根本不会执行，程序会直接崩溃。</p>
-		<h3>不小心解决了</h3>
-		<p>正当我觉得心灰意冷，打算另辟蹊径的时候，我尝试调换了一下<code>@not_found</code>和<code>@app.route</code>这两个装饰器的位置，结果就成功了……<br />
-		很显然这和装饰器的执行顺序有关。</p>
-		<h2>一个函数被多个装饰器装饰，装饰器执行的顺序如何？</h2>
-		<p>于是我写了两个装饰器，</p>
-		<pre><code class="language-python">def dec1(func):
-		    def wrapper(*args, **kwargs):
-		        print(f&quot;{dec1.__name__}开始执行&quot;)
-		        func(*args, **kwargs)
-		        print(f&quot;{dec1.__name__}执行完毕&quot;)
-		    return wrapper
-		
-		def dec2(func):
-		    def wrapper(*args, **kwargs):
-		        print(f&quot;{dec2.__name__}开始执行&quot;)
-		        func(*args, **kwargs)
-		        print(f&quot;{dec2.__name__}执行完毕&quot;)
-		    return wrapper
-		
-		@dec2
-		@dec1
-		def func():
-		    print(f&quot;{func.__name__}开始执行&quot;)
-		    print(f&quot;{func.__name__}执行完毕&quot;)
-		
-		if __name__ == '__main__':
-		    func()
-		</code></pre>
-		<p>输出结果为：</p>
-		<pre><code>dec2开始执行
-		dec1开始执行
-		wrapper开始执行
-		wrapper执行完毕
-		dec1执行完毕
-		dec2执行完毕
-		</code></pre>
-		<p>这表示装饰器的执行顺序是从上到下的，也可以说是从外向内的。</p>
+<h2>引子</h2>
+<h3>背景</h3>
+<p>本来是在写个人网站，以前的代码中，几乎每个视图函数都有类似于：</p>
+<pre><code class="language-python">@app.route(&quot;/&quot;)
+def index():
+    try:
+        return send_file(&quot;index.html&quot;)
+    except FileNotFoundError as e:
+        abort(404)
+</code></pre>
+<p>我就在想怎么能减少重复书写同样的代码，于是想到了装饰器。</p>
+<pre><code class="language-python">def not_found(func):
+    def wrapper(*args, **kwargs):
+        print(&quot;进入装饰器&quot;)
+        try:
+            func(*args, **kwargs)
+        except:
+            print(&quot;失败！文件未找到&quot;)
+            return &quot;失败！文件未找到&quot;
+    return wrapper
+
+
+@not_found
+@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
+def index():
+    return send_file(&quot;index.html&quot;)
+</code></pre>
+<p>正当我得意洋洋启动服务器测试时，却发现当文件不存在时，装饰器中的语句根本不会执行，程序会直接崩溃。</p>
+<h3>不小心解决了</h3>
+<p>正当我觉得心灰意冷，打算另辟蹊径的时候，我尝试调换了一下<code>@not_found</code>和<code>@app.route</code>这两个装饰器的位置，结果就成功了……<br />
+很显然这和装饰器的执行顺序有关。</p>
+<h2>一个函数被多个装饰器装饰，装饰器执行的顺序如何？</h2>
+<p>于是我写了两个装饰器，</p>
+<pre><code class="language-python">def dec1(func):
+    def wrapper(*args, **kwargs):
+        print(f&quot;{dec1.__name__}开始执行&quot;)
+        func(*args, **kwargs)
+        print(f&quot;{dec1.__name__}执行完毕&quot;)
+    return wrapper
+
+def dec2(func):
+    def wrapper(*args, **kwargs):
+        print(f&quot;{dec2.__name__}开始执行&quot;)
+        func(*args, **kwargs)
+        print(f&quot;{dec2.__name__}执行完毕&quot;)
+    return wrapper
+
+@dec2
+@dec1
+def func():
+    print(f&quot;{func.__name__}开始执行&quot;)
+    print(f&quot;{func.__name__}执行完毕&quot;)
+
+if __name__ == '__main__':
+    func()
+</code></pre>
+<p>输出结果为：</p>
+<pre><code>dec2开始执行
+dec1开始执行
+wrapper开始执行
+wrapper执行完毕
+dec1执行完毕
+dec2执行完毕
+</code></pre>
+<p>这表示装饰器的执行顺序是从上到下的，也可以说是从外向内的。</p>
 		<br />
 		<hr />
 
@@ -186,6 +189,9 @@
 	        enableQQ: true
 	    })
 	</script>
+	
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
 	
 	<!-- image -->
 	<script src="../js/image.js" type="text/javascript"></script>

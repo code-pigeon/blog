@@ -8,6 +8,10 @@
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
 	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- goatcounter -->
+	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+	<!-- code highlight -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -16,7 +20,7 @@
 	<header>
 		<!-- 左侧个人形象部分 -->
 	    <div class="profile">
-	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
 	        <span class="nickname">乌鸦之家</span>
 	    </div>
 	    
@@ -25,9 +29,8 @@
 		    <ul>
 		    		    		<li><a href="index.html">首页</a></li>
 		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
-		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
 		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
-		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
 		    		    </ul>
 		</nav>
 	</header>	<div class=fluid> 
@@ -56,156 +59,156 @@
 					</div>
 
 
-		<h2>引子</h2>
-		<h3>背景</h3>
-		<p>本来是在写个人网站，以前的代码中，几乎每个视图函数都有类似于：</p>
-		<pre><code class="language-python">@app.route(&quot;/&quot;)
-		def index():
-		    try:
-		        return send_file(&quot;index.html&quot;)
-		    except FileNotFoundError as e:
-		        abort(404)
-		</code></pre>
-		<p>我就在想怎么能减少重复书写同样的代码，于是想到了装饰器。</p>
-		<pre><code class="language-python">def not_found(func):
-		    def wrapper(*args, **kwargs):
-		        print(&quot;进入装饰器&quot;)
-		        try:
-		            func(*args, **kwargs)
-		        except:
-		            print(&quot;失败！文件未找到&quot;)
-		            return &quot;失败！文件未找到&quot;
-		    return wrapper
-		
-		
-		@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
-		@not_found
-		def index():
-		    return send_file(&quot;index.html&quot;)
-		</code></pre>
-		<p>写到这里还没什么问题，但当我再加一个视图函数，同样也使用了这个<code>@not_found</code>装饰器的时候，报错出现了。</p>
-		<pre><code>AssertionError: View function mapping is overwriting an existing endpoint function: wrapper
-		</code></pre>
-		<h3>解决办法</h3>
-		<p>解决办法网上很容易搜到，<br />
-		1. 第一种是给装饰器加上<code>@wraps()</code></p>
-		<pre><code class="language-python">from functools import wraps
-		
-		def not_found(func):
-		    @wraps(func)  # 新增的代码
-		    def wrapper(*args, **kwargs):
-		        # 省略装饰器内容
-		    return wrapper
-		
-		
-		@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
-		@not_found
-		def index():
-		    return send_file(&quot;index.html&quot;)
-		
-		
-		@app.route(&quot;/data&quot;, methods=[&quot;GET&quot;])
-		@not_found
-		def data():
-		    return send_file(&quot;data.html&quot;)
-		</code></pre>
-		<ol>
-		<li>第二种是在<code>@app.route()</code>中加上<code>endpoint</code>参数</li>
-		</ol>
-		<pre><code class="language-python">def not_found(func):
-		    @wraps(func)  # 新增的代码
-		    def wrapper(*args, **kwargs):
-		        # 省略装饰器内容
-		    return wrapper
-		
-		
-		@app.route(&quot;/&quot;, methods=[&quot;GET&quot;], endpoint=&quot;data&quot;)
-		@not_found
-		def index():
-		    return send_file(&quot;index.html&quot;)
-		
-		
-		@app.route(&quot;/data&quot;, methods=[&quot;GET&quot;], endpoint=&quot;data&quot;)
-		@not_found
-		def data():
-		    return send_file(&quot;data.html&quot;)
-		</code></pre>
-		<h2>为什么会出现这个错误？</h2>
-		<h3>最简单的情况</h3>
-		<p>要引发这个报错，最简单的方法是定义两个不同的路由，但它们拥有相同的视图函数名：</p>
-		<pre><code class="language-python">'''
-		    路由1：“/”，视图函数名为“index”
-		    路由2：“/data”，视图函数名为“index”
-		'''
-		
-		@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
-		def index():
-		    return send_file(&quot;index.html&quot;)
-		
-		@app.route(&quot;/data&quot;, methods=[&quot;GET&quot;])
-		def index():
-		    return send_file(&quot;data.html&quot;)
-		</code></pre>
-		<p>出现这个报错是因为，路由是通过<code>endpoint</code>这个变量来区分视图函数的，而默认情况下，<code>endpoint</code>的值就是视图函数的名字。<br />
-		在上面这种情况下，两个视图函数的名字都是<code>index</code>，所以路由“/”的endpoint默认为<code>index</code>，当路由“/data”也要用默认的视图函数名<code>index</code>来作为<code>endpoint</code>的值时，发现这个值已经被路由“/”占用了，因此报错。</p>
-		<p>这种情况最简单，只需要把路由“/data”的视图函数名改成其它名字就行了。</p>
-		<p>可这并不是我遇到的情况，所以引出了下面的问题。</p>
-		<h3>为什么不同的视图函数名加了装饰器之后也会出现这个报错？</h3>
-		<h4>先补一点关于装饰器的知识</h4>
-		<p>要想明白这个问题，首先要懂一点装饰器的知识。<br />
-		我们先看个例子：</p>
-		<pre><code class="language-python">def decorator(func):
-		    def wrapper(*args, **kwargs):
-		        print(f&quot;{decorator.__name__}开始执行&quot;)
-		        func(*args, **kwargs)
-		        print(f&quot;{decorator.__name__}执行完毕&quot;)
-		    return wrapper
-		
-		@decorator
-		def func():
-		    print(f&quot;{func.__name__}开始执行&quot;)
-		    print(f&quot;{func.__name__}执行完毕&quot;)
-		
-		func()
-		</code></pre>
-		<p>输出为：</p>
-		<pre><code>decorator开始执行
-		wrapper开始执行
-		wrapper执行完毕
-		decorator执行完毕
-		</code></pre>
-		<p>可以看到，在func函数中，输出了自己的函数名<code>func.__name__</code>，但终端打印出来的却不是“func”，而是“wrapper”。<br />
-		也就说，被装饰器装饰过的函数，其函数名（<code>.__name__</code>）其实就已经变成了装饰器的内层函数名（在本例中为<code>wrapper</code>）。</p>
-		<p>于是答案呼之欲出了。</p>
-		<h4>答案</h4>
-		<p>在上面的例子中：</p>
-		<pre><code class="language-python">def not_found(func):
-		    def wrapper(*args, **kwargs):
-		        # 省略装饰器内容
-		    return wrapper
-		
-		
-		@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
-		@not_found
-		def index():
-		    return send_file(&quot;index.html&quot;)
-		
-		
-		@app.route(&quot;/data&quot;, methods=[&quot;GET&quot;])
-		@not_found
-		def data():
-		    return send_file(&quot;data.html&quot;)
-		</code></pre>
-		<p>从代码执行顺序来看，<code>@app.route</code>装饰了一个被<code>@not_found</code>装饰过的<code>index</code>函数，而因为被装饰过的<code>index</code>函数的函数名（<code>__name__</code>属性）已经变成了<code>wrapper</code>，所以实际上“/”路由的<code>endpoint</code>是<code>wrapper</code>。<br />
-		下面的“/data”路由也是同理，所以<code>@app.route("/data")</code>这个路由装饰的是被<code>@not_found</code>装饰过的<code>data</code>函数，所以路由“/data”的<code>endpoint</code>也会是<code>wrapper</code>，但这个<code>endpoint</code>值已经被路由“/”占用了，因此报错：<code>View function mapping is overwriting an existing endpoint function: wrapper</code>。</p>
-		<h4>再回头看看为什么解决办法会奏效</h4>
-		<p>直接在路由中手动加<code>endpoint</code>的办法就不用多说了，非常直观。</p>
-		<p>而在装饰器中加上<code>@wraps</code>又是如何奏效的呢。<br />
-		前面说到，被装饰器装饰过的函数，其函数名（<code>__name__</code>属性）就不是函数本身的名字了，而是装饰器内层函数（其实就是装饰器返回的函数）的名字（<code>__name__</code>属性），而<code>@wraps</code>的作用就是让被装饰的函数的名字仍然保持为其本身的名字（参考<a href="https://www.zhihu.com/question/46808546">Python 使用wraps和不使用wraps的装饰器的区别？</a>），这样<code>@app.route</code>再装饰被<code>@not_found</code>装饰过的视图函数，其<code>endpoint</code>的默认取得的值就不再是<code>wrapper</code>，而是视图函数本身的名字了，此时只要视图函数的名字本身不重复，就不会出现这个报错。</p>
-		<h2>后记</h2>
-		<p>可能会有些小伙伴说，搞那么麻烦，直接把<code>@app.route</code>和<code>@not_found</code>的顺序调换一下，这样<code>@app.route</code>装饰到的就是视图函数本身了，就不会有什么重复的<code>endpoint</code>了。<br />
-		确实是这个样子，但这两个装饰器的顺序调换照成的影响不止这一点，实际上在开头引子中，<code>@not_found</code>装饰器放在最外层是完全不起作用的（目前我还没研究明白具体原因）。<br />
-		所以还是根据实际开发中的需求来决定吧，这或许也是个好办法。</p>
+<h2>引子</h2>
+<h3>背景</h3>
+<p>本来是在写个人网站，以前的代码中，几乎每个视图函数都有类似于：</p>
+<pre><code class="language-python">@app.route(&quot;/&quot;)
+def index():
+    try:
+        return send_file(&quot;index.html&quot;)
+    except FileNotFoundError as e:
+        abort(404)
+</code></pre>
+<p>我就在想怎么能减少重复书写同样的代码，于是想到了装饰器。</p>
+<pre><code class="language-python">def not_found(func):
+    def wrapper(*args, **kwargs):
+        print(&quot;进入装饰器&quot;)
+        try:
+            func(*args, **kwargs)
+        except:
+            print(&quot;失败！文件未找到&quot;)
+            return &quot;失败！文件未找到&quot;
+    return wrapper
+
+
+@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
+@not_found
+def index():
+    return send_file(&quot;index.html&quot;)
+</code></pre>
+<p>写到这里还没什么问题，但当我再加一个视图函数，同样也使用了这个<code>@not_found</code>装饰器的时候，报错出现了。</p>
+<pre><code>AssertionError: View function mapping is overwriting an existing endpoint function: wrapper
+</code></pre>
+<h3>解决办法</h3>
+<p>解决办法网上很容易搜到，<br />
+1. 第一种是给装饰器加上<code>@wraps()</code></p>
+<pre><code class="language-python">from functools import wraps
+
+def not_found(func):
+    @wraps(func)  # 新增的代码
+    def wrapper(*args, **kwargs):
+        # 省略装饰器内容
+    return wrapper
+
+
+@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
+@not_found
+def index():
+    return send_file(&quot;index.html&quot;)
+
+
+@app.route(&quot;/data&quot;, methods=[&quot;GET&quot;])
+@not_found
+def data():
+    return send_file(&quot;data.html&quot;)
+</code></pre>
+<ol>
+<li>第二种是在<code>@app.route()</code>中加上<code>endpoint</code>参数</li>
+</ol>
+<pre><code class="language-python">def not_found(func):
+    @wraps(func)  # 新增的代码
+    def wrapper(*args, **kwargs):
+        # 省略装饰器内容
+    return wrapper
+
+
+@app.route(&quot;/&quot;, methods=[&quot;GET&quot;], endpoint=&quot;data&quot;)
+@not_found
+def index():
+    return send_file(&quot;index.html&quot;)
+
+
+@app.route(&quot;/data&quot;, methods=[&quot;GET&quot;], endpoint=&quot;data&quot;)
+@not_found
+def data():
+    return send_file(&quot;data.html&quot;)
+</code></pre>
+<h2>为什么会出现这个错误？</h2>
+<h3>最简单的情况</h3>
+<p>要引发这个报错，最简单的方法是定义两个不同的路由，但它们拥有相同的视图函数名：</p>
+<pre><code class="language-python">'''
+    路由1：“/”，视图函数名为“index”
+    路由2：“/data”，视图函数名为“index”
+'''
+
+@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
+def index():
+    return send_file(&quot;index.html&quot;)
+
+@app.route(&quot;/data&quot;, methods=[&quot;GET&quot;])
+def index():
+    return send_file(&quot;data.html&quot;)
+</code></pre>
+<p>出现这个报错是因为，路由是通过<code>endpoint</code>这个变量来区分视图函数的，而默认情况下，<code>endpoint</code>的值就是视图函数的名字。<br />
+在上面这种情况下，两个视图函数的名字都是<code>index</code>，所以路由“/”的endpoint默认为<code>index</code>，当路由“/data”也要用默认的视图函数名<code>index</code>来作为<code>endpoint</code>的值时，发现这个值已经被路由“/”占用了，因此报错。</p>
+<p>这种情况最简单，只需要把路由“/data”的视图函数名改成其它名字就行了。</p>
+<p>可这并不是我遇到的情况，所以引出了下面的问题。</p>
+<h3>为什么不同的视图函数名加了装饰器之后也会出现这个报错？</h3>
+<h4>先补一点关于装饰器的知识</h4>
+<p>要想明白这个问题，首先要懂一点装饰器的知识。<br />
+我们先看个例子：</p>
+<pre><code class="language-python">def decorator(func):
+    def wrapper(*args, **kwargs):
+        print(f&quot;{decorator.__name__}开始执行&quot;)
+        func(*args, **kwargs)
+        print(f&quot;{decorator.__name__}执行完毕&quot;)
+    return wrapper
+
+@decorator
+def func():
+    print(f&quot;{func.__name__}开始执行&quot;)
+    print(f&quot;{func.__name__}执行完毕&quot;)
+
+func()
+</code></pre>
+<p>输出为：</p>
+<pre><code>decorator开始执行
+wrapper开始执行
+wrapper执行完毕
+decorator执行完毕
+</code></pre>
+<p>可以看到，在func函数中，输出了自己的函数名<code>func.__name__</code>，但终端打印出来的却不是“func”，而是“wrapper”。<br />
+也就说，被装饰器装饰过的函数，其函数名（<code>.__name__</code>）其实就已经变成了装饰器的内层函数名（在本例中为<code>wrapper</code>）。</p>
+<p>于是答案呼之欲出了。</p>
+<h4>答案</h4>
+<p>在上面的例子中：</p>
+<pre><code class="language-python">def not_found(func):
+    def wrapper(*args, **kwargs):
+        # 省略装饰器内容
+    return wrapper
+
+
+@app.route(&quot;/&quot;, methods=[&quot;GET&quot;])
+@not_found
+def index():
+    return send_file(&quot;index.html&quot;)
+
+
+@app.route(&quot;/data&quot;, methods=[&quot;GET&quot;])
+@not_found
+def data():
+    return send_file(&quot;data.html&quot;)
+</code></pre>
+<p>从代码执行顺序来看，<code>@app.route</code>装饰了一个被<code>@not_found</code>装饰过的<code>index</code>函数，而因为被装饰过的<code>index</code>函数的函数名（<code>__name__</code>属性）已经变成了<code>wrapper</code>，所以实际上“/”路由的<code>endpoint</code>是<code>wrapper</code>。<br />
+下面的“/data”路由也是同理，所以<code>@app.route("/data")</code>这个路由装饰的是被<code>@not_found</code>装饰过的<code>data</code>函数，所以路由“/data”的<code>endpoint</code>也会是<code>wrapper</code>，但这个<code>endpoint</code>值已经被路由“/”占用了，因此报错：<code>View function mapping is overwriting an existing endpoint function: wrapper</code>。</p>
+<h4>再回头看看为什么解决办法会奏效</h4>
+<p>直接在路由中手动加<code>endpoint</code>的办法就不用多说了，非常直观。</p>
+<p>而在装饰器中加上<code>@wraps</code>又是如何奏效的呢。<br />
+前面说到，被装饰器装饰过的函数，其函数名（<code>__name__</code>属性）就不是函数本身的名字了，而是装饰器内层函数（其实就是装饰器返回的函数）的名字（<code>__name__</code>属性），而<code>@wraps</code>的作用就是让被装饰的函数的名字仍然保持为其本身的名字（参考<a href="https://www.zhihu.com/question/46808546">Python 使用wraps和不使用wraps的装饰器的区别？</a>），这样<code>@app.route</code>再装饰被<code>@not_found</code>装饰过的视图函数，其<code>endpoint</code>的默认取得的值就不再是<code>wrapper</code>，而是视图函数本身的名字了，此时只要视图函数的名字本身不重复，就不会出现这个报错。</p>
+<h2>后记</h2>
+<p>可能会有些小伙伴说，搞那么麻烦，直接把<code>@app.route</code>和<code>@not_found</code>的顺序调换一下，这样<code>@app.route</code>装饰到的就是视图函数本身了，就不会有什么重复的<code>endpoint</code>了。<br />
+确实是这个样子，但这两个装饰器的顺序调换照成的影响不止这一点，实际上在开头引子中，<code>@not_found</code>装饰器放在最外层是完全不起作用的（目前我还没研究明白具体原因）。<br />
+所以还是根据实际开发中的需求来决定吧，这或许也是个好办法。</p>
 		<br />
 		<hr />
 
@@ -271,6 +274,9 @@
 	        enableQQ: true
 	    })
 	</script>
+	
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
 	
 	<!-- image -->
 	<script src="../js/image.js" type="text/javascript"></script>

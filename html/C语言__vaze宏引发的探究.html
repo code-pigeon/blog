@@ -8,6 +8,10 @@
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
 	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- goatcounter -->
+	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+	<!-- code highlight -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -16,7 +20,7 @@
 	<header>
 		<!-- 左侧个人形象部分 -->
 	    <div class="profile">
-	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
 	        <span class="nickname">乌鸦之家</span>
 	    </div>
 	    
@@ -25,9 +29,8 @@
 		    <ul>
 		    		    		<li><a href="index.html">首页</a></li>
 		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
-		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
 		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
-		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
 		    		    </ul>
 		</nav>
 	</header>	<div class=fluid> 
@@ -56,26 +59,26 @@
 					</div>
 
 
-		<h2>引子</h2>
-		<p>在研究C语言可变参数函数的实现时，看到了这样一个宏：</p>
-		<pre><code class="language-c">#define __vasz(x)   ((sizeof(x)+sizeof(int)-1) &amp; ~(sizeof(int) -1))
-		</code></pre>
-		<p>让人匪夷所思。<br />
-		这里的x的“实参”是一个类型关键字，返回一个大于<code>sizeof(x)</code>且能被<code>sizeof(x)</code>整除的数。<br />
-		据说是为了实现内存对齐，所有数据都从4的整数倍内存地址开始存。</p>
-		<p>所以为什么这个宏是这么写的呢？</p>
-		<h2>分析</h2>
-		<p>先看看式子中恒定的后半部分<code>~(sizeof(int) -1)</code>，<code>sizeof(int)</code>一般是4（字节），4减1为3，再按位取反，得到<code>0xff...ffc</code>。看十六进制或许还不太清楚，我们再把它写成2进制：</p>
-		<pre><code>0b11...1100
-		</code></pre>
-		<p>再看看式子中前面的部分，用极值分析一下，<code>sizeof(x)</code>至少为1，1加4减掉1，也就是式子的前半部分最小为4，写成2进制为：</p>
-		<pre><code>0b00...0100  式子的前半部分
-		0b11...1100  式子的后半部分
-		</code></pre>
-		<p>可以看到前半部分最小的情况下，2进制的第3位也与后半部分同为1，再按位与，至少也能够得到4。事实上无论x是其它任何数据类型，2进制的第3位都是1。因为<code>sizeof(x) - 1</code>最小为0，而又加上了<code>sizeof(int)</code>，所以整个前半部分最小值为<code>sizeof(int)</code>（一般为4）。写成2进制数，第3位就是1。</p>
-		<p>而后半部分的低两位为0，无论前半部分的值是多少，和后半部分按位与之后，低两位都会是0。<br />
-		而前半部分的第3位始终为1，后半部分的第3位同样也始终为1，所以相与之后，至少都能得到4。</p>
-		<p>不知道谁想出的这个宏，还挺牛逼的。</p>
+<h2>引子</h2>
+<p>在研究C语言可变参数函数的实现时，看到了这样一个宏：</p>
+<pre><code class="language-c">#define __vasz(x)   ((sizeof(x)+sizeof(int)-1) &amp; ~(sizeof(int) -1))
+</code></pre>
+<p>让人匪夷所思。<br />
+这里的x的“实参”是一个类型关键字，返回一个大于<code>sizeof(x)</code>且能被<code>sizeof(x)</code>整除的数。<br />
+据说是为了实现内存对齐，所有数据都从4的整数倍内存地址开始存。</p>
+<p>所以为什么这个宏是这么写的呢？</p>
+<h2>分析</h2>
+<p>先看看式子中恒定的后半部分<code>~(sizeof(int) -1)</code>，<code>sizeof(int)</code>一般是4（字节），4减1为3，再按位取反，得到<code>0xff...ffc</code>。看十六进制或许还不太清楚，我们再把它写成2进制：</p>
+<pre><code>0b11...1100
+</code></pre>
+<p>再看看式子中前面的部分，用极值分析一下，<code>sizeof(x)</code>至少为1，1加4减掉1，也就是式子的前半部分最小为4，写成2进制为：</p>
+<pre><code>0b00...0100  式子的前半部分
+0b11...1100  式子的后半部分
+</code></pre>
+<p>可以看到前半部分最小的情况下，2进制的第3位也与后半部分同为1，再按位与，至少也能够得到4。事实上无论x是其它任何数据类型，2进制的第3位都是1。因为<code>sizeof(x) - 1</code>最小为0，而又加上了<code>sizeof(int)</code>，所以整个前半部分最小值为<code>sizeof(int)</code>（一般为4）。写成2进制数，第3位就是1。</p>
+<p>而后半部分的低两位为0，无论前半部分的值是多少，和后半部分按位与之后，低两位都会是0。<br />
+而前半部分的第3位始终为1，后半部分的第3位同样也始终为1，所以相与之后，至少都能得到4。</p>
+<p>不知道谁想出的这个宏，还挺牛逼的。</p>
 		<br />
 		<hr />
 
@@ -141,6 +144,9 @@
 	        enableQQ: true
 	    })
 	</script>
+	
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
 	
 	<!-- image -->
 	<script src="../js/image.js" type="text/javascript"></script>

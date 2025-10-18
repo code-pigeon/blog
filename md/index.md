@@ -1,12 +1,22 @@
 ---
-title: 其实这是首页
-auto_h1: false
+title: 乌鸦之家
 ---	
-# 乌鸦之家
-> 感谢光临
 
-## 关于我
-### 爱好
+> 感谢光临
+> 
+> 博文在右上角的“分类”或者“时光轴”里看哦。
+
+
+## 关于
+### 本站
+这是一个分享个人日常生活和一些博客搭建记录的网站。
+
+> 最开始创建的初衷其实是记录技术笔记，不过现在已经不怎么记了。
+后面应该会侧重于日常生活的分享。
+
+欢迎常来玩！
+
+### 我的爱好
 - 🏀：篮球
 - 🎤：唱歌
 - 🎱：桌球
@@ -18,14 +28,15 @@ auto_h1: false
 - 🖌：画画（曾经的爱好）
 
 ### 我的其它社媒账号
-- 抖音：[乌鸦有想法](https://www.douyin.com/user/MS4wLjABAAAABuryJcmnmTlY6lTkKhc-YDd3AH6_KzwiRnM-WaCizKk)
-- B站：[乌鸦有想法](https://space.bilibili.com/516728425)
-- 公众号：乌鸦碎碎念
+[![抖音](https://img.shields.io/badge/抖音-@乌鸦有想法-000000?style=flat&logo=tiktok&logoColor=white)](https://www.douyin.com/user/MS4wLjABAAAABuryJcmnmTlY6lTkKhc-YDd3AH6_KzwiRnM-WaCizKk)
+[![B站](https://img.shields.io/badge/dynamic/json?url=https://api.bilibili.com/x/relation/stat?vmid=516728425&query=data.follower&label=B站%20@乌鸦有想法&color=00A1D6&logo=bilibili)](https://space.bilibili.com/516728425)
+![微信公众号](https://img.shields.io/badge/乌鸦碎碎念-微信公众号-07C160?logo=wechat&logoColor=white)
+[![github](https://img.shields.io/badge/github-@code--pigeon-black?logo=github)](https://github.com/code-pigeon)
 
-## 联系我
+### 我的邮箱
 - 邮箱：`code_pigeon@163.com`
 
-## 建站相关
+## 建站的一些记录
 ### 建站环境和工具
 - 环境
 	- 代码编辑器：[sublime text](https://www.sublimetext.com/)
@@ -51,6 +62,7 @@ auto_h1: false
 - 可能要考虑放弃Valine评论系统了，阅读量都很少，别说评论了。
 - 添加扩展的依赖检查功能
 - 添加对模板文件、部分模板文件的依赖检查
+- 添加正文表情功能
 
 ### 博客构建器版本日志
 1.1.3

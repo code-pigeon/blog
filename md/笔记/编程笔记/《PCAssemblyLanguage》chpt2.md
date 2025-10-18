@@ -54,6 +54,7 @@ movzx ebx, ax ; extends ax into ebx
 **对于有符号数**，用`mov`无法实现扩展。
 
 但8086提供了一些指令扩展有符号数。
+
 |指令|翻译|描述|
 |--|--|--|
 |CBW|Convert Byte to Word|将AL扩展为AX|
@@ -62,6 +63,7 @@ movzx ebx, ax ; extends ax into ebx
 > 记住8086没有32位寄存器。所以只能将DX:AX两个16-bit寄存器看成一个32-bit寄存器。
 
 80386增加了一些指令扩展有符号数。
+
 |指令|翻译|描述|
 |--|--|--|
 |CWDE|Convert Word to Double word Extended|将AX扩展为EAX|
@@ -137,6 +139,7 @@ imul dest, source1, source2
 ```
 
 下表是可能的组合：
+
 |dest |source1 |source2 |Action|
 |-----|--|--|--|
 ||reg/mem8 ||AX = AL×source1|
@@ -237,6 +240,7 @@ sbb edx, ebx ; subtract upper 32-bits and borrow
 `far \[分支类型指令\] \[code label\]`：可以跨端跳转（几乎用不着）
 
 同时还有一些更易读的指令：
+
 |Signed|Unsigned|
 |--|--|
 |JE branches if vleft = vright| JE branches if vleft = vright|

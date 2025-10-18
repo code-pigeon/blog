@@ -8,6 +8,10 @@
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
 	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- goatcounter -->
+	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+	<!-- code highlight -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -16,7 +20,7 @@
 	<header>
 		<!-- 左侧个人形象部分 -->
 	    <div class="profile">
-	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
 	        <span class="nickname">乌鸦之家</span>
 	    </div>
 	    
@@ -25,9 +29,8 @@
 		    <ul>
 		    		    		<li><a href="index.html">首页</a></li>
 		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
-		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
 		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
-		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
 		    		    </ul>
 		</nav>
 	</header>	<div class=fluid> 
@@ -56,31 +59,31 @@
 					</div>
 
 
-		<h2>位置无关代码</h2>
-		<p>动态库应该被编译为位置无关的代码，在这种情况下，glocal offset table这张表记录着所有动态链接符号的位置。</p>
-		<p><code>-fpic</code>和<code>-fPIC</code>选项都可以生成位置无关的代码。前者编译出更快的代码，但对于global offset table的尺寸有限制，后者则没有。</p>
-		<h2>三种名字</h2>
-		<ul>
-		<li>real name：<code>.so</code>文件的真实名字，通常遵循<code>libname.so.x.y.z</code>的结构，<code>name</code>即为动态库的名字，<code>x</code>、<code>y</code>、<code>z</code>分别代表大、小版本号和发布号。</li>
-		<li>Shared Object Name（soname）：<code>libname.so.x</code>，即只带有大版本号的名字，通常是个指向real name文件的符号链接。</li>
-		<li>Linker name：<code>libname.so</code>，即不带任何版本号的名字，通常是个指向soname文件的符号链接。</li>
-		</ul>
-		<h2>动态库的创建</h2>
-		<ol>
-		<li>位置无关的目标文件</li>
-		</ol>
-		<pre><code class="language-bash">gcc -fpic -c source1.c source2.c
-		</code></pre>
-		<ol>
-		<li>位置无关的动态库</li>
-		</ol>
-		<pre><code class="language-bash">gcc -fpic source1.o source2.o -shared -Wl,-soname,libsource.so.1 -o libsource.so.1.1
-		</code></pre>
-		<p><code>-Wl</code>作用是将后面的选项传递给链接器ld。<code>-soname</code>表示在目标库中嵌入soname信息，这样当有可知性文件需要调用库source的时候，就会通过这个soname信息来寻找拥有相同soname的动态库。</p>
-		<h2>参考</h2>
-		<ul>
-		<li><a href="https://www.youtube.com/watch?v=mUbWcxSb4fw&amp;list=PLIz6U0slZNq2TS1zSUjZHgxBjAJL4nb92&amp;index=6">YouTube，Creating and Linking Shared Libraries on Linux with gcc</a></li>
-		</ul>
+<h2>位置无关代码</h2>
+<p>动态库应该被编译为位置无关的代码，在这种情况下，glocal offset table这张表记录着所有动态链接符号的位置。</p>
+<p><code>-fpic</code>和<code>-fPIC</code>选项都可以生成位置无关的代码。前者编译出更快的代码，但对于global offset table的尺寸有限制，后者则没有。</p>
+<h2>三种名字</h2>
+<ul>
+<li>real name：<code>.so</code>文件的真实名字，通常遵循<code>libname.so.x.y.z</code>的结构，<code>name</code>即为动态库的名字，<code>x</code>、<code>y</code>、<code>z</code>分别代表大、小版本号和发布号。</li>
+<li>Shared Object Name（soname）：<code>libname.so.x</code>，即只带有大版本号的名字，通常是个指向real name文件的符号链接。</li>
+<li>Linker name：<code>libname.so</code>，即不带任何版本号的名字，通常是个指向soname文件的符号链接。</li>
+</ul>
+<h2>动态库的创建</h2>
+<ol>
+<li>位置无关的目标文件</li>
+</ol>
+<pre><code class="language-bash">gcc -fpic -c source1.c source2.c
+</code></pre>
+<ol>
+<li>位置无关的动态库</li>
+</ol>
+<pre><code class="language-bash">gcc -fpic source1.o source2.o -shared -Wl,-soname,libsource.so.1 -o libsource.so.1.1
+</code></pre>
+<p><code>-Wl</code>作用是将后面的选项传递给链接器ld。<code>-soname</code>表示在目标库中嵌入soname信息，这样当有可知性文件需要调用库source的时候，就会通过这个soname信息来寻找拥有相同soname的动态库。</p>
+<h2>参考</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=mUbWcxSb4fw&amp;list=PLIz6U0slZNq2TS1zSUjZHgxBjAJL4nb92&amp;index=6">YouTube，Creating and Linking Shared Libraries on Linux with gcc</a></li>
+</ul>
 		<br />
 		<hr />
 
@@ -146,6 +149,9 @@
 	        enableQQ: true
 	    })
 	</script>
+	
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
 	
 	<!-- image -->
 	<script src="../js/image.js" type="text/javascript"></script>

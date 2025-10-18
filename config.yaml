@@ -42,12 +42,10 @@ nav:
       url: 'index.html'
     - label: '分类'
       url: 'NOCHECK_category.html'
-    - label: '时间轴'
+    - label: '时光轴'
       url: 'NOCHECK_timeline.html'
     - label: 'RSS订阅'
       url: 'https://code-pigeon.github.io/blog/feed'
-    - label: 'github'
-      url: 'https://github.com/code-pigeon'
 
 # --- 页面配置 ----------------------------------------------------------
 # 基本
@@ -64,7 +62,7 @@ private: false          # 私有（不提交至GitHub）
 template: 'post.mustache'   # 默认模板
 
 # markdown解析扩展
-md_parser_extension: ['fenced_code', 'tables', 'footnotes', 'nl2br']
+md_parser_extension: ['fenced_code', 'tables', 'footnotes', 'nl2br', 'pymdownx.tilde', 'pymdownx.tasklist']
 
 # 互联网相关
 img_url:    "../media/article/"                                                 # 图床

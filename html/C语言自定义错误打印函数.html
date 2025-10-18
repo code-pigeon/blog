@@ -8,6 +8,10 @@
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
 	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- goatcounter -->
+	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+	<!-- code highlight -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -16,7 +20,7 @@
 	<header>
 		<!-- 左侧个人形象部分 -->
 	    <div class="profile">
-	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
 	        <span class="nickname">乌鸦之家</span>
 	    </div>
 	    
@@ -25,9 +29,8 @@
 		    <ul>
 		    		    		<li><a href="index.html">首页</a></li>
 		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
-		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
 		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
-		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
 		    		    </ul>
 		</nav>
 	</header>	<div class=fluid> 
@@ -49,88 +52,88 @@
 					</div>
 
 
-		<h2>引子</h2>
-		<p>写程序难免需要错误处理，而为了把错误信息输出到标准错误中，通常会选择使用<code>fprintf</code>函数来打印错误信息。</p>
-		<pre><code class="language-c">#include &lt;stdio.h&gt;
-		int main(int argc, char const *argv[])
-		{
-		    int error_code = -1;
-		    fprintf(stderr, &quot;error: %d\n&quot;, error_code);
-		    return 0;
-		}
-		</code></pre>
-		<p>为了方便观看，还可能使用彩色打印</p>
-		<pre><code class="language-c">fprintf(stderr, &quot;\033[31merror:\033[0m %d\n&quot;, error_code);
-		</code></pre>
-		<p>显然在每个出错的地方都写上这么冗长的一句代码不仅观感非常差，而且一旦需要修改将会非常麻烦。</p>
-		<p>所以在思考写出这样一个函数：</p>
-		<pre><code class="language-c">void error(char* fmt, ...);
-		</code></pre>
-		<p>它能够像<code>printf</code>一样使用，但又能够将错误信息输出到标准错误中，还能够输出彩色的字符：</p>
-		<pre><code class="language-c">error(&quot;%d&quot;, error_code);
-		// 等价于↓
-		// fprintf(stderr, &quot;\033[31merror:\033[0m %d\n&quot;, error_code);
-		</code></pre>
-		<h2>实现</h2>
-		<p>正好标准库中有一个非常适合实现这个功能的函数，它就是<code>vprintf</code>，当然它还需要和<code>stdarg.h</code>头中的仨哥们<code>va_list</code>、<code>va_start</code>和<code>va_end</code>配合一下：</p>
-		<pre><code class="language-c">void error(char const * const fmt, ...){
-		    va_list ap;
-		    va_start(ap, fmt);
-		    printf(&quot;\033[31m&quot;);  // 将字体转为红色
-		    printf(&quot;error: &quot;);
-		    printf(&quot;\033[0m&quot;);  // 将字体转为默认颜色
-		    vprintf(fmt, ap);  // 这里才是真正打印错误信息的地方
-		    va_end(ap);
-		}
-		</code></pre>
-		<p>这样在主函数中就很方便的可以使用<code>error</code>函数打印错误信息了：</p>
-		<pre><code class="language-c">int main(int argc, char const *argv[])
-		{
-		    int error_code = -1;
-		    error(&quot;%d\n&quot;, error_code);
-		
-		    error(&quot;this is an error message. &quot;);
-		}
-		</code></pre>
-		<p>不过上面的<code>error</code>函数还没有把信息打印在标准错误中。</p>
-		<p>但就像<code>printf</code>有兄弟<code>fprintf</code>一样，<code>vprintf</code>也有它的兄弟<code>vfprintf</code>，只要把上面的<code>vprintf(fmt, ap);</code>替换为：</p>
-		<pre><code class="language-c">vfprintf(stderr, fmt, ap);
-		</code></pre>
-		<p>即可。</p>
-		<blockquote>
-		<p>这个<code>vprintf</code>和<code>vfprintf</code>可能是专门为套娃而生的。</p>
-		</blockquote>
-		<h2>完整示例</h2>
-		<pre><code class="language-c">#include &lt;stdarg.h&gt;
-		#include &lt;stdio.h&gt;
-		
-		void error(char const* const fmt, ...){
-		    va_list ap;
-		    va_start(ap, fmt);
-		    fprintf(stderr, &quot;\033[31m&quot;);  // 将字体转为红色
-		    fprintf(stderr, &quot;error: &quot;);
-		    fprintf(stderr, &quot;\033[0m&quot;);  // 将字体转为默认颜色
-		    vfprintf(stderr, fmt, ap);  // 这里才是真正打印错误信息的地方
-		    va_end(ap);
-		}
-		
-		void warning(char const* const fmt, ...){
-		    va_list ap;
-		    va_start(ap, fmt);
-		    fprintf(stderr, &quot;\033[35m&quot;);  // 将字体转为紫色
-		    fprintf(stderr, &quot;warning: &quot;);
-		    fprintf(stderr, &quot;\033[0m&quot;);  // 将字体转为默认颜色
-		    vfprintf(stderr, fmt, ap);  // 这里才是真正打印错误信息的地方
-		    va_end(ap);
-		}
-		
-		int main(int argc, char const *argv[])
-		{
-		    error(&quot;这是错误，错误代码%d\n&quot;, 100);
-		    warning(&quot;这是警告，警告代码%d\n&quot;, 200);
-		    return 0;
-		}
-		</code></pre>
+<h2>引子</h2>
+<p>写程序难免需要错误处理，而为了把错误信息输出到标准错误中，通常会选择使用<code>fprintf</code>函数来打印错误信息。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(int argc, char const *argv[])
+{
+    int error_code = -1;
+    fprintf(stderr, &quot;error: %d\n&quot;, error_code);
+    return 0;
+}
+</code></pre>
+<p>为了方便观看，还可能使用彩色打印</p>
+<pre><code class="language-c">fprintf(stderr, &quot;\033[31merror:\033[0m %d\n&quot;, error_code);
+</code></pre>
+<p>显然在每个出错的地方都写上这么冗长的一句代码不仅观感非常差，而且一旦需要修改将会非常麻烦。</p>
+<p>所以在思考写出这样一个函数：</p>
+<pre><code class="language-c">void error(char* fmt, ...);
+</code></pre>
+<p>它能够像<code>printf</code>一样使用，但又能够将错误信息输出到标准错误中，还能够输出彩色的字符：</p>
+<pre><code class="language-c">error(&quot;%d&quot;, error_code);
+// 等价于↓
+// fprintf(stderr, &quot;\033[31merror:\033[0m %d\n&quot;, error_code);
+</code></pre>
+<h2>实现</h2>
+<p>正好标准库中有一个非常适合实现这个功能的函数，它就是<code>vprintf</code>，当然它还需要和<code>stdarg.h</code>头中的仨哥们<code>va_list</code>、<code>va_start</code>和<code>va_end</code>配合一下：</p>
+<pre><code class="language-c">void error(char const * const fmt, ...){
+    va_list ap;
+    va_start(ap, fmt);
+    printf(&quot;\033[31m&quot;);  // 将字体转为红色
+    printf(&quot;error: &quot;);
+    printf(&quot;\033[0m&quot;);  // 将字体转为默认颜色
+    vprintf(fmt, ap);  // 这里才是真正打印错误信息的地方
+    va_end(ap);
+}
+</code></pre>
+<p>这样在主函数中就很方便的可以使用<code>error</code>函数打印错误信息了：</p>
+<pre><code class="language-c">int main(int argc, char const *argv[])
+{
+    int error_code = -1;
+    error(&quot;%d\n&quot;, error_code);
+
+    error(&quot;this is an error message. &quot;);
+}
+</code></pre>
+<p>不过上面的<code>error</code>函数还没有把信息打印在标准错误中。</p>
+<p>但就像<code>printf</code>有兄弟<code>fprintf</code>一样，<code>vprintf</code>也有它的兄弟<code>vfprintf</code>，只要把上面的<code>vprintf(fmt, ap);</code>替换为：</p>
+<pre><code class="language-c">vfprintf(stderr, fmt, ap);
+</code></pre>
+<p>即可。</p>
+<blockquote>
+<p>这个<code>vprintf</code>和<code>vfprintf</code>可能是专门为套娃而生的。</p>
+</blockquote>
+<h2>完整示例</h2>
+<pre><code class="language-c">#include &lt;stdarg.h&gt;
+#include &lt;stdio.h&gt;
+
+void error(char const* const fmt, ...){
+    va_list ap;
+    va_start(ap, fmt);
+    fprintf(stderr, &quot;\033[31m&quot;);  // 将字体转为红色
+    fprintf(stderr, &quot;error: &quot;);
+    fprintf(stderr, &quot;\033[0m&quot;);  // 将字体转为默认颜色
+    vfprintf(stderr, fmt, ap);  // 这里才是真正打印错误信息的地方
+    va_end(ap);
+}
+
+void warning(char const* const fmt, ...){
+    va_list ap;
+    va_start(ap, fmt);
+    fprintf(stderr, &quot;\033[35m&quot;);  // 将字体转为紫色
+    fprintf(stderr, &quot;warning: &quot;);
+    fprintf(stderr, &quot;\033[0m&quot;);  // 将字体转为默认颜色
+    vfprintf(stderr, fmt, ap);  // 这里才是真正打印错误信息的地方
+    va_end(ap);
+}
+
+int main(int argc, char const *argv[])
+{
+    error(&quot;这是错误，错误代码%d\n&quot;, 100);
+    warning(&quot;这是警告，警告代码%d\n&quot;, 200);
+    return 0;
+}
+</code></pre>
 		<br />
 		<hr />
 
@@ -196,6 +199,9 @@
 	        enableQQ: true
 	    })
 	</script>
+	
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
 	
 	<!-- image -->
 	<script src="../js/image.js" type="text/javascript"></script>

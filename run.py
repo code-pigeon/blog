@@ -2,11 +2,11 @@ import os
 import yaml
 import json
 import logging
-from DependencyChecker import DependencyChecker
-from MarkdownRenderer import MarkdownRenderer
-from ext_timeline import TimelineGenerator
-from ext_category import CategoryGenerator
-from ext_feed import generate_feed
+from app.dependency_checker import DependencyChecker
+from app.markdown_renderer import MarkdownRenderer
+from app.ext_timeline import TimelineGenerator
+from app.ext_category import CategoryGenerator
+from app.ext_feed import generate_feed
 
 
 config_path = "config.yaml"

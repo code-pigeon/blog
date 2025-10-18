@@ -8,6 +8,10 @@
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
 	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- goatcounter -->
+	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+	<!-- code highlight -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<!-- table of content -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
@@ -16,7 +20,7 @@
 	<header>
 		<!-- 左侧个人形象部分 -->
 	    <div class="profile">
-	        <img src="../media/article/pigeon2.png" alt="个人头像" class="avatar">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
 	        <span class="nickname">乌鸦之家</span>
 	    </div>
 	    
@@ -25,9 +29,8 @@
 		    <ul>
 		    		    		<li><a href="index.html">首页</a></li>
 		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
-		    		    		<li><a href="NOCHECK_timeline.html">时间轴</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
 		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
-		    		    		<li><a href="https://github.com/code-pigeon">github</a></li>
 		    		    </ul>
 		</nav>
 	</header>	<div class=fluid> 
@@ -42,33 +45,33 @@
 					</div>
 
 
-		<h2>为什么需要follow集</h2>
-		<p>follow集的存在还是为了计算first集，如果没有空字符ε的存在，那么follow集是没有必要的。</p>
-		<pre><code>S → AB
-		A → a | ε
-		B → b
-		</code></pre>
-		<p>这种情况下，B的first集一定是b；</p>
-		<p>但如果B可以推导出ε</p>
-		<pre><code>S → AB
-		A → a | ε
-		B → b | ε
-		</code></pre>
-		<p>那么B推导完可能直接消失了，这就需要看看在B后面可能跟着什么，而因为B为空，所以B后面跟着的东西实际上是B的前一个非终结符后面跟着的东西。</p>
-		<p>在上面这个例子中，因为B可能为空，所以有可能<code>S→AB→A</code>，所以要看看A后面可能跟着啥。这里A后面跟着结束符<code>$</code>，所以<code>first(B)</code>应该含有结束符<code>$</code>。</p>
-		<h2>LL(1)冲突处理</h2>
-		<h3>消除左递归</h3>
-		<h3>提取左公因子</h3>
-		<pre><code>X -&gt; aY | aZ
-		Y -&gt; b
-		Z -&gt; c
-		</code></pre>
-		<p>变成</p>
-		<pre><code>X -&gt; aX'
-		X'-&gt; Y | Z
-		Y -&gt; b
-		Z -&gt; c
-		</code></pre>
+<h2>为什么需要follow集</h2>
+<p>follow集的存在还是为了计算first集，如果没有空字符ε的存在，那么follow集是没有必要的。</p>
+<pre><code>S → AB
+A → a | ε
+B → b
+</code></pre>
+<p>这种情况下，B的first集一定是b；</p>
+<p>但如果B可以推导出ε</p>
+<pre><code>S → AB
+A → a | ε
+B → b | ε
+</code></pre>
+<p>那么B推导完可能直接消失了，这就需要看看在B后面可能跟着什么，而因为B为空，所以B后面跟着的东西实际上是B的前一个非终结符后面跟着的东西。</p>
+<p>在上面这个例子中，因为B可能为空，所以有可能<code>S→AB→A</code>，所以要看看A后面可能跟着啥。这里A后面跟着结束符<code>$</code>，所以<code>first(B)</code>应该含有结束符<code>$</code>。</p>
+<h2>LL(1)冲突处理</h2>
+<h3>消除左递归</h3>
+<h3>提取左公因子</h3>
+<pre><code>X -&gt; aY | aZ
+Y -&gt; b
+Z -&gt; c
+</code></pre>
+<p>变成</p>
+<pre><code>X -&gt; aX'
+X'-&gt; Y | Z
+Y -&gt; b
+Z -&gt; c
+</code></pre>
 		<br />
 		<hr />
 
@@ -134,6 +137,9 @@
 	        enableQQ: true
 	    })
 	</script>
+	
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
 	
 	<!-- image -->
 	<script src="../js/image.js" type="text/javascript"></script>
