@@ -34,6 +34,7 @@ https://img.shields.io/badge/乌鸦有想法-000000
 ![徽章：乌鸦有想法](https://img.shields.io/badge/乌鸦有想法-000000)
 
 聪明的你肯定看出来了：
+
 - `https://img.shields.io`是shield的域名；
 - `badge`是基本样式，“badge”意为徽章；
 - `乌鸦有想法`是要显示的文字；

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>给博客整一个新的访问量统计工具：GoatCounter</title>
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- goatcounter -->
+	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+	<!-- code highlight -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<!-- table of content -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
+	        <span class="nickname">乌鸦之家</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+		    <ul>
+		    		    		<li><a href="index.html">首页</a></li>
+		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
+		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
+		    		    </ul>
+		</nav>
+	</header>	<div class=fluid> 
+				<h1 id="给博客整一个新的访问量统计工具：GoatCounter">给博客整一个新的访问量统计工具：GoatCounter</h1>
+				<div class="article-meta">
+						<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">25-10-18 19:56</time>
+			</div>
+												<div class="meta-item">
+				<span class="meta-label">杂谈</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">折腾记录</span>
+			</div>
+					</div>
+
+
+<p>不太记得从谁的博客里看到的<a href="https://www.goatcounter.com/">这个工具</a>了，当时看介绍就觉得不错。像百度、谷歌这类互联网巨头它们其实都有这类网站统计工具，但你知道的，巨头拿你的数据做什么可没人知道。虽然说其实我这种小站也没什么好担心的，但是就是不能助纣为虐(●'◡'●)。这个网站的介绍也正是击中了这一要害：</p>
+<blockquote>
+<p>GoatCounter is an open source web analytics platform available as a free donation-supported hosted service or self-hosted app. It aims to offer easy to use and meaningful privacy-friendly web analytics as an alternative to Google Analytics or Matomo.</p>
+<p>GoatCounter是一款开源网络分析平台，提供两种使用方式：基于捐赠的免费托管服务，或可自行部署的应用程序。该平台致力于提供直观易用、数据洞察精准的隐私友好型网络分析解决方案，旨在成为Google Analytics和Matomo的替代选择。</p>
+</blockquote>
+<p>GoatCounter开源免费，还能自托管，无疑是消除了用户对隐私问题的顾虑。对于我这种小站来说可能不是那么有所谓，我看重的还是他的简单易用。创建自己的账户之后，只需要在自己的网站中添加一段html标签就完事了。</p>
+<pre><code class="language-html">&lt;script data-goatcounter=&quot;https://yoursite.goatcounter.com/count&quot; async src=&quot;//gc.zgo.at/count.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>接着就可以到自己的后台静静地等待数据增加了🤭（现实是只有我自己的访问）。</p>
+<p><img alt="图片加载失败：goatcounter后台" src="../media/image/article/Snipaste_2025-10-18_19-49-13_compressed.jpg" /></p>
+<p><a href="v1.0.3改版日志——评论系统的选择.html#我的选择Valine">我之前搞的评论系统Valine</a>其实也有访问统计功能。不过它需要在第三方云平台部署代码，搞起来比较麻烦。相比之下，GoatCounter真的是十分的方便。而且今天下午测试的时候，发现Valine的访问量统计好像是有些bug，很多次访问都没被统计进去。</p>
+<p>更让人欣喜的是，GoatCounter也能通过api获取单独某个页面的访问量，于是就可以在页面里显示这个访问量了。而且方法也很简单，同样是加一点html标签就行了。</p>
+<pre><code class="language-html">&lt;script&gt;
+    window.goatcounter.visit_count({append: 'body'})
+&lt;/script&gt;
+&lt;script data-goatcounter=&quot;https://你的域名.goatcounter.com/count&quot;
+        async src=&quot;//gc.zgo.at/count.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>这样的话会在<code>body</code>标签的最后生成一个html标签：</p>
+<pre><code class="language-html">&lt;body&gt;
+    &lt;!-- 你页面的所有其他内容 --&gt;
+
+    &lt;!-- GoatCounter 计数器会添加在这里 --&gt;
+    &lt;div class=&quot;gcvc&quot;&gt;
+        Views for this page: 1,234 stats by GoatCounter
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<p>不过除了访问量，还有些英文，这些是固定的。</p>
+<p>还好除了这种方式还有个直接返回json的api能够拿到纯粹的访问量数字。<br />
+例如直接在浏览器地址栏输入<code>https://code-pigeon.goatcounter.com/counter/blog/html/index.html.json</code>，那么就能得到：</p>
+<pre><code class="language-json">{
+  &quot;count&quot;: &quot;4&quot;,
+  &quot;count_unique&quot;: &quot;4&quot;
+}
+</code></pre>
+<p><code>"count": "4"</code>就是我的主页的访问量了。</p>
+<p>有了这个api，在页面的任何角落放一个访问量也是轻而易举了。</p>
+<pre><code class="language-js">// 使用 GoatCounter 的 JSON API
+var t = setInterval(function() {
+    if (window.goatcounter) {
+        clearInterval(t);
+
+        // 获取当前页面路径
+        let path = window.goatcounter.get_data()['p'];
+
+        // 获取访问量数据
+        fetch('https://你的域名.goatcounter.com/counter/' + encodeURIComponent(path) + '.json')
+            .then(r =&gt; r.json())
+            .then(data =&gt; {
+                document.getElementById('my-counter').textContent = data.count;
+            })
+            .catch(err =&gt; {
+                document.getElementById('my-counter').textContent = '0';
+            });
+    }
+}, 100);
+</code></pre>
+<p>说了这么多，其实我现在在文末显示的还是Valine的访问统计，有空了再更新成GoatCounter吧哈哈。</p>
+<p>散会！</p>
+		<br />
+		<hr />
+
+		<!-- visitor -->
+		<!-- id 将作为查询条件 -->
+		<span id="/blog/html/20251018%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%95%B4%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%B7%A5%E5%85%B7goatcounter.html" class="leancloud_visitors" data-flag-title="给博客整一个新的访问量统计工具：GoatCounter">
+		    <em class="post-meta-item-text">阅读量 </em>
+		    <i class="leancloud-visitors-count">0</i>
+		</span>
+		<!-- \visitor -->
+
+		<br />
+
+		
+
+				<h2 id="评论">评论</h2>
+		<!-- <div class="giscus"></div> -->
+		<div id="vcomments"></div>
+			</div>
+
+	
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+	<!-- table of cotent -->
+	
+		<!-- giscus -->
+	<!-- <script src="https://giscus.app/client.js"
+	        data-repo="code-pigeon/blog"
+	        data-repo-id="R_kgDOMDeCsA"
+	        data-category="Announcements"
+	        data-category-id="DIC_kwDOMDeCsM4Chk54"
+	        data-mapping="pathname"
+	        data-strict="0"
+	        data-reactions-enabled="1"
+	        data-emit-metadata="0"
+	        data-input-position="top"
+	        data-theme="dark_protanopia"
+	        data-lang="zh-CN"
+	        crossorigin="anonymous"
+	        async>
+	</script> -->
+
+	<!-- Valine -->
+	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script>
+	
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
+	
+	<!-- image -->
+	<script src="../js/image.js" type="text/javascript"></script>
+
+</body>
+</html>
