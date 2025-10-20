@@ -15,7 +15,7 @@ GoatCounter开源免费，还能自托管，无疑是消除了用户对隐私问
 ```
 接着就可以到自己的后台静静地等待数据增加了🤭（现实是只有我自己的访问）。
 
-![图片加载失败：goatcounter后台]({{img_url}}Snipaste_2025-10-18_19-49-13_compressed.jpg)
+<img data-url="{{image_table.Snipaste_2025-10-18_19-49-13_compressed}}" alt="图片加载失败：goatcounter后台" />
 
 [我之前搞的评论系统Valine](v1.0.3改版日志——评论系统的选择.html#我的选择Valine)其实也有访问统计功能。不过它需要在第三方云平台部署代码，搞起来比较麻烦。相比之下，GoatCounter真的是十分的方便。而且今天下午测试的时候，发现Valine的访问量统计好像是有些bug，很多次访问都没被统计进去。
 

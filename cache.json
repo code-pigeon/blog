@@ -13,7 +13,7 @@
     "description": "感谢光临 博文在右上角的“分类”或者“时光轴”里看哦。 **关于** **本站** 这是一个分享个人日常生活和一些博客搭建记录的网站。 最开始创建的初衷其实是记录技术笔记，不过现在已经不怎么记了。 后面应该会侧重于日常生活的分享。 欢迎常来玩！ **我的爱好** • 🏀：篮球 • 🎤：唱歌 • 🎱：桌球 • 🏊︎：游泳 • 🖊︎：记录 • 📔：看小说 • 🏓：乒乓球 • ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/8月14日——逛博客.md": {
-    "file_updated": 1760587874.2385364,
+    "file_updated": 1760971859.436253,
     "should_build": false,
     "title": "逛博客",
     "category": [
@@ -30,8 +30,8 @@
     "description": "这次博客升级，因为有很多地方需要参考，所以翻出了在自己收藏夹里的一些个人博客。 博客改造完之后，因为忙了挺久（严格说其实就一天差不多），不太想继续琢磨什么，就想着逛逛那些在这两天发现的博客。 我发现很多有趣的东西都在个人博客里，博主们在博客里分享自己的见闻、想法、心情。在这些不起眼的角落里，互联网的身影显得有些陌生。 很多博主都特别优秀，特别是江苏省的那些，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/《曾少年之小时候》.md": {
-    "file_updated": 1760587856.86206,
-    "should_build": false,
+    "file_updated": 1760973389.167313,
+    "should_build": true,
     "title": "《曾少年之小时候》",
     "category": [
       "杂谈",
@@ -98,7 +98,7 @@
     "description": "**最近的主题：唱歌** 虽然之前也爱唱歌，但是高音总是上不去，从低声往上唱，声音会越来越虚，而且会容易破，再到非常高的音的时候，就只能是娘娘的假声了。所以平时唱那些有高音的歌只能是在家里自己唱唱，跟同学朋友去KTV，都只能挑些容易唱的，往往有些歌手因为唱功问题，他们的歌曲就比较好唱，所以在KTV的时候就会经常点，搞得同学朋友以为我很喜欢那些个歌手，其实是因为他们的歌很好唱。 我相信喜欢唱歌，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【8月23日】纪念死去的页游：坦克大战online.md": {
-    "file_updated": 1760587926.7370808,
+    "file_updated": 1760970660.041273,
     "should_build": false,
     "title": "纪念死去的页游：坦克大战online",
     "category": [
@@ -392,7 +392,7 @@
     "description": "**参考链接** • YOLOv4-darknet installation and usage on your system (Windows & Linux) • Installing and Building Darknet • 官网 **0 说明** 此博客只记录darknet yolo4 + opencv的编译安装，不涉及cuda和cuDNN。 **1 编译的源文件** ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/unity3D_FPS_game_interaction.md": {
-    "file_updated": 1760586893.2583055,
+    "file_updated": 1760972756.287389,
     "should_build": false,
     "title": "【unity3D学习记录】FPS角色交互",
     "category": [
@@ -456,7 +456,7 @@
     "description": "**引子** 都知道Windows cmd中，运行可执行文件和bat时，可以直接输入不带后缀的文件名。 而执行python脚本时，却需要指明python作为解释器，而且文件要有后缀名。 这样对于运行python脚本无疑带来了麻烦。 **方法** 看了很多资料博客，也问了chatGPT，最后总结出了最简单有效的方式。 简洁版： 1. 在环境变量中添加； 2. 将文件的默认应用设置为python。 ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows将多个图标编译为dll.md": {
-    "file_updated": 1760587824.3992963,
+    "file_updated": 1760972528.3961575,
     "should_build": false,
     "title": "Windows将多个图标编译为dll",
     "category": [
@@ -472,7 +472,7 @@
     "description": "**方法** **工具** • MinGW **步骤** 假如这是文件夹的内容： 首先新建一个文件，内容为： 然后在命令行下输入： 得到的中就包含有我们想要放入的文件了。 **使用这个dll文件在windows下自定义文件夹图标** 这个dll的一个用处就是拿来更换文件夹/快捷方式的图标了，这也是我挖掘这个方法的原因。 右键点击一个快捷方式，选择“属性”，在属性窗口中点击“更改图标”，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows应用DPI感知.md": {
-    "file_updated": 1760587816.7432556,
+    "file_updated": 1760972381.564695,
     "should_build": false,
     "title": "Windows应用DPI感知",
     "category": [
@@ -616,7 +616,7 @@
     "description": "**方法** **工具** GNU Binutils • ar • gcc **步骤** • 创建静态库 标志表示创建一个静态库，如果静态库已经存在，则覆盖之。按照惯例，静态库的库名以“lib”开头、“.a”作为后缀名。 这里的当然就是由源文件编译而来的目标文件了。同时，源文件对应的头文件也需要保留。 • 使用静态库 **参考** youtube视频Creating and Linking ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/白嫖weibo的视频资源记.md": {
-    "file_updated": 1760587493.9985662,
+    "file_updated": 1760972297.8055468,
     "should_build": false,
     "title": "白嫖weibo的视频资源记",
     "category": [
@@ -632,7 +632,7 @@
     "description": "因为搞了个简易视频壁纸命令行程序，所以要开始收集视频了。 在微博上白嫖视频，最简单的方式当然是用现成的工具。 • sucps.com：需要关注公众号。 • 下载狗：有每日下载次数限额。 这两个工具都可以下载。 不过作为一个程序员，总是好奇背后的原理。而且我也想学会自己白嫖，就不用求人了。 **探索过程** 了解html页面的话，肯定最先想到的是在浏览器里按下，然后点击目标视频，找到对应的元素，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/简单的视频桌面壁纸实现.md": {
-    "file_updated": 1760776531.063308,
+    "file_updated": 1760972011.4377248,
     "should_build": false,
     "title": "简单的视频桌面壁纸实现",
     "category": [
@@ -1560,7 +1560,7 @@
     "description": "《鸡犬不宁》——庄无邪 于2023/07/27读完，评语“猜错主角系列” 开篇是从一个刑警队副队长开始的，前面有挺长一段剧情都是围绕着他来写的，直到引出主角的时候，主角还只是一个神秘的角色。然后主角一直神秘了很久，直到那种“神秘”的真面目一层层揭开，主角也开始一点点发挥能力，然后到接近结局才幡然醒悟，原来他才是主角！这大概就是我看这本书的最大感受。 悬疑类型的书，我觉得还挺好看的，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20250421cloudflare-as-image-host.md": {
-    "file_updated": 1760587095.2356312,
+    "file_updated": 1760973108.5151148,
     "should_build": false,
     "title": "我也用cloudflare R2来做图床了",
     "category": [
@@ -1704,7 +1704,7 @@
     "description": "**评论系统的选择** 对于动态网页的评论系统，有能力的完全可以自己手搓，因为动态网站必须拥有服务器，有了服务器就能够处理网络请求，那么评论只不过就是一个携带文本的请求罢了。 但是对于不具备网络请求能力的静态网站，评论系统的搭建就得另辟蹊径了。 有一种很直接的思路，既然静态网站自己没有服务器，那就用别人现成的服务器来处理不就行了。这确实就是评论系统所做的，它会帮助你存储并管理你的评论信息。 ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20251018给博客整一个新的访问量统计工具goatcounter.md": {
-    "file_updated": 1760794846.7434075,
+    "file_updated": 1760972861.9051607,
     "should_build": false,
     "title": "给博客整一个新的访问量统计工具：GoatCounter",
     "category": [
@@ -1720,8 +1720,8 @@
     "description": "不太记得从谁的博客里看到的这个工具了，当时看介绍就觉得不错。像百度、谷歌这类互联网巨头它们其实都有这类网站统计工具，但你知道的，巨头拿你的数据做什么可没人知道。虽然说其实我这种小站也没什么好担心的，但是就是不能助纣为虐(●'◡'●)。这个网站的介绍也正是击中了这一要害： GoatCounter is an open source web analytics platform available ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/2025101910月生活碎片.md": {
-    "file_updated": 1760860646.7524714,
-    "should_build": false,
+    "file_updated": 1760973407.5447013,
+    "should_build": true,
     "title": "10月生活碎片",
     "category": [
       "杂谈",
@@ -1737,8 +1737,8 @@
     "description": "**我的失误引发的尴尬时刻** 我在学院教务处兼职，平时可能跑跑腿帮学院教务处往学校教务处送点资料文件什么的。 那天有一份资料不是送去学校教务处的，而是另一栋建筑。但是我不知道这回事，我以为是送给学校教务处的，于是到学校教务处找X老师，学校教务处的人都表示本办公室没有这个老师，看了一下我手里的资料，就帮我猜测可能需要去某个办公室找。 于是我最后找到某个办公室，虽然还是没有找到X老师，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251019都说是父母给了孩子生命但我更觉得是孩子给父母带来了新生.md": {
-    "file_updated": 1760874901.1192598,
-    "should_build": true,
+    "file_updated": 1760973190.4985056,
+    "should_build": false,
     "title": "都说是父母给了孩子生命，但我更觉得是孩子给父母带来了新生",
     "category": [
       "杂谈",

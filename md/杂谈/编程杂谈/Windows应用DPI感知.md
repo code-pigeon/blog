@@ -53,6 +53,6 @@ gcc main.c manifest.o -o main.exe -mwindows -luser32 -lkernel32 -lgdi32 -municod
 ```
 
 ## 效果
-![dpi感知]({{{img_url}}}Snipaste_2024-07-22_14-28-11.png "Snipaste_2024-07-22_14-28-11.png")
+<img data-url="{{image_table.Snipaste_2024-07-22_14-28-11}}" alt="图片加载失败：Snipaste_2024-07-22_14-28-11"/>
 
 可以看到没有开启dpi感知的时候，整个应用程序的窗口都被放大了，里面的字体也被放得很大，开启了抗锯齿的字体会显得有些模糊，而没有开启抗锯齿的字体则可以直接看出字体周围的像素点。

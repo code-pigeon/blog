@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 class DependencyChecker:
-    def __init__(self, config_path, cache_path):
+    def __init__(self, config, cache_data, config_path, cache_path):
         """
         初始化依赖检查模块
         
@@ -20,14 +20,15 @@ class DependencyChecker:
         self.cache_path = self.normalize_path(cache_path)
         
         # 加载配置
-        self.config = self.load_config()
+        # self.config = self.load_config()
+        self.config = config
         
         # 从配置文件中读取目录路径
         self.md_dir_path = self.normalize_path(self.config['md_dir'])
         self.html_dir_path = self.normalize_path(self.config['html_dir'])
         
         # 缓存数据
-        self.cache_data = {}
+        self.cache_data = cache_data
         
         # 确保路径都是绝对路径
         self.md_dir_path = self.ensure_absolute_path(self.md_dir_path)
@@ -387,8 +388,8 @@ class DependencyChecker:
         print(f"配置文件: {self.config_path} (修改时间: {config_time_str})")
         
         # 加载缓存
-        self.load_cache()
-        print(f"已加载缓存，共 {len(self.cache_data)} 条记录")
+        # self.load_cache()
+        # print(f"已加载缓存，共 {len(self.cache_data)} 条记录")
         
         # 清理孤立的html文件
         print("检查孤立的html文件...")

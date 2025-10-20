@@ -17,11 +17,12 @@ date: 25-04-23 22:33
 ## 创建场景
 你可以像我一样创建一堆不同的Cube，中间两片作为门，旁边贴一小片作为开关。
 
-![图片：简单的场景]({{img_url}}Snipaste_2025-04-23_22-49-56.jpg "简单的场景")
+<img data-url="{{image_table.Snipaste_2025-04-23_22-49-56}}" alt="图片加载失败"/>
+
 
 可以把两个门用放在一个空的Object下。
 
-![图片：场景的Hierarchy]({{img_url}}Snipaste_2025-04-23_22-52-46.jpg "场景的Hierarchy")
+<img data-url="{{image_table.Snipaste_2025-04-23_22-52-46}}" alt="图片加载失败"/>
 
 ## 创建Interactable基类
 在游戏里，可以和玩家互动的东西应当有很多（物品/敌人等等），它们的共同点当然就是能与玩家互动，所以可以抽象出它们的共同基类，命名为`Interactable`。

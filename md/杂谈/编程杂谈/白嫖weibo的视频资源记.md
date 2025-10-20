@@ -112,15 +112,15 @@ https://weibo.com/ajax/statuses/mymblog?uid=7822545252&page=1&feature=0
 ```html
 <video src="https://f.video.weibocdn.com/o0/i2M3bZF3lx083v7CjStq01041201SKSl0E010.mp4?label=mp4_1080p&template=1920x1080.25.0&media_id=4874117988679687&tp=8x8A3El:YTkl0eM8&us=0&ori=1&bf=4&ot=h&ps=3lckmu&uid=6xTbLC&ab=,8143-g0,8013-g0,3601-g19,7598-g0&Expires=1724074020&ssig=OgFaj88BL2&KID=unistore,video"></video>
 ```
-![图片：成功实现保存视频]({{{img_url}}}Snipaste_2024-08-20_00-18-01.png "Snipaste_2024-08-20_00-18-01.png")
+<img data-url="{{image_table.白嫖weibo的视频资源记.成功实现保存视频}}" title="白嫖weibo的视频资源记.成功实现保存视频" alt="图片加载失败：白嫖weibo的视频资源记.成功实现保存视频"/>
 
 哈哈哈哈！
 
 正当我欣喜若狂，拿着下载好的视频和用那两个网站下载好的视频进行对比时，我突然傻眼了。
 左边是我自己下载的，右边是用那两个网站下载的。
-![图片：对比1]({{{img_url}}}Snipaste_2024-08-20_00-22-14.png "Snipaste_2024-08-20_00-22-14.png")
+<img data-url="{{image_table.Snipaste_2024-08-20_00-22-14}}" title="Snipaste_2024-08-20_00-22-14" alt="图片加载失败：Snipaste_2024-08-20_00-22-14"/>
 大小的差距更是离谱。
-![图片：对比2]({{{img_url}}}Snipaste_2024-08-20_00-22-30.png "Snipaste_2024-08-20_00-22-30.png")
+<img data-url="{{image_table.Snipaste_2024-08-20_00-22-30}}" title="Snipaste_2024-08-20_00-22-30" alt="图片加载失败：Snipaste_2024-08-20_00-22-30"/>
 即使我把视频质量调整到1080p，还是比从那两个网站下载的的质量要低得多。
 
 而且我自己下载的还是有水印的。而网站下载的没有。

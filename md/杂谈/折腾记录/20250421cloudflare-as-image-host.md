@@ -37,31 +37,31 @@ cloudflare R2的好处在于它有一定的免费额度。
 
 然后找到左侧的`R2 Object Storage`，点击之后会让你先填付款方式（以便超过免费使用额度了它可以自动恰米\[乐\])，可以是银行卡，不过右上角也提供了PayPal的选项，这个就根据大家的具体情况去填了。下面还需要填写一些个人的信息，尚且不清楚不填真实信息有没有什么影响，不过反正我没填真实的也成功了。
 
-![【ERROR】 图片“开通cloudflare R2”加载失败"]({{img_url}}Snipaste_2025-04-21_19-45-16.jpg "开通cloudflare R2")
+<img data-url="{{image_table.cloudflare-as-image-host-开通cloudflare R2}}" title="开通cloudflare R2" alt="图片加载失败：开通cloudflare R2"/>
 
 成功添加付款方式之后，会进入overview页面，此时就可以创建自己的图床了。在右边有个蓝色的`Create bucket`按钮，点击创建。
 
-![【ERROR】 图片“创建bucket”加载失败"]({{img_url}}Snipaste_2025-04-21_19-52-57.jpg "创建bucket")
+<img data-url="{{image_table.cloudflare-as-image-host-创建bucket}}" title="创建bucket" alt="图片加载失败：创建bucket"/>
 
 起个自己想要的名字，然后其它选项都保持默认就行了。
 
 创建成功后进入自己的bucket，然后就可以上传自己的文件了。可以直接拖拽自己的图片到页面里，也可在中间点击`select from computer`。（可以同时上传多个文件）
 
-![【ERROR】 图片“上传文件”加载失败"]({{img_url}}Snipaste_2025-04-21_20-01-35.jpg "上传文件")
+<img data-url="{{image_table.cloudflare-as-image-host-上传文件}}" title="上传文件" alt="图片加载失败：上传文件"/>
 
 成功之后应该可以看到自己上传的文件出现在列表中。
 
-![【ERROR】 图片“上传文件成功”加载失败"]({{img_url}}Snipaste_2025-04-21_18-48-18.jpg "上传文件成功")
+<img data-url="{{image_table.cloudflare-as-image-host-上传文件成功}}" title="上传文件成功" alt="图片加载失败：上传文件成功"/>
 
 这时候还需要最后一步才能让自己的博客能够引用文件的链接，那就是打开公共访问权限。
 
 具体来说，点击`Settings`，拖动到下面会看到`Public access`，在第二项的`R2.dev subdomain`右边的红色按钮`Allow Access`处点击，然后输入提示词即可。
 
-![【ERROR】 图片“开启公共访问”加载失败"]({{img_url}}Snipaste_2025-04-21_20-08-54.jpg "开启公共访问")
+<img data-url="{{image_table.cloudflare-as-image-host-开启公共访问}}" title="开启公共访问" alt="图片加载失败：开启公共访问"/>
 
 此时再回到自己的bucket文件列表，点击文件名，就可以看到自己的文件的链接了。
 
-![【ERROR】 图片“得到图片链接”加载失败"]({{img_url}}Snipaste_2025-04-21_18-48-45.jpg "得到图片链接")
+<img data-url="{{image_table.cloudflare-as-image-host-得到图片链接}}" title="得到图片链接" alt="图片加载失败：得到图片链接"/>
 
 > 当然如果你有自己的域名就可以在开启公共访问权限那一步，点击`Connect Domain`，这样就能够自定义自己的图片链接。
 
