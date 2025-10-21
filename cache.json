@@ -13,7 +13,7 @@
     "description": "感谢光临 博文在右上角的“分类”或者“时光轴”里看哦。 **关于** **本站** 这是一个分享个人日常生活和一些博客搭建记录的网站。 最开始创建的初衷其实是记录技术笔记，不过现在已经不怎么记了。 后面应该会侧重于日常生活的分享。 欢迎常来玩！ **我的爱好** • 🏀：篮球 • 🎤：唱歌 • 🎱：桌球 • 🏊︎：游泳 • 🖊︎：记录 • 📔：看小说 • 🏓：乒乓球 • ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/8月14日——逛博客.md": {
-    "file_updated": 1760971859.436253,
+    "file_updated": 1760974680.408384,
     "should_build": false,
     "title": "逛博客",
     "category": [
@@ -31,7 +31,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/《曾少年之小时候》.md": {
     "file_updated": 1760973389.167313,
-    "should_build": true,
+    "should_build": false,
     "title": "《曾少年之小时候》",
     "category": [
       "杂谈",
@@ -98,7 +98,7 @@
     "description": "**最近的主题：唱歌** 虽然之前也爱唱歌，但是高音总是上不去，从低声往上唱，声音会越来越虚，而且会容易破，再到非常高的音的时候，就只能是娘娘的假声了。所以平时唱那些有高音的歌只能是在家里自己唱唱，跟同学朋友去KTV，都只能挑些容易唱的，往往有些歌手因为唱功问题，他们的歌曲就比较好唱，所以在KTV的时候就会经常点，搞得同学朋友以为我很喜欢那些个歌手，其实是因为他们的歌很好唱。 我相信喜欢唱歌，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【8月23日】纪念死去的页游：坦克大战online.md": {
-    "file_updated": 1760970660.041273,
+    "file_updated": 1760974804.7350266,
     "should_build": false,
     "title": "纪念死去的页游：坦克大战online",
     "category": [
@@ -149,7 +149,7 @@
     "description": "师兄是去年打篮球的时候认识的，当时我们还有宿舍，就在操场旁边，经常和同学一起去打篮球，因为都是同一个学院的，又经常碰到，就和师兄认识了。 不过那时候的活动仅限于打篮球，和吃夜宵，还不知道师兄会游泳。这学期一次出来打球的时候，场上有个哥们说他之前游泳的时候时候受过伤，问怎么受的伤，说是从岸边出发的时候，脚蹬泳池壁的那一下磕到了，说是跟腱断了还是什么，给大伙听呆了。我说我一直以为游泳是最安全的运动，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251015又得解释一下为什么那么久没碰博客了.md": {
-    "file_updated": 1760609595.9729953,
+    "file_updated": 1760974461.77135,
     "should_build": false,
     "title": "又得解释一下为什么那么久没碰博客了┭┮﹏┭┮",
     "category": [
@@ -1560,7 +1560,7 @@
     "description": "《鸡犬不宁》——庄无邪 于2023/07/27读完，评语“猜错主角系列” 开篇是从一个刑警队副队长开始的，前面有挺长一段剧情都是围绕着他来写的，直到引出主角的时候，主角还只是一个神秘的角色。然后主角一直神秘了很久，直到那种“神秘”的真面目一层层揭开，主角也开始一点点发挥能力，然后到接近结局才幡然醒悟，原来他才是主角！这大概就是我看这本书的最大感受。 悬疑类型的书，我觉得还挺好看的，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20250421cloudflare-as-image-host.md": {
-    "file_updated": 1760973108.5151148,
+    "file_updated": 1761029998.7005596,
     "should_build": false,
     "title": "我也用cloudflare R2来做图床了",
     "category": [
@@ -1568,12 +1568,12 @@
       "折腾记录"
     ],
     "date": "25-04-21 19:16",
-    "updated": null,
+    "updated": "25-10-21 14:59",
     "html_filename": "20250421cloudflare-as-image-host.html",
     "quote_html_filename": "20250421cloudflare-as-image-host.html",
     "link": "https://code-pigeon.github.io/blog/html/20250421cloudflare-as-image-host.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20250421cloudflare-as-image-host.html",
-    "description": "在之前的博客中，我提到了我对图床的要求。找了不少免费图床，最后只有一家图床满足我的要求。 复述一下我对图床的要求：我希望图床能够保留文件的文件名，而不是随机给我另外生成一个。（这样能够方便我实现备用图床的机制，详见我之前的博客图床的选择 今天逛博客的时候又看到了别人用大名鼎鼎的cloudflare R2来做图床的，不知道为什么记忆错乱，老是以为自己试过这个cloudflare了，其实并没有，..."
+    "description": "25-10-21 14:58更新 相关文章：图片容灾备份：为预防图床跑路，我给博客做了一个图片表 在之前的博客中，我提到了我对图床的要求。找了不少免费图床，最后只有一家图床满足我的要求。 复述一下我对图床的要求：我希望图床能够保留文件的文件名，而不是随机给我另外生成一个。（这样能够方便我实现备用图床的机制，详见我之前的博客图床的选择 今天逛博客的时候又看到了别人用大名鼎鼎的cloudflare ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/5月31日.md": {
     "file_updated": 1760586379.3969655,
@@ -1640,20 +1640,20 @@
     "description": "一开始搭博客地时候，觉得有评论功能就行了，邮不邮件提醒不是很重要。但后来呢……果然人的欲望永远不会被满足……现在还是觉得有人评论了都不知道，那我这么多博客页面，也不可能一个个找看有没有新评论吧。而且要是回复了访客，他们也不知道我回复了，他总不可能评论完之后再专门回来看看自己的评论有没有被回复吧。 所以还是想着整一个评论邮件提醒功能。 但这么一遭下来，感觉问题还真是挺多的。 ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/图床的选择.md": {
-    "file_updated": 1760587077.944173,
-    "should_build": false,
+    "file_updated": 1761030135.749074,
+    "should_build": true,
     "title": "图床的选择",
     "category": [
       "杂谈",
       "折腾记录"
     ],
     "date": "25-04-17 10:22",
-    "updated": "25-04-21 22:39",
+    "updated": "25-10-21 15:01",
     "html_filename": "图床的选择.html",
     "quote_html_filename": "%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9.html",
     "link": "https://code-pigeon.github.io/blog/html/图床的选择.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/%E5%9B%BE%E5%BA%8A%E7%9A%84%E9%80%89%E6%8B%A9.html",
-    "description": "话说这种又像唠嗑又涉及了一点技术的博文到底应该怎么分类呢。 图床好选，符合要求的图床不好选。 一般在图床上传了图片之后，得到的链接都会有个随机的名字。比方说，图片的名字是，上传之后得到的链接往往是这种莫名其妙的文件名。 这和我的需求是不相符的，因为我想要实现一种备用图床的机制。 比如说，上传到图床1之后，返回链接，上传到备用图床时返回，那么当图床1寄了之后，只需要用js的把图床链接从替换为，..."
+    "description": "25-10-21 15:00更新 相关文章：图片容灾备份：为预防图床跑路，我给博客做了一个图片表 话说这种又像唠嗑又涉及了一点技术的博文到底应该怎么分类呢。 图床好选，符合要求的图床不好选。 一般在图床上传了图片之后，得到的链接都会有个随机的名字。比方说，图片的名字是，上传之后得到的链接往往是这种莫名其妙的文件名。 这和我的需求是不相符的，因为我想要实现一种备用图床的机制。 比如说，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20251017熟悉又陌生的面孔shieldsio一个专门生成徽章的服务.md": {
     "file_updated": 1760861220.818004,
@@ -1721,7 +1721,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/2025101910月生活碎片.md": {
     "file_updated": 1760973407.5447013,
-    "should_build": true,
+    "should_build": false,
     "title": "10月生活碎片",
     "category": [
       "杂谈",
@@ -1752,5 +1752,21 @@
     "link": "https://code-pigeon.github.io/blog/html/20251019都说是父母给了孩子生命但我更觉得是孩子给父母带来了新生.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20251019%E9%83%BD%E8%AF%B4%E6%98%AF%E7%88%B6%E6%AF%8D%E7%BB%99%E4%BA%86%E5%AD%A9%E5%AD%90%E7%94%9F%E5%91%BD%E4%BD%86%E6%88%91%E6%9B%B4%E8%A7%89%E5%BE%97%E6%98%AF%E5%AD%A9%E5%AD%90%E7%BB%99%E7%88%B6%E6%AF%8D%E5%B8%A6%E6%9D%A5%E4%BA%86%E6%96%B0%E7%94%9F.html",
     "description": "前天（10.17）逛博客的时候看到了 椒盐豆豉 的一篇博文：割以永治 part 3：切除子宫一周年 FAQ（访问可能要魔法）。怎么说呢，这个标题本身就非常的炸裂，对于我一个男生来说完全是刷新世界观级别的。椒盐豆豉在自己的博客里介绍说自己不喜欢孩子不想生育而且是弯的，这些都是她能够做出这个决定的原因。 于是我又联想起之前陪外甥女玩的时候，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20251021image-table-design.md": {
+    "file_updated": 1761029766.2590415,
+    "should_build": false,
+    "title": "图片容灾备份：为预防图床跑路，我给博客做了一个图片表",
+    "category": [
+      "杂谈",
+      "折腾记录"
+    ],
+    "date": "25-10-21 13:42",
+    "updated": null,
+    "html_filename": "20251021image-table-design.html",
+    "quote_html_filename": "20251021image-table-design.html",
+    "link": "https://code-pigeon.github.io/blog/html/20251021image-table-design.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20251021image-table-design.html",
+    "description": "**引子** 我看过太多的博客，博文里的图片链接全都是失效的。我大概心里能猜出是些什么原因，比如图床倒了？或者图片不小心误删了？ 这些对我来说都是不可接受的。所以从建立博客之初，我就同时在云端和本地都存了图片。这么做不仅可以预防图床跑路，也意味着我的这个静态博客，可以做到完完全全不联网也能在本地正常浏览。 可能大家有些迷糊，图片又放本地和放云端，那岂不是两条图片链接，..."
   }
 }

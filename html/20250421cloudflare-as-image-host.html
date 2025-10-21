@@ -43,7 +43,14 @@
 				<span class="meta-label">创建</span>
 				<time class="meta-time">25-04-21 19:16</time>
 			</div>
-												<div class="meta-item">
+									<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+				</svg>
+				<span class="meta-label">更新</span>
+				<time class="meta-time">25-10-21 14:59</time>
+			</div>
+									<div class="meta-item">
 				<span class="meta-label">杂谈</span>
 			</div>
 						<div class="meta-item">
@@ -52,6 +59,10 @@
 					</div>
 
 
+<blockquote>
+<p>25-10-21 14:58更新<br />
+相关文章：<a href="20251021image-table-design.html">图片容灾备份：为预防图床跑路，我给博客做了一个图片表</a></p>
+</blockquote>
 <p>在<a href="图床的选择.html">之前的博客中</a>，我提到了我对图床的要求。找了不少免费图床，最后只有一家图床满足我的要求。</p>
 <blockquote>
 <p>复述一下我对图床的要求：我希望图床能够保留文件的文件名，而不是随机给我另外生成一个。（这样能够方便我实现备用图床的机制，详见我之前的博客<a href="图床的选择.html">图床的选择</a></p>
@@ -89,19 +100,19 @@
 <h2>如何使用cloudflare R2作为图床？</h2>
 <p>首先是注册cloudflare账号，这就不多说了。</p>
 <p>然后找到左侧的<code>R2 Object Storage</code>，点击之后会让你先填付款方式（以便超过免费使用额度了它可以自动恰米[乐])，可以是银行卡，不过右上角也提供了PayPal的选项，这个就根据大家的具体情况去填了。下面还需要填写一些个人的信息，尚且不清楚不填真实信息有没有什么影响，不过反正我没填真实的也成功了。</p>
-<p><img data-url="../media/image/article/Snipaste_2025-04-21_19-45-16.jpg;https://i.jpg.dog/57307f5f8ec9001577b3652ba5300e3a.jpg" title="开通cloudflare R2" alt="图片加载失败：开通cloudflare R2"/></p>
+<p><img data-url="../media/image/article/Snipaste_2025-04-21_19-45-16.jpg;https://i.jpg.dog/57307f5f8ec9001577b3652ba5300e3a.jpg;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/Snipaste_2025-04-21_19-45-16.jpg" title="开通cloudflare R2" alt="图片加载失败：开通cloudflare R2"/></p>
 <p>成功添加付款方式之后，会进入overview页面，此时就可以创建自己的图床了。在右边有个蓝色的<code>Create bucket</code>按钮，点击创建。</p>
-<p><img data-url="../media/image/article/Snipaste_2025-04-21_19-52-57.jpg;https://i.jpg.dog/4638a28e1904923d132204ce61201a1c.jpg" title="创建bucket" alt="图片加载失败：创建bucket"/></p>
+<p><img data-url="../media/image/article/Snipaste_2025-04-21_19-52-57.jpg;https://i.jpg.dog/4638a28e1904923d132204ce61201a1c.jpg;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/Snipaste_2025-04-21_19-52-57.jpg" title="创建bucket" alt="图片加载失败：创建bucket"/></p>
 <p>起个自己想要的名字，然后其它选项都保持默认就行了。</p>
 <p>创建成功后进入自己的bucket，然后就可以上传自己的文件了。可以直接拖拽自己的图片到页面里，也可在中间点击<code>select from computer</code>。（可以同时上传多个文件）</p>
-<p><img data-url="../media/image/article/Snipaste_2025-04-21_20-01-35.jpg;https://i.jpg.dog/b17b521c6361a772604f09f6f1871eef.jpg" title="上传文件" alt="图片加载失败：上传文件"/></p>
+<p><img data-url="../media/image/article/Snipaste_2025-04-21_20-01-35.jpg;https://i.jpg.dog/b17b521c6361a772604f09f6f1871eef.jpg;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/Snipaste_2025-04-21_20-01-35.jpg" title="上传文件" alt="图片加载失败：上传文件"/></p>
 <p>成功之后应该可以看到自己上传的文件出现在列表中。</p>
-<p><img data-url="../media/image/article/Snipaste_2025-04-21_18-48-18.jpg;https://i.jpg.dog/5785f138465ae568dbe3a7295b3bb13b.jpg" title="上传文件成功" alt="图片加载失败：上传文件成功"/></p>
+<p><img data-url="../media/image/article/Snipaste_2025-04-21_18-48-18.jpg;https://i.jpg.dog/5785f138465ae568dbe3a7295b3bb13b.jpg;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/Snipaste_2025-04-21_18-48-18.jpg" title="上传文件成功" alt="图片加载失败：上传文件成功"/></p>
 <p>这时候还需要最后一步才能让自己的博客能够引用文件的链接，那就是打开公共访问权限。</p>
 <p>具体来说，点击<code>Settings</code>，拖动到下面会看到<code>Public access</code>，在第二项的<code>R2.dev subdomain</code>右边的红色按钮<code>Allow Access</code>处点击，然后输入提示词即可。</p>
-<p><img data-url="../media/image/article/Snipaste_2025-04-21_20-08-54.jpg;https://i.jpg.dog/edd2af53d213fe7812987bacdbe09ea0.jpg" title="开启公共访问" alt="图片加载失败：开启公共访问"/></p>
+<p><img data-url="../media/image/article/Snipaste_2025-04-21_20-08-54.jpg;https://i.jpg.dog/edd2af53d213fe7812987bacdbe09ea0.jpg;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/Snipaste_2025-04-21_20-08-54.jpg" title="开启公共访问" alt="图片加载失败：开启公共访问"/></p>
 <p>此时再回到自己的bucket文件列表，点击文件名，就可以看到自己的文件的链接了。</p>
-<p><img data-url="../media/image/article/Snipaste_2025-04-21_18-48-45.jpg;https://i.jpg.dog/12a4993a8bc22e342f920ca59252df48.jpg" title="得到图片链接" alt="图片加载失败：得到图片链接"/></p>
+<p><img data-url="../media/image/article/Snipaste_2025-04-21_18-48-45.jpg;https://i.jpg.dog/12a4993a8bc22e342f920ca59252df48.jpg;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/Snipaste_2025-04-21_18-48-45.jpg" title="得到图片链接" alt="图片加载失败：得到图片链接"/></p>
 <blockquote>
 <p>当然如果你有自己的域名就可以在开启公共访问权限那一步，点击<code>Connect Domain</code>，这样就能够自定义自己的图片链接。</p>
 </blockquote>
