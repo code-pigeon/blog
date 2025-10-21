@@ -6,6 +6,9 @@
     <title>时光轴</title>
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/timeline.css" rel="stylesheet">
+    <!-- hamburger -->
+    <link rel="stylesheet" type="text/css" href="../css/hamburger.css">
+    <script src="../js/hamburger.js" type="text/javascript"></script>
     <!-- goatcounter -->
     <script data-goatcounter="https://code-pigeon.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -21,11 +24,19 @@
         
         <!-- 右侧导航菜单（保持原有结构） -->
     	<nav>
-    	    <ul>
+            <!-- 汉堡菜单按钮 -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+    	    <ul id="nav-menu">
     	    		    		<li><a href="index.html">首页</a></li>
     	    		    		<li><a href="NOCHECK_category.html">分类</a></li>
     	    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
     	    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
+    	    		    		<li><a href="https://www.travellings.cn/go.html">🚇开往</a></li>
     	    		    </ul>
     	</nav>
     </header>    <div class="fluid">

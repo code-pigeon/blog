@@ -7,7 +7,14 @@
     
     <!-- 右侧导航菜单（保持原有结构） -->
 	<nav>
-	    <ul>
+        <!-- 汉堡菜单按钮 -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+	    <ul id="nav-menu">
 	    	{{#nav}}
 	    		<li><a href="{{url}}">{{{label}}}</a></li>
 	    	{{/nav}}

@@ -8,6 +8,9 @@
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
 	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- hamburger -->
+	<link rel="stylesheet" type="text/css" href="../css/hamburger.css">
+	<script src="../js/hamburger.js" type="text/javascript"></script>
 	<!-- goatcounter -->
 	<script data-goatcounter="https://code-pigeon.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -26,11 +29,19 @@
 	    
 	    <!-- 右侧导航菜单（保持原有结构） -->
 		<nav>
-		    <ul>
+	        <!-- 汉堡菜单按钮 -->
+	        <div class="hamburger" id="hamburger">
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	        </div>
+	
+		    <ul id="nav-menu">
 		    		    		<li><a href="index.html">首页</a></li>
 		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
 		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
 		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
+		    		    		<li><a href="https://www.travellings.cn/go.html">🚇开往</a></li>
 		    		    </ul>
 		</nav>
 	</header>	<div class=fluid> 
@@ -59,9 +70,9 @@
 <p>闲话少叙，进入正题。</p>
 <h2>创建场景</h2>
 <p>你可以像我一样创建一堆不同的Cube，中间两片作为门，旁边贴一小片作为开关。</p>
-<p><img data-url="../media/image/article/Snipaste_2025-04-23_22-49-56.jpg;https://i.jpg.dog/d3455a9a90375c36c10be40240fe8cb3.jpg" alt="图片加载失败"/></p>
+<p><img data-url="../media/image/article/Snipaste_2025-04-23_22-49-56.jpg;https://i.jpg.dog/d3455a9a90375c36c10be40240fe8cb3.jpg;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/Snipaste_2025-04-23_22-49-56.jpg" alt="图片加载失败"/></p>
 <p>可以把两个门用放在一个空的Object下。</p>
-<p><img data-url="../media/image/article/Snipaste_2025-04-23_22-52-46.jpg;https://i.jpg.dog/4acb18dd1d0d9e8b76a6ba7398262b6f.jpg" alt="图片加载失败"/></p>
+<p><img data-url="../media/image/article/Snipaste_2025-04-23_22-52-46.jpg;https://i.jpg.dog/4acb18dd1d0d9e8b76a6ba7398262b6f.jpg;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/Snipaste_2025-04-23_22-52-46.jpg" alt="图片加载失败"/></p>
 <h2>创建Interactable基类</h2>
 <p>在游戏里，可以和玩家互动的东西应当有很多（物品/敌人等等），它们的共同点当然就是能与玩家互动，所以可以抽象出它们的共同基类，命名为<code>Interactable</code>。</p>
 <p>新建一个<code>Interactable.cs</code>脚本，键入以下内容：</p>

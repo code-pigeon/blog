@@ -28,6 +28,8 @@ nav:
       url: 'NOCHECK_timeline.html'
     - label: 'RSS订阅'
       url: 'https://code-pigeon.github.io/blog/feed'
+    - label: '🚇开往'
+      url: 'https://www.travellings.cn/go.html'
 
 # --- 页面配置 ----------------------------------------------------------
 # 基本
