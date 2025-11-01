@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {{>common_head}}
+    <title>说说</title>
+    <link href="{{css_url}}shuoshuo.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 你的网站头部 -->
+{{>header}}
+
+    <!-- 说说内容区域 -->
+    <div class="fluid">
+        
+        <div class="shuoshuo-container">
+            <h1 class="shuoshuo-title">说说</h1>
+            {{^shuoshuo}}
+            ~ 竟然没有说说 ~
+            {{/shuoshuo}}
+            {{#shuoshuo}}
+            <div class="shuoshuo-item">
+                <div class="shuoshuo-id">{{id}}</div>
+                <div class="shuoshuo-content">
+                    {{{content}}}
+                </div>
+                {{#images.0}}
+                <div class="shuoshuo-images">
+                {{/images.0}}
+                    {{#images}}
+                    <img data-url="{{{.}}}" alt="图片加载失败" class="shuoshuo-image">
+                    {{/images}}
+                {{#images.0}}
+                </div>
+                {{/images.0}}
+                <div class="shuoshuo-meta">
+                    <span class="shuoshuo-date">{{date}}</span>
+                    <span class="shuoshuo-mood">{{mood}}</span>
+                </div>
+            </div>
+            {{/shuoshuo}}
+            
+            <!-- 可以继续添加更多说说 -->
+        </div>
+        <br />
+        <hr />
+        <!-- visitor -->
+        <!-- id 将作为查询条件 -->
+        <span id="/blog/{{html_dir}}{{{ quote_html_filename }}}" class="leancloud_visitors" data-flag-title="{{{title}}}">
+            <em class="post-meta-item-text">阅读量 </em>
+            <i class="leancloud-visitors-count">0</i>
+        </span>
+        <!-- \visitor -->
+        {{#has_comment}}
+        <h2 id="评论">评论</h2>
+        <!-- <div class="giscus"></div> -->
+        <div id="vcomments"></div>
+        {{/has_comment}}
+    </div>
+
+    <script>
+        // 简单的图片点击放大功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.shuoshuo-image');
+            
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    // 创建模态框显示大图
+                    const modal = document.createElement('div');
+                    modal.style.position = 'fixed';
+                    modal.style.top = '0';
+                    modal.style.left = '0';
+                    modal.style.width = '100%';
+                    modal.style.height = '100%';
+                    modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+                    modal.style.display = 'flex';
+                    modal.style.justifyContent = 'center';
+                    modal.style.alignItems = 'center';
+                    modal.style.zIndex = '1000';
+                    
+                    const modalImg = document.createElement('img');
+                    modalImg.src = this.src;
+                    modalImg.style.maxWidth = '90%';
+                    modalImg.style.maxHeight = '90%';
+                    modalImg.style.objectFit = 'contain';
+                    
+                    modal.appendChild(modalImg);
+                    document.body.appendChild(modal);
+                    
+                    // 点击模态框关闭
+                    modal.addEventListener('click', function() {
+                        document.body.removeChild(modal);
+                    });
+                });
+            });
+        });
+    </script>
+    {{>common_foot}}
+</body>
+</html>

@@ -1,7 +1,7 @@
 # --- 博客信息 --------------------------------------------------------
 blog_name: 乌鸦之家
 blog_signature: '乌鸦的碎碎念'
-author: "乌鸦"
+author: "赛博乌鸦"
 footer_note: © 2025 乌鸦之家
 
 # cc: "by-nc-nd"          # 版权声明
@@ -14,7 +14,7 @@ cc: false
 md_dir: "md/"
 html_dir: "html/"
 template_dir: "template/"
-partials_dir: "partials/"
+partials_dir: "template/partials/"
 
 # --- 页面配置 ----------------------------------------------------------
 
@@ -26,6 +26,8 @@ nav:
       url: 'NOCHECK_category.html'
     - label: '时光轴'
       url: 'NOCHECK_timeline.html'
+    - label: '说说'
+      url: 'NOCHECK_shuoshuo.html'
     - label: 'RSS订阅'
       url: 'https://code-pigeon.github.io/blog/feed'
     - label: '🚇开往'
@@ -69,3 +71,6 @@ timeline_template: "timeline.mustache"
 
 # --- category ----------------------------------------------------------
 category_template: "category.mustache"
+
+# --- shuoshuo ----------------------------------------------------------
+shuoshuo_template: "shuoshuo.mustache"

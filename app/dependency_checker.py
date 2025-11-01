@@ -13,6 +13,8 @@ class DependencyChecker:
         初始化依赖检查模块
         
         Args:
+            config: 配置数据
+            cache_data: 缓存数据
             config_path: config.yaml文件路径
             cache_path: cache文件路径
         """
@@ -20,7 +22,6 @@ class DependencyChecker:
         self.cache_path = self.normalize_path(cache_path)
         
         # 加载配置
-        # self.config = self.load_config()
         self.config = config
         
         # 从配置文件中读取目录路径
@@ -34,9 +35,6 @@ class DependencyChecker:
         self.md_dir_path = self.ensure_absolute_path(self.md_dir_path)
         self.html_dir_path = self.ensure_absolute_path(self.html_dir_path)
         self.blog_root = Path(self.md_dir_path).parent
-        
-        # 记录配置文件的修改时间戳
-        self.config_timestamp = self.get_file_timestamp(self.config_path)
 
     def normalize_path(self, path):
         """将路径转换为Linux风格"""
@@ -49,19 +47,6 @@ class DependencyChecker:
             # 如果路径是相对的，基于当前工作目录转换为绝对路径
             path_obj = Path.cwd() / path_obj
         return self.normalize_path(path_obj)
-
-    def load_config(self):
-        """加载配置文件"""
-        with open(self.config_path, 'r', encoding='utf-8') as f:
-            return yaml.safe_load(f)
-
-    def load_cache(self):
-        """加载缓存文件，如果不存在则创建空缓存"""
-        if os.path.exists(self.cache_path):
-            with open(self.cache_path, 'r', encoding='utf-8') as f:
-                self.cache_data = json.load(f)
-        else:
-            self.cache_data = {}
 
     def save_cache(self):
         """保存缓存文件"""
@@ -76,37 +61,6 @@ class DependencyChecker:
         """将时间戳转换为可读格式（用于显示）"""
         dt = datetime.fromtimestamp(timestamp)
         return dt.strftime("%y/%m/%d/%H:%M")
-
-    def get_cache_timestamp(self):
-        """获取缓存文件的修改时间戳，如果文件不存在返回None"""
-        if os.path.exists(self.cache_path):
-            return self.get_file_timestamp(self.cache_path)
-        return None
-
-    def should_force_rebuild_all(self):
-        """
-        判断是否需要强制重建所有markdown文件
-        规则：如果cache文件的修改日期比config的修改日期要小，那么所有md的should_build都为true
-        
-        Returns:
-            bool: 是否需要强制重建所有文件
-        """
-        cache_timestamp = self.get_cache_timestamp()
-        
-        if cache_timestamp is None:
-            # 如果缓存文件不存在，不需要强制重建（因为所有文件都会被认为是新的）
-            return False
-        
-        # 直接比较时间戳
-        if cache_timestamp < self.config_timestamp:
-            config_time_str = self.timestamp_to_readable(self.config_timestamp)
-            cache_time_str = self.timestamp_to_readable(cache_timestamp)
-            print(f"配置文件已更新，强制重建所有markdown文件")
-            print(f"  配置文件修改时间: {config_time_str}")
-            print(f"  缓存文件修改时间: {cache_time_str}")
-            return True
-                
-        return False
 
     def get_all_markdown_files(self):
         """获取所有markdown文件的绝对路径（Linux风格），忽略以NOCHECK_开头的文件"""
@@ -133,7 +87,6 @@ class DependencyChecker:
             html_files.append(self.normalize_path(file_path.absolute()))
         
         return html_files
-
 
     def get_category_from_path(self, md_file_path):
         """
@@ -306,14 +259,11 @@ class DependencyChecker:
             except Exception as e:
                 print(f"删除html文件失败: {html_file}, 错误: {e}")
 
-    def process_markdown_files(self):
+    def process_markdown_files(self, force_rebuild_all=False):
         """处理所有markdown文件，更新缓存"""
         all_md_files = self.get_all_markdown_files()
         
         print(f"找到 {len(all_md_files)} 个markdown文件")
-        
-        # 检查是否需要强制重建所有文件
-        force_rebuild_all = self.should_force_rebuild_all()
         
         # 清理缓存中不存在的文件
         cache_keys_to_remove = []
@@ -354,7 +304,6 @@ class DependencyChecker:
                 html_filename = self.get_html_filename(md_file_path)
                 quote_html_filename = quote(html_filename, safe=':/')
 
-
                 # 更新缓存，存储时间戳
                 self.cache_data[self.normalize_path(md_file_path)] = {
                     "file_updated": current_timestamp,  # 存储时间戳而不是格式化字符串
@@ -378,18 +327,21 @@ class DependencyChecker:
                 self.cache_data[self.normalize_path(md_file_path)]['should_build'] = False
                 print(f"  - 不需要构建")
 
-    def run(self):
-        """运行依赖检查"""
+    def run(self, force_rebuild_all=False):
+        """
+        运行依赖检查
+        
+        Args:
+            force_rebuild_all: 是否强制重建所有文件，由ConfigLoader提供
+            
+        Returns:
+            tuple: (config, cache_data)
+        """
         print("开始依赖检查...")
         print(f"Markdown目录: {self.md_dir_path}")
         print(f"HTML目录: {self.html_dir_path}")
         print(f"缓存文件: {self.cache_path}")
-        config_time_str = self.timestamp_to_readable(self.config_timestamp)
-        print(f"配置文件: {self.config_path} (修改时间: {config_time_str})")
-        
-        # 加载缓存
-        # self.load_cache()
-        # print(f"已加载缓存，共 {len(self.cache_data)} 条记录")
+        print(f"强制重建模式: {force_rebuild_all}")
         
         # 清理孤立的html文件
         print("检查孤立的html文件...")
@@ -397,36 +349,20 @@ class DependencyChecker:
         
         # 处理所有markdown文件
         print("处理markdown文件...")
-        self.process_markdown_files()
-        
-        # 保存缓存
-        # self.save_cache()
-        # print(f"缓存已保存，共 {len(self.cache_data)} 条记录")
+        self.process_markdown_files(force_rebuild_all=force_rebuild_all)
         
         # 统计需要构建的文件数量
         build_count = sum(1 for entry in self.cache_data.values() if entry['should_build'])
         print(f"需要构建的文件数量: {build_count}")
         
         # 打印需要构建的文件
-        print("\n需要构建的文件:")
-        for file_path, data in self.cache_data.items():
-            if data['should_build']:
-                readable_time = self.timestamp_to_readable(data['file_updated'])
-                print(f"- {file_path} (修改时间: {readable_time})")
+        if build_count > 0:
+            print("\n需要构建的文件:")
+            for file_path, data in self.cache_data.items():
+                if data['should_build']:
+                    readable_time = self.timestamp_to_readable(data['file_updated'])
+                    print(f"- {file_path} (修改时间: {readable_time})")
+        else:
+            print("\n没有需要构建的文件")
 
         return self.config, self.cache_data
-
-
-def main():
-    """主函数，用于测试"""
-    # 这里需要替换为实际的路径
-    config_path = "config.yaml"
-    cache_path = "cache.json"
-    
-    checker = DependencyChecker(config_path, cache_path)
-    config, cache_data = checker.run()
-    
-    
-
-if __name__ == "__main__":
-    main()

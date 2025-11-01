@@ -12,56 +12,12 @@ class CategoryGenerator:
         初始化分类生成器
         
         Args:
-            config_path: 配置文件路径
-            cache_path: 缓存数据文件路径
+            config: 配置数据
+            cache_data: 缓存数据
         """
-        # self.config_path = Path(config_path)
-        # self.cache_path = Path(cache_path)
         self.config: Dict[str, Any] = config
         self.cache_data: Dict[str, Any] = cache_data
-        self.partials: Dict[str, str] = {}
         
-    def load_config(self) -> None:
-        """加载配置文件"""
-        try:
-            with open(self.config_path, 'r', encoding='utf-8') as f:
-                self.config = yaml.safe_load(f) or {}
-        except FileNotFoundError:
-            raise FileNotFoundError(f"配置文件不存在: {self.config_path}")
-        except yaml.YAMLError as e:
-            raise ValueError(f"配置文件格式错误: {e}")
-        except Exception as e:
-            raise RuntimeError(f"加载配置文件时发生错误: {e}")
-    
-    def load_cache_data(self) -> None:
-        """加载缓存数据"""
-        try:
-            with open(self.cache_path, 'r', encoding='utf-8') as f:
-                self.cache_data = json.load(f) or {}
-        except FileNotFoundError:
-            raise FileNotFoundError(f"缓存文件不存在: {self.cache_path}")
-        except json.JSONDecodeError as e:
-            raise ValueError(f"缓存文件JSON格式错误: {e}")
-        except Exception as e:
-            raise RuntimeError(f"加载缓存数据时发生错误: {e}")
-    
-    def load_partials(self) -> None:
-        """加载部分模板"""
-        partials_dir = self.config.get('partials_dir', 'partials')
-        partials_path = Path(partials_dir)
-        
-        if not partials_path.exists():
-            self.partials = {}
-            return
-            
-        try:
-            for file_path in partials_path.glob('*.mustache'):
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    template_name = file_path.stem
-                    self.partials[template_name] = f.read()
-        except Exception as e:
-            raise RuntimeError(f"加载部分模板时发生错误: {e}")
-    
     def transform_data(self, input_data):
         """
         将原始博客数据转换为按分类组织的结构
@@ -275,7 +231,11 @@ class CategoryGenerator:
         """
         # 转换数据
         transformed_data = self.transform_data(self.cache_data)
-        self.config['category'] = transformed_data
+        
+        # 创建渲染数据，不修改原始配置
+        render_data = self.config.copy()
+        render_data['category'] = transformed_data
+        render_data['has_comment'] = False
         
         # 加载模板
         template_dir = self.config.get("template_dir", "")
@@ -284,9 +244,12 @@ class CategoryGenerator:
         
         template_content = self.load_template(str(template_path))
         
+        # 获取 partials
+        partials = self.config.get('partials', {})
+        
         # 渲染模板
         try:
-            final_html = chevron.render(template_content, self.config, partials_dict=self.partials)
+            final_html = chevron.render(template_content, render_data, partials_dict=partials)
             return final_html
         except Exception as e:
             raise RuntimeError(f"渲染模板时发生错误: {e}")
@@ -322,11 +285,6 @@ class CategoryGenerator:
             output_path: 可选的输出文件路径
         """
         try:
-            # 加载必要的数据
-            # self.load_config()
-            # self.load_cache_data()
-            self.load_partials()
-            
             # 生成HTML
             html_content = self.generate_html()
             
@@ -340,10 +298,7 @@ class CategoryGenerator:
 
 # 使用示例
 if __name__ == "__main__":
-    # 基本用法
-    generator = CategoryGenerator()
-    generator.run()
-    
-    # 自定义配置文件路径
-    # generator = CategoryGenerator("my_config.yaml", "my_cache.json")
-    # generator.run("output/category.html")
+    # 注意：现在需要传入 config 和 cache_data
+    # generator = CategoryGenerator(config, cache_data)
+    # generator.run()
+    pass

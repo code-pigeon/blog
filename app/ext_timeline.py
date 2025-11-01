@@ -41,72 +41,12 @@ class TimelineGenerator:
         初始化时间线生成器
         
         Args:
-            config_path: 配置文件路径
+            config: 配置数据
+            cache_data: 缓存数据
         """
         self.config = config
         self.cache_data = cache_data
-        self.partials = {}
         
-    def _load_config(self, config_path: str) -> Dict[str, Any]:
-        """
-        加载配置文件
-        
-        Args:
-            config_path: 配置文件路径
-            
-        Returns:
-            配置字典
-            
-        Raises:
-            FileNotFoundError: 配置文件不存在
-            yaml.YAMLError: YAML格式错误
-        """
-        config_file = Path(config_path)
-        if not config_file.exists():
-            raise FileNotFoundError(f"配置文件不存在: {config_path}")
-            
-        try:
-            with open(config_file, 'r', encoding='utf-8') as f:
-                config = yaml.safe_load(f)
-                logger.info(f"成功加载配置文件: {config_path}")
-                return config or {}
-        except yaml.YAMLError as e:
-            logger.error(f"YAML解析错误: {e}")
-            raise
-        except Exception as e:
-            logger.error(f"加载配置文件时发生错误: {e}")
-            raise
-    
-    def _load_cache_data(self, cache_path: str) -> Dict[str, Any]:
-        """
-        加载缓存数据
-        
-        Args:
-            cache_path: 缓存文件路径
-            
-        Returns:
-            缓存数据字典
-            
-        Raises:
-            FileNotFoundError: 缓存文件不存在
-            json.JSONDecodeError: JSON格式错误
-        """
-        cache_file = Path(cache_path)
-        if not cache_file.exists():
-            raise FileNotFoundError(f"缓存文件不存在: {cache_path}")
-            
-        try:
-            with open(cache_file, 'r', encoding='utf-8') as f:
-                cache_data = json.load(f)
-                logger.info(f"成功加载缓存数据，共 {len(cache_data)} 条记录")
-                return cache_data
-        except json.JSONDecodeError as e:
-            logger.error(f"JSON解析错误: {e}")
-            raise
-        except Exception as e:
-            logger.error(f"加载缓存数据时发生错误: {e}")
-            raise
-    
     def parse_date(self, date_str: Optional[str]) -> Optional[datetime]:
         """
         解析日期字符串，支持多种格式
@@ -131,36 +71,6 @@ class TimelineGenerator:
         
         logger.warning(f"无法解析日期字符串: {date_str}")
         return None
-    
-    def _load_partials(self, partials_dir: str) -> Dict[str, str]:
-        """
-        加载部分模板
-        
-        Args:
-            partials_dir: 部分模板目录
-            
-        Returns:
-            部分模板字典
-        """
-        partials = {}
-        partials_path = Path(partials_dir)
-        
-        if not partials_path.exists():
-            logger.warning(f"部分模板目录不存在: {partials_dir}")
-            return partials
-            
-        for file_path in partials_path.glob('*.mustache'):
-            try:
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    template_name = file_path.stem
-                    partials[template_name] = f.read()
-                logger.debug(f"加载部分模板: {template_name}")
-            except Exception as e:
-                logger.error(f"加载部分模板 {file_path} 时发生错误: {e}")
-                continue
-                
-        logger.info(f"成功加载 {len(partials)} 个部分模板")
-        return partials
     
     def _load_template(self, template_path: str) -> str:
         """
@@ -302,13 +212,13 @@ class TimelineGenerator:
             成功返回True，失败返回False
         """
         try:
-            # 加载缓存数据
-            # cache_path = self.config.get("cache_path", "cache.json")
-            # self.cache_data = self._load_cache_data(cache_path)
-            
             # 转换数据
             transformed_data = self.transform_cache_to_timeline(self.cache_data)
-            self.config['timeline'] = transformed_data
+            
+            # 创建渲染数据，不修改原始配置
+            render_data = self.config.copy()
+            render_data['timeline'] = transformed_data
+            render_data['has_comment'] = False
             
             # 加载模板
             template_dir = self.config.get("template_dir", "")
@@ -316,12 +226,11 @@ class TimelineGenerator:
             template_path = Path(template_dir) / timeline_template
             template_content = self._load_template(str(template_path))
             
-            # 加载部分模板
-            partials_dir = self.config.get('partials_dir', 'partials')
-            self.partials = self._load_partials(partials_dir)
+            # 获取 partials
+            partials = self.config.get('partials', {})
             
             # 渲染模板
-            final_html = chevron.render(template_content, self.config, partials_dict=self.partials)
+            final_html = chevron.render(template_content, render_data, partials_dict=partials)
             
             # 确定输出路径
             if output_path is None:
@@ -347,9 +256,12 @@ class TimelineGenerator:
 def main():
     """主函数"""
     try:
-        generator = TimelineGenerator()
-        success = generator.run()
-        return 0 if success else 1
+        # 注意：现在需要传入 config 和 cache_data
+        # generator = TimelineGenerator(config, cache_data)
+        # success = generator.run()
+        # return 0 if success else 1
+        logger.error("请通过主程序调用 TimelineGenerator")
+        return 1
     except Exception as e:
         logger.error(f"程序执行失败: {e}")
         return 1
