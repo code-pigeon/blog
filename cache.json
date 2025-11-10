@@ -1770,8 +1770,8 @@
     "description": "*环境：Unity 2023.2.20f1c1* **新系统的安装** • 点击上方的*Window*选项卡，在下拉菜单中选择*Package Manager*； • 在弹出的窗口中，选择*Unity Registry*，然后在右侧搜索框中输入*Input System*； • 在最右边的面板中点击*Install*按钮； **创建并配置Input Actions** ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20251023日本語.md": {
-    "file_updated": 1762351096.0731392,
-    "should_build": false,
+    "file_updated": 1762676122.556287,
+    "should_build": true,
     "title": "日本語",
     "category": [
       "笔记",
@@ -1786,8 +1786,8 @@
     "description": "土日：「土日」は「土曜日と日曜日」を略した言葉です。 と：with • 何曜日に 友達と 会いますか。 まで 这个词标识了某个动作的结束时词。 比如 私は十一時まで寝ます。意为我睡觉到11点。 如果想表示11点才睡觉，需要用否定式： 私は十一時まで寝ません。意为我11点前不睡觉，即我11点才睡觉。 から～まで：从……到…… **ある、いる** 虽然植物是有生命的，但对于不能移动的植物，..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20241107English.md": {
-    "file_updated": 1761542529.2004433,
-    "should_build": false,
+    "file_updated": 1762682559.4771218,
+    "should_build": true,
     "title": "English",
     "category": [
       "笔记",
@@ -1803,7 +1803,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251105how-to-fight-laziness.md": {
     "file_updated": 1762354974.2072334,
-    "should_build": true,
+    "should_build": false,
     "title": "我们究竟要如何对抗懒惰",
     "category": [
       "杂谈",
@@ -1817,5 +1817,22 @@
     "link": "https://code-pigeon.github.io/blog/html/20251105how-to-fight-laziness.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20251105how-to-fight-laziness.html",
     "description": "昨天晚上我又拿着音响去操场唱歌了，其实要不是因为流量券就要到期了，我可能还懒得去。晚上气温不低于15度，其实不算冷，我穿得也算厚。到了操场还专门热了身，甚至扎了几分钟马步提提气，但是身子还是没热起来。最后还是根据“来都来了”定律，勉强唱了起来。照惯例还是得唱几首好唱的热热嗓子。但我发现就算是容易唱的歌曲，甚至也还是出现了咬字不清晰的问题。作为一个南方人，翘舌音是要通过意志才能咬清晰的，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251110以日为鉴读后感.md": {
+    "file_updated": 1762752265.0804975,
+    "should_build": true,
+    "title": "《以日为鉴》读后感",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2025"
+    ],
+    "date": "25-11-10 12:44",
+    "updated": null,
+    "html_filename": "20251110以日为鉴读后感.html",
+    "quote_html_filename": "20251110%E4%BB%A5%E6%97%A5%E4%B8%BA%E9%89%B4%E8%AF%BB%E5%90%8E%E6%84%9F.html",
+    "link": "https://code-pigeon.github.io/blog/html/20251110以日为鉴读后感.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20251110%E4%BB%A5%E6%97%A5%E4%B8%BA%E9%89%B4%E8%AF%BB%E5%90%8E%E6%84%9F.html",
+    "description": "团块次代诞生于婴儿潮，经历了鸡娃，就业冰河期，被批判不进取，没出息，没收入，啃老，不婚不育，孤独终老。却也没有颠覆政权，或许现代社会真的很难再有什么政权颠覆的事了吧，比较娱乐途径和内容有这么多。 战后婴儿潮时期，那波创造婴儿潮的家长就生活欣欣向荣的社会中，可见生不生孩子真的可能只跟生存难度有联系。 25-10-31 13:54 今天下午看到了学历贬值的部分，有一个特别深刻的感想，..."
   }
 }

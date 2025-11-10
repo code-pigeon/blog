@@ -454,3 +454,17 @@ hr{
   color: #444;
   /*1px solid */
 }
+
+/* ---- h标签before ------------------------------------------ */
+
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  /*content: "#\00A0";*/
+  content: "# ";
+  color: #45a9f9; /* 颜色 */
+  font-family: initial;
+}
