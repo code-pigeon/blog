@@ -1,6 +1,6 @@
 {
   "D:/DataDisk/workspace/blog/md/index.md": {
-    "file_updated": 1761971683.2296212,
+    "file_updated": 1763039235.144653,
     "should_build": false,
     "title": "乌鸦之家",
     "category": [],
@@ -10,7 +10,7 @@
     "quote_html_filename": "index.html",
     "link": "https://code-pigeon.github.io/blog/html/index.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/index.html",
-    "description": "感谢光临 博文在右上角的“分类”或者“时光轴”里看哦。 也可以在“说说”里看我的日常动态。 **关于** **本站** 这是一个分享个人日常生活和一些博客搭建记录的网站。 最开始创建的初衷其实是记录技术笔记，不过现在已经不怎么记了。 后面应该会侧重于日常生活的分享。 欢迎常来玩！ **我的爱好** • 🏀：篮球 • 🎤：唱歌 • 🎱：桌球 • 🏊︎：游泳 • 🖊︎：记录 • 📔：看小说 • ..."
+    "description": "感谢光临 博文在右上角的“分类”或者“时光轴”里看哦。 也可以在“说说”里看我的日常动态。 **关于** **本站** 这是一个分享个人日常生活和一些博客搭建记录的网站。 最开始创建的初衷其实是记录技术笔记，不过现在已经不怎么记了。 后面应该会侧重于日常生活的分享。 欢迎常来玩！ **我** 你好，我是乌鸦。因为在这是网络世界，所以我在别人博客上的留言都自称赛博乌鸦。 其实我不知道该怎么介绍自己，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/8月14日——逛博客.md": {
     "file_updated": 1760974680.408384,
@@ -1770,8 +1770,8 @@
     "description": "*环境：Unity 2023.2.20f1c1* **新系统的安装** • 点击上方的*Window*选项卡，在下拉菜单中选择*Package Manager*； • 在弹出的窗口中，选择*Unity Registry*，然后在右侧搜索框中输入*Input System*； • 在最右边的面板中点击*Install*按钮； **创建并配置Input Actions** ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20251023日本語.md": {
-    "file_updated": 1762676122.556287,
-    "should_build": true,
+    "file_updated": 1766835283.5545342,
+    "should_build": false,
     "title": "日本語",
     "category": [
       "笔记",
@@ -1783,11 +1783,11 @@
     "quote_html_filename": "20251023%E6%97%A5%E6%9C%AC%E8%AA%9E.html",
     "link": "https://code-pigeon.github.io/blog/html/20251023日本語.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20251023%E6%97%A5%E6%9C%AC%E8%AA%9E.html",
-    "description": "土日：「土日」は「土曜日と日曜日」を略した言葉です。 と：with • 何曜日に 友達と 会いますか。 まで 这个词标识了某个动作的结束时词。 比如 私は十一時まで寝ます。意为我睡觉到11点。 如果想表示11点才睡觉，需要用否定式： 私は十一時まで寝ません。意为我11点前不睡觉，即我11点才睡觉。 から～まで：从……到…… **ある、いる** 虽然植物是有生命的，但对于不能移动的植物，..."
+    "description": "在给他人建议时，我们会使用句型 动词た形 + ほうがいいです • やさいを食べたほうがいいです。（你应该吃蔬菜。） • しごとに行ったほうがいいです。（你应该去工作。） 当要对某人提出 别做某事的建议时，我们可以使用句型 动词ない形 + ほうがいいです • それは食べないほうがいいです。（你最好别吃那个。） • しごとに行かないほうがいいです。（你最好别去工作了。） ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20241107English.md": {
-    "file_updated": 1762682559.4771218,
-    "should_build": true,
+    "file_updated": 1762843314.682461,
+    "should_build": false,
     "title": "English",
     "category": [
       "笔记",
@@ -1820,7 +1820,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251110以日为鉴读后感.md": {
     "file_updated": 1762752265.0804975,
-    "should_build": true,
+    "should_build": false,
     "title": "《以日为鉴》读后感",
     "category": [
       "杂谈",
@@ -1834,5 +1834,56 @@
     "link": "https://code-pigeon.github.io/blog/html/20251110以日为鉴读后感.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20251110%E4%BB%A5%E6%97%A5%E4%B8%BA%E9%89%B4%E8%AF%BB%E5%90%8E%E6%84%9F.html",
     "description": "团块次代诞生于婴儿潮，经历了鸡娃，就业冰河期，被批判不进取，没出息，没收入，啃老，不婚不育，孤独终老。却也没有颠覆政权，或许现代社会真的很难再有什么政权颠覆的事了吧，比较娱乐途径和内容有这么多。 战后婴儿潮时期，那波创造婴儿潮的家长就生活欣欣向荣的社会中，可见生不生孩子真的可能只跟生存难度有联系。 25-10-31 13:54 今天下午看到了学历贬值的部分，有一个特别深刻的感想，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251112thoughts-on-pearl.md": {
+    "file_updated": 1762958196.5222764,
+    "should_build": false,
+    "title": "《珀尔》观后感",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2025"
+    ],
+    "date": "25-11-12 22:04",
+    "updated": null,
+    "html_filename": "20251112thoughts-on-pearl.html",
+    "quote_html_filename": "20251112thoughts-on-pearl.html",
+    "link": "https://code-pigeon.github.io/blog/html/20251112thoughts-on-pearl.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20251112thoughts-on-pearl.html",
+    "description": "我很少写影评，不过看完这部影片确实是有一些想法可以讲讲。 珀尔讨厌身处的农场环境，一心只想成为舞蹈明星，于是几乎是不顾一切地去追求自己的梦想，在和一直阻挠自己追梦的母亲矛盾爆发后，她也把自己最后的退路给切断了，亲手把自己的母亲烧得半死不活，于是她能够顺利地去做她想做的。此时她的内心完全是把那虚无缥缈的梦想视为志在必得之物，可以说根本没想过追梦失败之后要怎么办。于是，不出意外的，她面试失败了。..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251201whatever-I-come-up-with-always-turns-out-to-have-been-done-by-someone-else-before.md": {
+    "file_updated": 1769071008.2201517,
+    "should_build": false,
+    "title": "脑子里想出来的点子基本都是别人想过做过的了",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2025"
+    ],
+    "date": "25-12-01 22:23",
+    "updated": null,
+    "html_filename": "20251201whatever-I-come-up-with-always-turns-out-to-have-been-done-by-someone-else-before.html",
+    "quote_html_filename": "20251201whatever-I-come-up-with-always-turns-out-to-have-been-done-by-someone-else-before.html",
+    "link": "https://code-pigeon.github.io/blog/html/20251201whatever-I-come-up-with-always-turns-out-to-have-been-done-by-someone-else-before.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20251201whatever-I-come-up-with-always-turns-out-to-have-been-done-by-someone-else-before.html",
+    "description": "这阵子一直在学外语，英语练级，日语入门，自然有了背单词的需求，懂一点技术的我自己写了一个网页项目来实现背单词的工具。这个工具已经用了一阵子了，感觉还可以，记住了很多短语词句，不过就是感觉没有语音的参与，在用这些新知识的时候还是不那么顺手，反倒是想起了很久之前背单词的时候开了个语音播放，里面的例句居然能记到现在。于是还是想着加一个语音的功能。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260122first-experence-of-snowfall.md": {
+    "file_updated": 1769071115.7633734,
+    "should_build": true,
+    "title": "下雪初体验",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2026"
+    ],
+    "date": "26-01-22 15:32",
+    "updated": null,
+    "html_filename": "20260122first-experence-of-snowfall.html",
+    "quote_html_filename": "20260122first-experence-of-snowfall.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260122first-experence-of-snowfall.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260122first-experence-of-snowfall.html",
+    "description": "前天凌晨两点多起来，看了一眼朋友圈，一些一样在武汉的同学已经在发雪景了。我有些欣喜又有些遗憾，欣喜的是终于能看到雪了，而且这次不像两年前见到的那种落下即化的雪，这次能形成积雪；遗憾的是现在是半夜，我还得睡觉。不过还是拉开窗帘看了一眼窗外，周围房屋的屋顶早已经被白色覆盖，阳台边上也积满了雪。我没忍住还是顶着严寒跑到楼下拍了周围的景色，激动地发给了家人朋友。 对于一个在南方沿海长大的人来说，..."
   }
 }
