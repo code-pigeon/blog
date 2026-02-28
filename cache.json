@@ -488,15 +488,15 @@
     "description": "**引子** 很多时候，无论使用什么语言什么库，似乎只要在Windows下写出来的桌面应用，外观都是奇丑无比： 这是Windows控件的默认风格，老版的Windows程序窗口都长这副模样。但对于今天的审美来说这肯定是个灾难。Windows也明白这一点，所以在后来的版本中支持了不同风格的窗口控件，称之为视觉风格（visual style）。 ..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/wxWidgets定义新事件类型（event_type）.md": {
-    "file_updated": 1760586873.1956637,
+    "file_updated": 1769084217.4810257,
     "should_build": false,
     "title": "wxWidgets定义新事件类型（event type）",
     "category": [
       "杂谈",
       "编程杂谈"
     ],
-    "date": "2024-08-12 16:51",
-    "updated": "2024-08-12",
+    "date": "24-08-12 16:51",
+    "updated": "24-08-12",
     "html_filename": "wxWidgets定义新事件类型（event_type）.html",
     "quote_html_filename": "wxWidgets%E5%AE%9A%E4%B9%89%E6%96%B0%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B%EF%BC%88event_type%EF%BC%89.html",
     "link": "https://code-pigeon.github.io/blog/html/wxWidgets定义新事件类型（event_type）.html",
@@ -1871,7 +1871,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260122first-experence-of-snowfall.md": {
     "file_updated": 1769071115.7633734,
-    "should_build": true,
+    "should_build": false,
     "title": "下雪初体验",
     "category": [
       "杂谈",
@@ -1885,5 +1885,38 @@
     "link": "https://code-pigeon.github.io/blog/html/20260122first-experence-of-snowfall.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20260122first-experence-of-snowfall.html",
     "description": "前天凌晨两点多起来，看了一眼朋友圈，一些一样在武汉的同学已经在发雪景了。我有些欣喜又有些遗憾，欣喜的是终于能看到雪了，而且这次不像两年前见到的那种落下即化的雪，这次能形成积雪；遗憾的是现在是半夜，我还得睡觉。不过还是拉开窗帘看了一眼窗外，周围房屋的屋顶早已经被白色覆盖，阳台边上也积满了雪。我没忍住还是顶着严寒跑到楼下拍了周围的景色，激动地发给了家人朋友。 对于一个在南方沿海长大的人来说，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260227thoughts-on-ming-dynasty-1566.md": {
+    "file_updated": 1772269859.362218,
+    "should_build": true,
+    "title": "《大明王朝1566》观后感",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2026"
+    ],
+    "date": "26-02-27 17:00",
+    "updated": "26-02-28 17:10",
+    "html_filename": "20260227thoughts-on-ming-dynasty-1566.html",
+    "quote_html_filename": "20260227thoughts-on-ming-dynasty-1566.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260227thoughts-on-ming-dynasty-1566.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260227thoughts-on-ming-dynasty-1566.html",
+    "description": "26-02-27 17:00 我之前看过这部剧的原著小说，由于人物过多，背景不熟悉，看了一点就看不下去了。这次过年去朋友家做客的时候朋友放了这个剧，果然剧版还是比文字容易看得多，我本身对历史感兴趣，那天离开朋友家之后，自己也就跟着追剧了。好久没有像这次这样追完一部剧了。 26-02-27 17:03 对于这部剧最大的感触还是，全国上上下下，都有各种正直忧国忧民之人，张口闭口都是为了朝廷为了百姓，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20260127english-2.md": {
+    "file_updated": 1771834184.0356567,
+    "should_build": false,
+    "title": "English-2",
+    "category": [
+      "笔记",
+      "语言笔记"
+    ],
+    "date": "26-01-27 22:14",
+    "updated": null,
+    "html_filename": "20260127english-2.html",
+    "quote_html_filename": "20260127english-2.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260127english-2.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260127english-2.html",
+    "description": "**filming** I'm not photogenic, so please don't take my picture / film me I'm terrible in photos/videos, so let's skip the camera. Oh, no pictures of me, please - I always look awful in them! Let me ..."
   }
 }

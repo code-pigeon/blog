@@ -1,7 +1,7 @@
 ---
 title: 'wxWidgets定义新事件类型（event type）'
-date: '2024-08-12 16:51'
-updated: '2024-08-12'
+date: '24-08-12 16:51'
+updated: '24-08-12'
 ---
 
 
