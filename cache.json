@@ -1888,7 +1888,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260227thoughts-on-ming-dynasty-1566.md": {
     "file_updated": 1772269859.362218,
-    "should_build": true,
+    "should_build": false,
     "title": "《大明王朝1566》观后感",
     "category": [
       "杂谈",
@@ -1904,8 +1904,8 @@
     "description": "26-02-27 17:00 我之前看过这部剧的原著小说，由于人物过多，背景不熟悉，看了一点就看不下去了。这次过年去朋友家做客的时候朋友放了这个剧，果然剧版还是比文字容易看得多，我本身对历史感兴趣，那天离开朋友家之后，自己也就跟着追剧了。好久没有像这次这样追完一部剧了。 26-02-27 17:03 对于这部剧最大的感触还是，全国上上下下，都有各种正直忧国忧民之人，张口闭口都是为了朝廷为了百姓，..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20260127english-2.md": {
-    "file_updated": 1771834184.0356567,
-    "should_build": false,
+    "file_updated": 1777821068.224836,
+    "should_build": true,
     "title": "English-2",
     "category": [
       "笔记",
@@ -1917,6 +1917,22 @@
     "quote_html_filename": "20260127english-2.html",
     "link": "https://code-pigeon.github.io/blog/html/20260127english-2.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20260127english-2.html",
-    "description": "**filming** I'm not photogenic, so please don't take my picture / film me I'm terrible in photos/videos, so let's skip the camera. Oh, no pictures of me, please - I always look awful in them! Let me ..."
+    "description": "**不知道怎么学了** I'm not sure why, but over time, I started feeling a bit unhappy. There's are some small conflict - well, maybe not conflict, just some irritation. If it keeps going like that, you start ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260331singing-note.md": {
+    "file_updated": 1775019365.4966202,
+    "should_build": false,
+    "title": "唱歌笔记",
+    "category": [
+      "笔记",
+      "其它笔记"
+    ],
+    "date": "26-03-31 15:42",
+    "updated": null,
+    "html_filename": "20260331singing-note.html",
+    "quote_html_filename": "20260331singing-note.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260331singing-note.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260331singing-note.html",
+    "description": "喉舌分离：绕口令【喉舌分离，放松舌根】 后端闭合：仰头吐舌头吐气【练到后脖子里面酸酸涨涨的就对了】"
   }
 }
