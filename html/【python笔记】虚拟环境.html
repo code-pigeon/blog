@@ -11,8 +11,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/hamburger.css">
 	<script src="../js/hamburger.js" type="text/javascript"></script>
 	<!-- goatcounter -->
-	<script data-goatcounter="https://code-pigeon.goatcounter.com/count" 
-	    async src="//gc.zgo.at/count.js"></script>
+	    <!-- 向goatcounter发送统计请求 -->
+	    <script data-goatcounter="https://code-pigeon.goatcounter.com/count" 
+	        async src="//gc.zgo.at/count.js"></script> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
 	<title>【python笔记】虚拟环境</title>
 	<!-- syntax highlighting -->
@@ -85,18 +86,19 @@ python -m venv my_venv
 		<hr />
 
 		<!-- visitor -->
-		<!-- id 将作为查询条件 -->
-		<span id="/blog/html/%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html" class="leancloud_visitors" data-flag-title="【python笔记】虚拟环境">
-		    <em class="post-meta-item-text">阅读量 </em>
-		    <i class="leancloud-visitors-count">0</i>
-		</span>
-		<!-- \visitor -->
+            <!-- id 将作为查询条件 -->
+            <!-- leancloud已寄，移除（ 26-05-24 16:28）-->
+            <!-- <span id="/blog/html/%E3%80%90python%E7%AC%94%E8%AE%B0%E3%80%91%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html" class="leancloud_visitors" data-flag-title="【python笔记】虚拟环境">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span> -->
+        <!-- \visitor -->
 
 		<br />
 
 				<h2 id="评论">评论</h2>
-		<!-- <div class="giscus"></div> -->
-		<div id="vcomments"></div>
+		<div class="giscus"></div>
+		<!-- <div id="vcomments"></div> -->
 			</div>
 
 
@@ -113,22 +115,23 @@ python -m venv my_venv
 	<script src="../js/toc.js" type="text/javascript"></script>
 	<script src="../js/image.js" type="text/javascript"></script>
 	<!-- giscus -->
-	<!-- <script src="https://giscus.app/client.js"
-	        data-repo="code-pigeon/blog"
-	        data-repo-id="R_kgDOMDeCsA"
-	        data-category="Announcements"
-	        data-category-id="DIC_kwDOMDeCsM4Chk54"
-	        data-mapping="pathname"
-	        data-strict="0"
-	        data-reactions-enabled="1"
-	        data-emit-metadata="0"
-	        data-input-position="top"
-	        data-theme="dark_protanopia"
-	        data-lang="zh-CN"
-	        crossorigin="anonymous"
-	        async>
-	</script> -->
-	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script src="https://giscus.app/client.js"
+	    data-repo="code-pigeon/blog"
+	    data-repo-id="R_kgDOMDeCsA"
+	    data-category="Announcements"
+	    data-category-id="DIC_kwDOMDeCsM4Chk54"
+	    data-mapping="pathname"
+	    data-strict="0"
+	    data-reactions-enabled="1"
+	    data-emit-metadata="0"
+	    data-input-position="top"
+	    data-theme="dark_protanopia"
+	    data-lang="zh-CN"
+	    crossorigin="anonymous"
+	    async>
+	</script>
+	
+	<!-- <script src="../js/Valine.min.js" type="text/javascript"></script>
 	<script>
 	    new Valine({
 	        el: '#vcomments',
@@ -140,7 +143,7 @@ python -m venv my_venv
 	        visitor: true,
 	        enableQQ: true
 	    })
-	</script>
+	</script> -->
 	<!-- srcoll for dynamic content -->
 	<script src="../js/scroll.js" type="text/javascript"></script>
 

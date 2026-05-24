@@ -48,19 +48,20 @@
 		<hr />
 
 		<!-- visitor -->
-		<!-- id 将作为查询条件 -->
-		<span id="/blog/{{html_dir}}{{{ quote_html_filename }}}" class="leancloud_visitors" data-flag-title="{{{title}}}">
-		    <em class="post-meta-item-text">阅读量 </em>
-		    <i class="leancloud-visitors-count">0</i>
-		</span>
-		<!-- \visitor -->
+            <!-- id 将作为查询条件 -->
+            <!-- leancloud已寄，移除（ 26-05-24 16:28）-->
+            <!-- <span id="/blog/{{html_dir}}{{{ quote_html_filename }}}" class="leancloud_visitors" data-flag-title="{{{title}}}">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span> -->
+        <!-- \visitor -->
 
 		<br />
 
 		{{#has_comment}}
 		<h2 id="评论">评论</h2>
-		<!-- <div class="giscus"></div> -->
-		<div id="vcomments"></div>
+		<div class="giscus"></div>
+		<!-- <div id="vcomments"></div> -->
 		{{/has_comment}}
 	</div>
 

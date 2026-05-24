@@ -11,8 +11,9 @@
 	<link rel="stylesheet" type="text/css" href="../css/hamburger.css">
 	<script src="../js/hamburger.js" type="text/javascript"></script>
 	<!-- goatcounter -->
-	<script data-goatcounter="https://code-pigeon.goatcounter.com/count" 
-	    async src="//gc.zgo.at/count.js"></script>
+	    <!-- 向goatcounter发送统计请求 -->
+	    <script data-goatcounter="https://code-pigeon.goatcounter.com/count" 
+	        async src="//gc.zgo.at/count.js"></script> 
 	<title>给博客整一个新的访问量统计工具：GoatCounter</title>
 	<!-- syntax highlighting -->
 	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
@@ -129,18 +130,19 @@ var t = setInterval(function() {
 		<hr />
 
 		<!-- visitor -->
-		<!-- id 将作为查询条件 -->
-		<span id="/blog/html/20251018%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%95%B4%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%B7%A5%E5%85%B7goatcounter.html" class="leancloud_visitors" data-flag-title="给博客整一个新的访问量统计工具：GoatCounter">
-		    <em class="post-meta-item-text">阅读量 </em>
-		    <i class="leancloud-visitors-count">0</i>
-		</span>
-		<!-- \visitor -->
+            <!-- id 将作为查询条件 -->
+            <!-- leancloud已寄，移除（ 26-05-24 16:28）-->
+            <!-- <span id="/blog/html/20251018%E7%BB%99%E5%8D%9A%E5%AE%A2%E6%95%B4%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%B7%A5%E5%85%B7goatcounter.html" class="leancloud_visitors" data-flag-title="给博客整一个新的访问量统计工具：GoatCounter">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span> -->
+        <!-- \visitor -->
 
 		<br />
 
 				<h2 id="评论">评论</h2>
-		<!-- <div class="giscus"></div> -->
-		<div id="vcomments"></div>
+		<div class="giscus"></div>
+		<!-- <div id="vcomments"></div> -->
 			</div>
 
 
@@ -152,22 +154,23 @@ var t = setInterval(function() {
 	<!-- toc -->
 	<script src="../js/image.js" type="text/javascript"></script>
 	<!-- giscus -->
-	<!-- <script src="https://giscus.app/client.js"
-	        data-repo="code-pigeon/blog"
-	        data-repo-id="R_kgDOMDeCsA"
-	        data-category="Announcements"
-	        data-category-id="DIC_kwDOMDeCsM4Chk54"
-	        data-mapping="pathname"
-	        data-strict="0"
-	        data-reactions-enabled="1"
-	        data-emit-metadata="0"
-	        data-input-position="top"
-	        data-theme="dark_protanopia"
-	        data-lang="zh-CN"
-	        crossorigin="anonymous"
-	        async>
-	</script> -->
-	<script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script src="https://giscus.app/client.js"
+	    data-repo="code-pigeon/blog"
+	    data-repo-id="R_kgDOMDeCsA"
+	    data-category="Announcements"
+	    data-category-id="DIC_kwDOMDeCsM4Chk54"
+	    data-mapping="pathname"
+	    data-strict="0"
+	    data-reactions-enabled="1"
+	    data-emit-metadata="0"
+	    data-input-position="top"
+	    data-theme="dark_protanopia"
+	    data-lang="zh-CN"
+	    crossorigin="anonymous"
+	    async>
+	</script>
+	
+	<!-- <script src="../js/Valine.min.js" type="text/javascript"></script>
 	<script>
 	    new Valine({
 	        el: '#vcomments',
@@ -179,7 +182,7 @@ var t = setInterval(function() {
 	        visitor: true,
 	        enableQQ: true
 	    })
-	</script>
+	</script> -->
 	<!-- srcoll for dynamic content -->
 	<script src="../js/scroll.js" type="text/javascript"></script>
 
