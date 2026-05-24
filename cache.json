@@ -98,7 +98,7 @@
     "description": "**最近的主题：唱歌** 虽然之前也爱唱歌，但是高音总是上不去，从低声往上唱，声音会越来越虚，而且会容易破，再到非常高的音的时候，就只能是娘娘的假声了。所以平时唱那些有高音的歌只能是在家里自己唱唱，跟同学朋友去KTV，都只能挑些容易唱的，往往有些歌手因为唱功问题，他们的歌曲就比较好唱，所以在KTV的时候就会经常点，搞得同学朋友以为我很喜欢那些个歌手，其实是因为他们的歌很好唱。 我相信喜欢唱歌，..."
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【8月23日】纪念死去的页游：坦克大战online.md": {
-    "file_updated": 1760974804.7350266,
+    "file_updated": 1779607256.0947034,
     "should_build": false,
     "title": "纪念死去的页游：坦克大战online",
     "category": [
@@ -1904,8 +1904,8 @@
     "description": "26-02-27 17:00 我之前看过这部剧的原著小说，由于人物过多，背景不熟悉，看了一点就看不下去了。这次过年去朋友家做客的时候朋友放了这个剧，果然剧版还是比文字容易看得多，我本身对历史感兴趣，那天离开朋友家之后，自己也就跟着追剧了。好久没有像这次这样追完一部剧了。 26-02-27 17:03 对于这部剧最大的感触还是，全国上上下下，都有各种正直忧国忧民之人，张口闭口都是为了朝廷为了百姓，..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20260127english-2.md": {
-    "file_updated": 1777821068.224836,
-    "should_build": true,
+    "file_updated": 1779461831.9881687,
+    "should_build": false,
     "title": "English-2",
     "category": [
       "笔记",
@@ -1934,5 +1934,38 @@
     "link": "https://code-pigeon.github.io/blog/html/20260331singing-note.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20260331singing-note.html",
     "description": "喉舌分离：绕口令【喉舌分离，放松舌根】 后端闭合：仰头吐舌头吐气【练到后脖子里面酸酸涨涨的就对了】"
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260524自媒体运营全攻略笔记版.md": {
+    "file_updated": 1779604569.0738473,
+    "should_build": false,
+    "title": "自媒体运营全攻略【笔记版】",
+    "category": [
+      "笔记",
+      "其它笔记"
+    ],
+    "date": "26-05-24 14:27",
+    "updated": null,
+    "html_filename": "20260524自媒体运营全攻略笔记版.html",
+    "quote_html_filename": "20260524%E8%87%AA%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5%E5%85%A8%E6%94%BB%E7%95%A5%E7%AC%94%E8%AE%B0%E7%89%88.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260524自媒体运营全攻略笔记版.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260524%E8%87%AA%E5%AA%92%E4%BD%93%E8%BF%90%E8%90%A5%E5%85%A8%E6%94%BB%E7%95%A5%E7%AC%94%E8%AE%B0%E7%89%88.html",
+    "description": "*原视频：2025，怎么一个月涨粉10w+？自媒体运营全攻略，创业，搞钱，必看！* **🧠 一、核心认知：为什么做个人IP** • **个人IP = 信息时代的金字招牌**，影响用户愿意为你买单的关键。 • **李子柒案例**：停更多年，月播放收益仍可达78万，打破传统行业天花板。 • **普通人也能做**：不一定成为周杰伦，但可通过体系化方法打造自己的影响力。 **🎯 二、定位：定战场，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260524leancloud-finally-died.md": {
+    "file_updated": 1779607866.5634422,
+    "should_build": true,
+    "title": "LeanCloud还是寄了……",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2026"
+    ],
+    "date": "26-05-24 14:58",
+    "updated": null,
+    "html_filename": "20260524leancloud-finally-died.html",
+    "quote_html_filename": "20260524leancloud-finally-died.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260524leancloud-finally-died.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260524leancloud-finally-died.html",
+    "description": "当初最开始搭建博客的时候，其实没想要评论功能，但抵不住人的无限欲望，博客搭完了之后，还是觉得很寂寞，于是想着搞个评论系统，选择的过程就不说了，在往期文章v1.0.3改版日志——评论系统的选择里都有提到。最后选择了Valine，这个是基于LeanCloud云服务平台开发的，有一定的免费额度，像我这个博客，一共就没多少访客，也够用了。 然后在1月份的时候，收到了LeanCloud的邮件： **关于 ..."
   }
 }

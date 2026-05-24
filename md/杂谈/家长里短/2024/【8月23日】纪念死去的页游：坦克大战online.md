@@ -104,7 +104,7 @@ updated: '24-08-23'
 第一次跟着瓦鲁团长一起打敌人。
 <img data-url="{{image_table.瓦鲁团长}}" title="瓦鲁团长" alt="图片加载失败：瓦鲁团长"/>
 合成部件的艰辛（我到头来好像也只合成了一个黄色的，剩下的都是比较低级的蓝色绿色和白色）。
-<img data-url="{{image_table.部件}}" title="部件" alt="图片加载失败：部件"/>
+<img data-url="{{image_table.坦克大战-部件}}" title="坦克大战-部件" alt="图片加载失败：坦克大战-部件"/>
 打坑爹关卡时的无奈。
 <img data-url="{{image_table.坑爹关卡}}" title="坑爹关卡" alt="图片加载失败：坑爹关卡"/>
 
