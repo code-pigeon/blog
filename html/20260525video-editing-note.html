@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <!-- icon -->
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="icon" type="image/png" href="../favicon.png">
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- hamburger -->
+	<link rel="stylesheet" type="text/css" href="../css/hamburger.css">
+	<script src="../js/hamburger.js" type="text/javascript"></script>
+	<!-- goatcounter -->
+	    <!-- 向goatcounter发送统计请求 -->
+	    <script data-goatcounter="https://code-pigeon.goatcounter.com/count" 
+	        async src="//gc.zgo.at/count.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
+	<title>剪辑笔记</title>
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- code highlight -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
+	        <span class="nickname">乌鸦之家</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+	        <!-- 汉堡菜单按钮 -->
+	        <div class="hamburger" id="hamburger">
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	        </div>
+	
+		    <ul id="nav-menu">
+		    		    		<li><a href="index.html">首页</a></li>
+		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
+		    		    		<li><a href="NOCHECK_shuoshuo.html">说说</a></li>
+		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
+		    		    		<li><a href="https://www.travellings.cn/go.html">🚇开往</a></li>
+		    		    </ul>
+		</nav>
+	</header>	<div class=fluid> 
+				<h1 id="剪辑笔记">剪辑笔记</h1>
+				<div class="article-meta">
+						<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">26-05-25 20:26</time>
+			</div>
+												<div class="meta-item">
+				<span class="meta-label">笔记</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">其它笔记</span>
+			</div>
+					</div>
+
+
+<h2>特效积累</h2>
+<ul>
+<li><a href="https://v.douyin.com/GXXES5KRR7Q/">文件翻开特效</a>:开头处</li>
+<li><a href="https://v.douyin.com/rMUYR7TUsWQ/">ins拼贴风格教程</a></li>
+<li><a href="https://v.douyin.com/ER_8qNVT5UY/">撕纸开场效果</a></li>
+</ul>
+<h2>字体积累</h2>
+<ul>
+<li><a href="https://v.douyin.com/Lh8Cg85HvHQ/">手写字体积累</a></li>
+</ul>
+<h2>混合模式</h2>
+<p>按 <strong>上层图像的颜色区域</strong> 来分类，把混合公式的“实战结果”写透彻。  </p>
+<blockquote>
+<p>约定：<br />
+RGB：0=黑，0.5=中灰，1=白<br />
+结果 = blend(上层, 下层)</p>
+</blockquote>
+<hr />
+<h3>一、上层为 <strong>黑色 (0)</strong> 时</h3>
+<table>
+<thead>
+<tr>
+<th>混合模式</th>
+<th>公式（简化）</th>
+<th>实际表现</th>
+<th>下层图片是否可见</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>正片叠底</strong></td>
+<td>结果 = 0</td>
+<td>永远是黑色</td>
+<td>❌ 完全不可见</td>
+</tr>
+<tr>
+<td><strong>滤色</strong></td>
+<td>结果 = 下层</td>
+<td>完全等于下层</td>
+<td>✅ 完全可见</td>
+</tr>
+<tr>
+<td><strong>线性减淡（添加）</strong></td>
+<td>结果 = 0 + 下层</td>
+<td>完全等于下层</td>
+<td>✅ 完全可见</td>
+</tr>
+<tr>
+<td><strong>叠加</strong></td>
+<td>结果 = 0</td>
+<td>黑色（下层被覆盖）</td>
+<td>❌ 不可见</td>
+</tr>
+<tr>
+<td><strong>柔光</strong></td>
+<td>结果 = 下层² 等复杂关系</td>
+<td>变暗，但接近黑色</td>
+<td>几乎不可见</td>
+</tr>
+<tr>
+<td><strong>差值</strong></td>
+<td>结果 = |0 - 下层| = 下层</td>
+<td>完全显示下层</td>
+<td>✅ 完全可见</td>
+</tr>
+<tr>
+<td><strong>排除</strong></td>
+<td>结果 = 下层</td>
+<td>完全显示下层</td>
+<td>✅ 完全可见</td>
+</tr>
+<tr>
+<td><strong>颜色加深</strong></td>
+<td>结果 = 1 - 1 / (上层+ε) 会保护暗部</td>
+<td>接近黑色，但下层暗部略保留</td>
+<td>⚠️ 极暗区域微弱可见</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论（重点）：</strong><br />
+- <strong>想让下层图片在上层黑色区域完全显示</strong> → 使用 <strong>滤色 / 线性减淡 / 差值 / 排除</strong><br />
+- <strong>想让下层图片在上层黑色区域完全消失</strong> → 使用 <strong>正片叠底 / 叠加</strong></p>
+<hr />
+<h3>二、上层为 <strong>白色 (1)</strong> 时</h3>
+<table>
+<thead>
+<tr>
+<th>混合模式</th>
+<th>公式</th>
+<th>实际表现</th>
+<th>下层图片是否可见</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>正片叠底</strong></td>
+<td>结果 = 下层</td>
+<td>完全显示下层</td>
+<td>✅ 完全可见</td>
+</tr>
+<tr>
+<td><strong>滤色</strong></td>
+<td>结果 = 1</td>
+<td>纯白色</td>
+<td>❌ 不可见</td>
+</tr>
+<tr>
+<td><strong>线性减淡</strong></td>
+<td>结果 = 1 + 下层 ≥ 1</td>
+<td>白色</td>
+<td>❌ 不可见</td>
+</tr>
+<tr>
+<td><strong>叠加</strong></td>
+<td>结果 = 1</td>
+<td>白色</td>
+<td>❌ 不可见</td>
+</tr>
+<tr>
+<td><strong>柔光</strong></td>
+<td>接近上层主导</td>
+<td>亮化，趋向白</td>
+<td>微弱可见</td>
+</tr>
+<tr>
+<td><strong>差值</strong></td>
+<td>|1 - 下层| = 1 - 下层</td>
+<td>下层反相</td>
+<td>⚠️ 可见但反相</td>
+</tr>
+<tr>
+<td><strong>排除</strong></td>
+<td>1 + 下层 - 2×下层 = 1 - 下层</td>
+<td>下层反相</td>
+<td>⚠️ 可见但反相</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论（重点）：</strong><br />
+- <strong>下层在上层白色区域完全显示</strong> → <strong>正片叠底</strong><br />
+- <strong>下层在上层白色区域消失</strong> → <strong>滤色 / 线性减淡 / 叠加</strong></p>
+<hr />
+<h3>三、你想问的另一种常见情况：<strong>下层是黑色 / 白色时，上层如何显示？</strong></h3>
+<p>你原文提到：  </p>
+<blockquote>
+<p>下层图层有黑色，开混合模式为什么，可以使得上层的什么得以怎么样</p>
+</blockquote>
+<p>这里直接给你两张对照表（这是很多人会搞反的）：</p>
+<h4>下层为黑色时（上层任意）</h4>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>正片叠底</strong></td>
+<td>黑色（上层消失）</td>
+</tr>
+<tr>
+<td><strong>滤色</strong></td>
+<td>上层（上层正常显示）</td>
+</tr>
+<tr>
+<td><strong>叠加</strong></td>
+<td>黑色（上层消失）</td>
+</tr>
+<tr>
+<td><strong>差值</strong></td>
+<td>上层（正常显示）</td>
+</tr>
+<tr>
+<td><strong>线性减淡</strong></td>
+<td>上层（正常显示）</td>
+</tr>
+<tr>
+<td><strong>颜色减淡</strong></td>
+<td>黑色区域会被保护，非黑区域强烈提亮</td>
+</tr>
+</tbody>
+</table>
+<p>✅ 想让上层在黑色背景下“亮部发光、暗部保留” → 滤色<br />
+✅ 想用下层黑色直接切掉上层 → 正片叠底</p>
+<hr />
+<h3>四、实用总结公式（像查表一样用）</h3>
+<h4>表1：上层黑色 → 下层表现</h4>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>选择模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下层完全可见</td>
+<td>滤色 / 线性减淡 / 差值 / 排除</td>
+</tr>
+<tr>
+<td>下层完全隐藏</td>
+<td>正片叠底 / 叠加</td>
+</tr>
+</tbody>
+</table>
+<h4>表2：上层白色 → 下层表现</h4>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>选择模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下层完全可见</td>
+<td>正片叠底</td>
+</tr>
+<tr>
+<td>下层完全隐藏</td>
+<td>滤色 / 线性减淡 / 叠加</td>
+</tr>
+</tbody>
+</table>
+<h4>表3：下层黑色 → 上层表现</h4>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>选择模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上层正常显示</td>
+<td>滤色 / 线性减淡 / 差值</td>
+</tr>
+<tr>
+<td>上层消失</td>
+<td>正片叠底 / 叠加</td>
+</tr>
+</tbody>
+</table>
+<h4>表4：下层白色 → 上层表现</h4>
+<table>
+<thead>
+<tr>
+<th>目的</th>
+<th>选择模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上层正常显示</td>
+<td>正片叠底</td>
+</tr>
+<tr>
+<td>上层消失</td>
+<td>滤色 / 线性减淡 / 叠加</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>五、一句话帮你记（实战最强口诀）</h3>
+<blockquote>
+<p><strong>黑色对滤色透明，对正片叠底遮挡</strong><br />
+<strong>白色对正片叠底透明，对滤色遮挡</strong><br />
+<strong>叠加/强光由上层主导亮暗</strong></p>
+</blockquote>
+		<br />
+		<hr />
+
+		<!-- visitor -->
+            <!-- id 将作为查询条件 -->
+            <!-- leancloud已寄，移除（ 26-05-24 16:28）-->
+            <!-- <span id="/blog/html/20260525video-editing-note.html" class="leancloud_visitors" data-flag-title="剪辑笔记">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span> -->
+        <!-- \visitor -->
+
+		<br />
+
+				<h2 id="评论">评论</h2>
+		<div class="giscus"></div>
+		<!-- <div id="vcomments"></div> -->
+			</div>
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<!-- toc -->
+	<div class="left-sidebar">
+	    <div class="toc"></div>
+	    <div class="toc-toggle"></div>
+	</div>
+	<script src="../js/toc.js" type="text/javascript"></script>
+	<script src="../js/image.js" type="text/javascript"></script>
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	    data-repo="code-pigeon/blog"
+	    data-repo-id="R_kgDOMDeCsA"
+	    data-category="Announcements"
+	    data-category-id="DIC_kwDOMDeCsM4Chk54"
+	    data-mapping="pathname"
+	    data-strict="0"
+	    data-reactions-enabled="1"
+	    data-emit-metadata="0"
+	    data-input-position="top"
+	    data-theme="dark_protanopia"
+	    data-lang="zh-CN"
+	    crossorigin="anonymous"
+	    async>
+	</script>
+	
+	<!-- <script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script> -->
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+
+
+
+</body>
+</html>
