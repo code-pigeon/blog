@@ -1920,7 +1920,7 @@
     "description": "**不知道怎么学了** I'm not sure why, but over time, I started feeling a bit unhappy. There's are some small conflict - well, maybe not conflict, just some irritation. If it keeps going like that, you start ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260331singing-note.md": {
-    "file_updated": 1775019365.4966202,
+    "file_updated": 1786466735.052411,
     "should_build": false,
     "title": "唱歌笔记",
     "category": [
@@ -1933,7 +1933,7 @@
     "quote_html_filename": "20260331singing-note.html",
     "link": "https://code-pigeon.github.io/blog/html/20260331singing-note.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20260331singing-note.html",
-    "description": "喉舌分离：绕口令【喉舌分离，放松舌根】 后端闭合：仰头吐舌头吐气【练到后脖子里面酸酸涨涨的就对了】"
+    "description": "下巴往后收。 吸气保持惊吓感。然后此时内口腔会很圆，共鸣就会好。但是要注意口腔还是要小，唱到高音了要放松，口腔空间好的话，高音是能上去的。 喉舌分离：绕口令【喉舌分离，放松舌根】 后端闭合：仰头吐舌头吐气【练到后脖子里面酸酸涨涨的就对了】 通道打开：哼鸣练习【别怪我视频做的这么长，从意识到方法，我必须都要说，我相信真正有价值的东西不是半分钟一分钟就能说清的，懂的人慢慢看～】 ..."
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260524自媒体运营全攻略笔记版.md": {
     "file_updated": 1779604569.0738473,
@@ -2002,7 +2002,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260605maybe-ive-never-made-sense-of-le-petit-prince.md": {
     "file_updated": 1781507342.7325747,
-    "should_build": true,
+    "should_build": false,
     "title": "或许我从未读懂《小王子》（草稿）",
     "category": [
       "杂谈",
@@ -2032,5 +2032,70 @@
     "link": "https://code-pigeon.github.io/blog/html/20260605content-creation-note.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20260605content-creation-note.html",
     "description": "**自媒体人的六问** 谁受损？ 糖厂 甘蔗种植户 谁推动？ 政府 WHO 健康组织 谁阻碍？ 糖业协会 部分研究机构 什么技术让它成为可能？ 生物发酵 化学合成 什么事件让它加速？ 糖税 肥胖危机 **赛博实录拆解** **第一步：找到一个矛盾** 几乎所有爆款科普视频都从矛盾出发。 代糖这个选题的核心矛盾是： 代糖被宣传得越来越健康，但关于代糖有害的研究越来越多。 这就是故事。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260816the-bank-recruit-scam.md": {
+    "file_updated": 1786899497.6920748,
+    "should_build": false,
+    "title": "银行招聘骗局",
+    "category": [
+      "笔记",
+      "网络收藏"
+    ],
+    "date": "26-08-16 16:40",
+    "updated": null,
+    "html_filename": "20260816the-bank-recruit-scam.html",
+    "quote_html_filename": "20260816the-bank-recruit-scam.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260816the-bank-recruit-scam.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260816the-bank-recruit-scam.html",
+    "description": "*原视频：揭秘招聘真相* **简介** 银行专门招聘民办/中外合办学校的的学生（这种学生一般家境不错），忽悠他们把钱存到银行之后再让他们干地推，逼走学生后又可以换下一届毕业生薅羊毛。 **视频原文** 你知道现在有的银行招聘他怎么招聘吗？我给你讲一讲啊。有的银行招聘，他是这么招聘的，他专门招民办的学生，懂吗？专门招民办的学生，专门招中外合作办学的学生。他为什么专门招民办的学生，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260816the-fresh-milk-scam.md": {
+    "file_updated": 1786869341.352527,
+    "should_build": false,
+    "title": "超市冷柜里的鲜牛乳骗局",
+    "category": [
+      "笔记",
+      "网络收藏"
+    ],
+    "date": "26-08-16 16:09",
+    "updated": null,
+    "html_filename": "20260816the-fresh-milk-scam.html",
+    "quote_html_filename": "20260816the-fresh-milk-scam.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260816the-fresh-milk-scam.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260816the-fresh-milk-scam.html",
+    "description": "*原视频：鲜牛奶真的更有营养吗？* **简介** \"鲜牛乳\"这个字样专指经过**巴氏杀菌**加工的新鲜牛乳。但冷柜里很多看起来像鲜奶的牛奶产品，实际上使用的是名为\"ESL\"的高温杀菌工艺，其活性营养已大量流失，但因成本低廉、保质期较长而被广泛采用。 **补充介绍** 国标明确规定，只有巴氏杀菌乳才能在包装上标注\"鲜牛乳\"或\"鲜牛奶\"。..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260816闲鱼早餐券为啥便宜.md": {
+    "file_updated": 1786871061.7252457,
+    "should_build": false,
+    "title": "闲鱼酒店早餐券为啥便宜",
+    "category": [
+      "笔记",
+      "网络收藏"
+    ],
+    "date": "26-08-16 16:55",
+    "updated": null,
+    "html_filename": "20260816闲鱼早餐券为啥便宜.html",
+    "quote_html_filename": "20260816%E9%97%B2%E9%B1%BC%E6%97%A9%E9%A4%90%E5%88%B8%E4%B8%BA%E5%95%A5%E4%BE%BF%E5%AE%9C.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260816闲鱼早餐券为啥便宜.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260816%E9%97%B2%E9%B1%BC%E6%97%A9%E9%A4%90%E5%88%B8%E4%B8%BA%E5%95%A5%E4%BE%BF%E5%AE%9C.html",
+    "description": "*原文：为什么说闲鱼是国内暗网？——知乎用户米小弔* **简介** 让你误以为你有了早餐券，你因此直接进去吃。但实际并没有卖任何东西给你，如果刚好没人查券，那么你吃到了便宜早餐，商家也赚了钱。如果酒店有人查券，商家就退钱给你。 **原文** 端午去杭州玩，老婆定了亚朵的酒店，在闲鱼上买了三份亚朵的早餐券（一份好像是8块钱）。早上起床，老婆带孩子先去吃早餐，门口没人值班，没人问也没人拦，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260731why-does-i-dont-mean-to-offend-you-sound-more-offensive-than-what-im-about-to-say-may-offend-you.md": {
+    "file_updated": 1785475932.327658,
+    "should_build": true,
+    "title": "“我无意冒犯”何以比“我后面说的话可能会让你不舒服”更显得冒犯？",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2026"
+    ],
+    "date": "26-07-31 12:01",
+    "updated": null,
+    "html_filename": "20260731why-does-i-dont-mean-to-offend-you-sound-more-offensive-than-what-im-about-to-say-may-offend-you.html",
+    "quote_html_filename": "20260731why-does-i-dont-mean-to-offend-you-sound-more-offensive-than-what-im-about-to-say-may-offend-you.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260731why-does-i-dont-mean-to-offend-you-sound-more-offensive-than-what-im-about-to-say-may-offend-you.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260731why-does-i-dont-mean-to-offend-you-sound-more-offensive-than-what-im-about-to-say-may-offend-you.html",
+    "description": "看看下面这两句话，哪句听完会让你感觉更不舒服？ • *我无意冒犯* • *我后面说的话可能会让你不舒服* 我相信大多数人应该都和我一样，会对第一句更加反感。但问题是为什么呢？ 之所以有此问，是因为最近在看《关于说话的一切》这本书，这两句话是书里提到的一个例子。 对此例子，书中说到： 刻意表现真诚反而会让自己看上去很虚伪…… 于是乎，反过来，“刻意冒犯”反而会让自己显得很真诚。 ..."
   }
 }
