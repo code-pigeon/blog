@@ -11,12 +11,7 @@ cc: "by-nc-nd"
 
 ## 关于
 ### 本站
-这是一个分享个人日常生活和一些博客搭建记录的网站。
-
-> 最开始创建的初衷其实是记录技术笔记，不过现在已经不怎么记了。
-后面应该会侧重于日常生活的分享。
-
-欢迎常来玩！
+这是一个个人笔记网站，偶尔分享点日常。
 
 ### 我
 你好，我是乌鸦。因为在这是网络世界，所以我在别人博客上的留言都自称赛博乌鸦。
@@ -30,19 +25,19 @@ cc: "by-nc-nd"
 ### 我的爱好
 - 🏀：篮球
 - 🎤：唱歌
-- 🎱：桌球
-- 🏊︎：游泳
 - 🖊︎：记录
-- 📔：看小说
-- 🏓：乒乓球
+- 🏊︎：游泳
+- ~~🎱：桌球~~（曾经的爱好）
+- ~~📔：看小说~~（曾经的爱好）
+- ~~🏓：乒乓球~~（曾经的爱好）
 - ~~🐘：中国象棋~~（曾经的爱好）
 - ~~🖌：画画~~（曾经的爱好）
 
-### 我的其它社媒账号
+<!-- ### 我的其它社媒账号
 [![抖音](https://img.shields.io/badge/抖音-@乌鸦有想法-000000?style=flat&logo=tiktok&logoColor=white)](https://www.douyin.com/user/MS4wLjABAAAABuryJcmnmTlY6lTkKhc-YDd3AH6_KzwiRnM-WaCizKk)
 [![B站](https://img.shields.io/badge/dynamic/json?url=https://api.bilibili.com/x/relation/stat?vmid=516728425&query=data.follower&label=B站%20@乌鸦有想法&color=00A1D6&logo=bilibili)](https://space.bilibili.com/516728425)
 ![微信公众号](https://img.shields.io/badge/乌鸦碎碎念-微信公众号-07C160?logo=wechat&logoColor=white)
-[![github](https://img.shields.io/badge/github-@code--pigeon-black?logo=github)](https://github.com/code-pigeon)
+[![github](https://img.shields.io/badge/github-@code--pigeon-black?logo=github)](https://github.com/code-pigeon) -->
 
 ### 我的邮箱
 - 邮箱：`code_pigeon@163.com`

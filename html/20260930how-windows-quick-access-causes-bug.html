@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <!-- icon -->
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+	<link rel="icon" type="image/png" href="../favicon.png">
+	<link href="../css/index.css" rel="stylesheet">
+	<!-- hamburger -->
+	<link rel="stylesheet" type="text/css" href="../css/hamburger.css">
+	<script src="../js/hamburger.js" type="text/javascript"></script>
+	<!-- goatcounter -->
+	    <!-- 向goatcounter发送统计请求 -->
+	    <script data-goatcounter="https://code-pigeon.goatcounter.com/count" 
+	        async src="//gc.zgo.at/count.js"></script> 
+	<title>亲身经历——Windows快速访问栏可能引发奇怪的bug</title>
+	<!-- syntax highlighting -->
+	<link rel="stylesheet" type="text/css" href="../css/code_highlight.css">
+	<link rel="stylesheet" type="text/css" href="../css/date_and_updated.css">
+	<!-- code highlight -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+	<header>
+		<!-- 左侧个人形象部分 -->
+	    <div class="profile">
+	        <img src="https://weavatar.com/avatar/3e8c711042f5b5a31a46c488f6b3c558" alt="个人头像" class="avatar">
+	        <span class="nickname">乌鸦之家</span>
+	    </div>
+	    
+	    <!-- 右侧导航菜单（保持原有结构） -->
+		<nav>
+	        <!-- 汉堡菜单按钮 -->
+	        <div class="hamburger" id="hamburger">
+	            <span></span>
+	            <span></span>
+	            <span></span>
+	        </div>
+	
+		    <ul id="nav-menu">
+		    		    		<li><a href="index.html">首页</a></li>
+		    		    		<li><a href="NOCHECK_category.html">分类</a></li>
+		    		    		<li><a href="NOCHECK_timeline.html">时光轴</a></li>
+		    		    		<li><a href="NOCHECK_shuoshuo.html">说说</a></li>
+		    		    		<li><a href="https://code-pigeon.github.io/blog/feed">RSS订阅</a></li>
+		    		    		<li><a href="https://www.travellings.cn/go.html">🚇开往</a></li>
+		    		    </ul>
+		</nav>
+	</header>	<div class=fluid> 
+				<h1 id="亲身经历——Windows快速访问栏可能引发奇怪的bug">亲身经历——Windows快速访问栏可能引发奇怪的bug</h1>
+				<div class="article-meta">
+						<div class="meta-item">
+				<svg class="meta-icon" viewBox="0 0 24 24">
+				<path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+				</svg>
+				<span class="meta-label">创建</span>
+				<time class="meta-time">26-09-30 02:22</time>
+			</div>
+												<div class="meta-item">
+				<span class="meta-label">杂谈</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">家长里短</span>
+			</div>
+						<div class="meta-item">
+				<span class="meta-label">2026</span>
+			</div>
+					</div>
+
+
+<p>最近还挺常搞博客的，然后博文所在的目录（下文我们就叫这个目录<code>D:/blog</code>吧）因为经常访问，所以被Windows的资源管理器放到左边的快速访问栏了。</p>
+<p>我平时是用sublime text（一款代码编辑器）写博客的，sublime可以打开一整个文件夹，所以我也经常用sublime打开<code>D:/blog</code>这个路径。</p>
+<p>然后奇怪的事情来了，我更新sublime的时候，老是安装不上，老是弹出下面这个弹窗：</p>
+<p><img data-url="../media/image/article/2026-09-30_021848_173_compressed.png;https://s3.bmp.ovh/2026/09/30/se7wpSfs.png;https://pub-026ecfceb63744219eb65ba54fa5359f.r2.dev/2026-09-30_021848_173_compressed.png" title="2026-09-30_021848_173_compressed" alt="图片加载失败：2026-09-30_021848_173_compressed"/></p>
+<p>就是说没办法重命名。</p>
+<p>我手动试了一下，确实没办法重命名。</p>
+<p>尝试重启电脑，再更新，依旧如此。跟DeepSeek对了好久的账，试着去任务管理器看，也没有什么进程占用着sublime，后来甚至把杀毒软件关了，还是没法重命名。</p>
+<p>排除了所有情况后，DeepSeek说有可能是任务管理器自己占用了sublime所在的路径。</p>
+<p>然后我看了看在快速访问栏的<code>D:/blog</code>目录，默默地把它删了。</p>
+<p>结果居然就更新成功了。</p>
+<p>只能说很离谱。要是是因为快速访问栏固定的sublime所在路径，那倒不稀奇。但居然是因为sublime曾经打开过的路径被固定在了快速访问栏，所以sublime所在文件夹没办法重命名，那这事真的就很离谱。</p>
+<p>也不知道这其中原理是什么。</p>
+<p>记录一下，以后有什么类似的bug先来看看快速访问栏。</p>
+		<br />
+		<hr />
+
+		<!-- visitor -->
+            <!-- id 将作为查询条件 -->
+            <!-- leancloud已寄，移除（ 26-05-24 16:28）-->
+            <!-- <span id="/blog/html/20260930how-windows-quick-access-causes-bug.html" class="leancloud_visitors" data-flag-title="亲身经历——Windows快速访问栏可能引发奇怪的bug">
+                <em class="post-meta-item-text">阅读量 </em>
+                <i class="leancloud-visitors-count">0</i>
+            </span> -->
+        <!-- \visitor -->
+
+		<br />
+
+				<h2 id="评论">评论</h2>
+		<div class="giscus"></div>
+		<!-- <div id="vcomments"></div> -->
+			</div>
+
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<!-- /////////////// script region //////////////// -->
+
+	<!-- toc -->
+	<script src="../js/image.js" type="text/javascript"></script>
+	<!-- giscus -->
+	<script src="https://giscus.app/client.js"
+	    data-repo="code-pigeon/blog"
+	    data-repo-id="R_kgDOMDeCsA"
+	    data-category="Announcements"
+	    data-category-id="DIC_kwDOMDeCsM4Chk54"
+	    data-mapping="pathname"
+	    data-strict="0"
+	    data-reactions-enabled="1"
+	    data-emit-metadata="0"
+	    data-input-position="top"
+	    data-theme="dark_protanopia"
+	    data-lang="zh-CN"
+	    crossorigin="anonymous"
+	    async>
+	</script>
+	
+	<!-- <script src="../js/Valine.min.js" type="text/javascript"></script>
+	<script>
+	    new Valine({
+	        el: '#vcomments',
+	        appId: 'TDB9xGfHmUV3oqQsbt0cMGeC-gzGzoHsz',
+	        appKey: 'zGEuPjaoxWdF8dz9iB1rvSj4',
+	        placeholder: '期待你的评论',
+	        avatar: 'wavatar',
+	        avatar_cdn: 'https://cravatar.cn/avatar/',
+	        visitor: true,
+	        enableQQ: true
+	    })
+	</script> -->
+	<!-- srcoll for dynamic content -->
+	<script src="../js/scroll.js" type="text/javascript"></script>
+
+	<script src="../js/code_highlight.js" type="text/javascript"></script>
+		
+
+
+
+</body>
+</html>

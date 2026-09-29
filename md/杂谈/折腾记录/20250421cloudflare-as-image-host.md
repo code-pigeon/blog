@@ -43,7 +43,7 @@ cloudflare R2的好处在于它有一定的免费额度。
 
 然后找到左侧的`R2 Object Storage`，点击之后会让你先填付款方式（以便超过免费使用额度了它可以自动恰米\[乐\])，可以是银行卡，不过右上角也提供了PayPal的选项，这个就根据大家的具体情况去填了。下面还需要填写一些个人的信息，尚且不清楚不填真实信息有没有什么影响，不过反正我没填真实的也成功了。
 
-<img data-url="{{image_table.cloudflare-as-image-host-开通cloudflare R2}}" title="开通cloudflare R2" alt="图片加载失败：开通cloudflare R2"/>
+<img data-url="{{image_table.cloudflare-as-image-host-开通cloudflare-R2}}" title="开通cloudflare-R2" alt="图片加载失败：开通cloudflare-R2"/>
 
 成功添加付款方式之后，会进入overview页面，此时就可以创建自己的图床了。在右边有个蓝色的`Create bucket`按钮，点击创建。
 
