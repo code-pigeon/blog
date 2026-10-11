@@ -2260,8 +2260,8 @@
     "description": "*原视频：【这视频能帮你找到所有想要的经济管理商科数据！你敢不敢来试试？】*"
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260930how-windows-quick-access-causes-bug.md": {
-    "file_updated": 1790706886.860125,
-    "should_build": true,
+    "file_updated": 1790706925.43154,
+    "should_build": false,
     "title": "亲身经历——Windows快速访问栏可能引发奇怪的bug",
     "category": [
       "杂谈",
@@ -2275,5 +2275,22 @@
     "link": "https://code-pigeon.github.io/blog/html/20260930how-windows-quick-access-causes-bug.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20260930how-windows-quick-access-causes-bug.html",
     "description": "最近还挺常搞博客的，然后博文所在的目录（下文我们就叫这个目录吧）因为经常访问，所以被Windows的资源管理器放到左边的快速访问栏了。 我平时是用sublime text（一款代码编辑器）写博客的，sublime可以打开一整个文件夹，所以我也经常用sublime打开这个路径。 然后奇怪的事情来了，我更新sublime的时候，老是安装不上，老是弹出下面这个弹窗： 就是说没办法重命名。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260930the-length-of-time-feels-different.md": {
+    "file_updated": 1790779980.1745603,
+    "should_build": false,
+    "title": "我觉得我切实感受到了人对时间长短的感受是会变的",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2026"
+    ],
+    "date": "26-09-30 22:10",
+    "updated": null,
+    "html_filename": "20260930the-length-of-time-feels-different.html",
+    "quote_html_filename": "20260930the-length-of-time-feels-different.html",
+    "link": "https://code-pigeon.github.io/blog/html/20260930the-length-of-time-feels-different.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20260930the-length-of-time-feels-different.html",
+    "description": "今晚依旧是洗澡时唱歌，但是今天的歌曲，听起来感觉像被慢放了一样。 我不是第一次有这样的感觉，去年有一次我在学校操场户外K歌时，就有同样的感受： “唱歌的过程中也有一些神奇的体验，就是唱歌的时候感觉时间变慢了，感觉音乐的拍子都慢了，跟开了倍速一样，我后来是开着b站唱的，还特意看了一下是不是不小心按到倍速了，结果并没有。难道这是身体状态开了，所以反应速度快了，对时间的感受变强了？..."
   }
 }
