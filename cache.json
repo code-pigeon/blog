@@ -1,7 +1,7 @@
 {
   "D:/DataDisk/workspace/blog/md/index.md": {
     "file_updated": 1793629388.4199617,
-    "should_build": true,
+    "should_build": false,
     "title": "长东的笔记",
     "category": [],
     "date": null,
@@ -14,7 +14,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/8月14日——逛博客.md": {
     "file_updated": 1760974680.408384,
-    "should_build": true,
+    "should_build": false,
     "title": "逛博客",
     "category": [
       "杂谈",
@@ -31,7 +31,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/《曾少年之小时候》.md": {
     "file_updated": 1760973389.167313,
-    "should_build": true,
+    "should_build": false,
     "title": "《曾少年之小时候》",
     "category": [
       "杂谈",
@@ -48,7 +48,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【10月29日】吐槽开发那些事.md": {
     "file_updated": 1760587129.2722147,
-    "should_build": true,
+    "should_build": false,
     "title": "吐槽开发那些事",
     "category": [
       "杂谈",
@@ -65,7 +65,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【11月21日】逛博客2——惊人的发现.md": {
     "file_updated": 1760587116.8751457,
-    "should_build": true,
+    "should_build": false,
     "title": "逛博客2——惊人的发现",
     "category": [
       "杂谈",
@@ -82,7 +82,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【12月12日】最近的生活：唱歌、跑步.md": {
     "file_updated": 1760587106.5713346,
-    "should_build": true,
+    "should_build": false,
     "title": "最近的生活：唱歌、跑步",
     "category": [
       "杂谈",
@@ -99,7 +99,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/【8月23日】纪念死去的页游：坦克大战online.md": {
     "file_updated": 1779607256.0947034,
-    "should_build": true,
+    "should_build": false,
     "title": "纪念死去的页游：坦克大战online",
     "category": [
       "杂谈",
@@ -116,7 +116,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2024/租房笔记.md": {
     "file_updated": 1760587938.711787,
-    "should_build": true,
+    "should_build": false,
     "title": "租房笔记",
     "category": [
       "杂谈",
@@ -133,7 +133,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20250424跟着师兄的节奏游泳差点把自己送走了.md": {
     "file_updated": 1760587090.5528777,
-    "should_build": true,
+    "should_build": false,
     "title": "跟着师兄的节奏游泳，差点把自己送走了",
     "category": [
       "杂谈",
@@ -150,7 +150,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251015又得解释一下为什么那么久没碰博客了.md": {
     "file_updated": 1760974461.77135,
-    "should_build": true,
+    "should_build": false,
     "title": "又得解释一下为什么那么久没碰博客了┭┮﹏┭┮",
     "category": [
       "杂谈",
@@ -167,7 +167,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/自我检讨.md": {
     "file_updated": 1760587071.5458868,
-    "should_build": true,
+    "should_build": false,
     "title": "自我检讨",
     "category": [
       "杂谈",
@@ -184,7 +184,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/逛博客3.md": {
     "file_updated": 1760587065.9058654,
-    "should_build": true,
+    "should_build": false,
     "title": "逛博客3 | 看完优秀的人的博客，我又得自我反思了……",
     "category": [
       "杂谈",
@@ -201,7 +201,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/clash在linux上的使用.md": {
     "file_updated": 1760776274.1820912,
-    "should_build": true,
+    "should_build": false,
     "title": "clash在linux上的使用",
     "category": [
       "杂谈",
@@ -217,7 +217,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/css样式随网页宽度变化而变化的实现.md": {
     "file_updated": 1760587038.7628157,
-    "should_build": true,
+    "should_build": false,
     "title": "css样式随网页宽度变化而变化的实现",
     "category": [
       "杂谈",
@@ -233,7 +233,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/C语言__vaze宏引发的探究.md": {
     "file_updated": 1760587032.8746927,
-    "should_build": true,
+    "should_build": false,
     "title": "`__vasz`宏引发的探究",
     "category": [
       "杂谈",
@@ -249,7 +249,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/C语言中返回局部变量指针的探究.md": {
     "file_updated": 1760587025.62712,
-    "should_build": true,
+    "should_build": false,
     "title": "C语言中返回局部变量指针的探究",
     "category": [
       "杂谈",
@@ -265,7 +265,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/C语言实现交互式终端.md": {
     "file_updated": 1760587849.485006,
-    "should_build": true,
+    "should_build": false,
     "title": "C语言实现交互式终端",
     "category": [
       "杂谈",
@@ -281,7 +281,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/C语言自定义错误打印函数.md": {
     "file_updated": 1760587948.429038,
-    "should_build": true,
+    "should_build": false,
     "title": "C语言自定义错误打印函数",
     "category": [
       "杂谈",
@@ -297,7 +297,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Linux终端控制.md": {
     "file_updated": 1760587015.4254727,
-    "should_build": true,
+    "should_build": false,
     "title": "Linux终端控制",
     "category": [
       "杂谈",
@@ -313,7 +313,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/python多个装饰器执行的顺序.md": {
     "file_updated": 1760586994.1807065,
-    "should_build": true,
+    "should_build": false,
     "title": "python多个装饰器执行的顺序",
     "category": [
       "杂谈",
@@ -329,7 +329,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/python源码中PyLongObject结构体的骚操作.md": {
     "file_updated": 1760586972.2565217,
-    "should_build": true,
+    "should_build": false,
     "title": "python源码中PyLongObject结构体的骚操作",
     "category": [
       "杂谈",
@@ -345,7 +345,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/tkinter画布canvas绘制图片不显示.md": {
     "file_updated": 1760586961.8579395,
-    "should_build": true,
+    "should_build": false,
     "title": "tkinter画布canvas绘制图片不显示",
     "category": [
       "杂谈",
@@ -361,7 +361,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/tkinter项目打包python运行环境.md": {
     "file_updated": 1760586919.8187134,
-    "should_build": true,
+    "should_build": false,
     "title": "tkinter项目打包python运行环境",
     "category": [
       "杂谈",
@@ -377,7 +377,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Ubuntu下darknet_yolo4的编译.md": {
     "file_updated": 1760588034.8802466,
-    "should_build": true,
+    "should_build": false,
     "title": "Ubuntu下darknet yolo4的编译",
     "category": [
       "杂谈",
@@ -393,7 +393,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows下fgets对于CTRL+Z输入的响应.md": {
     "file_updated": 1760587587.5134022,
-    "should_build": true,
+    "should_build": false,
     "title": "Windows下fgets对于CTRL+Z输入的响应",
     "category": [
       "杂谈",
@@ -409,7 +409,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows命令行不加解释器和文件后缀名直接运行Python脚本.md": {
     "file_updated": 1760588042.5179849,
-    "should_build": true,
+    "should_build": false,
     "title": "Windows命令行不加解释器和文件后缀名直接运行Python脚本",
     "category": [
       "杂谈",
@@ -425,7 +425,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows将多个图标编译为dll.md": {
     "file_updated": 1760972528.3961575,
-    "should_build": true,
+    "should_build": false,
     "title": "Windows将多个图标编译为dll",
     "category": [
       "杂谈",
@@ -441,7 +441,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows应用DPI感知.md": {
     "file_updated": 1760972381.564695,
-    "should_build": true,
+    "should_build": false,
     "title": "Windows应用DPI感知",
     "category": [
       "杂谈",
@@ -457,7 +457,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows的exe文件调用命令行运行py文件打开的Tk窗口无法置顶解决办法.md": {
     "file_updated": 1760586878.675894,
-    "should_build": true,
+    "should_build": false,
     "title": "Windows的exe文件调用命令行运行py文件打开的Tk窗口无法置顶解决办法",
     "category": [
       "杂谈",
@@ -473,7 +473,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/Windows设置视觉风格（visual_style）.md": {
     "file_updated": 1760587807.0855367,
-    "should_build": true,
+    "should_build": false,
     "title": "Windows设置视觉风格（visual style）",
     "category": [
       "杂谈",
@@ -489,7 +489,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/wxWidgets定义新事件类型（event_type）.md": {
     "file_updated": 1769084217.4810257,
-    "should_build": true,
+    "should_build": false,
     "title": "wxWidgets定义新事件类型（event type）",
     "category": [
       "杂谈",
@@ -505,7 +505,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/x86架构操作系统内核的实现_p1.md": {
     "file_updated": 1760586856.1893127,
-    "should_build": true,
+    "should_build": false,
     "title": "x86架构操作系统内核的实现",
     "category": [
       "杂谈",
@@ -521,7 +521,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/关于Flask中View_function_mapping_is_overwriting_an_existing_endpoint_function.md": {
     "file_updated": 1760586843.380305,
-    "should_build": true,
+    "should_build": false,
     "title": "关于Flask中View function mapping is overwriting an existing endpoint function",
     "category": [
       "杂谈",
@@ -537,7 +537,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/关于python项目文件夹的重命名问题.md": {
     "file_updated": 1760776323.5951786,
-    "should_build": true,
+    "should_build": false,
     "title": "关于python项目文件夹的重命名问题",
     "category": [
       "杂谈",
@@ -553,7 +553,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/关于交互式解释器的命令行提示符.md": {
     "file_updated": 1760587518.3289628,
-    "should_build": true,
+    "should_build": false,
     "title": "关于交互式解释器的命令行提示符",
     "category": [
       "杂谈",
@@ -569,7 +569,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/创建及使用静态库.md": {
     "file_updated": 1760587505.9268515,
-    "should_build": true,
+    "should_build": false,
     "title": "C/C++创建及使用静态库",
     "category": [
       "杂谈",
@@ -585,7 +585,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/白嫖weibo的视频资源记.md": {
     "file_updated": 1760972297.8055468,
-    "should_build": true,
+    "should_build": false,
     "title": "白嫖weibo的视频资源记",
     "category": [
       "杂谈",
@@ -601,7 +601,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/简单的视频桌面壁纸实现.md": {
     "file_updated": 1760972011.4377248,
-    "should_build": true,
+    "should_build": false,
     "title": "简单的视频桌面壁纸实现",
     "category": [
       "杂谈",
@@ -617,7 +617,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/编程杂谈/编译带图标的exe文件.md": {
     "file_updated": 1760586801.2244835,
-    "should_build": true,
+    "should_build": false,
     "title": "编译带图标的exe文件",
     "category": [
       "杂谈",
@@ -633,7 +633,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/p、np、npc、np-hard.md": {
     "file_updated": 1760537518.9851654,
-    "should_build": true,
+    "should_build": false,
     "title": "p、np、npc、np-hard",
     "category": [
       "笔记",
@@ -649,7 +649,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/useful_blog.md": {
     "file_updated": 1760537518.3792727,
-    "should_build": true,
+    "should_build": false,
     "title": "useful blog",
     "category": [
       "笔记",
@@ -665,7 +665,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《modernTkinter》.md": {
     "file_updated": 1760538081.6797473,
-    "should_build": true,
+    "should_build": false,
     "title": "《modernTkinter》",
     "category": [
       "笔记",
@@ -681,7 +681,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt1.md": {
     "file_updated": 1760538092.639293,
-    "should_build": true,
+    "should_build": false,
     "title": "《PCAssemblyLanguage》chpt1",
     "category": [
       "笔记",
@@ -697,7 +697,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt2.md": {
     "file_updated": 1760776368.6035469,
-    "should_build": true,
+    "should_build": false,
     "title": "《PCAssemblyLanguage》chpt2",
     "category": [
       "笔记",
@@ -713,7 +713,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt3.md": {
     "file_updated": 1760538105.5830882,
-    "should_build": true,
+    "should_build": false,
     "title": "《PCAssemblyLanguage》chpt3",
     "category": [
       "笔记",
@@ -729,7 +729,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt4.md": {
     "file_updated": 1760538111.8459668,
-    "should_build": true,
+    "should_build": false,
     "title": "《PCAssemblyLanguage》chpt4",
     "category": [
       "笔记",
@@ -745,7 +745,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《PCAssemblyLanguage》chpt7.md": {
     "file_updated": 1760538117.8358803,
-    "should_build": true,
+    "should_build": false,
     "title": "《PCAssemblyLanguage》chpt7",
     "category": [
       "笔记",
@@ -761,7 +761,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt13_Windows_Memory_Architecture.md": {
     "file_updated": 1760538132.7832294,
-    "should_build": true,
+    "should_build": false,
     "title": "《windows核心编程》Chpt13_Windows_Memory_Architecture",
     "category": [
       "笔记",
@@ -777,7 +777,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt2_Characters.md": {
     "file_updated": 1760776387.1499643,
-    "should_build": true,
+    "should_build": false,
     "title": "《windows核心编程》Chpt2_Characters",
     "category": [
       "笔记",
@@ -793,7 +793,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt3_Kernel_Objects.md": {
     "file_updated": 1760538143.8057816,
-    "should_build": true,
+    "should_build": false,
     "title": "《windows核心编程》Chpt3_Kernel_Objects",
     "category": [
       "笔记",
@@ -809,7 +809,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/《windows核心编程》Chpt4_Process.md": {
     "file_updated": 1760776402.2280571,
-    "should_build": true,
+    "should_build": false,
     "title": "《windows核心编程》Chpt4_Process",
     "category": [
       "笔记",
@@ -825,7 +825,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【c++笔记】.md": {
     "file_updated": 1760537517.8328984,
-    "should_build": true,
+    "should_build": false,
     "title": "C++笔记",
     "category": [
       "笔记",
@@ -841,7 +841,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【cmake笔记】.md": {
     "file_updated": 1760537517.2881823,
-    "should_build": true,
+    "should_build": false,
     "title": "cmake 笔记",
     "category": [
       "笔记",
@@ -857,7 +857,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【cmd笔记】bat脚本.md": {
     "file_updated": 1760537516.2040029,
-    "should_build": true,
+    "should_build": false,
     "title": "windows .bat批处理文件 笔记",
     "category": [
       "笔记",
@@ -873,7 +873,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【C笔记】.md": {
     "file_updated": 1760776429.0719151,
-    "should_build": true,
+    "should_build": false,
     "title": "C笔记",
     "category": [
       "笔记",
@@ -889,7 +889,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【flask笔记】.md": {
     "file_updated": 1760537515.3356626,
-    "should_build": true,
+    "should_build": false,
     "title": "flask笔记",
     "category": [
       "笔记",
@@ -905,7 +905,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【gcc笔记】.md": {
     "file_updated": 1760586760.1149015,
-    "should_build": true,
+    "should_build": false,
     "title": "gcc笔记",
     "category": [
       "笔记",
@@ -921,7 +921,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【gcc笔记】动态库.md": {
     "file_updated": 1760587465.1594253,
-    "should_build": true,
+    "should_build": false,
     "title": "gcc笔记——动态库",
     "category": [
       "笔记",
@@ -937,7 +937,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【git笔记】.md": {
     "file_updated": 1760537514.0488124,
-    "should_build": true,
+    "should_build": false,
     "title": "git笔记",
     "category": [
       "笔记",
@@ -953,7 +953,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【Linux笔记】tar——压缩与解压.md": {
     "file_updated": 1760538173.5119655,
-    "should_build": true,
+    "should_build": false,
     "title": "【Linux笔记】tar——压缩与解压",
     "category": [
       "笔记",
@@ -969,7 +969,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【Linux笔记】执行bash三种方式的区别.md": {
     "file_updated": 1760537513.607319,
-    "should_build": true,
+    "should_build": false,
     "title": "【Linux笔记】bash/sh、./和source执行bash脚本的区别",
     "category": [
       "笔记",
@@ -985,7 +985,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【Linux笔记】数值运算.md": {
     "file_updated": 1760537513.135986,
-    "should_build": true,
+    "should_build": false,
     "title": "【Linux笔记】数值运算——双小括号、let、expr",
     "category": [
       "笔记",
@@ -1001,7 +1001,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【lua笔记】.md": {
     "file_updated": 1760537512.6724706,
-    "should_build": true,
+    "should_build": false,
     "title": "【lua笔记】",
     "category": [
       "笔记",
@@ -1017,7 +1017,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【make技巧】复制文件夹下的所有文件到另一个文件夹中.md": {
     "file_updated": 1760537512.2269194,
-    "should_build": true,
+    "should_build": false,
     "title": "【make技巧】复制文件夹下的所有文件到另一个文件夹中",
     "category": [
       "笔记",
@@ -1033,7 +1033,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【make笔记】.md": {
     "file_updated": 1760537511.5442913,
-    "should_build": true,
+    "should_build": false,
     "title": "make笔记",
     "category": [
       "笔记",
@@ -1049,7 +1049,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【python笔记】contextlib，自定义with语句.md": {
     "file_updated": 1760537511.1584983,
-    "should_build": true,
+    "should_build": false,
     "title": "【python笔记】contextlib，自定义with语句",
     "category": [
       "笔记",
@@ -1065,7 +1065,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【python笔记】python装饰器.md": {
     "file_updated": 1760587450.8067074,
-    "should_build": true,
+    "should_build": false,
     "title": "python装饰器",
     "category": [
       "笔记",
@@ -1081,7 +1081,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【python笔记】弱引用weakref.md": {
     "file_updated": 1760537510.3202794,
-    "should_build": true,
+    "should_build": false,
     "title": "【python笔记】弱引用weakref",
     "category": [
       "笔记",
@@ -1097,7 +1097,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【python笔记】虚拟环境.md": {
     "file_updated": 1760537509.8598833,
-    "should_build": true,
+    "should_build": false,
     "title": "【python笔记】虚拟环境",
     "category": [
       "笔记",
@@ -1113,7 +1113,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【ros1笔记】.md": {
     "file_updated": 1760537509.4340074,
-    "should_build": true,
+    "should_build": false,
     "title": "ros1笔记",
     "category": [
       "笔记",
@@ -1129,7 +1129,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【STL笔记】heap.md": {
     "file_updated": 1760586743.7452614,
-    "should_build": true,
+    "should_build": false,
     "title": "【STL笔记】heap",
     "category": [
       "笔记",
@@ -1145,7 +1145,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【sublime笔记】.md": {
     "file_updated": 1760776442.076604,
-    "should_build": true,
+    "should_build": false,
     "title": "sublime text笔记",
     "category": [
       "笔记",
@@ -1161,7 +1161,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【xmake笔记】.md": {
     "file_updated": 1760537507.981002,
-    "should_build": true,
+    "should_build": false,
     "title": "xmake 笔记",
     "category": [
       "笔记",
@@ -1177,7 +1177,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【汇编积累】.md": {
     "file_updated": 1760537507.3454776,
-    "should_build": true,
+    "should_build": false,
     "title": "汇编积累",
     "category": [
       "笔记",
@@ -1193,7 +1193,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【疑难杂症记录】Verifying_shim_SBAT_data_failed_Security_Policy_Violation.md": {
     "file_updated": 1760587397.2015681,
-    "should_build": true,
+    "should_build": false,
     "title": "Verifying shim SBAT data failed: Security Policy Violation",
     "category": [
       "笔记",
@@ -1209,7 +1209,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/【编译原理笔记】.md": {
     "file_updated": 1760537503.6057816,
-    "should_build": true,
+    "should_build": false,
     "title": "编译原理笔记",
     "category": [
       "笔记",
@@ -1225,7 +1225,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/操作系统的启动过程.md": {
     "file_updated": 1760537500.4083846,
-    "should_build": true,
+    "should_build": false,
     "title": "操作系统的启动过程",
     "category": [
       "笔记",
@@ -1241,7 +1241,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《北京爷们儿》.md": {
     "file_updated": 1760586718.2616794,
-    "should_build": true,
+    "should_build": false,
     "title": "《北京爷们儿》",
     "category": [
       "笔记",
@@ -1257,7 +1257,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《医学生》.md": {
     "file_updated": 1760586671.4356966,
-    "should_build": true,
+    "should_build": false,
     "title": "《医学生》",
     "category": [
       "笔记",
@@ -1273,7 +1273,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《双开行动》.md": {
     "file_updated": 1760587381.0148363,
-    "should_build": true,
+    "should_build": false,
     "title": "《双开行动》",
     "category": [
       "笔记",
@@ -1289,7 +1289,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《圈子圈套》.md": {
     "file_updated": 1760587357.3068867,
-    "should_build": true,
+    "should_build": false,
     "title": "《圈子圈套》",
     "category": [
       "笔记",
@@ -1305,7 +1305,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《外婆的英雄世界》.md": {
     "file_updated": 1760587344.6984198,
-    "should_build": true,
+    "should_build": false,
     "title": "《外婆的英雄世界》",
     "category": [
       "笔记",
@@ -1321,7 +1321,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《如英》.md": {
     "file_updated": 1760587335.3280594,
-    "should_build": true,
+    "should_build": false,
     "title": "《如英》",
     "category": [
       "笔记",
@@ -1337,7 +1337,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《小巷人家》.md": {
     "file_updated": 1760587316.1205347,
-    "should_build": true,
+    "should_build": false,
     "title": "《小巷人家》",
     "category": [
       "笔记",
@@ -1353,7 +1353,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《我在北京卖模特》.md": {
     "file_updated": 1760586683.340602,
-    "should_build": true,
+    "should_build": false,
     "title": "《我在北京卖模特》",
     "category": [
       "笔记",
@@ -1369,7 +1369,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《我在北京送快递》.md": {
     "file_updated": 1760587303.056676,
-    "should_build": true,
+    "should_build": false,
     "title": "《我在北京送快递》",
     "category": [
       "笔记",
@@ -1385,7 +1385,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《斗贼》.md": {
     "file_updated": 1760603623.590202,
-    "should_build": true,
+    "should_build": false,
     "title": "《斗贼》",
     "category": [
       "笔记",
@@ -1401,7 +1401,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《曾少年》.md": {
     "file_updated": 1760587269.834121,
-    "should_build": true,
+    "should_build": false,
     "title": "《曾少年》",
     "category": [
       "笔记",
@@ -1417,7 +1417,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《植物的战斗》.md": {
     "file_updated": 1789970258.9901984,
-    "should_build": true,
+    "should_build": false,
     "title": "《植物的战斗》",
     "category": [
       "笔记",
@@ -1433,7 +1433,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《混在985》.md": {
     "file_updated": 1760587256.186027,
-    "should_build": true,
+    "should_build": false,
     "title": "《混在985》",
     "category": [
       "笔记",
@@ -1449,7 +1449,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《疯娘》.md": {
     "file_updated": 1760587245.8830135,
-    "should_build": true,
+    "should_build": false,
     "title": "《疯娘》",
     "category": [
       "笔记",
@@ -1465,7 +1465,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《试错》.md": {
     "file_updated": 1760586649.7178876,
-    "should_build": true,
+    "should_build": false,
     "title": "《试错》",
     "category": [
       "笔记",
@@ -1481,7 +1481,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《追问》.md": {
     "file_updated": 1760586635.1727746,
-    "should_build": true,
+    "should_build": false,
     "title": "《追问》",
     "category": [
       "笔记",
@@ -1497,7 +1497,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《酥油和麻辣烫》.md": {
     "file_updated": 1760587237.999991,
-    "should_build": true,
+    "should_build": false,
     "title": "《酥油和麻辣烫》",
     "category": [
       "笔记",
@@ -1513,7 +1513,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/《鸡犬不宁》.md": {
     "file_updated": 1760587227.0187154,
-    "should_build": true,
+    "should_build": false,
     "title": "《鸡犬不宁》",
     "category": [
       "笔记",
@@ -1529,7 +1529,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20250421cloudflare-as-image-host.md": {
     "file_updated": 1790528233.7065306,
-    "should_build": true,
+    "should_build": false,
     "title": "我也用cloudflare R2来做图床了",
     "category": [
       "杂谈",
@@ -1545,7 +1545,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/5月31日.md": {
     "file_updated": 1760586379.3969655,
-    "should_build": true,
+    "should_build": false,
     "title": "完工！",
     "category": [
       "杂谈",
@@ -1561,7 +1561,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/7月27日.md": {
     "file_updated": 1760587133.8183198,
-    "should_build": true,
+    "should_build": false,
     "title": "维护之路",
     "category": [
       "杂谈",
@@ -1577,7 +1577,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/8月17日——看不懂的开源协议.md": {
     "file_updated": 1760587863.934649,
-    "should_build": true,
+    "should_build": false,
     "title": "看不懂的开源协议",
     "category": [
       "杂谈",
@@ -1593,7 +1593,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/【12月14日】valine评论系统的邮件通知.md": {
     "file_updated": 1760587100.2584906,
-    "should_build": true,
+    "should_build": false,
     "title": "valine评论系统的邮件通知",
     "category": [
       "杂谈",
@@ -1609,7 +1609,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/图床的选择.md": {
     "file_updated": 1761030135.749074,
-    "should_build": true,
+    "should_build": false,
     "title": "图床的选择",
     "category": [
       "杂谈",
@@ -1625,7 +1625,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20251017熟悉又陌生的面孔shieldsio一个专门生成徽章的服务.md": {
     "file_updated": 1760861220.818004,
-    "should_build": true,
+    "should_build": false,
     "title": "熟悉又陌生的面孔：Shields.io（一个专门生成徽章的服务）",
     "category": [
       "杂谈",
@@ -1641,7 +1641,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/v1.0.2改版日志（详细版）.md": {
     "file_updated": 1760587837.431571,
-    "should_build": true,
+    "should_build": false,
     "title": "v1.0.2改版日志（详细版）",
     "category": [
       "杂谈",
@@ -1657,7 +1657,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/v1.0.3改版日志——评论系统的选择.md": {
     "file_updated": 1760761051.8380384,
-    "should_build": true,
+    "should_build": false,
     "title": "v1.0.3改版日志——评论系统的选择",
     "category": [
       "杂谈",
@@ -1673,7 +1673,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20251018给博客整一个新的访问量统计工具goatcounter.md": {
     "file_updated": 1760972861.9051607,
-    "should_build": true,
+    "should_build": false,
     "title": "给博客整一个新的访问量统计工具：GoatCounter",
     "category": [
       "杂谈",
@@ -1689,7 +1689,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/2025101910月生活碎片.md": {
     "file_updated": 1761202272.2451093,
-    "should_build": true,
+    "should_build": false,
     "title": "10月生活碎片",
     "category": [
       "杂谈",
@@ -1706,7 +1706,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251019都说是父母给了孩子生命但我更觉得是孩子给父母带来了新生.md": {
     "file_updated": 1760973190.4985056,
-    "should_build": true,
+    "should_build": false,
     "title": "都说是父母给了孩子生命，但我更觉得是孩子给父母带来了新生",
     "category": [
       "杂谈",
@@ -1723,7 +1723,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/折腾记录/20251021image-table-design.md": {
     "file_updated": 1761029766.2590415,
-    "should_build": true,
+    "should_build": false,
     "title": "图片容灾备份：为预防图床跑路，我给博客做了一个图片表",
     "category": [
       "杂谈",
@@ -1739,7 +1739,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/unity3D_FPS_game_interaction.md": {
     "file_updated": 1760972756.287389,
-    "should_build": true,
+    "should_build": false,
     "title": "【unity3D学习记录】FPS角色交互",
     "category": [
       "笔记",
@@ -1755,7 +1755,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/编程笔记/unity3D_FPS_game_movement.md": {
     "file_updated": 1760586885.6898427,
-    "should_build": true,
+    "should_build": false,
     "title": "【unity3D学习记录】FPS角色移动",
     "category": [
       "笔记",
@@ -1771,7 +1771,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20251023日本語.md": {
     "file_updated": 1766835283.5545342,
-    "should_build": true,
+    "should_build": false,
     "title": "日本語",
     "category": [
       "笔记",
@@ -1787,7 +1787,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20241107English.md": {
     "file_updated": 1762843314.682461,
-    "should_build": true,
+    "should_build": false,
     "title": "English",
     "category": [
       "笔记",
@@ -1803,7 +1803,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251105how-to-fight-laziness.md": {
     "file_updated": 1762354974.2072334,
-    "should_build": true,
+    "should_build": false,
     "title": "我们究竟要如何对抗懒惰",
     "category": [
       "杂谈",
@@ -1820,7 +1820,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251110以日为鉴读后感.md": {
     "file_updated": 1762752265.0804975,
-    "should_build": true,
+    "should_build": false,
     "title": "《以日为鉴》读后感",
     "category": [
       "杂谈",
@@ -1837,7 +1837,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251112thoughts-on-pearl.md": {
     "file_updated": 1762958196.5222764,
-    "should_build": true,
+    "should_build": false,
     "title": "《珀尔》观后感",
     "category": [
       "杂谈",
@@ -1854,7 +1854,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20251201whatever-I-come-up-with-always-turns-out-to-have-been-done-by-someone-else-before.md": {
     "file_updated": 1769071008.2201517,
-    "should_build": true,
+    "should_build": false,
     "title": "脑子里想出来的点子基本都是别人想过做过的了",
     "category": [
       "杂谈",
@@ -1871,7 +1871,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260122first-experence-of-snowfall.md": {
     "file_updated": 1769071115.7633734,
-    "should_build": true,
+    "should_build": false,
     "title": "下雪初体验",
     "category": [
       "杂谈",
@@ -1888,7 +1888,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260227thoughts-on-ming-dynasty-1566.md": {
     "file_updated": 1772269859.362218,
-    "should_build": true,
+    "should_build": false,
     "title": "《大明王朝1566》观后感",
     "category": [
       "杂谈",
@@ -1905,7 +1905,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/语言笔记/20260127english-2.md": {
     "file_updated": 1779461831.9881687,
-    "should_build": true,
+    "should_build": false,
     "title": "English-2",
     "category": [
       "笔记",
@@ -1921,7 +1921,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260331singing-note.md": {
     "file_updated": 1786466735.052411,
-    "should_build": true,
+    "should_build": false,
     "title": "唱歌笔记",
     "category": [
       "笔记",
@@ -1937,7 +1937,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260524自媒体运营全攻略笔记版.md": {
     "file_updated": 1779604569.0738473,
-    "should_build": true,
+    "should_build": false,
     "title": "自媒体运营全攻略【笔记版】",
     "category": [
       "笔记",
@@ -1953,7 +1953,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260524leancloud-finally-died.md": {
     "file_updated": 1779607866.5634422,
-    "should_build": true,
+    "should_build": false,
     "title": "LeanCloud还是寄了……",
     "category": [
       "杂谈",
@@ -1970,7 +1970,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260525video-editing-note.md": {
     "file_updated": 1780635060.2435558,
-    "should_build": true,
+    "should_build": false,
     "title": "剪辑笔记",
     "category": [
       "笔记",
@@ -1986,7 +1986,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260531attract-audiences-at-the-beginning.md": {
     "file_updated": 1780222425.4280589,
-    "should_build": true,
+    "should_build": false,
     "title": "开头吸引观众技巧",
     "category": [
       "笔记",
@@ -2002,7 +2002,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260605maybe-ive-never-made-sense-of-le-petit-prince.md": {
     "file_updated": 1781507342.7325747,
-    "should_build": true,
+    "should_build": false,
     "title": "或许我从未读懂《小王子》（草稿）",
     "category": [
       "杂谈",
@@ -2019,7 +2019,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260605content-creation-note.md": {
     "file_updated": 1780644085.0413876,
-    "should_build": true,
+    "should_build": false,
     "title": "自媒体创作笔记",
     "category": [
       "笔记",
@@ -2035,7 +2035,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260816the-bank-recruit-scam.md": {
     "file_updated": 1786899497.6920748,
-    "should_build": true,
+    "should_build": false,
     "title": "银行招聘骗局",
     "category": [
       "笔记",
@@ -2051,7 +2051,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260816the-fresh-milk-scam.md": {
     "file_updated": 1786869341.352527,
-    "should_build": true,
+    "should_build": false,
     "title": "超市冷柜里的鲜牛乳骗局",
     "category": [
       "笔记",
@@ -2067,7 +2067,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260731why-does-i-dont-mean-to-offend-you-sound-more-offensive-than-what-im-about-to-say-may-offend-you.md": {
     "file_updated": 1785475932.327658,
-    "should_build": true,
+    "should_build": false,
     "title": "“我无意冒犯”何以比“我后面说的话可能会让你不舒服”更显得冒犯？",
     "category": [
       "杂谈",
@@ -2084,7 +2084,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260816why-are-breakfast-vouchers-on-xianyu-so-cheap.md": {
     "file_updated": 1786952019.1801534,
-    "should_build": true,
+    "should_build": false,
     "title": "闲鱼酒店早餐券为啥便宜",
     "category": [
       "笔记",
@@ -2100,7 +2100,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260817xianyu-buyer-scam-free-shoes.md": {
     "file_updated": 1786952959.3145487,
-    "should_build": true,
+    "should_build": false,
     "title": "闲鱼顾客白嫖新鞋套路",
     "category": [
       "笔记",
@@ -2116,7 +2116,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260817thoughts-and-corresponding-examples-or-stories.md": {
     "file_updated": 1788763312.9271612,
-    "should_build": true,
+    "should_build": false,
     "title": "思想和对应的例子或故事",
     "category": [
       "笔记",
@@ -2132,7 +2132,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260826the-business-logic-of-a-print-shop.md": {
     "file_updated": 1787734326.1752546,
-    "should_build": true,
+    "should_build": false,
     "title": "打印店的经营逻辑",
     "category": [
       "笔记",
@@ -2148,7 +2148,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260826the-nature-and-logic-of-taxation.md": {
     "file_updated": 1787734405.6205235,
-    "should_build": true,
+    "should_build": false,
     "title": "税收的本质和逻辑",
     "category": [
       "笔记",
@@ -2164,7 +2164,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260826note-of-how-to-respond.md": {
     "file_updated": 1787736311.4981604,
-    "should_build": true,
+    "should_build": false,
     "title": "接话笔记",
     "category": [
       "笔记",
@@ -2180,7 +2180,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/读书笔记/20260829note-of-the-scout-mindset.md": {
     "file_updated": 1787987515.8356059,
-    "should_build": true,
+    "should_build": false,
     "title": "《侦察兵思维》",
     "category": [
       "笔记",
@@ -2196,7 +2196,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/其它笔记/20260830quote-note.md": {
     "file_updated": 1791795497.28801,
-    "should_build": true,
+    "should_build": false,
     "title": "金句笔记",
     "category": [
       "笔记",
@@ -2212,7 +2212,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2025/20260830from-ti-to-life-what-can-I-do-with-the-regrets.md": {
     "file_updated": 1788094877.6469,
-    "should_build": true,
+    "should_build": false,
     "title": "从Ti到人生，该怎么去面对遗憾",
     "category": [
       "杂谈",
@@ -2229,7 +2229,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260913how-to-do-research.md": {
     "file_updated": 1789913736.467822,
-    "should_build": true,
+    "should_build": false,
     "title": "如何做调研",
     "category": [
       "笔记",
@@ -2245,7 +2245,7 @@
   },
   "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20260914经济管理商科数据获取网站.md": {
     "file_updated": 1789366085.4123461,
-    "should_build": true,
+    "should_build": false,
     "title": "经济管理商科数据获取网站",
     "category": [
       "笔记",
@@ -2261,7 +2261,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260930how-windows-quick-access-causes-bug.md": {
     "file_updated": 1790706925.43154,
-    "should_build": true,
+    "should_build": false,
     "title": "亲身经历——Windows快速访问栏可能引发奇怪的bug",
     "category": [
       "杂谈",
@@ -2278,7 +2278,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20260930the-length-of-time-feels-different.md": {
     "file_updated": 1790779980.1745603,
-    "should_build": true,
+    "should_build": false,
     "title": "我觉得我切实感受到了人对时间长短的感受是会变的",
     "category": [
       "杂谈",
@@ -2295,7 +2295,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20261021how-lack-of-production-line-knowledge-affects-impressions.md": {
     "file_updated": 1792527771.0905118,
-    "should_build": true,
+    "should_build": false,
     "title": "论对生产线缺乏了解会在多大程度上影响人们对它的印象",
     "category": [
       "杂谈",
@@ -2312,7 +2312,7 @@
   },
   "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20261026a-trip-to-attend-a-wedding.md": {
     "file_updated": 1793000512.561747,
-    "should_build": true,
+    "should_build": false,
     "title": "记录一次参加婚礼的行程",
     "category": [
       "杂谈",
@@ -2326,5 +2326,71 @@
     "link": "https://code-pigeon.github.io/blog/html/20261026a-trip-to-attend-a-wedding.html",
     "quote_link": "https://code-pigeon.github.io/blog/html/20261026a-trip-to-attend-a-wedding.html",
     "description": "**时间会让我们淡忘一切，这或许就是记录的意义** 第一天傍晚到了新郎的城市，几个同学去高铁站接我。路上聊到了上一次我们一起来到这座城市时的经历，很多事情吧，你不说，永远想不起来，但是一旦有人说了，就会想起来确实有那么一回事。 路过一座大桥，同学说这就是当时我们一起走过的大桥。我有点不敢信，跟记忆里的出入太大了。 路上回忆着上次来这里做的事情，同学感叹“我们居然做了这么多事”，..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20261104thoughts-on-overcoming-procrastination.md": {
+    "file_updated": 1793785293.929422,
+    "should_build": false,
+    "title": "一些关于如何克服拖延症的感想",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2026"
+    ],
+    "date": "26-11-04 16:57",
+    "updated": null,
+    "html_filename": "20261104thoughts-on-overcoming-procrastination.html",
+    "quote_html_filename": "20261104thoughts-on-overcoming-procrastination.html",
+    "link": "https://code-pigeon.github.io/blog/html/20261104thoughts-on-overcoming-procrastination.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20261104thoughts-on-overcoming-procrastination.html",
+    "description": "最近几年，我发现我的拖延症非常严重。这个词也有其它的说法，比如执行力低下。 我曾刷到过一些视频，说将困难的任务，拆分成数量众多的trivial tasks（微不足道的小任务），那么在完成这个任务的时候就会像打游戏那样上瘾——就像你每天登录游戏完成日常任务一样，完成一个任务就获得一次奖励（正反馈），那么你就会无脑地一个一个任务地完成。其实这个游戏本质上就是把最终的大目标帮你拆分成了日常的小任务，..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20261103the-higher-ups-meant-well-but-subordinates-botched-the-execution.md": {
+    "file_updated": 1793698644.9573436,
+    "should_build": false,
+    "title": "上面本意是好的，只是下面人执行出错了。这句话有道理吗？",
+    "category": [
+      "笔记",
+      "网络收藏"
+    ],
+    "date": "26-11-03 17:32",
+    "updated": null,
+    "html_filename": "20261103the-higher-ups-meant-well-but-subordinates-botched-the-execution.html",
+    "quote_html_filename": "20261103the-higher-ups-meant-well-but-subordinates-botched-the-execution.html",
+    "link": "https://code-pigeon.github.io/blog/html/20261103the-higher-ups-meant-well-but-subordinates-botched-the-execution.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20261103the-higher-ups-meant-well-but-subordinates-botched-the-execution.html",
+    "description": "*原文：上面本意是好的，只是下面人执行出错了。这句话有道理吗？ - 庸人自扰 - 知乎 * 这句话最大的价值，就是用来筛选傻子，把相信这句话的人，和不相信这句话的人，清晰地划分成两个阶层。 这句话一出来，就给所有人设置了一个极其舒服的心理按摩，上面的人保住了面子和权威，听话的人找到了归罪的对象，就连被批评的下面人，也得到了一丝虚无的安慰，你看，不是我坏，是我能力不行，领会不了精神，我下次努力。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/杂谈/家长里短/2026/20261106the-fall-of-the-nest.md": {
+    "file_updated": 1794210118.7435048,
+    "should_build": false,
+    "title": "杀蜂啦！蜂窝覆灭记",
+    "category": [
+      "杂谈",
+      "家长里短",
+      "2026"
+    ],
+    "date": "26-11-06 19:21",
+    "updated": "26-11-09 15:41",
+    "html_filename": "20261106the-fall-of-the-nest.html",
+    "quote_html_filename": "20261106the-fall-of-the-nest.html",
+    "link": "https://code-pigeon.github.io/blog/html/20261106the-fall-of-the-nest.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20261106the-fall-of-the-nest.html",
+    "description": "今天邻居说我们家楼上阳台长了个蜂窝。我家楼上没装修，平时基本没人上去，长了什么东西也不知道。 下午老爸拿着口罩时期的防护服和梯子说要去抓蜂了。 这蜂窝是真大，当阳台门打开的时候那个嗡嗡声甚至有点瘆人。不过透过很久没擦的窗户拍照拍不出它的吓人就是了。 老爸全副武装，防护服、头盔、眼镜、口罩、袖套、还套了两层手套，手持塑料袋，架着梯子就出去了。 摆好梯子爬上去之后，拿起塑料袋直接就是开拆。 ..."
+  },
+  "D:/DataDisk/workspace/blog/md/笔记/网络收藏/20261103cleverness-that-gets-you-into-trouble.md": {
+    "file_updated": 1793697980.3395584,
+    "should_build": true,
+    "title": "看穿别人的局却没本事收场，是成年人最容易招祸的聪明",
+    "category": [
+      "笔记",
+      "网络收藏"
+    ],
+    "date": "26-11-03 17:12",
+    "updated": null,
+    "html_filename": "20261103cleverness-that-gets-you-into-trouble.html",
+    "quote_html_filename": "20261103cleverness-that-gets-you-into-trouble.html",
+    "link": "https://code-pigeon.github.io/blog/html/20261103cleverness-that-gets-you-into-trouble.html",
+    "quote_link": "https://code-pigeon.github.io/blog/html/20261103cleverness-that-gets-you-into-trouble.html",
+    "description": "*原视频：看穿别人的局却没本事收场，是成年人最容易招祸的聪明* 世上最容易招祸的一种聪明，就是看穿了别人的局，却没有掌控局面的本事。你要记住一句话：没有解决问题的能力，就不要轻易把问题挑破。因为这里面藏着一个很现实的道理：看穿问题只需要眼光，处理问题却需要能力和时机，还有承担后果的本事。 韩非子里有一个值得琢磨的故事。楚庄王有一次举行宴会，席间突然刮起一阵风，把蜡烛吹灭了。..."
   }
 }
